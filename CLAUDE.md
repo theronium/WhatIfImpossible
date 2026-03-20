@@ -8,12 +8,21 @@
 ```
 WhatIfImpossible/
 ├── docs/                  ← 記事本体（カテゴリ別フォルダ）
+│   ├── README.md          ← 全記事インデックス（GitHub上で自動表示）
 │   ├── _template.md       ← 記事ひな形（参照用）
 │   ├── physics/
 │   ├── logic/
 │   └── philosophy/
 └── editor/                ← ローカル編集サーバー（Node.js / port 3030）
 ```
+
+## インデックスの更新ルール
+
+新しい記事を追加したときは必ず `docs/README.md` を更新する。
+
+- 該当カテゴリのテーブルに行を追加（ID・タイトル・タグ・日付）
+- 末尾の「記事数: N」をインクリメントする
+- `/write-article` スキルはこの更新を自動で行う
 
 ## 記事の frontmatter
 
