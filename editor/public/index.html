@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatIfImpossible Editor</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+<!-- Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+
+<!-- markdown-it -->
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14/dist/markdown-it.min.js"></script>
+
+<!-- Monaco Editor -->
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/loader.js"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #21253a;
+    --border: #2d3155;
+    --accent: #7c6af7;
+    --accent2: #4ea8de;
+    --text: #e2e4f0;
+    --text-muted: #6b7280;
+    --danger: #f87171;
+    --success: #34d399;
+  }
+
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* ── Header ── */
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 16px; height: 48px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  header h1 { font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; flex: 1; }
+  .btn { padding: 5px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 13px; cursor: pointer; transition: background 0.15s; }
+  .btn:hover { background: var(--border); }
+  .btn-accent { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn-accent:hover { background: #6857e6; }
+  .btn-danger { border-color: var(--danger); color: var(--danger); }
+  .btn-danger:hover { background: #3b1515; }
+
+  /* ── Layout ── */
+  .layout { display: flex; flex: 1; overflow: hidden; }
+
+  /* ── Sidebar ── */
+  aside { width: 260px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
+  .sidebar-header { padding: 10px 12px; border-bottom: 1px solid var(--border); display: flex; gap: 6px; align-items: center; }
+  .sidebar-header span { font-size: 12px; color: var(--text-muted); flex: 1; }
+  #search { width: 100%; padding: 6px 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-size: 13px; outline: none; }
+  #search:focus { border-color: var(--accent); }
+  #article-list { flex: 1; overflow-y: auto; padding: 6px 0; }
+  .category-label { padding: 6px 12px 2px; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .article-item { padding: 6px 16px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; border-radius: 4px; margin: 1px 4px; }
+  .article-item:hover { background: var(--surface2); }
+  .article-item.active { background: var(--surface2); color: var(--accent); }
+  .article-id { font-size: 11px; color: var(--text-muted); min-width: 36px; }
+
+  /* ── Editor Area ── */
+  main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .toolbar { padding: 6px 12px; border-bottom: 1px solid var(--border); display: flex; gap: 8px; align-items: center; background: var(--surface); flex-shrink: 0; }
+  .toolbar .file-path { font-size: 12px; color: var(--text-muted); flex: 1; font-family: monospace; }
+  .mode-tabs { display: flex; gap: 2px; }
+  .mode-tab { padding: 3px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; color: var(--text-muted); border: 1px solid transparent; }
+  .mode-tab.active { background: var(--surface2); color: var(--text); border-color: var(--border); }
+
+  .editor-panes { flex: 1; display: flex; overflow: hidden; }
+  #monaco-container { flex: 1; min-width: 0; }
+  #preview-pane { flex: 1; min-width: 0; overflow-y: auto; padding: 24px 32px; background: var(--bg); display: none; border-left: 1px solid var(--border); }
+  #preview-pane.active, #monaco-container.split { display: block; }
+
+  /* ── Preview styles ── */
+  #preview-pane h1 { font-size: 26px; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 16px; }
+  #preview-pane h2 { font-size: 20px; margin: 24px 0 8px; color: var(--accent2); }
+  #preview-pane h3 { font-size: 16px; margin: 16px 0 6px; color: var(--text-muted); }
+  #preview-pane p { line-height: 1.75; margin-bottom: 12px; }
+  #preview-pane ul, #preview-pane ol { padding-left: 20px; margin-bottom: 12px; }
+  #preview-pane li { line-height: 1.7; }
+  #preview-pane code { background: var(--surface2); padding: 1px 5px; border-radius: 3px; font-size: 13px; font-family: 'Consolas', monospace; }
+  #preview-pane pre { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; overflow-x: auto; margin-bottom: 16px; }
+  #preview-pane pre code { background: none; padding: 0; }
+  #preview-pane blockquote { border-left: 3px solid var(--accent); padding-left: 14px; color: var(--text-muted); margin-bottom: 12px; }
+  #preview-pane table { border-collapse: collapse; width: 100%; margin-bottom: 16px; }
+  #preview-pane th, #preview-pane td { border: 1px solid var(--border); padding: 6px 12px; font-size: 13px; }
+  #preview-pane th { background: var(--surface); }
+  .katex-display { overflow-x: auto; padding: 4px 0; }
+
+  /* ── New Article Modal ── */
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; display: none; }
+  .overlay.open { display: flex; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; width: 480px; display: flex; flex-direction: column; gap: 14px; }
+  .modal h2 { font-size: 16px; }
+  .field label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+  .field input, .field select { width: 100%; padding: 7px 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-size: 13px; outline: none; }
+  .field input:focus { border-color: var(--accent); }
+  .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+
+  /* ── Git Panel ── */
+  #git-panel { background: var(--surface); border-top: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+  #git-status { font-size: 12px; color: var(--text-muted); flex: 1; }
+  #commit-msg { padding: 5px 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-size: 13px; width: 280px; outline: none; }
+  #commit-msg:focus { border-color: var(--accent); }
+
+  /* ── Toast ── */
+  #toast { position: fixed; bottom: 64px; right: 16px; padding: 8px 16px; border-radius: 6px; font-size: 13px; opacity: 0; transition: opacity 0.2s; pointer-events: none; z-index: 200; }
+  #toast.show { opacity: 1; }
+  #toast.ok { background: var(--success); color: #000; }
+  #toast.err { background: var(--danger); color: #fff; }
+
+  /* ── Empty state ── */
+  .empty { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 12px; color: var(--text-muted); }
+  .empty p { font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚡ WhatIfImpossible Editor</h1>
+  <button class="btn" id="btn-refresh">↺ 更新</button>
+  <button class="btn btn-accent" id="btn-new">＋ 新規記事</button>
+</header>
+
+<div class="layout">
+  <!-- Sidebar -->
+  <aside>
+    <div class="sidebar-header">
+      <input id="search" type="search" placeholder="記事を検索…">
+    </div>
+    <div id="article-list"></div>
+  </aside>
+
+  <!-- Main -->
+  <main>
+    <div class="toolbar" id="toolbar" style="display:none">
+      <span class="file-path" id="file-path"></span>
+      <div class="mode-tabs">
+        <div class="mode-tab active" data-mode="edit">編集</div>
+        <div class="mode-tab" data-mode="split">分割</div>
+        <div class="mode-tab" data-mode="preview">プレビュー</div>
+      </div>
+      <button class="btn btn-accent" id="btn-save">保存</button>
+      <button class="btn btn-danger" id="btn-delete">削除</button>
+    </div>
+    <div class="editor-panes" id="editor-panes">
+      <div id="monaco-container"></div>
+      <div id="preview-pane"></div>
+      <div class="empty" id="empty-state">
+        <p>左の記事一覧から選択するか、「＋ 新規記事」で作成してください</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Git Panel -->
+<div id="git-panel">
+  <span id="git-status">Git: —</span>
+  <input id="commit-msg" type="text" placeholder="コミットメッセージ">
+  <button class="btn" id="btn-git-status">状態確認</button>
+  <button class="btn btn-accent" id="btn-push">Commit & Push</button>
+</div>
+
+<!-- New Article Modal -->
+<div class="overlay" id="modal-overlay">
+  <div class="modal">
+    <h2>新規思考実験を作成</h2>
+    <div class="field">
+      <label>タイトル (日本語可)</label>
+      <input id="f-title" type="text" placeholder="例: 光速を超えた場合の因果律">
+    </div>
+    <div class="field">
+      <label>カテゴリ (フォルダ名)</label>
+      <input id="f-category" type="text" placeholder="例: physics / logic / philosophy">
+    </div>
+    <div class="field">
+      <label>通し番号</label>
+      <input id="f-id" type="text" placeholder="例: wiim_001">
+    </div>
+    <div class="field">
+      <label>タグ (カンマ区切り)</label>
+      <input id="f-tags" type="text" placeholder="例: 相対性理論, 因果律">
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="modal-cancel">キャンセル</button>
+      <button class="btn btn-accent" id="modal-create">作成</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script>
+// ── State ────────────────────────────────────────────────────────────
+let monacoEditor = null;
+let currentPath = null;
+let articles = [];
+let viewMode = 'edit';
+
+// ── Monaco ───────────────────────────────────────────────────────────
+require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' } });
+require(['vs/editor/editor.main'], () => {
+  monaco.editor.defineTheme('wii-dark', {
+    base: 'vs-dark', inherit: true,
+    rules: [],
+    colors: {
+      'editor.background': '#0f1117',
+      'editor.lineHighlightBackground': '#1a1d27',
+      'editorLineNumber.foreground': '#3d4260',
+    }
+  });
+  monacoEditor = monaco.editor.create(document.getElementById('monaco-container'), {
+    language: 'markdown',
+    theme: 'wii-dark',
+    fontSize: 14,
+    lineHeight: 22,
+    wordWrap: 'on',
+    minimap: { enabled: false },
+    scrollBeyondLastLine: false,
+    renderLineHighlight: 'line',
+  });
+  monacoEditor.onDidChangeModelContent(() => updatePreview());
+  window.addEventListener('resize', () => monacoEditor.layout());
+});
+
+// ── Markdown renderer ────────────────────────────────────────────────
+const md = window.markdownit({ html: true, linkify: true, typographer: true });
+
+function updatePreview() {
+  if (viewMode === 'edit') return;
+  const raw = monacoEditor?.getValue() ?? '';
+  const pane = document.getElementById('preview-pane');
+
+  // Mermaid: コードブロックをプレースホルダーに変換
+  let mermaidBlocks = [];
+  const rendered = md.render(raw.replace(/```mermaid\n([\s\S]*?)```/g, (_, code) => {
+    const i = mermaidBlocks.length;
+    mermaidBlocks.push(code.trim());
+    return `<div class="mermaid-placeholder" data-idx="${i}"></div>`;
+  }));
+  pane.innerHTML = rendered;
+
+  // Mermaid レンダリング
+  pane.querySelectorAll('.mermaid-placeholder').forEach(el => {
+    const code = mermaidBlocks[el.dataset.idx];
+    const div = document.createElement('div');
+    div.className = 'mermaid';
+    div.textContent = code;
+    el.replaceWith(div);
+  });
+  mermaid.run({ nodes: pane.querySelectorAll('.mermaid') });
+
+  // KaTeX
+  renderMathInElement(pane, {
+    delimiters: [
+      { left: '$$', right: '$$', display: true },
+      { left: '$', right: '$', display: false },
+    ],
+    throwOnError: false,
+  });
+}
+
+// ── Article list ─────────────────────────────────────────────────────
+async function loadArticles() {
+  const res = await fetch('/api/articles');
+  articles = await res.json();
+  renderList(articles);
+}
+
+function renderList(list) {
+  const el = document.getElementById('article-list');
+  el.innerHTML = '';
+  const grouped = {};
+  list.forEach(a => {
+    const cat = a.category || 'uncategorized';
+    (grouped[cat] = grouped[cat] || []).push(a);
+  });
+  Object.entries(grouped).sort().forEach(([cat, items]) => {
+    const label = document.createElement('div');
+    label.className = 'category-label';
+    label.textContent = cat;
+    el.appendChild(label);
+    items.forEach(a => {
+      const div = document.createElement('div');
+      div.className = 'article-item' + (a.path === currentPath ? ' active' : '');
+      div.innerHTML = `<span class="article-id">${a.id || '—'}</span><span>${a.title}</span>`;
+      div.onclick = () => openArticle(a.path);
+      el.appendChild(div);
+    });
+  });
+}
+
+// ── Open article ─────────────────────────────────────────────────────
+async function openArticle(relPath) {
+  const res = await fetch(`/api/articles/${relPath}`);
+  if (!res.ok) { showToast('読み込み失敗', 'err'); return; }
+  const { raw } = await res.json();
+  currentPath = relPath;
+  monacoEditor.setValue(raw);
+  document.getElementById('file-path').textContent = relPath;
+  document.getElementById('toolbar').style.display = 'flex';
+  document.getElementById('empty-state').style.display = 'none';
+  renderList(articles);
+  updatePreview();
+}
+
+// ── Save ─────────────────────────────────────────────────────────────
+async function saveArticle() {
+  if (!currentPath) return;
+  const raw = monacoEditor.getValue();
+  const res = await fetch(`/api/articles/${currentPath}`, {
+    method: 'PUT', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ raw })
+  });
+  if (res.ok) { showToast('保存しました', 'ok'); loadArticles(); }
+  else showToast('保存失敗', 'err');
+}
+
+// ── Delete ───────────────────────────────────────────────────────────
+async function deleteArticle() {
+  if (!currentPath || !confirm(`「${currentPath}」を削除しますか？`)) return;
+  await fetch(`/api/articles/${currentPath}`, { method: 'DELETE' });
+  currentPath = null;
+  monacoEditor.setValue('');
+  document.getElementById('toolbar').style.display = 'none';
+  document.getElementById('empty-state').style.display = 'flex';
+  loadArticles();
+  showToast('削除しました', 'ok');
+}
+
+// ── New article modal ─────────────────────────────────────────────────
+document.getElementById('btn-new').onclick = () => document.getElementById('modal-overlay').classList.add('open');
+document.getElementById('modal-cancel').onclick = () => document.getElementById('modal-overlay').classList.remove('open');
+
+document.getElementById('modal-create').onclick = async () => {
+  const title    = document.getElementById('f-title').value.trim();
+  const category = document.getElementById('f-category').value.trim() || 'misc';
+  const id       = document.getElementById('f-id').value.trim();
+  const tags     = document.getElementById('f-tags').value.split(',').map(t => t.trim()).filter(Boolean);
+  if (!title) { showToast('タイトルは必須です', 'err'); return; }
+
+  const slug = id || ('wiim_' + String(articles.length + 1).padStart(3, '0'));
+  const relPath = `${category}/${slug}.md`;
+
+  const res = await fetch('/api/articles', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ relPath, frontmatter: { title, id: slug, category, tags, date: new Date().toISOString().slice(0, 10) } })
+  });
+  if (res.ok) {
+    document.getElementById('modal-overlay').classList.remove('open');
+    await loadArticles();
+    openArticle(relPath);
+    showToast('記事を作成しました', 'ok');
+  } else {
+    const err = await res.json();
+    showToast(err.error || '作成失敗', 'err');
+  }
+};
+
+// ── View mode ─────────────────────────────────────────────────────────
+document.querySelectorAll('.mode-tab').forEach(tab => {
+  tab.onclick = () => {
+    viewMode = tab.dataset.mode;
+    document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t === tab));
+    const mc = document.getElementById('monaco-container');
+    const pp = document.getElementById('preview-pane');
+    if (viewMode === 'edit') { mc.style.display = 'block'; pp.style.display = 'none'; }
+    else if (viewMode === 'preview') { mc.style.display = 'none'; pp.style.display = 'block'; }
+    else { mc.style.display = 'block'; pp.style.display = 'block'; }
+    monacoEditor?.layout();
+    updatePreview();
+  };
+});
+
+// ── Keyboard shortcuts ────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); saveArticle(); }
+});
+
+// ── Git ───────────────────────────────────────────────────────────────
+document.getElementById('btn-git-status').onclick = async () => {
+  const res = await fetch('/api/git/status');
+  const status = await res.json();
+  const changed = [...(status.modified || []), ...(status.not_added || []), ...(status.created || [])];
+  document.getElementById('git-status').textContent =
+    changed.length ? `変更: ${changed.slice(0, 3).join(', ')}${changed.length > 3 ? '…' : ''}` : 'Git: クリーン';
+};
+
+document.getElementById('btn-push').onclick = async () => {
+  const msg = document.getElementById('commit-msg').value.trim() || 'Update articles';
+  const res = await fetch('/api/git/push', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: msg })
+  });
+  if (res.ok) { showToast('Push 完了', 'ok'); document.getElementById('commit-msg').value = ''; }
+  else { const e = await res.json(); showToast(e.error || 'Push 失敗', 'err'); }
+};
+
+// ── Search ────────────────────────────────────────────────────────────
+document.getElementById('search').oninput = (e) => {
+  const q = e.target.value.toLowerCase();
+  renderList(articles.filter(a => a.title.toLowerCase().includes(q) || (a.id || '').toLowerCase().includes(q)));
+};
+
+// ── Refresh ───────────────────────────────────────────────────────────
+document.getElementById('btn-refresh').onclick = loadArticles;
+document.getElementById('btn-save').onclick = saveArticle;
+document.getElementById('btn-delete').onclick = deleteArticle;
+
+// ── WebSocket live reload ──────────────────────────────────────────────
+const ws = new WebSocket(`ws://${location.host}`);
+ws.onmessage = (e) => { const d = JSON.parse(e.data); if (d.type === 'reload') loadArticles(); };
+
+// ── Init ─────────────────────────────────────────────────────────────
+mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+loadArticles();
+</script>
+</body>
+</html>
