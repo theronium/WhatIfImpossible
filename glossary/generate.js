@@ -21,6 +21,7 @@ const articleFolders = {
 const categories = [
   { id: 'astronomy',   title: '# 天文学・宇宙論用語',        file: 'astronomy.md' },
   { id: 'physics',     title: '# 物理学・素粒子・熱力学用語', file: 'physics.md' },
+  { id: 'speculative', title: '# 仮説・未観測の粒子・物質',   file: 'speculative.md' },
   { id: 'philosophy',  title: '# 哲学・存在論・認識論用語',   file: 'philosophy.md' },
   { id: 'biology',     title: '# 生物学・進化・生命科学用語', file: 'biology.md' },
   { id: 'sf-concepts', title: '# SF固有の概念・設定用語',     file: 'sf-concepts.md' },

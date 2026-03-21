@@ -147,6 +147,7 @@
   .gcat-header.physics     { background: #1f1a2e; color: #c084fc; }
   .gcat-header.philosophy  { background: #251525; color: #f0abfc; }
   .gcat-header.biology     { background: #1a2818; color: #86efac; }
+  .gcat-header.speculative { background: #1f1a18; color: #fb923c; }
   .gcat-header.sf-concepts { background: #1a1f2e; color: #fbbf24; }
   .gcat-terms { padding: 0 0 4px 0; }
   .gterm-row { display: flex; align-items: center; padding: 4px 10px 4px 18px; margin: 1px 4px; border-radius: 4px; gap: 6px; }
@@ -163,6 +164,7 @@
   .cat-badge.physics     { background: #1f1a2e; color: #c084fc; }
   .cat-badge.philosophy  { background: #251525; color: #f0abfc; }
   .cat-badge.biology     { background: #1a2818; color: #86efac; }
+  .cat-badge.speculative { background: #1f1a18; color: #fb923c; }
   .cat-badge.sf-concepts { background: #1a1f2e; color: #fbbf24; }
 
   /* ── Term view (preview pane) ── */
@@ -267,6 +269,7 @@
             <option value="physics">physics — 物理学</option>
             <option value="philosophy">philosophy — 哲学・存在論</option>
             <option value="biology">biology — 生物学・進化</option>
+            <option value="speculative">speculative — 仮説・未観測の粒子</option>
             <option value="sf-concepts">sf-concepts — SF概念</option>
           </select>
         </div>
@@ -340,6 +343,7 @@ let collapsedCats = new Set(); // 折り畳み中のカテゴリ
 
 const GLOSSARY_CATS = [
   { id: 'sf-concepts', label: 'SF概念' },
+  { id: 'speculative', label: '仮説・未観測の粒子' },
   { id: 'astronomy',   label: '天文学・宇宙論' },
   { id: 'physics',     label: '物理学' },
   { id: 'philosophy',  label: '哲学・存在論' },
@@ -546,18 +550,20 @@ document.getElementById('modal-create').onclick = async () => {
 };
 
 // ── View mode ─────────────────────────────────────────────────────────
+function setViewMode(mode) {
+  viewMode = mode;
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
+  const mc = document.getElementById('monaco-container');
+  const pp = document.getElementById('preview-pane');
+  if (viewMode === 'edit') { mc.style.display = 'block'; pp.style.display = 'none'; }
+  else if (viewMode === 'preview') { mc.style.display = 'none'; pp.style.display = 'block'; }
+  else { mc.style.display = 'block'; pp.style.display = 'block'; }
+  monacoEditor?.layout();
+  updatePreview();
+}
+
 document.querySelectorAll('.mode-tab').forEach(tab => {
-  tab.onclick = () => {
-    viewMode = tab.dataset.mode;
-    document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t === tab));
-    const mc = document.getElementById('monaco-container');
-    const pp = document.getElementById('preview-pane');
-    if (viewMode === 'edit') { mc.style.display = 'block'; pp.style.display = 'none'; }
-    else if (viewMode === 'preview') { mc.style.display = 'none'; pp.style.display = 'block'; }
-    else { mc.style.display = 'block'; pp.style.display = 'block'; }
-    monacoEditor?.layout();
-    updatePreview();
-  };
+  tab.onclick = () => setViewMode(tab.dataset.mode);
 });
 
 // ── Keyboard shortcuts ────────────────────────────────────────────────
@@ -836,6 +842,19 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
       document.getElementById('empty-state').style.display = 'flex';
       currentTermId = null;
       viewingTermId = null;
+    } else {
+      // 記事モードに戻るときのリセット
+      document.getElementById('glossary-form-area').classList.remove('active');
+      document.getElementById('editor-panes').style.display = 'flex';
+      document.getElementById('btn-edit-viewing').style.display = 'none';
+      setViewMode('preview');
+      if (!currentPath) {
+        document.getElementById('toolbar').style.display = 'none';
+        document.getElementById('empty-state').style.display = 'flex';
+      } else {
+        document.getElementById('toolbar').style.display = '';
+        document.getElementById('empty-state').style.display = 'none';
+      }
     }
   };
 });
