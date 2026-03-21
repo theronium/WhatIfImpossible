@@ -57,11 +57,18 @@
   #search { width: 100%; padding: 6px 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-size: 13px; outline: none; }
   #search:focus { border-color: var(--accent); }
   #article-list { flex: 1; overflow-y: auto; padding: 6px 0; }
-  .category-label { padding: 6px 12px 2px; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .category-label { padding: 4px 8px; margin: 8px 6px 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px; display: flex; align-items: center; gap: 6px; }
+  .category-label[data-cat="cosmology"] { background: #1a2440; color: #60a5fa; border-left: 3px solid #3b82f6; }
+  .category-label[data-cat="physics"]   { background: #1f1a2e; color: #c084fc; border-left: 3px solid #a855f7; }
+  .category-label[data-cat="quantum"]   { background: #0f2420; color: #34d399; border-left: 3px solid #10b981; }
+  .category-label[data-cat="biology"]   { background: #1a2818; color: #86efac; border-left: 3px solid #22c55e; }
+  .category-label[data-cat="logic"]     { background: #2a1f10; color: #fbbf24; border-left: 3px solid #f59e0b; }
+  .category-label[data-cat="philosophy"]{ background: #251525; color: #f0abfc; border-left: 3px solid #d946ef; }
+  .category-label:not([data-cat])       { background: var(--surface2); color: var(--text-muted); border-left: 3px solid var(--border); }
   .article-item { padding: 6px 16px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; border-radius: 4px; margin: 1px 4px; }
   .article-item:hover { background: var(--surface2); }
   .article-item.active { background: var(--surface2); color: var(--accent); }
-  .article-id { font-size: 11px; color: var(--text-muted); min-width: 36px; }
+  .article-id { font-size: 11px; color: var(--text-muted); width: 62px; flex-shrink: 0; font-family: monospace; }
 
   /* ── Editor Area ── */
   main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
@@ -91,6 +98,16 @@
   #preview-pane th, #preview-pane td { border: 1px solid var(--border); padding: 6px 12px; font-size: 13px; }
   #preview-pane th { background: var(--surface); }
   .katex-display { overflow-x: auto; padding: 4px 0; }
+
+  /* ── Frontmatter card ── */
+  .fm-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .fm-title { font-size: 22px; font-weight: 700; color: var(--text); }
+  .fm-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 12px; color: var(--text-muted); }
+  .fm-id { font-family: monospace; background: var(--surface2); padding: 2px 7px; border-radius: 4px; color: var(--accent); }
+  .fm-category { background: var(--surface2); padding: 2px 8px; border-radius: 4px; color: var(--accent2); }
+  .fm-date { margin-left: auto; }
+  .fm-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .fm-tag { background: var(--surface2); border: 1px solid var(--border); padding: 2px 8px; border-radius: 12px; font-size: 11px; color: var(--text-muted); }
 
   /* ── New Article Modal ── */
   .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; display: none; }
@@ -232,19 +249,53 @@ require(['vs/editor/editor.main'], () => {
 // ── Markdown renderer ────────────────────────────────────────────────
 const md = window.markdownit({ html: true, linkify: true, typographer: true });
 
+function parseFrontmatter(raw) {
+  const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!m) return { fm: {}, body: raw };
+  const body = raw.slice(m[0].length).trimStart();
+  const fm = {};
+  m[1].split(/\r?\n/).forEach(line => {
+    const kv = line.match(/^(\w+):\s*(.+)/);
+    if (!kv) return;
+    const [, k, v] = kv;
+    if (v.startsWith('[')) {
+      fm[k] = v.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''));
+    } else {
+      fm[k] = v.replace(/^['"]|['"]$/g, '');
+    }
+  });
+  return { fm, body };
+}
+
+function buildFmCard(fm) {
+  if (!fm.title) return '';
+  const tags = (fm.tags || []).map(t => `<span class="fm-tag">${t}</span>`).join('');
+  return `<div class="fm-card">
+    <div class="fm-title">${fm.title}</div>
+    <div class="fm-meta">
+      ${fm.id ? `<span class="fm-id">${fm.id}</span>` : ''}
+      ${fm.category ? `<span class="fm-category">${fm.category}</span>` : ''}
+      ${fm.date ? `<span class="fm-date">${fm.date}</span>` : ''}
+    </div>
+    ${tags ? `<div class="fm-tags">${tags}</div>` : ''}
+  </div>`;
+}
+
 function updatePreview() {
   if (viewMode === 'edit') return;
   const raw = monacoEditor?.getValue() ?? '';
   const pane = document.getElementById('preview-pane');
 
+  const { fm, body } = parseFrontmatter(raw);
+
   // Mermaid: コードブロックをプレースホルダーに変換
   let mermaidBlocks = [];
-  const rendered = md.render(raw.replace(/```mermaid\n([\s\S]*?)```/g, (_, code) => {
+  const rendered = md.render(body.replace(/```mermaid\n([\s\S]*?)```/g, (_, code) => {
     const i = mermaidBlocks.length;
     mermaidBlocks.push(code.trim());
     return `<div class="mermaid-placeholder" data-idx="${i}"></div>`;
   }));
-  pane.innerHTML = rendered;
+  pane.innerHTML = buildFmCard(fm) + rendered;
 
   // Mermaid レンダリング
   pane.querySelectorAll('.mermaid-placeholder').forEach(el => {
@@ -284,6 +335,7 @@ function renderList(list) {
   Object.entries(grouped).sort().forEach(([cat, items]) => {
     const label = document.createElement('div');
     label.className = 'category-label';
+    label.dataset.cat = cat;
     label.textContent = cat;
     el.appendChild(label);
     items.forEach(a => {
