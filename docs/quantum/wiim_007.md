@@ -1,7 +1,7 @@
 ---
 title: 排他原理が10%だけ弱い宇宙
 id: wiim_007
-category: physics
+category: quantum
 tags: [パウリの排他原理, 宇宙定数, 物理定数, 周期表, 生命の可能性, 微調整問題]
 date: 2026-03-21
 ---

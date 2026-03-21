@@ -10,9 +10,12 @@ WhatIfImpossible/
 ├── docs/                  ← 記事本体（カテゴリ別フォルダ）
 │   ├── README.md          ← 全記事インデックス（GitHub上で自動表示）
 │   ├── _template.md       ← 記事ひな形（参照用）
-│   ├── physics/
+│   ├── cosmology/         ← 宇宙・時空間・相対論・FTL系
+│   ├── physics/           ← 素粒子・力・エネルギー系
+│   ├── quantum/           ← 量子力学・量子情報系
 │   ├── logic/
-│   └── philosophy/
+│   ├── philosophy/
+│   └── biology/
 └── editor/                ← ローカル編集サーバー（Node.js / port 3030）
 ```
 
@@ -40,10 +43,11 @@ date: YYYY-MM-DD
 
 | フォルダ名 | 内容 |
 |-----------|------|
-| `physics` | 物理法則の限界を超えた実験 |
+| `cosmology` | 宇宙・時空間・相対論・FTL系 |
+| `physics` | 素粒子・力・エネルギー系（狭義の物理） |
+| `quantum` | 量子力学・量子情報・量子統計系 |
 | `logic` | 論理・パラドックス系 |
 | `philosophy` | 意識・自由意志・存在論 |
-| `cosmology` | 宇宙・時空間系 |
 | `biology` | 生命・進化系 |
 
 ## 記事の構成（セクション順）

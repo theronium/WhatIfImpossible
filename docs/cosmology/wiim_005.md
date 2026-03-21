@@ -1,7 +1,7 @@
 ---
 title: 時間遡行粒子のエントロピー増大によるタイムマシン
 id: wiim_005
-category: physics
+category: cosmology
 tags: [時間逆行, エントロピー, CP対称性の破れ, タイムマシン, 熱力学第二法則, 因果律]
 date: 2026-03-21
 ---

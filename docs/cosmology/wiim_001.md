@@ -1,7 +1,7 @@
 ---
 title: 光速を超えた場合の因果律
 id: wiim_001
-category: physics
+category: cosmology
 tags: [因果律, タキオン, 光速, 相対性理論, 時間旅行]
 date: 2026-03-21
 ---
