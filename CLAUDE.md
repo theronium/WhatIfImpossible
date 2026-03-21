@@ -19,6 +19,28 @@ WhatIfImpossible/
 └── editor/                ← ローカル編集サーバー（Node.js / port 3030）
 ```
 
+## 用語集の管理
+
+用語集は `glossary/data/terms.jsonl`（JSONL形式）をソースとし、`glossary/generate.js` で各 `.md` ファイルを生成する。
+
+### JSONL フォーマット
+
+```json
+{"id":"g001","name":"用語名","en":"English Name","reading":"よみがな","category":"astronomy","field":"分野名","related":["wiim_XXX"],"body":"説明文（\n\n で段落区切り）"}
+```
+
+- `category`: `astronomy` / `physics` / `philosophy` / `biology` / `sf-concepts`
+- `related`: 関連記事IDの配列（なければ `[]`）
+
+### 用語の追加手順
+
+1. `glossary/data/terms.jsonl` の末尾IDを確認して次の `gXXX` を決定
+2. 末尾に新しい JSON 行を追記
+3. `node glossary/generate.js` を実行して `.md` ファイルを再生成
+4. `/add-glossary-term` スキルはこの手順を自動で行う
+
+---
+
 ## インデックスの更新ルール
 
 新しい記事を追加したときは必ず `docs/README.md` を更新する。
