@@ -31,7 +31,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **90**
+用語数: **98**
 
 ---
 
@@ -39,16 +39,26 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g098 | [量子ゼノン効果](physics.md) | Quantum Zeno Effect | physics |
+| g097 | [量子トンネル効果](physics.md) | Quantum Tunneling | physics |
+| g096 | [光年・パーセク](astronomy.md) | Light-year / Parsec | astronomy |
+| g095 | [天文単位](astronomy.md) | Astronomical Unit (AU) | astronomy |
+| g094 | [SETI](astronomy.md) | Search for Extraterrestrial Intelligence | astronomy |
+| g093 | [大統一理論・超弦理論](physics.md) | Grand Unified Theory / Superstring Theory | physics |
+| g092 | [量子力学の未解決問題](physics.md) | Open Problems in Quantum Mechanics | physics |
+| g091 | [リーマン予想](philosophy.md) | Riemann Hypothesis | philosophy |
 | g090 | [ゲーデルの不完全性定理](philosophy.md) | Gödel's Incompleteness Theorems | philosophy |
 | g089 | [ネーターの定理](physics.md) | Noether's Theorem | physics |
-| g088 | [ベイズ定理](philosophy.md) | Bayes' Theorem | philosophy |
-| g087 | [フーリエ解析](physics.md) | Fourier Analysis | physics |
-| g086 | [アカシックレコード](philosophy.md) | Akashic Records | philosophy |
-| g085 | [宇宙の熱的死](astronomy.md) | Heat Death of the Universe | astronomy |
-| g084 | [恒星の種類と進化](astronomy.md) | Stellar Types and Evolution | astronomy |
-| g083 | [シュレーディンガーの猫](philosophy.md) | Schrödinger's Cat | philosophy |
-| g082 | [ビッグバン](astronomy.md) | Big Bang | astronomy |
-| g081 | [スペースコロニー](sf-concepts.md) | Space Colony | sf-concepts |
+
+
+
+
+
+
+
+
+
+
 
 
 
