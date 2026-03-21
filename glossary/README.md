@@ -31,7 +31,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **84**
+用語数: **90**
 
 ---
 
@@ -39,13 +39,19 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g090 | [ゲーデルの不完全性定理](philosophy.md) | Gödel's Incompleteness Theorems | philosophy |
+| g089 | [ネーターの定理](physics.md) | Noether's Theorem | physics |
+| g088 | [ベイズ定理](philosophy.md) | Bayes' Theorem | philosophy |
+| g087 | [フーリエ解析](physics.md) | Fourier Analysis | physics |
+| g086 | [アカシックレコード](philosophy.md) | Akashic Records | philosophy |
+| g085 | [宇宙の熱的死](astronomy.md) | Heat Death of the Universe | astronomy |
 | g084 | [恒星の種類と進化](astronomy.md) | Stellar Types and Evolution | astronomy |
 | g083 | [シュレーディンガーの猫](philosophy.md) | Schrödinger's Cat | philosophy |
 | g082 | [ビッグバン](astronomy.md) | Big Bang | astronomy |
 | g081 | [スペースコロニー](sf-concepts.md) | Space Colony | sf-concepts |
-| g080 | [エキュメノポリス](sf-concepts.md) | Ecumenopolis | sf-concepts |
-| g079 | [架空の天体・メガストラクチャー](sf-concepts.md) | Fictional Celestial Bodies and Megastructures | sf-concepts |
-| g078 | [仮説上の天体](astronomy.md) | Hypothetical Celestial Body | astronomy |
-| g077 | [地球周回軌道](astronomy.md) | Earth Orbit | astronomy |
-| g076 | [人工天体](astronomy.md) | Artificial Celestial Body | astronomy |
-| g075 | [重力レンズ](astronomy.md) | Gravitational Lensing | astronomy |
+
+
+
+
+
+
