@@ -131,6 +131,19 @@
   #toast.ok { background: var(--success); color: #000; }
   #toast.err { background: var(--danger); color: #fff; }
 
+  /* ── Sidebar tabs ── */
+  .sidebar-tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+  .sidebar-tab { flex: 1; padding: 8px 0; font-size: 12px; font-weight: 600; cursor: pointer; color: var(--text-muted); background: none; border: none; border-bottom: 2px solid transparent; transition: color 0.15s; letter-spacing: 0.05em; }
+  .sidebar-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .sidebar-tab:hover:not(.active) { color: var(--text); }
+
+  /* ── Glossary list ── */
+  .glossary-item { padding: 8px 16px; font-size: 13px; cursor: pointer; border-radius: 4px; margin: 2px 4px; color: var(--text-muted); }
+  .glossary-item:hover { background: var(--surface2); color: var(--text); }
+  .glossary-item.active { background: var(--surface2); color: var(--accent2); }
+  .glossary-item .glossary-name { font-weight: 600; }
+  .glossary-item .glossary-label { font-size: 11px; margin-top: 1px; }
+
   /* ── Empty state ── */
   .empty { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 12px; color: var(--text-muted); }
   .empty p { font-size: 14px; }
@@ -147,10 +160,18 @@
 <div class="layout">
   <!-- Sidebar -->
   <aside>
-    <div class="sidebar-header">
+    <div class="sidebar-tabs">
+      <button class="sidebar-tab active" data-panel="articles">記事</button>
+      <button class="sidebar-tab" data-panel="glossary">用語集</button>
+    </div>
+    <div class="sidebar-header" id="articles-search-bar">
       <input id="search" type="search" placeholder="記事を検索…">
     </div>
     <div id="article-list"></div>
+    <div class="sidebar-header" id="glossary-search-bar" style="display:none;">
+      <input id="glossary-search" type="search" placeholder="用語を検索…">
+    </div>
+    <div id="glossary-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
   </aside>
 
   <!-- Main -->
@@ -219,6 +240,17 @@ let monacoEditor = null;
 let currentPath = null;
 let articles = [];
 let viewMode = 'edit';
+let sidebarMode = 'articles'; // 'articles' | 'glossary'
+let glossaryFiles = [];
+let currentGlossaryPath = null;
+
+const GLOSSARY_LABELS = {
+  'astronomy':   '天文学・宇宙論',
+  'physics':     '物理学',
+  'philosophy':  '哲学・存在論',
+  'biology':     '生物学・進化',
+  'sf-concepts': 'SF概念',
+};
 
 // ── Monaco ───────────────────────────────────────────────────────────
 require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' } });
@@ -354,9 +386,12 @@ async function openArticle(relPath) {
   if (!res.ok) { showToast('読み込み失敗', 'err'); return; }
   const { raw } = await res.json();
   currentPath = relPath;
+  currentGlossaryPath = null;
   monacoEditor.setValue(raw);
   document.getElementById('file-path').textContent = relPath;
   document.getElementById('toolbar').style.display = 'flex';
+  document.getElementById('btn-save').style.display = '';
+  document.getElementById('btn-delete').style.display = '';
   document.getElementById('empty-state').style.display = 'none';
   renderList(articles);
   updatePreview();
@@ -454,20 +489,96 @@ document.getElementById('btn-push').onclick = async () => {
   else { const e = await res.json(); showToast(e.error || 'Push 失敗', 'err'); }
 };
 
+// ── Glossary Search ───────────────────────────────────────────────────
+document.getElementById('glossary-search').oninput = (e) => {
+  renderGlossaryList(e.target.value);
+};
+
 // ── Search ────────────────────────────────────────────────────────────
 document.getElementById('search').oninput = (e) => {
   const q = e.target.value.toLowerCase();
   renderList(articles.filter(a => a.title.toLowerCase().includes(q) || (a.id || '').toLowerCase().includes(q)));
 };
 
+// ── Glossary ──────────────────────────────────────────────────────────
+async function loadGlossary() {
+  const res = await fetch('/api/glossary');
+  glossaryFiles = await res.json();
+  renderGlossaryList();
+}
+
+function renderGlossaryList(query = '') {
+  const el = document.getElementById('glossary-list');
+  el.innerHTML = '';
+  const q = query.toLowerCase();
+  const filtered = glossaryFiles.filter(f => {
+    const label = GLOSSARY_LABELS[f.name] || f.name;
+    return !q || label.toLowerCase().includes(q) || f.name.toLowerCase().includes(q);
+  });
+  filtered.forEach(f => {
+    const div = document.createElement('div');
+    div.className = 'glossary-item' + (f.path === currentGlossaryPath ? ' active' : '');
+    const label = GLOSSARY_LABELS[f.name] || f.name;
+    div.innerHTML = `<div class="glossary-name">${label}</div><div class="glossary-label">${f.path}</div>`;
+    div.onclick = () => openGlossaryFile(f.path);
+    el.appendChild(div);
+  });
+  if (filtered.length === 0) {
+    el.innerHTML = `<div style="padding:12px 16px;font-size:12px;color:var(--text-muted);">該当なし</div>`;
+  }
+}
+
+async function openGlossaryFile(fileName) {
+  const res = await fetch(`/api/glossary/${fileName}`);
+  if (!res.ok) { showToast('読み込み失敗', 'err'); return; }
+  const { raw } = await res.json();
+  currentGlossaryPath = fileName;
+  monacoEditor.setValue(raw);
+  document.getElementById('file-path').textContent = `glossary/${fileName}`;
+  // 用語集はプレビューのみ（編集・削除ボタンを隠す）
+  document.getElementById('toolbar').style.display = 'flex';
+  document.getElementById('btn-save').style.display = 'none';
+  document.getElementById('btn-delete').style.display = 'none';
+  document.getElementById('empty-state').style.display = 'none';
+  // プレビューモードに切り替え
+  viewMode = 'preview';
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === 'preview'));
+  document.getElementById('monaco-container').style.display = 'none';
+  document.getElementById('preview-pane').style.display = 'block';
+  monacoEditor?.layout();
+  updatePreview();
+  renderGlossaryList();
+}
+
+// ── Sidebar toggle ────────────────────────────────────────────────────
+document.querySelectorAll('.sidebar-tab').forEach(tab => {
+  tab.onclick = () => {
+    sidebarMode = tab.dataset.panel;
+    document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t === tab));
+    const isArticles = sidebarMode === 'articles';
+    document.getElementById('articles-search-bar').style.display = isArticles ? '' : 'none';
+    document.getElementById('article-list').style.display = isArticles ? '' : 'none';
+    document.getElementById('glossary-search-bar').style.display = isArticles ? 'none' : '';
+    document.getElementById('glossary-list').style.display = isArticles ? 'none' : 'block';
+    if (!isArticles) { loadGlossary(); document.getElementById('glossary-search').value = ''; }
+  };
+});
+
 // ── Refresh ───────────────────────────────────────────────────────────
-document.getElementById('btn-refresh').onclick = loadArticles;
+document.getElementById('btn-refresh').onclick = () => {
+  if (sidebarMode === 'articles') loadArticles();
+  else loadGlossary();
+};
 document.getElementById('btn-save').onclick = saveArticle;
 document.getElementById('btn-delete').onclick = deleteArticle;
 
 // ── WebSocket live reload ──────────────────────────────────────────────
 const ws = new WebSocket(`ws://${location.host}`);
-ws.onmessage = (e) => { const d = JSON.parse(e.data); if (d.type === 'reload') loadArticles(); };
+ws.onmessage = (e) => {
+  const d = JSON.parse(e.data);
+  if (d.type === 'reload') loadArticles();
+  if (d.type === 'reload-glossary' && sidebarMode === 'glossary') loadGlossary();
+};
 
 // ── Init ─────────────────────────────────────────────────────────────
 mermaid.initialize({ startOnLoad: false, theme: 'dark' });

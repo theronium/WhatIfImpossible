@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DOCS_DIR = path.resolve(__dirname, '../docs');
+const GLOSSARY_DIR = path.resolve(__dirname, '../glossary');
 const REPO_DIR = path.resolve(__dirname, '..');
 
 const app = express();
@@ -29,6 +30,9 @@ const broadcast = (msg) => {
 
 chokidar.watch(DOCS_DIR, { ignoreInitial: true }).on('all', (event, filePath) => {
   broadcast({ type: 'reload', event, file: path.relative(DOCS_DIR, filePath) });
+});
+chokidar.watch(GLOSSARY_DIR, { ignoreInitial: true }).on('all', () => {
+  broadcast({ type: 'reload-glossary' });
 });
 
 // ── API: 記事一覧 ────────────────────────────────────────────────────
@@ -121,6 +125,30 @@ app.delete('/api/articles/*', async (req, res) => {
   }
 });
 
+// ── API: 用語集一覧 ──────────────────────────────────────────────────
+app.get('/api/glossary', async (req, res) => {
+  try {
+    const entries = await fs.readdir(GLOSSARY_DIR, { withFileTypes: true });
+    const files = entries
+      .filter(e => e.isFile() && e.name.endsWith('.md') && e.name !== 'README.md')
+      .map(e => ({ path: e.name, name: e.name.replace('.md', '') }));
+    res.json(files);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ── API: 用語集ファイル取得 ───────────────────────────────────────────
+app.get('/api/glossary/*', async (req, res) => {
+  const fullPath = path.join(GLOSSARY_DIR, req.params[0]);
+  try {
+    const raw = await fs.readFile(fullPath, 'utf-8');
+    res.json({ raw });
+  } catch {
+    res.status(404).json({ error: 'Not found' });
+  }
+});
+
 // ── API: Git ステータス ──────────────────────────────────────────────
 app.get('/api/git/status', async (req, res) => {
   try {
@@ -135,7 +163,7 @@ app.get('/api/git/status', async (req, res) => {
 app.post('/api/git/push', async (req, res) => {
   const { message } = req.body;
   try {
-    await git.add('docs/.');
+    await git.add(['docs/.', 'glossary/.']);
     await git.commit(message || 'Update articles');
     await git.push();
     res.json({ ok: true });
