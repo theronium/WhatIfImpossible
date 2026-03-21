@@ -624,6 +624,42 @@ function renderGlossaryList(query = '') {
     return;
   }
 
+  // 最近追加（検索なしのときのみ表示）
+  if (!q) {
+    const RECENT_COUNT = 10;
+    const recent = [...glossaryTerms]
+      .sort((a, b) => b.id.localeCompare(a.id))
+      .slice(0, RECENT_COUNT);
+    const recentCatId = '__recent__';
+    const collapsed = collapsedCats.has(recentCatId);
+    const header = document.createElement('div');
+    header.className = `gcat-header${collapsed ? ' collapsed' : ''}`;
+    header.style.cssText = 'background:#1a2020;color:#34d399;';
+    header.innerHTML = `NEW <span class="gcat-count">(直近${RECENT_COUNT}件)</span><span class="arrow">▼</span>`;
+    header.onclick = () => {
+      if (collapsedCats.has(recentCatId)) collapsedCats.delete(recentCatId);
+      else collapsedCats.add(recentCatId);
+      renderGlossaryList(document.getElementById('glossary-search').value);
+    };
+    el.appendChild(header);
+    if (!collapsed) {
+      const group = document.createElement('div');
+      group.className = 'gcat-terms';
+      recent.forEach(t => {
+        const row = document.createElement('div');
+        const isActive = t.id === viewingTermId || t.id === currentTermId;
+        row.className = 'gterm-row' + (isActive ? ' active' : '');
+        row.innerHTML = `
+          <span class="gterm-name" title="${t.en || ''}">${t.name}</span>
+          <button class="btn-edit-sm">編集</button>`;
+        row.querySelector('.gterm-name').onclick = () => viewTerm(t.id);
+        row.querySelector('.btn-edit-sm').onclick = (e) => { e.stopPropagation(); editTerm(t.id); };
+        group.appendChild(row);
+      });
+      el.appendChild(group);
+    }
+  }
+
   // カテゴリ順にグループ化
   for (const cat of GLOSSARY_CATS) {
     const terms = filtered.filter(t => t.category === cat.id);

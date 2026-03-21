@@ -81,10 +81,34 @@ for (const cat of categories) {
   console.log(`  ✓ ${cat.file} (${catTerms.length} 件)`);
 }
 
-// README の用語数を更新
+// README の用語数・最近追加を更新
 const readmePath = path.join(GLOSSARY_DIR, 'README.md');
 let readme = fs.readFileSync(readmePath, 'utf8');
+
+// 用語数
 readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${totalCount}**`);
+
+// 最近追加した用語（ID順で直近10件）
+const RECENT_COUNT = 10;
+const catLabels = Object.fromEntries(categories.map(c => [c.id, c.file.replace('.md', '')]));
+const recentLines = [...terms]
+  .slice(-RECENT_COUNT)
+  .reverse()
+  .map(t => `| ${t.id} | [${t.name}](${t.category}.md) | ${t.en || '—'} | ${t.category} |`)
+  .join('\n');
+const recentSection =
+  `## 最近追加した用語\n\n` +
+  `| ID | 用語 | English | カテゴリ |\n` +
+  `|----|------|---------|----------|\n` +
+  recentLines + '\n';
+
+// セクションを置換（なければ末尾に追加）
+if (readme.includes('## 最近追加した用語')) {
+  readme = readme.replace(/## 最近追加した用語[\s\S]*?(?=\n## |\n---|\s*$)/, recentSection);
+} else {
+  readme = readme.trimEnd() + '\n\n---\n\n' + recentSection;
+}
+
 fs.writeFileSync(readmePath, readme);
 
 console.log(`\n✓ 合計 ${totalCount} 件。README.md を更新しました。`);
