@@ -7,6 +7,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { createServer } from 'http';
 import { fileURLToPath } from 'url';
+import { spawn } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DOCS_DIR = path.resolve(__dirname, '../docs');
@@ -125,28 +126,74 @@ app.delete('/api/articles/*', async (req, res) => {
   }
 });
 
-// ── API: 用語集一覧 ──────────────────────────────────────────────────
-app.get('/api/glossary', async (req, res) => {
-  try {
-    const entries = await fs.readdir(GLOSSARY_DIR, { withFileTypes: true });
-    const files = entries
-      .filter(e => e.isFile() && e.name.endsWith('.md') && e.name !== 'README.md')
-      .map(e => ({ path: e.name, name: e.name.replace('.md', '') }));
-    res.json(files);
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
+// ── 用語集ヘルパー ────────────────────────────────────────────────────
+const TERMS_FILE     = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
+const GENERATE_SCRIPT = path.join(GLOSSARY_DIR, 'generate.js');
+
+async function readTerms() {
+  const raw = await fs.readFile(TERMS_FILE, 'utf-8');
+  return raw.trim().split('\n').filter(Boolean).map(l => JSON.parse(l));
+}
+
+async function writeTerms(terms) {
+  const jsonl = terms.map(t => JSON.stringify(t)).join('\n') + '\n';
+  await fs.writeFile(TERMS_FILE, jsonl, 'utf-8');
+}
+
+function runGenerate() {
+  return new Promise((resolve, reject) => {
+    const child = spawn('node', [GENERATE_SCRIPT]);
+    child.on('close', code =>
+      code === 0 ? resolve() : reject(new Error(`generate.js exited with code ${code}`))
+    );
+  });
+}
+
+// ── API: 用語集 CRUD ─────────────────────────────────────────────────
+// ※ /api/glossary/terms は /api/glossary/* より先に登録する
+
+app.get('/api/glossary/terms', async (req, res) => {
+  try { res.json(await readTerms()); }
+  catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-// ── API: 用語集ファイル取得 ───────────────────────────────────────────
-app.get('/api/glossary/*', async (req, res) => {
-  const fullPath = path.join(GLOSSARY_DIR, req.params[0]);
+app.post('/api/glossary/terms', async (req, res) => {
   try {
-    const raw = await fs.readFile(fullPath, 'utf-8');
-    res.json({ raw });
-  } catch {
-    res.status(404).json({ error: 'Not found' });
-  }
+    const terms = await readTerms();
+    const lastNum = terms.length > 0
+      ? parseInt(terms[terms.length - 1].id.slice(1))
+      : 0;
+    const newTerm = { id: `g${String(lastNum + 1).padStart(3, '0')}`, ...req.body };
+    terms.push(newTerm);
+    await writeTerms(terms);
+    await runGenerate();
+    broadcast({ type: 'reload-glossary' });
+    res.json({ ok: true, term: newTerm });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.put('/api/glossary/terms/:id', async (req, res) => {
+  try {
+    const terms = await readTerms();
+    const idx = terms.findIndex(t => t.id === req.params.id);
+    if (idx === -1) return res.status(404).json({ error: 'Not found' });
+    terms[idx] = { id: req.params.id, ...req.body };
+    await writeTerms(terms);
+    await runGenerate();
+    broadcast({ type: 'reload-glossary' });
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.delete('/api/glossary/terms/:id', async (req, res) => {
+  try {
+    let terms = await readTerms();
+    terms = terms.filter(t => t.id !== req.params.id);
+    await writeTerms(terms);
+    await runGenerate();
+    broadcast({ type: 'reload-glossary' });
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
 // ── API: Git ステータス ──────────────────────────────────────────────

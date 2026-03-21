@@ -138,11 +138,55 @@
   .sidebar-tab:hover:not(.active) { color: var(--text); }
 
   /* ── Glossary list ── */
-  .glossary-item { padding: 8px 16px; font-size: 13px; cursor: pointer; border-radius: 4px; margin: 2px 4px; color: var(--text-muted); }
-  .glossary-item:hover { background: var(--surface2); color: var(--text); }
-  .glossary-item.active { background: var(--surface2); color: var(--accent2); }
-  .glossary-item .glossary-name { font-weight: 600; }
-  .glossary-item .glossary-label { font-size: 11px; margin-top: 1px; }
+  .gcat-header { display: flex; align-items: center; gap: 6px; padding: 6px 10px; margin: 6px 4px 2px; border-radius: 5px; cursor: pointer; user-select: none; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+  .gcat-header:hover { opacity: 0.85; }
+  .gcat-header .arrow { font-size: 10px; margin-left: auto; transition: transform 0.15s; }
+  .gcat-header.collapsed .arrow { transform: rotate(-90deg); }
+  .gcat-header .gcat-count { font-size: 11px; font-weight: 400; opacity: 0.7; }
+  .gcat-header.astronomy   { background: #1a2440; color: #60a5fa; }
+  .gcat-header.physics     { background: #1f1a2e; color: #c084fc; }
+  .gcat-header.philosophy  { background: #251525; color: #f0abfc; }
+  .gcat-header.biology     { background: #1a2818; color: #86efac; }
+  .gcat-header.sf-concepts { background: #1a1f2e; color: #fbbf24; }
+  .gcat-terms { padding: 0 0 4px 0; }
+  .gterm-row { display: flex; align-items: center; padding: 4px 10px 4px 18px; margin: 1px 4px; border-radius: 4px; gap: 6px; }
+  .gterm-row:hover { background: var(--surface2); }
+  .gterm-row.active { background: var(--surface2); }
+  .gterm-name { flex: 1; font-size: 13px; cursor: pointer; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .gterm-row.active .gterm-name { color: var(--accent2); }
+  .gterm-name:hover { color: var(--accent2); }
+  .gterm-en { font-size: 11px; color: var(--text-muted); }
+  .btn-edit-sm { padding: 2px 7px; font-size: 11px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; flex-shrink: 0; white-space: nowrap; }
+  .btn-edit-sm:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .cat-badge { padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; }
+  .cat-badge.astronomy   { background: #1a2440; color: #60a5fa; }
+  .cat-badge.physics     { background: #1f1a2e; color: #c084fc; }
+  .cat-badge.philosophy  { background: #251525; color: #f0abfc; }
+  .cat-badge.biology     { background: #1a2818; color: #86efac; }
+  .cat-badge.sf-concepts { background: #1a1f2e; color: #fbbf24; }
+
+  /* ── Term view (preview pane) ── */
+  .tv-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; }
+  .tv-title { font-size: 22px; font-weight: 700; }
+  .tv-en { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+  .tv-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 12px; color: var(--text-muted); align-items: center; }
+  .tv-body { line-height: 1.8; margin-top: 4px; }
+
+  /* ── Glossary form ── */
+  #glossary-form-area { flex: 1; display: none; flex-direction: column; overflow: hidden; }
+  #glossary-form-area.active { display: flex; }
+  .gf-toolbar { padding: 6px 12px; border-bottom: 1px solid var(--border); display: flex; gap: 8px; align-items: center; background: var(--surface); flex-shrink: 0; }
+  .gf-toolbar .gf-id { font-size: 12px; color: var(--text-muted); font-family: monospace; flex: 1; }
+  .gf-body { flex: 1; overflow-y: auto; padding: 20px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: start; }
+  .gf-body.new-term { grid-template-columns: 1fr 1fr; }
+  .gf-field { display: flex; flex-direction: column; gap: 4px; }
+  .gf-field.span2 { grid-column: 1 / -1; }
+  .gf-field label { font-size: 11px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .gf-field input, .gf-field select { padding: 7px 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-size: 13px; outline: none; }
+  .gf-field input:focus, .gf-field select:focus { border-color: var(--accent); }
+  .gf-field textarea { padding: 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-size: 13px; outline: none; resize: vertical; min-height: 260px; font-family: 'Consolas', monospace; line-height: 1.6; }
+  .gf-field textarea:focus { border-color: var(--accent); }
+  .gf-hint { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
 
   /* ── Empty state ── */
   .empty { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 12px; color: var(--text-muted); }
@@ -170,6 +214,7 @@
     <div id="article-list"></div>
     <div class="sidebar-header" id="glossary-search-bar" style="display:none;">
       <input id="glossary-search" type="search" placeholder="用語を検索…">
+      <button class="btn btn-accent" id="btn-new-term" style="white-space:nowrap;font-size:11px;padding:4px 8px;">＋ 追加</button>
     </div>
     <div id="glossary-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
   </aside>
@@ -183,6 +228,7 @@
         <div class="mode-tab" data-mode="split">分割</div>
         <div class="mode-tab" data-mode="preview">プレビュー</div>
       </div>
+      <button class="btn btn-accent" id="btn-edit-viewing" style="display:none">編集</button>
       <button class="btn btn-accent" id="btn-save">保存</button>
       <button class="btn btn-danger" id="btn-delete">削除</button>
     </div>
@@ -191,6 +237,52 @@
       <div id="preview-pane"></div>
       <div class="empty" id="empty-state">
         <p>左の記事一覧から選択するか、「＋ 新規記事」で作成してください</p>
+      </div>
+    </div>
+
+    <!-- 用語集フォーム -->
+    <div id="glossary-form-area">
+      <div class="gf-toolbar">
+        <span class="gf-id" id="gf-id-label">—</span>
+        <button class="btn btn-danger" id="btn-delete-term" style="display:none">削除</button>
+        <button class="btn btn-accent" id="btn-save-term">保存</button>
+      </div>
+      <div class="gf-body" id="gf-body">
+        <div class="gf-field">
+          <label>用語名 *</label>
+          <input id="gf-name" type="text" placeholder="例: ダークマター">
+        </div>
+        <div class="gf-field">
+          <label>英語名</label>
+          <input id="gf-en" type="text" placeholder="例: Dark Matter">
+        </div>
+        <div class="gf-field">
+          <label>よみがな *</label>
+          <input id="gf-reading" type="text" placeholder="例: だーくまたー">
+        </div>
+        <div class="gf-field">
+          <label>カテゴリ *</label>
+          <select id="gf-category">
+            <option value="astronomy">astronomy — 天文学・宇宙論</option>
+            <option value="physics">physics — 物理学</option>
+            <option value="philosophy">philosophy — 哲学・存在論</option>
+            <option value="biology">biology — 生物学・進化</option>
+            <option value="sf-concepts">sf-concepts — SF概念</option>
+          </select>
+        </div>
+        <div class="gf-field">
+          <label>分野</label>
+          <input id="gf-field" type="text" placeholder="例: 宇宙論・素粒子物理">
+        </div>
+        <div class="gf-field">
+          <label>関連記事</label>
+          <input id="gf-related" type="text" placeholder="例: wiim_003, wiim_007">
+          <span class="gf-hint">カンマ区切りで複数指定</span>
+        </div>
+        <div class="gf-field span2">
+          <label>説明文（Markdown）*</label>
+          <textarea id="gf-body-text" placeholder="200〜400字程度。段落間は空行で区切る。Markdownが使えます。"></textarea>
+        </div>
       </div>
     </div>
   </main>
@@ -241,16 +333,19 @@ let currentPath = null;
 let articles = [];
 let viewMode = 'edit';
 let sidebarMode = 'articles'; // 'articles' | 'glossary'
-let glossaryFiles = [];
-let currentGlossaryPath = null;
+let glossaryTerms = [];
+let currentTermId = null;   // null = 新規
+let viewingTermId = null;   // 閲覧中の用語ID
+let collapsedCats = new Set(); // 折り畳み中のカテゴリ
 
-const GLOSSARY_LABELS = {
-  'astronomy':   '天文学・宇宙論',
-  'physics':     '物理学',
-  'philosophy':  '哲学・存在論',
-  'biology':     '生物学・進化',
-  'sf-concepts': 'SF概念',
-};
+const GLOSSARY_CATS = [
+  { id: 'sf-concepts', label: 'SF概念' },
+  { id: 'astronomy',   label: '天文学・宇宙論' },
+  { id: 'physics',     label: '物理学' },
+  { id: 'philosophy',  label: '哲学・存在論' },
+  { id: 'biology',     label: '生物学・進化' },
+];
+const GLOSSARY_LABELS = Object.fromEntries(GLOSSARY_CATS.map(c => [c.id, c.label]));
 
 // ── Monaco ───────────────────────────────────────────────────────────
 require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' } });
@@ -501,9 +596,9 @@ document.getElementById('search').oninput = (e) => {
 };
 
 // ── Glossary ──────────────────────────────────────────────────────────
-async function loadGlossary() {
-  const res = await fetch('/api/glossary');
-  glossaryFiles = await res.json();
+async function loadGlossaryTerms() {
+  const res = await fetch('/api/glossary/terms');
+  glossaryTerms = await res.json();
   renderGlossaryList();
 }
 
@@ -511,44 +606,215 @@ function renderGlossaryList(query = '') {
   const el = document.getElementById('glossary-list');
   el.innerHTML = '';
   const q = query.toLowerCase();
-  const filtered = glossaryFiles.filter(f => {
-    const label = GLOSSARY_LABELS[f.name] || f.name;
-    return !q || label.toLowerCase().includes(q) || f.name.toLowerCase().includes(q);
-  });
-  filtered.forEach(f => {
-    const div = document.createElement('div');
-    div.className = 'glossary-item' + (f.path === currentGlossaryPath ? ' active' : '');
-    const label = GLOSSARY_LABELS[f.name] || f.name;
-    div.innerHTML = `<div class="glossary-name">${label}</div><div class="glossary-label">${f.path}</div>`;
-    div.onclick = () => openGlossaryFile(f.path);
-    el.appendChild(div);
-  });
+  const filtered = glossaryTerms.filter(t =>
+    !q ||
+    t.name.toLowerCase().includes(q) ||
+    t.reading.includes(q) ||
+    (t.en || '').toLowerCase().includes(q)
+  );
+
   if (filtered.length === 0) {
     el.innerHTML = `<div style="padding:12px 16px;font-size:12px;color:var(--text-muted);">該当なし</div>`;
+    return;
+  }
+
+  // カテゴリ順にグループ化
+  for (const cat of GLOSSARY_CATS) {
+    const terms = filtered.filter(t => t.category === cat.id);
+    if (terms.length === 0) continue;
+
+    const collapsed = collapsedCats.has(cat.id);
+
+    // カテゴリヘッダー
+    const header = document.createElement('div');
+    header.className = `gcat-header ${cat.id}${collapsed ? ' collapsed' : ''}`;
+    header.innerHTML = `${cat.label} <span class="gcat-count">(${terms.length})</span><span class="arrow">▼</span>`;
+    header.onclick = () => {
+      if (collapsedCats.has(cat.id)) collapsedCats.delete(cat.id);
+      else collapsedCats.add(cat.id);
+      renderGlossaryList(document.getElementById('glossary-search').value);
+    };
+    el.appendChild(header);
+
+    if (collapsed) continue;
+
+    // 用語一覧（読み順）
+    const group = document.createElement('div');
+    group.className = 'gcat-terms';
+    const sorted = [...terms].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
+    sorted.forEach(t => {
+      const row = document.createElement('div');
+      const isActive = t.id === viewingTermId || t.id === currentTermId;
+      row.className = 'gterm-row' + (isActive ? ' active' : '');
+      row.innerHTML = `
+        <span class="gterm-name" title="${t.en || ''}">${t.name}</span>
+        <button class="btn-edit-sm">編集</button>`;
+      row.querySelector('.gterm-name').onclick = () => viewTerm(t.id);
+      row.querySelector('.btn-edit-sm').onclick = (e) => { e.stopPropagation(); editTerm(t.id); };
+      group.appendChild(row);
+    });
+    el.appendChild(group);
   }
 }
 
-async function openGlossaryFile(fileName) {
-  const res = await fetch(`/api/glossary/${fileName}`);
-  if (!res.ok) { showToast('読み込み失敗', 'err'); return; }
-  const { raw } = await res.json();
-  currentGlossaryPath = fileName;
-  monacoEditor.setValue(raw);
-  document.getElementById('file-path').textContent = `glossary/${fileName}`;
-  // 用語集はプレビューのみ（編集・削除ボタンを隠す）
+// ── 用語閲覧（プレビュー）────────────────────────────────────────────
+function viewTerm(id) {
+  const term = glossaryTerms.find(t => t.id === id);
+  if (!term) return;
+  viewingTermId = id;
+  currentTermId = null;
+
+  // フォームを隠してエディタペインを表示
+  document.getElementById('glossary-form-area').classList.remove('active');
+  document.getElementById('editor-panes').style.display = 'flex';
+  document.getElementById('empty-state').style.display = 'none';
+
+  // ツールバー設定
   document.getElementById('toolbar').style.display = 'flex';
   document.getElementById('btn-save').style.display = 'none';
   document.getElementById('btn-delete').style.display = 'none';
-  document.getElementById('empty-state').style.display = 'none';
-  // プレビューモードに切り替え
-  viewMode = 'preview';
-  document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === 'preview'));
+  document.getElementById('btn-edit-viewing').style.display = '';
+  document.getElementById('file-path').textContent = `${term.id}  ${term.name}${term.en ? '（' + term.en + '）' : ''}`;
+
+  // プレビューペインに直接レンダリング
+  const related = (term.related || []).length > 0 ? term.related.join(', ') : '—';
+  const mdBody = md.render(term.body || '');
+  document.getElementById('preview-pane').innerHTML = `
+    <div class="tv-card">
+      <div class="tv-title">${term.name}${term.en ? `（${term.en}）` : ''}</div>
+      ${term.en ? `<div class="tv-en">${term.en}</div>` : ''}
+      <div class="tv-meta">
+        <span class="cat-badge ${term.category}">${GLOSSARY_LABELS[term.category] || term.category}</span>
+        <span>${term.field || ''}</span>
+        <span style="margin-left:auto;font-family:monospace">${term.id}</span>
+      </div>
+      <div class="tv-meta" style="margin-top:4px">
+        <span>読み: ${term.reading}</span>
+        <span>関連: ${related}</span>
+      </div>
+    </div>
+    <div class="tv-body">${mdBody}</div>`;
+
+  // プレビューモード
   document.getElementById('monaco-container').style.display = 'none';
   document.getElementById('preview-pane').style.display = 'block';
   monacoEditor?.layout();
-  updatePreview();
-  renderGlossaryList();
+  renderGlossaryList(document.getElementById('glossary-search').value);
 }
+
+document.getElementById('btn-edit-viewing').onclick = () => {
+  if (viewingTermId) editTerm(viewingTermId);
+};
+
+// ── 用語編集フォームを開く ───────────────────────────────────────────
+function showGlossaryForm() {
+  document.getElementById('editor-panes').style.display = 'none';
+  document.getElementById('toolbar').style.display = 'none';
+  document.getElementById('glossary-form-area').classList.add('active');
+}
+
+function editTerm(id) {
+  const term = glossaryTerms.find(t => t.id === id);
+  if (!term) return;
+  currentTermId = id;
+  viewingTermId = null;
+
+  document.getElementById('gf-id-label').textContent = `${term.id} / ${term.name}`;
+  document.getElementById('gf-name').value = term.name || '';
+  document.getElementById('gf-en').value = term.en || '';
+  document.getElementById('gf-reading').value = term.reading || '';
+  document.getElementById('gf-category').value = term.category || 'astronomy';
+  document.getElementById('gf-field').value = term.field || '';
+  document.getElementById('gf-related').value = (term.related || []).join(', ');
+  document.getElementById('gf-body-text').value = term.body || '';
+  document.getElementById('btn-delete-term').style.display = '';
+
+  showGlossaryForm();
+  renderGlossaryList(document.getElementById('glossary-search').value);
+}
+
+// openTerm は後方互換のため editTerm に転送
+const openTerm = editTerm;
+
+function openNewTerm() {
+  currentTermId = null;
+  viewingTermId = null;
+  document.getElementById('gf-id-label').textContent = '新規用語';
+  document.getElementById('gf-name').value = '';
+  document.getElementById('gf-en').value = '';
+  document.getElementById('gf-reading').value = '';
+  document.getElementById('gf-category').value = 'sf-concepts';
+  document.getElementById('gf-field').value = '';
+  document.getElementById('gf-related').value = '';
+  document.getElementById('gf-body-text').value = '';
+  document.getElementById('btn-delete-term').style.display = 'none';
+
+  showGlossaryForm();
+  renderGlossaryList(document.getElementById('glossary-search').value);
+  document.getElementById('gf-name').focus();
+}
+
+async function saveTerm() {
+  const name    = document.getElementById('gf-name').value.trim();
+  const reading = document.getElementById('gf-reading').value.trim();
+  const body    = document.getElementById('gf-body-text').value.trim();
+  if (!name || !reading || !body) { showToast('用語名・よみがな・説明文は必須です', 'err'); return; }
+
+  const enVal = document.getElementById('gf-en').value.trim();
+  const relatedRaw = document.getElementById('gf-related').value.trim();
+  const payload = {
+    name,
+    en: enVal || null,
+    reading,
+    category: document.getElementById('gf-category').value,
+    field: document.getElementById('gf-field').value.trim(),
+    related: relatedRaw ? relatedRaw.split(',').map(s => s.trim()).filter(Boolean) : [],
+    body,
+  };
+
+  const url    = currentTermId ? `/api/glossary/terms/${currentTermId}` : '/api/glossary/terms';
+  const method = currentTermId ? 'PUT' : 'POST';
+  const res = await fetch(url, {
+    method, headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    if (!currentTermId) currentTermId = data.term.id;
+    showToast('保存しました', 'ok');
+    await loadGlossaryTerms();
+    document.getElementById('gf-id-label').textContent = `${currentTermId} / ${name}`;
+    document.getElementById('btn-delete-term').style.display = '';
+  } else {
+    const e = await res.json();
+    showToast(e.error || '保存失敗', 'err');
+  }
+}
+
+async function deleteTerm() {
+  if (!currentTermId) return;
+  const term = glossaryTerms.find(t => t.id === currentTermId);
+  if (!confirm(`「${term?.name}」を削除しますか？`)) return;
+
+  const res = await fetch(`/api/glossary/terms/${currentTermId}`, { method: 'DELETE' });
+  if (res.ok) {
+    currentTermId = null;
+    viewingTermId = null;
+    document.getElementById('glossary-form-area').classList.remove('active');
+    document.getElementById('editor-panes').style.display = 'flex';
+    document.getElementById('toolbar').style.display = 'none';
+    document.getElementById('empty-state').style.display = 'flex';
+    showToast('削除しました', 'ok');
+    await loadGlossaryTerms();
+  } else {
+    showToast('削除失敗', 'err');
+  }
+}
+
+document.getElementById('btn-save-term').onclick  = saveTerm;
+document.getElementById('btn-delete-term').onclick = deleteTerm;
+document.getElementById('btn-new-term').onclick    = openNewTerm;
 
 // ── Sidebar toggle ────────────────────────────────────────────────────
 document.querySelectorAll('.sidebar-tab').forEach(tab => {
@@ -560,14 +826,24 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
     document.getElementById('article-list').style.display = isArticles ? '' : 'none';
     document.getElementById('glossary-search-bar').style.display = isArticles ? 'none' : '';
     document.getElementById('glossary-list').style.display = isArticles ? 'none' : 'block';
-    if (!isArticles) { loadGlossary(); document.getElementById('glossary-search').value = ''; }
+    if (!isArticles) {
+      loadGlossaryTerms();
+      document.getElementById('glossary-search').value = '';
+      document.getElementById('glossary-form-area').classList.remove('active');
+      document.getElementById('editor-panes').style.display = 'flex';
+      document.getElementById('toolbar').style.display = 'none';
+      document.getElementById('btn-edit-viewing').style.display = 'none';
+      document.getElementById('empty-state').style.display = 'flex';
+      currentTermId = null;
+      viewingTermId = null;
+    }
   };
 });
 
 // ── Refresh ───────────────────────────────────────────────────────────
 document.getElementById('btn-refresh').onclick = () => {
   if (sidebarMode === 'articles') loadArticles();
-  else loadGlossary();
+  else loadGlossaryTerms();
 };
 document.getElementById('btn-save').onclick = saveArticle;
 document.getElementById('btn-delete').onclick = deleteArticle;
@@ -577,7 +853,7 @@ const ws = new WebSocket(`ws://${location.host}`);
 ws.onmessage = (e) => {
   const d = JSON.parse(e.data);
   if (d.type === 'reload') loadArticles();
-  if (d.type === 'reload-glossary' && sidebarMode === 'glossary') loadGlossary();
+  if (d.type === 'reload-glossary' && sidebarMode === 'glossary') loadGlossaryTerms();
 };
 
 // ── Init ─────────────────────────────────────────────────────────────
