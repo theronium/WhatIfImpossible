@@ -164,6 +164,20 @@
   .tv-body a { color: #7dd3fc; text-decoration: none; border-bottom: 1px solid #3b82f680; }
   .tv-body a:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
 
+  /* ── Article term links & popup ── */
+  .term-link { border-bottom: 1px dashed #7dd3fc88; cursor: pointer; color: #93c5fd; }
+  .term-link:hover { background: rgba(125,211,252,0.12); border-bottom-color: #7dd3fc; color: #bae6fd; }
+  #term-popup { position: fixed; z-index: 2000; background: #1a1d27; border: 1px solid #444;
+    border-radius: 10px; padding: 14px 18px; max-width: 340px; min-width: 220px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6); display: none; }
+  #term-popup.visible { display: block; }
+  #term-popup .tp-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  #term-popup .tp-en { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+  #term-popup .tp-body { font-size: 13px; line-height: 1.7; color: #ccc; max-height: 160px; overflow-y: auto; }
+  #term-popup .tp-footer { margin-top: 10px; display: flex; justify-content: flex-end; }
+  #term-popup .tp-goto { font-size: 12px; color: #7dd3fc; cursor: pointer; background: none; border: none; padding: 0; }
+  #term-popup .tp-goto:hover { text-decoration: underline; }
+
   /* ── Glossary form ── */
   #glossary-form-area { flex: 1; display: none; flex-direction: column; overflow: hidden; }
   #glossary-form-area.active { display: flex; }
@@ -487,6 +501,9 @@ function updatePreview() {
     ],
     throwOnError: false,
   });
+
+  // 用語リンク化（glossaryTerms が読み込まれていれば）
+  linkTermsInPreview(pane);
 }
 
 // ── Article list ─────────────────────────────────────────────────────
@@ -630,6 +647,81 @@ document.getElementById('btn-push').onclick = async () => {
   if (res.ok) { showToast('Push 完了', 'ok'); document.getElementById('commit-msg').value = ''; }
   else { const e = await res.json(); showToast(e.error || 'Push 失敗', 'err'); }
 };
+
+// ── 記事プレビューの用語リンク化＆ポップアップ ────────────────────────
+function linkTermsInPreview(pane) {
+  if (!glossaryTerms.length) return;
+  const index = [...glossaryTerms].sort((a, b) => b.name.length - a.name.length);
+
+  // テキストノードを収集（code・pre・h1-h4・.term-link は除外）
+  const walker = document.createTreeWalker(pane, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (node.parentElement?.closest('code, pre, a, .term-link, h1, h2, h3, h4'))
+        return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  for (const node of textNodes) {
+    let html = node.textContent
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const placeholders = [];
+    const linked = new Set();
+
+    for (const t of index) {
+      if (linked.has(t.id)) continue;
+      const escaped = t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (!new RegExp(escaped).test(html)) continue;
+      const ph = `\x00${placeholders.length}\x00`;
+      placeholders.push(`<span class="term-link" data-term-id="${t.id}">${t.name}</span>`);
+      html = html.replace(new RegExp(escaped), ph);
+      linked.add(t.id);
+    }
+    if (!placeholders.length) continue;
+
+    for (let i = 0; i < placeholders.length; i++)
+      html = html.replace(`\x00${i}\x00`, placeholders[i]);
+
+    const wrap = document.createElement('span');
+    wrap.innerHTML = html;
+    node.parentNode.replaceChild(wrap, node);
+  }
+}
+
+// ── 用語ポップアップの表示 ────────────────────────────────────────────
+function getTermPopup() { return document.getElementById('term-popup'); }
+
+document.addEventListener('click', e => {
+  const popup = getTermPopup();
+  const link = e.target.closest('.term-link');
+  if (link) {
+    const t = glossaryTerms.find(t => t.id === link.dataset.termId);
+    if (!t) return;
+    document.getElementById('tp-name').textContent = t.name;
+    document.getElementById('tp-en').textContent = t.en || '';
+    document.getElementById('tp-badge').innerHTML =
+      `<span class="cat-badge ${t.category}">${GLOSSARY_LABELS[t.category] || t.category}</span>`;
+    document.getElementById('tp-body').textContent = t.body || '';
+    document.getElementById('tp-goto').onclick = () => {
+      popup.classList.remove('visible');
+      document.querySelector('.tab-btn[data-tab="glossary"]')?.click();
+      setTimeout(() => viewTerm(t.id), 100);
+    };
+    const rect = link.getBoundingClientRect();
+    popup.style.top  = `${Math.min(rect.bottom + 6, window.innerHeight - 300)}px`;
+    popup.style.left = `${Math.min(rect.left, window.innerWidth - 360)}px`;
+    popup.classList.add('visible');
+    e.stopPropagation();
+    return;
+  }
+  if (!e.target.closest('#term-popup')) popup?.classList.remove('visible');
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') getTermPopup()?.classList.remove('visible');
+});
 
 // ── 用語本文の自動リンク化（エディタ用） ──────────────────────────────
 function autoLinkBodyEditor(body, selfId) {
@@ -1050,7 +1142,7 @@ ws.onmessage = (e) => {
   if (d.type === 'reload') loadArticles();
   if (d.type === 'reload-glossary') {
     loadCategories();
-    if (sidebarMode === 'glossary') loadGlossaryTerms();
+    loadGlossaryTerms();  // 常に再ロード（記事プレビューのリンクにも使うため）
   }
 };
 
@@ -1058,8 +1150,20 @@ ws.onmessage = (e) => {
 mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 (async () => {
   await loadCategories();
+  await loadGlossaryTerms();  // 記事プレビューの用語リンクのために常にロード
   loadArticles();
 })();
 </script>
+
+<!-- 用語ポップアップ -->
+<div id="term-popup">
+  <div class="tp-name" id="tp-name"></div>
+  <div class="tp-en"  id="tp-en"></div>
+  <div style="margin-bottom:6px" id="tp-badge"></div>
+  <div class="tp-body" id="tp-body"></div>
+  <div class="tp-footer">
+    <button class="tp-goto" id="tp-goto">用語集で開く →</button>
+  </div>
+</div>
 </body>
 </html>
