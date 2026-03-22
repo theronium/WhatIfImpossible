@@ -99,6 +99,28 @@ node server.js
 
 ---
 
+## Claude Code スキルで書く（推奨）
+
+Claude Code を使っている場合、スキルコマンドで記事・用語を半自動で追加できます。
+
+### 記事を書く
+
+```
+量子テレポーテーションで意識を転送できたら /write-article
+```
+
+Claude がタイトルから内容を判断し、frontmatter・構成・本文・Mermaidダイアグラムを含む記事を生成して `docs/` に保存、`docs/README.md` のインデックスも自動更新します。
+
+### 用語を追加する
+
+```
+量子テレポーテーション /add-glossary-term
+```
+
+Claude が内容を調べてカテゴリ・説明文・関連用語を判断し、`glossary/data/terms.jsonl` に追記して全カテゴリの `.md` を再生成します。詳細な手順は [glossary/HOW_TO_USE.md](glossary/HOW_TO_USE.md) を参照してください。
+
+---
+
 ## 記事の書き方
 
 記事は `docs/` 以下にMarkdownファイル（`.md`）として配置します。
