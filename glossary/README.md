@@ -16,6 +16,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | [philosophy.md](philosophy.md) | 哲学・存在論用語 |
 | [biology.md](biology.md) | 生物学・進化用語 |
 | [sf-concepts.md](sf-concepts.md) | SF概念用語 |
+| [wiim-concepts.md](wiim-concepts.md) | WIIM概念用語 |
 
 ---
 
@@ -33,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **115**
+用語数: **133**
 
 ---
 
@@ -41,16 +42,40 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
-| g115 | [第五の力](speculative.md) | Fifth Force | speculative |
-| g114 | [物質の階層構造](physics.md) | Hierarchical Structure of Matter | physics |
-| g113 | [パラドックス](philosophy.md) | Paradox | philosophy |
-| g112 | [菌糸](biology.md) | Mycelium / Hypha | biology |
-| g111 | [胞子](biology.md) | Spore | biology |
-| g110 | [コンドライト](astronomy.md) | Chondrite | astronomy |
-| g109 | [重力子](speculative.md) | Graviton | speculative |
-| g108 | [相対性理論](physics.md) | Theory of Relativity | physics |
-| g107 | [重力圏](astronomy.md) | Sphere of Influence / Hill Sphere | astronomy |
-| g106 | [宇宙速度](astronomy.md) | Cosmic Velocity | astronomy |
+| g133 | [カシミールフォージ](wiim-concepts.md) | Casimir Forge | wiim-concepts |
+| g132 | [コスモシェル](wiim-concepts.md) | CosmosShell | wiim-concepts |
+| g131 | [エネルギー紐](wiim-concepts.md) | Energy String | wiim-concepts |
+| g130 | [マイコプラズマジカ](wiim-concepts.md) | Mycoplasma magica | wiim-concepts |
+| g129 | [グラビトーペイク](wiim-concepts.md) | Gravitopaque | wiim-concepts |
+| g128 | [アンキロン](wiim-concepts.md) | Ankyron | wiim-concepts |
+| g127 | [コーラ粒子](wiim-concepts.md) | Chora Particle | wiim-concepts |
+| g126 | [ネゴトン](wiim-concepts.md) | Negoton | wiim-concepts |
+| g125 | [クロノスフィア](wiim-concepts.md) | Chronosphere | wiim-concepts |
+| g124 | [天文学](astronomy.md) | Astronomy | astronomy |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
