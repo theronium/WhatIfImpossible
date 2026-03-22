@@ -161,6 +161,8 @@
   .tv-en { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
   .tv-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 12px; color: var(--text-muted); align-items: center; }
   .tv-body { line-height: 1.8; margin-top: 4px; }
+  .tv-body a { color: #7dd3fc; text-decoration: none; border-bottom: 1px solid #3b82f680; }
+  .tv-body a:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
 
   /* ── Glossary form ── */
   #glossary-form-area { flex: 1; display: none; flex-direction: column; overflow: hidden; }
@@ -629,6 +631,33 @@ document.getElementById('btn-push').onclick = async () => {
   else { const e = await res.json(); showToast(e.error || 'Push 失敗', 'err'); }
 };
 
+// ── 用語本文の自動リンク化（エディタ用） ──────────────────────────────
+function autoLinkBodyEditor(body, selfId) {
+  // 長い用語名を優先してマッチ
+  const index = [...glossaryTerms]
+    .sort((a, b) => b.name.length - a.name.length);
+
+  const placeholders = [];
+  let result = body;
+  const linked = new Set();
+
+  for (const t of index) {
+    if (t.id === selfId) continue;
+    if (linked.has(t.id)) continue;
+    const escaped = t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escaped);
+    if (!regex.test(result)) continue;
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(`[${t.name}](#${t.id})`);
+    result = result.replace(regex, ph);
+    linked.add(t.id);
+  }
+  for (let i = 0; i < placeholders.length; i++) {
+    result = result.replace(`\x00${i}\x00`, placeholders[i]);
+  }
+  return result;
+}
+
 // ── Glossary Search ───────────────────────────────────────────────────
 document.getElementById('glossary-search').oninput = (e) => {
   renderGlossaryList(e.target.value);
@@ -759,7 +788,8 @@ function viewTerm(id) {
 
   // プレビューペインに直接レンダリング
   const related = (term.related || []).length > 0 ? term.related.join(', ') : '—';
-  const mdBody = md.render(term.body || '');
+  const linkedBody = autoLinkBodyEditor(term.body || '', term.id);
+  const mdBody = md.render(linkedBody);
   document.getElementById('preview-pane').innerHTML = `
     <div class="tv-card">
       <div class="tv-title">${term.name}${term.en ? `（${term.en}）` : ''}</div>
@@ -775,6 +805,11 @@ function viewTerm(id) {
       </div>
     </div>
     <div class="tv-body">${mdBody}</div>`;
+
+  // tv-body内のリンク（#gXXX）をクリックで用語遷移
+  document.querySelector('.tv-body').querySelectorAll('a[href^="#g"]').forEach(a => {
+    a.onclick = (e) => { e.preventDefault(); viewTerm(a.getAttribute('href').slice(1)); };
+  });
 
   // プレビューモード
   document.getElementById('monaco-container').style.display = 'none';

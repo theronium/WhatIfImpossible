@@ -33,7 +33,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **106**
+用語数: **107**
 
 ---
 
@@ -41,6 +41,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g107 | [重力圏](astronomy.md) | Sphere of Influence / Hill Sphere | astronomy |
 | g106 | [宇宙速度](astronomy.md) | Cosmic Velocity | astronomy |
 | g105 | [ユークリッド幾何学](mathematics.md) | Euclidean Geometry | mathematics |
 | g104 | [複素数](mathematics.md) | Complex Number | mathematics |
@@ -50,7 +51,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g100 | [ホワイトホール](speculative.md) | White Hole | speculative |
 | g099 | [カーブラックホール](astronomy.md) | Kerr Black Hole | astronomy |
 | g098 | [量子ゼノン効果](physics.md) | Quantum Zeno Effect | physics |
-| g097 | [量子トンネル効果](physics.md) | Quantum Tunneling | physics |
+
 
 
 
