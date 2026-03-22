@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **133**
+用語数: **135**
 
 ---
 
@@ -42,6 +42,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g135 | [シェルマイセリウム](wiim-concepts.md) | Shell Mycelium | wiim-concepts |
+| g134 | [コズミックマイス](wiim-concepts.md) | Cosmic Myce | wiim-concepts |
 | g133 | [カシミールフォージ](wiim-concepts.md) | Casimir Forge | wiim-concepts |
 | g132 | [コスモシェル](wiim-concepts.md) | CosmosShell | wiim-concepts |
 | g131 | [エネルギー紐](wiim-concepts.md) | Energy String | wiim-concepts |
@@ -50,8 +52,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g128 | [アンキロン](wiim-concepts.md) | Ankyron | wiim-concepts |
 | g127 | [コーラ粒子](wiim-concepts.md) | Chora Particle | wiim-concepts |
 | g126 | [ネゴトン](wiim-concepts.md) | Negoton | wiim-concepts |
-| g125 | [クロノスフィア](wiim-concepts.md) | Chronosphere | wiim-concepts |
-| g124 | [天文学](astronomy.md) | Astronomy | astronomy |
+
+
 
 
 
