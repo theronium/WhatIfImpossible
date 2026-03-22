@@ -33,7 +33,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **108**
+用語数: **109**
 
 ---
 
@@ -41,6 +41,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g109 | [重力子](speculative.md) | Graviton | speculative |
 | g108 | [相対性理論](physics.md) | Theory of Relativity | physics |
 | g107 | [重力圏](astronomy.md) | Sphere of Influence / Hill Sphere | astronomy |
 | g106 | [宇宙速度](astronomy.md) | Cosmic Velocity | astronomy |
@@ -50,7 +51,20 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g102 | [ミレニアム懸賞問題](mathematics.md) | Millennium Prize Problems | mathematics |
 | g101 | [ポアンカレ予想](mathematics.md) | Poincaré Conjecture | mathematics |
 | g100 | [ホワイトホール](speculative.md) | White Hole | speculative |
-| g099 | [カーブラックホール](astronomy.md) | Kerr Black Hole | astronomy |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

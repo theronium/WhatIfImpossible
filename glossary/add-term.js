@@ -49,6 +49,7 @@ const term = {
   category: newTerm.category,
   field: newTerm.field,
   related: newTerm.related || [],
+  ...(newTerm.aliases && newTerm.aliases.length ? { aliases: newTerm.aliases } : {}),
   body: newTerm.body,
 };
 

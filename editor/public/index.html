@@ -283,6 +283,11 @@
           <input id="gf-related" type="text" placeholder="例: wiim_003, wiim_007">
           <span class="gf-hint">カンマ区切りで複数指定</span>
         </div>
+        <div class="gf-field">
+          <label>別名・エイリアス</label>
+          <input id="gf-aliases" type="text" placeholder="例: グラビトン, graviton">
+          <span class="gf-hint">カンマ区切りで複数指定（リンク表記ゆれ対応）</span>
+        </div>
         <div class="gf-field span2">
           <label>説明文（Markdown）*</label>
           <textarea id="gf-body-text" placeholder="200〜400字程度。段落間は空行で区切る。Markdownが使えます。"></textarea>
@@ -651,7 +656,14 @@ document.getElementById('btn-push').onclick = async () => {
 // ── 記事プレビューの用語リンク化＆ポップアップ ────────────────────────
 function linkTermsInPreview(pane) {
   if (!glossaryTerms.length) return;
-  const index = [...glossaryTerms].sort((a, b) => b.name.length - a.name.length);
+  // 用語名＋エイリアスを展開して長さ順にソート
+  const index = [];
+  for (const t of glossaryTerms) {
+    index.push({ name: t.name, id: t.id });
+    for (const alias of (t.aliases || []))
+      index.push({ name: alias, id: t.id });
+  }
+  index.sort((a, b) => b.name.length - a.name.length);
 
   // テキストノードを収集（code・pre・h1-h4・.term-link は除外）
   const walker = document.createTreeWalker(pane, NodeFilter.SHOW_TEXT, {
@@ -725,9 +737,14 @@ document.addEventListener('keydown', e => {
 
 // ── 用語本文の自動リンク化（エディタ用） ──────────────────────────────
 function autoLinkBodyEditor(body, selfId) {
-  // 長い用語名を優先してマッチ
-  const index = [...glossaryTerms]
-    .sort((a, b) => b.name.length - a.name.length);
+  // 用語名＋エイリアスを展開して長さ順にソート
+  const index = [];
+  for (const t of glossaryTerms) {
+    index.push({ name: t.name, id: t.id });
+    for (const alias of (t.aliases || []))
+      index.push({ name: alias, id: t.id });
+  }
+  index.sort((a, b) => b.name.length - a.name.length);
 
   const placeholders = [];
   let result = body;
@@ -880,6 +897,7 @@ function viewTerm(id) {
 
   // プレビューペインに直接レンダリング
   const related = (term.related || []).length > 0 ? term.related.join(', ') : '—';
+  const aliases = (term.aliases || []).length > 0 ? term.aliases.join(' / ') : null;
   const linkedBody = autoLinkBodyEditor(term.body || '', term.id);
   const mdBody = md.render(linkedBody);
   document.getElementById('preview-pane').innerHTML = `
@@ -893,6 +911,7 @@ function viewTerm(id) {
       </div>
       <div class="tv-meta" style="margin-top:4px">
         <span>読み: ${term.reading}</span>
+        ${aliases ? `<span>別名: ${aliases}</span>` : ''}
         <span>関連: ${related}</span>
       </div>
     </div>
@@ -934,6 +953,7 @@ function editTerm(id) {
   document.getElementById('gf-category').value = term.category || 'astronomy';
   document.getElementById('gf-field').value = term.field || '';
   document.getElementById('gf-related').value = (term.related || []).join(', ');
+  document.getElementById('gf-aliases').value = (term.aliases || []).join(', ');
   document.getElementById('gf-body-text').value = term.body || '';
   document.getElementById('btn-delete-term').style.display = '';
 
@@ -954,6 +974,7 @@ function openNewTerm() {
   document.getElementById('gf-category').value = 'sf-concepts';
   document.getElementById('gf-field').value = '';
   document.getElementById('gf-related').value = '';
+  document.getElementById('gf-aliases').value = '';
   document.getElementById('gf-body-text').value = '';
   document.getElementById('btn-delete-term').style.display = 'none';
 
@@ -970,6 +991,7 @@ async function saveTerm() {
 
   const enVal = document.getElementById('gf-en').value.trim();
   const relatedRaw = document.getElementById('gf-related').value.trim();
+  const aliasesRaw = document.getElementById('gf-aliases').value.trim();
   const payload = {
     name,
     en: enVal || null,
@@ -977,6 +999,7 @@ async function saveTerm() {
     category: document.getElementById('gf-category').value,
     field: document.getElementById('gf-field').value.trim(),
     related: relatedRaw ? relatedRaw.split(',').map(s => s.trim()).filter(Boolean) : [],
+    aliases: aliasesRaw ? aliasesRaw.split(',').map(s => s.trim()).filter(Boolean) : [],
     body,
   };
 

@@ -34,9 +34,13 @@ const categories = rawCats
 // - 自分自身はスキップ
 // - 既存マークダウンリンク内を二重リンクしない
 function buildTermIndex(terms) {
-  return [...terms]
-    .sort((a, b) => b.name.length - a.name.length)
-    .map(t => ({ name: t.name, id: t.id, category: t.category }));
+  const index = [];
+  for (const t of terms) {
+    index.push({ name: t.name, id: t.id, category: t.category });
+    for (const alias of (t.aliases || []))
+      index.push({ name: alias, id: t.id, category: t.category });
+  }
+  return index.sort((a, b) => b.name.length - a.name.length);
 }
 
 function autoLinkBody(body, selfId, termIndex) {
@@ -83,12 +87,17 @@ function termToMarkdown(term, termIndex) {
 
   const linkedBody = termIndex ? autoLinkBody(term.body, term.id, termIndex) : term.body;
 
+  const aliasLine = (term.aliases && term.aliases.length)
+    ? `**別名**: ${term.aliases.join(' / ')}`
+    : null;
+
   return [
     '---',
     '',
     heading,
     '',
     `**読み**: ${term.reading}`,
+    ...(aliasLine ? [aliasLine] : []),
     `**分野**: ${term.field}`,
     `**関連記事**: ${buildRelatedStr(term.related)}`,
     '',
@@ -139,7 +148,6 @@ readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${totalCount}**`
 
 // 最近追加した用語（ID順で直近10件）
 const RECENT_COUNT = 10;
-const catLabels = Object.fromEntries(categories.map(c => [c.id, c.file.replace('.md', '')]));
 const recentLines = [...terms]
   .slice(-RECENT_COUNT)
   .reverse()
