@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WhatIfImpossible Editor</title>
 
-<!-- KaTeX -->
+<!-- KaTeX — Monaco loader.jsより前に同期ロード（AMD競合を防ぐ） -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 
 <!-- Mermaid -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
@@ -143,13 +143,6 @@
   .gcat-header .arrow { font-size: 10px; margin-left: auto; transition: transform 0.15s; }
   .gcat-header.collapsed .arrow { transform: rotate(-90deg); }
   .gcat-header .gcat-count { font-size: 11px; font-weight: 400; opacity: 0.7; }
-  .gcat-header.astronomy   { background: #1a2440; color: #60a5fa; }
-  .gcat-header.physics     { background: #1f1a2e; color: #c084fc; }
-  .gcat-header.philosophy  { background: #251525; color: #f0abfc; }
-  .gcat-header.biology     { background: #1a2818; color: #86efac; }
-  .gcat-header.speculative { background: #1f1a18; color: #fb923c; }
-  .gcat-header.sf-concepts  { background: #1a1f2e; color: #fbbf24; }
-  .gcat-header.mathematics  { background: #181f1a; color: #34d399; }
   .gcat-terms { padding: 0 0 4px 0; }
   .gterm-row { display: flex; align-items: center; padding: 4px 10px 4px 18px; margin: 1px 4px; border-radius: 4px; gap: 6px; }
   .gterm-row:hover { background: var(--surface2); }
@@ -161,13 +154,6 @@
   .btn-edit-sm { padding: 2px 7px; font-size: 11px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; flex-shrink: 0; white-space: nowrap; }
   .btn-edit-sm:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
   .cat-badge { padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; }
-  .cat-badge.astronomy   { background: #1a2440; color: #60a5fa; }
-  .cat-badge.physics     { background: #1f1a2e; color: #c084fc; }
-  .cat-badge.philosophy  { background: #251525; color: #f0abfc; }
-  .cat-badge.biology     { background: #1a2818; color: #86efac; }
-  .cat-badge.speculative { background: #1f1a18; color: #fb923c; }
-  .cat-badge.sf-concepts  { background: #1a1f2e; color: #fbbf24; }
-  .cat-badge.mathematics  { background: #181f1a; color: #34d399; }
 
   /* ── Term view (preview pane) ── */
   .tv-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; }
@@ -196,6 +182,7 @@
   .empty { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 12px; color: var(--text-muted); }
   .empty p { font-size: 14px; }
 </style>
+<style id="cat-styles"></style>
 </head>
 <body>
 
@@ -219,6 +206,7 @@
     <div class="sidebar-header" id="glossary-search-bar" style="display:none;">
       <input id="glossary-search" type="search" placeholder="用語を検索…">
       <button class="btn btn-accent" id="btn-new-term" style="white-space:nowrap;font-size:11px;padding:4px 8px;">＋ 追加</button>
+      <button onclick="openCatModal()" title="カテゴリ管理" style="background:#2a2a2a;border:1px solid #444;border-radius:4px;color:#aaa;font-size:14px;padding:4px 7px;cursor:pointer;flex-shrink:0;">⚙</button>
     </div>
     <div id="glossary-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
   </aside>
@@ -267,13 +255,7 @@
         <div class="gf-field">
           <label>カテゴリ *</label>
           <select id="gf-category">
-            <option value="astronomy">astronomy — 天文学・宇宙論</option>
-            <option value="physics">physics — 物理学</option>
-            <option value="philosophy">philosophy — 哲学・存在論</option>
-            <option value="biology">biology — 生物学・進化</option>
-            <option value="mathematics">mathematics — 数学・論理・幾何学</option>
-            <option value="speculative">speculative — 仮説・未観測の粒子</option>
-            <option value="sf-concepts">sf-concepts — SF概念</option>
+            <!-- populated dynamically from /api/glossary/categories -->
           </select>
         </div>
         <div class="gf-field">
@@ -332,6 +314,27 @@
 <!-- Toast -->
 <div id="toast"></div>
 
+<!-- カテゴリ管理モーダル -->
+<div id="cat-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;">
+  <div style="background:#1e1e1e;border:1px solid #333;border-radius:8px;padding:20px;width:560px;max-height:80vh;display:flex;flex-direction:column;gap:12px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <h3 style="margin:0;font-size:15px;color:#e0e0e0;">カテゴリ管理</h3>
+      <button onclick="closeCatModal()" style="background:none;border:none;color:#888;font-size:18px;cursor:pointer;">✕</button>
+    </div>
+    <div id="cat-list" style="overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:6px;"></div>
+    <div style="border-top:1px solid #333;padding-top:12px;">
+      <div style="font-size:12px;color:#888;margin-bottom:8px;">新規カテゴリを追加</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 80px 80px 60px;gap:6px;align-items:center;">
+        <input id="new-cat-id"    placeholder="id (英数字)" style="background:#2a2a2a;border:1px solid #444;border-radius:4px;padding:4px 8px;color:#e0e0e0;font-size:12px;">
+        <input id="new-cat-label" placeholder="ラベル"      style="background:#2a2a2a;border:1px solid #444;border-radius:4px;padding:4px 8px;color:#e0e0e0;font-size:12px;">
+        <input id="new-cat-color" type="color" value="#60a5fa" style="width:100%;height:28px;background:#2a2a2a;border:1px solid #444;border-radius:4px;cursor:pointer;">
+        <input id="new-cat-bg"    type="color" value="#1a2440" style="width:100%;height:28px;background:#2a2a2a;border:1px solid #444;border-radius:4px;cursor:pointer;">
+        <button onclick="addCategory()" style="background:#3a5a3a;border:none;border-radius:4px;color:#86efac;font-size:12px;padding:4px 8px;cursor:pointer;">追加</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 // ── State ────────────────────────────────────────────────────────────
 let monacoEditor = null;
@@ -344,16 +347,48 @@ let currentTermId = null;   // null = 新規
 let viewingTermId = null;   // 閲覧中の用語ID
 let collapsedCats = new Set(); // 折り畳み中のカテゴリ
 
-const GLOSSARY_CATS = [
-  { id: 'sf-concepts',  label: 'SF概念' },
-  { id: 'speculative',  label: '仮説・未観測の粒子' },
-  { id: 'astronomy',    label: '天文学・宇宙論' },
-  { id: 'physics',      label: '物理学' },
-  { id: 'mathematics',  label: '数学・論理・幾何学' },
-  { id: 'philosophy',   label: '哲学・存在論' },
-  { id: 'biology',      label: '生物学・進化' },
+let GLOSSARY_CATS = [];
+let GLOSSARY_LABELS = {};
+
+const FALLBACK_CATS = [
+  { id: 'astronomy',   label: '天文学・宇宙論',     color: '#60a5fa', bg: '#1a2440', sort: 1 },
+  { id: 'physics',     label: '物理学',             color: '#c084fc', bg: '#1f1a2e', sort: 2 },
+  { id: 'mathematics', label: '数学・論理・幾何学', color: '#34d399', bg: '#181f1a', sort: 3 },
+  { id: 'speculative', label: '仮説・未観測の粒子', color: '#fb923c', bg: '#1f1a18', sort: 4 },
+  { id: 'philosophy',  label: '哲学・存在論',       color: '#f0abfc', bg: '#251525', sort: 5 },
+  { id: 'biology',     label: '生物学・進化',       color: '#86efac', bg: '#1a2818', sort: 6 },
+  { id: 'sf-concepts', label: 'SF概念',             color: '#fbbf24', bg: '#1a1f2e', sort: 7 },
 ];
-const GLOSSARY_LABELS = Object.fromEntries(GLOSSARY_CATS.map(c => [c.id, c.label]));
+
+async function loadCategories() {
+  try {
+    const res = await fetch('/api/glossary/categories');
+    if (!res.ok) throw new Error('categories API not ready');
+    const cats = await res.json();
+    GLOSSARY_CATS = cats.sort((a, b) => a.sort - b.sort);
+  } catch {
+    GLOSSARY_CATS = FALLBACK_CATS;
+  }
+  GLOSSARY_LABELS = Object.fromEntries(GLOSSARY_CATS.map(c => [c.id, c.label]));
+  injectCatStyles();
+  populateCatDropdown();
+}
+
+function injectCatStyles() {
+  const rules = GLOSSARY_CATS.map(c => `
+    .gcat-header.${c.id} { background: ${c.bg}; color: ${c.color}; }
+    .cat-badge.${c.id}   { background: ${c.bg}; color: ${c.color}; }
+  `).join('');
+  document.getElementById('cat-styles').textContent = rules;
+}
+
+function populateCatDropdown() {
+  const sel = document.getElementById('gf-category');
+  if (!sel) return;
+  sel.innerHTML = GLOSSARY_CATS.map(c =>
+    `<option value="${c.id}">${c.id} — ${c.label}</option>`
+  ).join('');
+}
 
 // ── Monaco ───────────────────────────────────────────────────────────
 require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' } });
@@ -907,17 +942,89 @@ document.getElementById('btn-refresh').onclick = () => {
 document.getElementById('btn-save').onclick = saveArticle;
 document.getElementById('btn-delete').onclick = deleteArticle;
 
+// ── Category modal ────────────────────────────────────────────────────
+function openCatModal() {
+  renderCatList();
+  const m = document.getElementById('cat-modal');
+  m.style.display = 'flex';
+}
+
+function closeCatModal() {
+  document.getElementById('cat-modal').style.display = 'none';
+}
+
+function renderCatList() {
+  const list = document.getElementById('cat-list');
+  list.innerHTML = GLOSSARY_CATS.map(c => `
+    <div style="display:grid;grid-template-columns:1fr 1fr 80px 80px 60px 40px;gap:6px;align-items:center;">
+      <span style="font-size:12px;color:#888;">${c.id}</span>
+      <input value="${c.label}" onchange="updateCat('${c.id}','label',this.value)"
+        style="background:#2a2a2a;border:1px solid #444;border-radius:4px;padding:3px 6px;color:#e0e0e0;font-size:12px;">
+      <input type="color" value="${c.color}" onchange="updateCat('${c.id}','color',this.value)"
+        style="width:100%;height:26px;background:#2a2a2a;border:1px solid #444;border-radius:4px;cursor:pointer;">
+      <input type="color" value="${c.bg}" onchange="updateCat('${c.id}','bg',this.value)"
+        style="width:100%;height:26px;background:#2a2a2a;border:1px solid #444;border-radius:4px;cursor:pointer;">
+      <input type="number" value="${c.sort}" min="1" onchange="updateCat('${c.id}','sort',+this.value)"
+        style="background:#2a2a2a;border:1px solid #444;border-radius:4px;padding:3px 6px;color:#e0e0e0;font-size:12px;width:100%;">
+      <button onclick="deleteCat('${c.id}')"
+        style="background:#3a1a1a;border:none;border-radius:4px;color:#f87171;font-size:12px;padding:3px 6px;cursor:pointer;">✕</button>
+    </div>
+  `).join('');
+}
+
+async function updateCat(id, field, value) {
+  const cat = GLOSSARY_CATS.find(c => c.id === id);
+  if (!cat) return;
+  cat[field] = value;
+  await fetch(`/api/glossary/categories/${id}`, {
+    method: 'PUT', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(cat)
+  });
+  await loadCategories();
+  renderCatList();
+}
+
+async function deleteCat(id) {
+  if (!confirm(`カテゴリ "${id}" を削除しますか？\n（このカテゴリの用語は残ります）`)) return;
+  await fetch(`/api/glossary/categories/${id}`, { method: 'DELETE' });
+  await loadCategories();
+  renderCatList();
+}
+
+async function addCategory() {
+  const id    = document.getElementById('new-cat-id').value.trim();
+  const label = document.getElementById('new-cat-label').value.trim();
+  const color = document.getElementById('new-cat-color').value;
+  const bg    = document.getElementById('new-cat-bg').value;
+  if (!id || !label) return alert('IDとラベルは必須です');
+  const res = await fetch('/api/glossary/categories', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, label, color, bg })
+  });
+  if (!res.ok) { const e = await res.json(); return alert(e.error); }
+  document.getElementById('new-cat-id').value = '';
+  document.getElementById('new-cat-label').value = '';
+  await loadCategories();
+  renderCatList();
+}
+
 // ── WebSocket live reload ──────────────────────────────────────────────
 const ws = new WebSocket(`ws://${location.host}`);
 ws.onmessage = (e) => {
   const d = JSON.parse(e.data);
   if (d.type === 'reload') loadArticles();
-  if (d.type === 'reload-glossary' && sidebarMode === 'glossary') loadGlossaryTerms();
+  if (d.type === 'reload-glossary') {
+    loadCategories();
+    if (sidebarMode === 'glossary') loadGlossaryTerms();
+  }
 };
 
 // ── Init ─────────────────────────────────────────────────────────────
 mermaid.initialize({ startOnLoad: false, theme: 'dark' });
-loadArticles();
+(async () => {
+  await loadCategories();
+  loadArticles();
+})();
 </script>
 </body>
 </html>

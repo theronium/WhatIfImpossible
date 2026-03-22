@@ -1,0 +1,9 @@
+[
+  { "id": "astronomy",   "label": "天文学・宇宙論",     "color": "#60a5fa", "bg": "#1a2440", "sort": 1 },
+  { "id": "physics",     "label": "物理学",             "color": "#c084fc", "bg": "#1f1a2e", "sort": 2 },
+  { "id": "mathematics", "label": "数学・論理・幾何学", "color": "#34d399", "bg": "#181f1a", "sort": 3 },
+  { "id": "speculative", "label": "仮説・未観測の粒子", "color": "#fb923c", "bg": "#1f1a18", "sort": 4 },
+  { "id": "philosophy",  "label": "哲学・存在論",       "color": "#f0abfc", "bg": "#251525", "sort": 5 },
+  { "id": "biology",     "label": "生物学・進化",       "color": "#86efac", "bg": "#1a2818", "sort": 6 },
+  { "id": "sf-concepts", "label": "SF概念",             "color": "#fbbf24", "bg": "#1a1f2e", "sort": 7 }
+]

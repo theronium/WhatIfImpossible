@@ -8,6 +8,7 @@ const path = require('path');
 
 const GLOSSARY_DIR = __dirname;
 const DATA_FILE    = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
+const CATEGORIES_FILE = path.join(GLOSSARY_DIR, 'categories.json');
 
 // 記事 ID → docs サブフォルダのマッピング
 const articleFolders = {
@@ -18,15 +19,14 @@ const articleFolders = {
   wiim_013: 'physics',   wiim_014: 'physics',   wiim_015: 'physics',
 };
 
-const categories = [
-  { id: 'astronomy',   title: '# 天文学・宇宙論用語',        file: 'astronomy.md' },
-  { id: 'physics',     title: '# 物理学・素粒子・熱力学用語', file: 'physics.md' },
-  { id: 'mathematics', title: '# 数学・論理・幾何学用語',     file: 'mathematics.md' },
-  { id: 'speculative', title: '# 仮説・未観測の粒子・物質',   file: 'speculative.md' },
-  { id: 'philosophy',  title: '# 哲学・存在論・認識論用語',   file: 'philosophy.md' },
-  { id: 'biology',     title: '# 生物学・進化・生命科学用語', file: 'biology.md' },
-  { id: 'sf-concepts', title: '# SF固有の概念・設定用語',     file: 'sf-concepts.md' },
-];
+const rawCats = JSON.parse(fs.readFileSync(CATEGORIES_FILE, 'utf-8'));
+const categories = rawCats
+  .sort((a, b) => a.sort - b.sort)
+  .map(c => ({
+    id: c.id,
+    title: `# ${c.label}用語`,
+    file: `${c.id}.md`,
+  }));
 
 function buildRelatedStr(related) {
   if (!related || related.length === 0) return '—';

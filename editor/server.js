@@ -128,6 +128,7 @@ app.delete('/api/articles/*', async (req, res) => {
 
 // ── 用語集ヘルパー ────────────────────────────────────────────────────
 const TERMS_FILE     = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
+const CATEGORIES_FILE = path.join(GLOSSARY_DIR, 'categories.json');
 const GENERATE_SCRIPT = path.join(GLOSSARY_DIR, 'generate.js');
 
 async function readTerms() {
@@ -190,6 +191,61 @@ app.delete('/api/glossary/terms/:id', async (req, res) => {
     let terms = await readTerms();
     terms = terms.filter(t => t.id !== req.params.id);
     await writeTerms(terms);
+    await runGenerate();
+    broadcast({ type: 'reload-glossary' });
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── API: カテゴリ管理 ────────────────────────────────────────────────
+async function readCategories() {
+  const raw = await fs.readFile(CATEGORIES_FILE, 'utf-8');
+  return JSON.parse(raw);
+}
+
+async function writeCategories(cats) {
+  await fs.writeFile(CATEGORIES_FILE, JSON.stringify(cats, null, 2) + '\n', 'utf-8');
+}
+
+app.get('/api/glossary/categories', async (req, res) => {
+  try { res.json(await readCategories()); }
+  catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.post('/api/glossary/categories', async (req, res) => {
+  try {
+    const cats = await readCategories();
+    if (cats.find(c => c.id === req.body.id))
+      return res.status(409).json({ error: 'ID already exists' });
+    const maxSort = cats.reduce((m, c) => Math.max(m, c.sort), 0);
+    cats.push({ ...req.body, sort: req.body.sort ?? maxSort + 1 });
+    cats.sort((a, b) => a.sort - b.sort);
+    await writeCategories(cats);
+    await runGenerate();
+    broadcast({ type: 'reload-glossary' });
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.put('/api/glossary/categories/:id', async (req, res) => {
+  try {
+    const cats = await readCategories();
+    const idx = cats.findIndex(c => c.id === req.params.id);
+    if (idx === -1) return res.status(404).json({ error: 'Not found' });
+    cats[idx] = { id: req.params.id, ...req.body };
+    cats.sort((a, b) => a.sort - b.sort);
+    await writeCategories(cats);
+    await runGenerate();
+    broadcast({ type: 'reload-glossary' });
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.delete('/api/glossary/categories/:id', async (req, res) => {
+  try {
+    let cats = await readCategories();
+    cats = cats.filter(c => c.id !== req.params.id);
+    await writeCategories(cats);
     await runGenerate();
     broadcast({ type: 'reload-glossary' });
     res.json({ ok: true });
