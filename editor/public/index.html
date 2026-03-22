@@ -890,6 +890,7 @@ function viewTerm(id) {
 
   // ツールバー設定
   document.getElementById('toolbar').style.display = 'flex';
+  document.querySelector('.mode-tabs').style.display = 'none';
   document.getElementById('btn-save').style.display = 'none';
   document.getElementById('btn-delete').style.display = 'none';
   document.getElementById('btn-edit-viewing').style.display = '';
@@ -1071,6 +1072,7 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
       // 記事モードに戻るときのリセット
       document.getElementById('glossary-form-area').classList.remove('active');
       document.getElementById('editor-panes').style.display = 'flex';
+      document.querySelector('.mode-tabs').style.display = '';
       document.getElementById('btn-edit-viewing').style.display = 'none';
       setViewMode('preview');
       if (!currentPath) {

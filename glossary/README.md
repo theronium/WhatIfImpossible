@@ -33,7 +33,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **109**
+用語数: **115**
 
 ---
 
@@ -41,16 +41,25 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g115 | [第五の力](speculative.md) | Fifth Force | speculative |
+| g114 | [物質の階層構造](physics.md) | Hierarchical Structure of Matter | physics |
+| g113 | [パラドックス](philosophy.md) | Paradox | philosophy |
+| g112 | [菌糸](biology.md) | Mycelium / Hypha | biology |
+| g111 | [胞子](biology.md) | Spore | biology |
+| g110 | [コンドライト](astronomy.md) | Chondrite | astronomy |
 | g109 | [重力子](speculative.md) | Graviton | speculative |
 | g108 | [相対性理論](physics.md) | Theory of Relativity | physics |
 | g107 | [重力圏](astronomy.md) | Sphere of Influence / Hill Sphere | astronomy |
 | g106 | [宇宙速度](astronomy.md) | Cosmic Velocity | astronomy |
-| g105 | [ユークリッド幾何学](mathematics.md) | Euclidean Geometry | mathematics |
-| g104 | [複素数](mathematics.md) | Complex Number | mathematics |
-| g103 | [複素代数多様体](mathematics.md) | Complex Algebraic Variety | mathematics |
-| g102 | [ミレニアム懸賞問題](mathematics.md) | Millennium Prize Problems | mathematics |
-| g101 | [ポアンカレ予想](mathematics.md) | Poincaré Conjecture | mathematics |
-| g100 | [ホワイトホール](speculative.md) | White Hole | speculative |
+
+
+
+
+
+
+
+
+
 
 
 

@@ -10,6 +10,7 @@ glossary/
 ├── categories.json      ← カテゴリ定義（名称・色・並び順）
 ├── generate.js          ← terms.jsonl → .md ファイルを再生成
 ├── add-term.js          ← 新規用語を1件追加するスクリプト
+├── update-term.js       ← 既存用語をフィールド単位で上書き更新するスクリプト
 ├── migrate.js           ← 【一回限り】旧 .md から terms.jsonl を生成
 ├── astronomy.md         ← 自動生成（編集不要）
 ├── physics.md           ← 自動生成（編集不要）
@@ -64,13 +65,36 @@ node glossary/add-term.js
 
 ## 既存の用語を編集する
 
-`glossary/data/terms.jsonl` を直接編集し、`generate.js` を再実行します：
+### 方法①：update-term.js を使う（推奨）
+
+`new-term.json` に **`id` フィールド**を加えて更新したいフィールドだけ書き、スクリプトを実行します：
+
+```json
+{
+  "id": "g114",
+  "body": "更新後の説明文。\n\n改行はそのまま書ける。"
+}
+```
+
+```bash
+node glossary/update-term.js
+```
+
+- 指定したフィールドのみ上書き。省略したフィールドは変更されない
+- `aliases` に `"merge": true` を追加すると既存エイリアスと結合（上書きでなく追記）
+- JSON のエンコード・デコードは Node.js が処理するためシェルの文字化けが起きない
+
+### 方法②：エディタ UI を使う
+
+`http://localhost:3030` のエディタUIから用語を選んで直接編集・保存できます。
+
+### 方法③：terms.jsonl を直接編集する
+
+`glossary/data/terms.jsonl` を直接編集し、`generate.js` を再実行：
 
 ```bash
 node glossary/generate.js
 ```
-
-エディタUI（`http://localhost:3030`）からも用語の閲覧・編集が可能です。
 
 ---
 
@@ -98,6 +122,7 @@ node glossary/generate.js
 |-----------|------|--------|
 | `generate.js` | terms.jsonl → 全 .md を再生成。README も更新 | 用語編集のたびに自動実行 |
 | `add-term.js` | new-term.json を読んで terms.jsonl に1件追記し、generate.js を呼ぶ | 新規追加時 |
+| `update-term.js` | new-term.json（id付き）で既存用語を部分上書きし、generate.js を呼ぶ | 既存用語の更新時 |
 | `migrate.js` | 旧 .md ファイルから terms.jsonl を生成（初回移行用） | 基本的に不要 |
 
 ---

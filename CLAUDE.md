@@ -39,6 +39,24 @@ WhatIfImpossible/
 3. `node glossary/generate.js` を実行して `.md` ファイルを再生成
 4. `/add-glossary-term` スキルはこの手順を自動で行う
 
+### 既存用語の更新手順
+
+`glossary/data/new-term.json` に **`id` フィールド**と更新したいフィールドのみ記載し、`update-term.js` を実行する。
+JSON のエンコード・デコードは Node.js が処理するため、日本語・改行・特殊文字の文字化けが起きない。
+
+```json
+{ "id": "g114", "body": "更新後の説明文。\n\n段落はここで区切る。" }
+```
+
+```bash
+node glossary/update-term.js
+```
+
+- 省略したフィールドは変更されない
+- `aliases` を追記（上書きでなくマージ）する場合は `"merge": true` を追加
+- **用語の body・aliases・field などを更新する際は必ずこのスクリプトを経由すること。**
+  直接シェルや文字列操作で JSONL を書き換えると文字化けや JSON 破損のリスクがある
+
 ---
 
 ## インデックスの更新ルール
