@@ -9,11 +9,13 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ファイル | 内容 |
 |---------|------|
-| [astronomy.md](astronomy.md) | 天文学・宇宙論・観測用語 |
-| [physics.md](physics.md) | 物理学・素粒子・熱力学用語 |
-| [philosophy.md](philosophy.md) | 哲学・存在論・認識論用語 |
-| [biology.md](biology.md) | 生物学・進化・生命科学用語 |
-| [sf-concepts.md](sf-concepts.md) | SF固有の概念・設定用語 |
+| [astronomy.md](astronomy.md) | 天文学・宇宙論用語 |
+| [physics.md](physics.md) | 物理学用語 |
+| [mathematics.md](mathematics.md) | 数学・論理・幾何学用語 |
+| [speculative.md](speculative.md) | 仮説・未観測の粒子用語 |
+| [philosophy.md](philosophy.md) | 哲学・存在論用語 |
+| [biology.md](biology.md) | 生物学・進化用語 |
+| [sf-concepts.md](sf-concepts.md) | SF概念用語 |
 
 ---
 
@@ -31,7 +33,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **105**
+用語数: **106**
 
 ---
 
@@ -39,6 +41,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g106 | [宇宙速度](astronomy.md) | Cosmic Velocity | astronomy |
 | g105 | [ユークリッド幾何学](mathematics.md) | Euclidean Geometry | mathematics |
 | g104 | [複素数](mathematics.md) | Complex Number | mathematics |
 | g103 | [複素代数多様体](mathematics.md) | Complex Algebraic Variety | mathematics |
@@ -48,7 +51,12 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g099 | [カーブラックホール](astronomy.md) | Kerr Black Hole | astronomy |
 | g098 | [量子ゼノン効果](physics.md) | Quantum Zeno Effect | physics |
 | g097 | [量子トンネル効果](physics.md) | Quantum Tunneling | physics |
-| g096 | [光年・パーセク](astronomy.md) | Light-year / Parsec | astronomy |
+
+
+
+
+
+
 
 
 

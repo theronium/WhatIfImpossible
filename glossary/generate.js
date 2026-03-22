@@ -28,6 +28,44 @@ const categories = rawCats
     file: `${c.id}.md`,
   }));
 
+// 用語名の自動リンク化
+// - 長い名前を優先してマッチ（部分一致を防ぐ）
+// - 同一用語は最初の1回のみリンク
+// - 自分自身はスキップ
+// - 既存マークダウンリンク内を二重リンクしない
+function buildTermIndex(terms) {
+  return [...terms]
+    .sort((a, b) => b.name.length - a.name.length)
+    .map(t => ({ name: t.name, id: t.id, category: t.category }));
+}
+
+function autoLinkBody(body, selfId, termIndex) {
+  // \x00N\x00 プレースホルダで置換済み箇所を保護
+  const placeholders = [];
+  let result = body;
+  const linked = new Set();
+
+  for (const { name, id, category } of termIndex) {
+    if (id === selfId) continue;
+    if (linked.has(id)) continue;
+
+    const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escaped);
+    if (!regex.test(result)) continue;
+
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(`[${name}](${category}.md)`);
+    result = result.replace(regex, ph);
+    linked.add(id);
+  }
+
+  // プレースホルダを実際のリンクに戻す
+  for (let i = 0; i < placeholders.length; i++) {
+    result = result.replace(`\x00${i}\x00`, placeholders[i]);
+  }
+  return result;
+}
+
 function buildRelatedStr(related) {
   if (!related || related.length === 0) return '—';
   return related
@@ -38,10 +76,12 @@ function buildRelatedStr(related) {
     .join(', ');
 }
 
-function termToMarkdown(term) {
+function termToMarkdown(term, termIndex) {
   const heading = term.en
     ? `## ${term.name}（${term.en}）`
     : `## ${term.name}`;
+
+  const linkedBody = termIndex ? autoLinkBody(term.body, term.id, termIndex) : term.body;
 
   return [
     '---',
@@ -52,7 +92,7 @@ function termToMarkdown(term) {
     `**分野**: ${term.field}`,
     `**関連記事**: ${buildRelatedStr(term.related)}`,
     '',
-    term.body,
+    linkedBody,
   ].join('\n');
 }
 
@@ -66,6 +106,7 @@ const terms = fs.readFileSync(DATA_FILE, 'utf8')
   .trim().split('\n').filter(Boolean)
   .map(l => JSON.parse(l));
 
+const termIndex = buildTermIndex(terms);
 let totalCount = 0;
 
 for (const cat of categories) {
@@ -75,7 +116,7 @@ for (const cat of categories) {
 
   totalCount += catTerms.length;
 
-  const body = catTerms.map(termToMarkdown).join('\n\n');
+  const body = catTerms.map(t => termToMarkdown(t, termIndex)).join('\n\n');
   const content = cat.title + '\n\n' + body + '\n';
 
   fs.writeFileSync(path.join(GLOSSARY_DIR, cat.file), content);
@@ -85,6 +126,13 @@ for (const cat of categories) {
 // README の用語数・最近追加を更新
 const readmePath = path.join(GLOSSARY_DIR, 'README.md');
 let readme = fs.readFileSync(readmePath, 'utf8');
+
+// ファイル一覧テーブルを更新
+const fileListRows = categories
+  .map(c => `| [${c.file}](${c.file}) | ${rawCats.find(r => r.id === c.id).label}用語 |`)
+  .join('\n');
+const fileListSection = `## ファイル一覧\n\n| ファイル | 内容 |\n|---------|------|\n${fileListRows}\n`;
+readme = readme.replace(/## ファイル一覧[\s\S]*?(?=\n---|\n## )/, fileListSection);
 
 // 用語数
 readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${totalCount}**`);
