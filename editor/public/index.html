@@ -220,6 +220,7 @@
     <div class="sidebar-tabs">
       <button class="sidebar-tab active" data-panel="articles">記事</button>
       <button class="sidebar-tab" data-panel="glossary">用語集</button>
+      <button class="sidebar-tab" data-panel="notes">補遺</button>
     </div>
     <div class="sidebar-header" id="articles-search-bar">
       <input id="search" type="search" placeholder="記事を検索…">
@@ -231,6 +232,10 @@
       <button onclick="openCatModal()" title="カテゴリ管理" style="background:#2a2a2a;border:1px solid #444;border-radius:4px;color:#aaa;font-size:14px;padding:4px 7px;cursor:pointer;flex-shrink:0;">⚙</button>
     </div>
     <div id="glossary-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
+    <div class="sidebar-header" id="notes-search-bar" style="display:none;">
+      <input id="notes-search" type="search" placeholder="補遺を検索…">
+    </div>
+    <div id="notes-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
   </aside>
 
   <!-- Main -->
@@ -524,11 +529,31 @@ async function loadArticles() {
   renderList(articles);
 }
 
+function renderNotesList(query = '') {
+  const el = document.getElementById('notes-list');
+  el.innerHTML = '';
+  const q = query.toLowerCase();
+  const notes = articles
+    .filter(a => a.path.startsWith('notes/'))
+    .filter(a => !q || a.title.toLowerCase().includes(q));
+  if (!notes.length) {
+    el.innerHTML = `<div style="padding:12px 16px;font-size:12px;color:var(--text-muted);">補遺なし</div>`;
+    return;
+  }
+  notes.forEach(a => {
+    const div = document.createElement('div');
+    div.className = 'article-item' + (a.path === currentPath ? ' active' : '');
+    div.innerHTML = `<span>${a.title}</span>`;
+    div.onclick = () => openArticle(a.path);
+    el.appendChild(div);
+  });
+}
+
 function renderList(list) {
   const el = document.getElementById('article-list');
   el.innerHTML = '';
   const grouped = {};
-  list.forEach(a => {
+  list.filter(a => !a.path.startsWith('notes/')).forEach(a => {
     const cat = a.category || 'uncategorized';
     (grouped[cat] = grouped[cat] || []).push(a);
   });
@@ -558,10 +583,18 @@ async function openArticle(relPath) {
   monacoEditor.setValue(raw);
   document.getElementById('file-path').textContent = relPath;
   document.getElementById('toolbar').style.display = 'flex';
-  document.getElementById('btn-save').style.display = '';
-  document.getElementById('btn-delete').style.display = '';
+  const isNote = relPath.startsWith('notes/');
+  document.querySelector('.mode-tabs').style.display = isNote ? 'none' : '';
+  document.getElementById('btn-save').style.display = isNote ? 'none' : '';
+  document.getElementById('btn-delete').style.display = isNote ? 'none' : '';
   document.getElementById('empty-state').style.display = 'none';
+  if (isNote) {
+    document.getElementById('monaco-container').style.display = 'none';
+    document.getElementById('preview-pane').style.display = 'block';
+    viewMode = 'preview';
+  }
   renderList(articles);
+  renderNotesList(document.getElementById('notes-search')?.value || '');
   updatePreview();
 }
 
@@ -772,6 +805,11 @@ function autoLinkBodyEditor(body, selfId) {
   }
   return result;
 }
+
+// ── Notes Search ──────────────────────────────────────────────────────
+document.getElementById('notes-search').oninput = (e) => {
+  renderNotesList(e.target.value);
+};
 
 // ── Glossary Search ───────────────────────────────────────────────────
 document.getElementById('glossary-search').oninput = (e) => {
@@ -1060,11 +1098,17 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
     sidebarMode = tab.dataset.panel;
     document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t === tab));
     const isArticles = sidebarMode === 'articles';
+    const isGlossary = sidebarMode === 'glossary';
+    const isNotes    = sidebarMode === 'notes';
+
     document.getElementById('articles-search-bar').style.display = isArticles ? '' : 'none';
-    document.getElementById('article-list').style.display = isArticles ? '' : 'none';
-    document.getElementById('glossary-search-bar').style.display = isArticles ? 'none' : '';
-    document.getElementById('glossary-list').style.display = isArticles ? 'none' : 'block';
-    if (!isArticles) {
+    document.getElementById('article-list').style.display        = isArticles ? '' : 'none';
+    document.getElementById('glossary-search-bar').style.display = isGlossary ? '' : 'none';
+    document.getElementById('glossary-list').style.display       = isGlossary ? 'block' : 'none';
+    document.getElementById('notes-search-bar').style.display    = isNotes    ? '' : 'none';
+    document.getElementById('notes-list').style.display          = isNotes    ? 'block' : 'none';
+
+    if (isGlossary) {
       loadGlossaryTerms();
       document.getElementById('glossary-search').value = '';
       document.getElementById('glossary-form-area').classList.remove('active');
@@ -1074,6 +1118,19 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
       document.getElementById('empty-state').style.display = 'flex';
       currentTermId = null;
       viewingTermId = null;
+    } else if (isNotes) {
+      document.getElementById('notes-search').value = '';
+      document.getElementById('glossary-form-area').classList.remove('active');
+      document.getElementById('editor-panes').style.display = 'flex';
+      document.querySelector('.mode-tabs').style.display = 'none';
+      document.getElementById('btn-edit-viewing').style.display = 'none';
+      document.getElementById('btn-save').style.display = 'none';
+      document.getElementById('btn-delete').style.display = 'none';
+      document.getElementById('toolbar').style.display = 'none';
+      document.getElementById('empty-state').style.display = 'flex';
+      currentTermId = null;
+      viewingTermId = null;
+      renderNotesList();
     } else {
       // 記事モードに戻るときのリセット
       document.getElementById('glossary-form-area').classList.remove('active');
@@ -1081,10 +1138,11 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
       document.querySelector('.mode-tabs').style.display = '';
       document.getElementById('btn-edit-viewing').style.display = 'none';
       setViewMode('preview');
-      if (!currentPath) {
+      if (!currentPath || articles.find(a => a.path === currentPath)?.path.startsWith('notes/')) {
         document.getElementById('toolbar').style.display = 'none';
         document.getElementById('empty-state').style.display = 'flex';
-      } else {
+        currentPath = null;
+      } else if (currentPath) {
         document.getElementById('toolbar').style.display = '';
         document.getElementById('empty-state').style.display = 'none';
       }
