@@ -148,7 +148,8 @@
   .gcat-header.philosophy  { background: #251525; color: #f0abfc; }
   .gcat-header.biology     { background: #1a2818; color: #86efac; }
   .gcat-header.speculative { background: #1f1a18; color: #fb923c; }
-  .gcat-header.sf-concepts { background: #1a1f2e; color: #fbbf24; }
+  .gcat-header.sf-concepts  { background: #1a1f2e; color: #fbbf24; }
+  .gcat-header.mathematics  { background: #181f1a; color: #34d399; }
   .gcat-terms { padding: 0 0 4px 0; }
   .gterm-row { display: flex; align-items: center; padding: 4px 10px 4px 18px; margin: 1px 4px; border-radius: 4px; gap: 6px; }
   .gterm-row:hover { background: var(--surface2); }
@@ -165,7 +166,8 @@
   .cat-badge.philosophy  { background: #251525; color: #f0abfc; }
   .cat-badge.biology     { background: #1a2818; color: #86efac; }
   .cat-badge.speculative { background: #1f1a18; color: #fb923c; }
-  .cat-badge.sf-concepts { background: #1a1f2e; color: #fbbf24; }
+  .cat-badge.sf-concepts  { background: #1a1f2e; color: #fbbf24; }
+  .cat-badge.mathematics  { background: #181f1a; color: #34d399; }
 
   /* ── Term view (preview pane) ── */
   .tv-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; }
@@ -269,6 +271,7 @@
             <option value="physics">physics — 物理学</option>
             <option value="philosophy">philosophy — 哲学・存在論</option>
             <option value="biology">biology — 生物学・進化</option>
+            <option value="mathematics">mathematics — 数学・論理・幾何学</option>
             <option value="speculative">speculative — 仮説・未観測の粒子</option>
             <option value="sf-concepts">sf-concepts — SF概念</option>
           </select>
@@ -342,12 +345,13 @@ let viewingTermId = null;   // 閲覧中の用語ID
 let collapsedCats = new Set(); // 折り畳み中のカテゴリ
 
 const GLOSSARY_CATS = [
-  { id: 'sf-concepts', label: 'SF概念' },
-  { id: 'speculative', label: '仮説・未観測の粒子' },
-  { id: 'astronomy',   label: '天文学・宇宙論' },
-  { id: 'physics',     label: '物理学' },
-  { id: 'philosophy',  label: '哲学・存在論' },
-  { id: 'biology',     label: '生物学・進化' },
+  { id: 'sf-concepts',  label: 'SF概念' },
+  { id: 'speculative',  label: '仮説・未観測の粒子' },
+  { id: 'astronomy',    label: '天文学・宇宙論' },
+  { id: 'physics',      label: '物理学' },
+  { id: 'mathematics',  label: '数学・論理・幾何学' },
+  { id: 'philosophy',   label: '哲学・存在論' },
+  { id: 'biology',      label: '生物学・進化' },
 ];
 const GLOSSARY_LABELS = Object.fromEntries(GLOSSARY_CATS.map(c => [c.id, c.label]));
 

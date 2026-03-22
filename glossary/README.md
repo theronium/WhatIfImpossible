@@ -31,7 +31,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **98**
+用語数: **105**
 
 ---
 
@@ -39,16 +39,25 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g105 | [ユークリッド幾何学](mathematics.md) | Euclidean Geometry | mathematics |
+| g104 | [複素数](mathematics.md) | Complex Number | mathematics |
+| g103 | [複素代数多様体](mathematics.md) | Complex Algebraic Variety | mathematics |
+| g102 | [ミレニアム懸賞問題](mathematics.md) | Millennium Prize Problems | mathematics |
+| g101 | [ポアンカレ予想](mathematics.md) | Poincaré Conjecture | mathematics |
+| g100 | [ホワイトホール](speculative.md) | White Hole | speculative |
+| g099 | [カーブラックホール](astronomy.md) | Kerr Black Hole | astronomy |
 | g098 | [量子ゼノン効果](physics.md) | Quantum Zeno Effect | physics |
 | g097 | [量子トンネル効果](physics.md) | Quantum Tunneling | physics |
 | g096 | [光年・パーセク](astronomy.md) | Light-year / Parsec | astronomy |
-| g095 | [天文単位](astronomy.md) | Astronomical Unit (AU) | astronomy |
-| g094 | [SETI](astronomy.md) | Search for Extraterrestrial Intelligence | astronomy |
-| g093 | [大統一理論・超弦理論](physics.md) | Grand Unified Theory / Superstring Theory | physics |
-| g092 | [量子力学の未解決問題](physics.md) | Open Problems in Quantum Mechanics | physics |
-| g091 | [リーマン予想](philosophy.md) | Riemann Hypothesis | philosophy |
-| g090 | [ゲーデルの不完全性定理](philosophy.md) | Gödel's Incompleteness Theorems | philosophy |
-| g089 | [ネーターの定理](physics.md) | Noether's Theorem | physics |
+
+
+
+
+
+
+
+
+
 
 
 
