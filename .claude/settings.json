@@ -9,7 +9,8 @@
       "Bash(curl -s --max-time 2 http://localhost:3030/api/glossary/terms)",
       "Bash(node glossary/generate.js)",
       "Bash(ls d:/Repos/WhatIfImpossible/*.md)",
-      "Bash(node glossary/add-term.js)"
+      "Bash(node glossary/add-term.js)",
+      "Bash(node glossary/update-term.js)"
     ]
   }
 }
