@@ -277,6 +277,7 @@ app.post('/api/git/push', async (req, res) => {
 
 // ── 起動 ─────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3030;
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`WhatIfImpossible Editor: http://localhost:${PORT}`);
+  console.log(`LAN access: http://<this-machine-ip>:${PORT}`);
 });
