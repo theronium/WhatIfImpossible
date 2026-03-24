@@ -554,10 +554,14 @@ function renderList(list) {
   el.innerHTML = '';
   const grouped = {};
   list.filter(a => !a.path.startsWith('notes/')).forEach(a => {
-    const cat = a.category || 'uncategorized';
+    const cat = (a.category === '.' ? 'index' : a.category) || 'uncategorized';
     (grouped[cat] = grouped[cat] || []).push(a);
   });
-  Object.entries(grouped).sort().forEach(([cat, items]) => {
+  Object.entries(grouped).sort(([a], [b]) => {
+    if (a === 'index') return -1;
+    if (b === 'index') return 1;
+    return a.localeCompare(b);
+  }).forEach(([cat, items]) => {
     const label = document.createElement('div');
     label.className = 'category-label';
     label.dataset.cat = cat;
@@ -592,10 +596,12 @@ async function openArticle(relPath) {
     document.getElementById('monaco-container').style.display = 'none';
     document.getElementById('preview-pane').style.display = 'block';
     viewMode = 'preview';
+    updatePreview();
+  } else {
+    setViewMode('preview');
   }
   renderList(articles);
   renderNotesList(document.getElementById('notes-search')?.value || '');
-  updatePreview();
 }
 
 // ── Save ─────────────────────────────────────────────────────────────
@@ -707,7 +713,7 @@ function linkTermsInPreview(pane) {
   // テキストノードを収集（code・pre・h1-h4・.term-link は除外）
   const walker = document.createTreeWalker(pane, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
-      if (node.parentElement?.closest('code, pre, a, .term-link, h1, h2, h3, h4'))
+      if (node.parentElement?.closest('code, pre, a, .term-link, h1, h2, h3, h4, .mermaid'))
         return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     }
@@ -1108,44 +1114,29 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
     document.getElementById('notes-search-bar').style.display    = isNotes    ? '' : 'none';
     document.getElementById('notes-list').style.display          = isNotes    ? 'block' : 'none';
 
+    // タブ切り替え時は常にメインペインをリセット
+    document.getElementById('glossary-form-area').classList.remove('active');
+    document.getElementById('preview-pane').innerHTML = '';
+    document.getElementById('preview-pane').style.display = 'none';
+    document.getElementById('monaco-container').style.display = 'none';
+    document.getElementById('editor-panes').style.display = 'flex';
+    document.getElementById('toolbar').style.display = 'none';
+    document.getElementById('btn-edit-viewing').style.display = 'none';
+    document.getElementById('empty-state').style.display = 'flex';
+    currentPath = null;
+    currentTermId = null;
+    viewingTermId = null;
+
     if (isGlossary) {
       loadGlossaryTerms();
       document.getElementById('glossary-search').value = '';
-      document.getElementById('glossary-form-area').classList.remove('active');
-      document.getElementById('editor-panes').style.display = 'flex';
-      document.getElementById('toolbar').style.display = 'none';
-      document.getElementById('btn-edit-viewing').style.display = 'none';
-      document.getElementById('empty-state').style.display = 'flex';
-      currentTermId = null;
-      viewingTermId = null;
     } else if (isNotes) {
       document.getElementById('notes-search').value = '';
-      document.getElementById('glossary-form-area').classList.remove('active');
-      document.getElementById('editor-panes').style.display = 'flex';
       document.querySelector('.mode-tabs').style.display = 'none';
-      document.getElementById('btn-edit-viewing').style.display = 'none';
-      document.getElementById('btn-save').style.display = 'none';
-      document.getElementById('btn-delete').style.display = 'none';
-      document.getElementById('toolbar').style.display = 'none';
-      document.getElementById('empty-state').style.display = 'flex';
-      currentTermId = null;
-      viewingTermId = null;
       renderNotesList();
     } else {
       // 記事モードに戻るときのリセット
-      document.getElementById('glossary-form-area').classList.remove('active');
-      document.getElementById('editor-panes').style.display = 'flex';
       document.querySelector('.mode-tabs').style.display = '';
-      document.getElementById('btn-edit-viewing').style.display = 'none';
-      setViewMode('preview');
-      if (!currentPath || articles.find(a => a.path === currentPath)?.path.startsWith('notes/')) {
-        document.getElementById('toolbar').style.display = 'none';
-        document.getElementById('empty-state').style.display = 'flex';
-        currentPath = null;
-      } else if (currentPath) {
-        document.getElementById('toolbar').style.display = '';
-        document.getElementById('empty-state').style.display = 'none';
-      }
     }
   };
 });

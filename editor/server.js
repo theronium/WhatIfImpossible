@@ -63,7 +63,7 @@ async function walkDocs(dir, base = '') {
         path: relPath,
         title: data.title || entry.name.replace('.md', ''),
         id: data.id || null,
-        category: data.category || path.dirname(relPath),
+        category: data.category || (path.dirname(relPath) === '.' ? 'index' : path.dirname(relPath)),
         tags: data.tags || [],
       });
     }

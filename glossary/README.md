@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **135**
+用語数: **140**
 
 ---
 
@@ -42,16 +42,21 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g140 | [超新星](astronomy.md) | Supernova | astronomy |
+| g139 | [小惑星の分類](astronomy.md) | Asteroid Classification | astronomy |
+| g138 | [カイパーベルト](astronomy.md) | Kuiper Belt | astronomy |
+| g137 | [オールトの雲](astronomy.md) | Oort Cloud | astronomy |
+| g136 | [アステロイドベルト](astronomy.md) | Asteroid Belt | astronomy |
 | g135 | [シェルマイセリウム](wiim-concepts.md) | Shell Mycelium | wiim-concepts |
 | g134 | [コズミックマイス](wiim-concepts.md) | Cosmic Myce | wiim-concepts |
 | g133 | [カシミールフォージ](wiim-concepts.md) | Casimir Forge | wiim-concepts |
 | g132 | [コスモシェル](wiim-concepts.md) | CosmosShell | wiim-concepts |
 | g131 | [エネルギー紐](wiim-concepts.md) | Energy String | wiim-concepts |
-| g130 | [マイコプラズマジカ](wiim-concepts.md) | Mycoplasma magica | wiim-concepts |
-| g129 | [グラビトーペイク](wiim-concepts.md) | Gravitopaque | wiim-concepts |
-| g128 | [アンキロン](wiim-concepts.md) | Ankyron | wiim-concepts |
-| g127 | [コーラ粒子](wiim-concepts.md) | Chora Particle | wiim-concepts |
-| g126 | [ネゴトン](wiim-concepts.md) | Negoton | wiim-concepts |
+
+
+
+
+
 
 
 
