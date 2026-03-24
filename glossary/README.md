@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **150**
+用語数: **153**
 
 ---
 
@@ -42,6 +42,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g155 | [ハッブル地平線](astronomy.md) | Hubble Sphere | astronomy |
+| g154 | [宙域資産権](wiim-concepts.md) | Spatial Domain Asset Rights | wiim-concepts |
+| g153 | [パラドックス粒子通信](wiim-concepts.md) | Paradox Particle Communication | wiim-concepts |
 | g152 | [ノーファペン](wiim-concepts.md) | No-P-Happen | wiim-concepts |
 | g151 | [ホログラフィック原理](physics.md) | Holographic Principle | physics |
 | g150 | [エントロピー重力](physics.md) | Entropic Gravity | physics |
@@ -49,9 +52,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g148 | [パラドックス粒子](wiim-concepts.md) | Paradox Particle | wiim-concepts |
 | g147 | [ラザフォード散乱](physics.md) | Rutherford Scattering | physics |
 | g146 | [時空の泡](physics.md) | Quantum Foam / Spacetime Foam | physics |
-| g145 | [ディラックの海](physics.md) | Dirac Sea | physics |
-| g144 | [量子チェシャ猫](quantum.md) | Quantum Cheshire Cat | quantum |
-| g143 | [マルチバース](speculative.md) | Multiverse | speculative |
+
+
+
 
 
 
