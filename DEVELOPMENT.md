@@ -17,10 +17,14 @@
 ```
 WhatIfImpossible/
 ├── README.md
+├── DEVELOPMENT.md
+├── generate-readme.js       ← README自動生成スクリプト（pre-commit hookで自動実行）
 ├── .gitignore
 ├── docs/                    ← 記事コンテンツ（Markdown）
-│   ├── README.md            ← 全記事インデックス
+│   ├── README.md            ← 全記事インデックス（自動生成）
 │   ├── _template.md         ← 新規記事のひな形
+│   ├── notes/               ← 補遺・世界観設定メモ
+│   │   └── README.md        ← 補遺一覧（自動生成）
 │   ├── cosmology/           ← 宇宙・時空間・相対論・FTL系
 │   ├── physics/             ← 素粒子・力・エネルギー系
 │   ├── quantum/             ← 量子力学・量子情報系
@@ -191,3 +195,18 @@ flowchart LR
 ```bash
 PORT=3035 npm start
 ```
+
+---
+
+## LAN内アクセス
+
+`server.js` は `0.0.0.0` でリッスンするため、同一LAN内の他端末からもアクセスできます。
+
+```
+http://<このマシンのIPアドレス>:3030
+```
+
+IPアドレスは `ipconfig`（Windows）で確認してください（「IPv4 アドレス」の行）。
+
+> **注意:** Windowsファイアウォールでポート3030の受信が許可されていない場合は、受信規則を追加してください。
+> 設定場所: Windows Defender ファイアウォール → 受信の規則 → 新しい規則 → ポート → TCP 3030
