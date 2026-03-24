@@ -7,12 +7,15 @@
 ## 手順
 
 1. 用語の内容を判断し、カテゴリを選ぶ：
-   - `astronomy`   — 天文学・宇宙論・観測
-   - `physics`     — 物理学・素粒子・熱力学
-   - `speculative` — 仮説・未観測の粒子・物質（ダークマター・タキオンなど）
-   - `philosophy`  — 哲学・存在論・認識論
-   - `biology`     — 生物学・進化・生命科学
-   - `sf-concepts` — SF固有の概念・設定
+   - `astronomy`     — 天文学・宇宙論・観測
+   - `physics`       — 物理学・素粒子・熱力学
+   - `speculative`   — 仮説・未観測の粒子・物質（ダークマター・タキオンなど）
+   - `philosophy`    — 哲学・存在論・認識論
+   - `biology`       — 生物学・進化・生命科学
+   - `sf-concepts`   — SF全般に存在する概念・設定（ワープ、タイムマシンなど）
+   - `wiim-concepts` — WIIMで独自に命名・創作した粒子・素材・概念（コーラ粒子、パラドックス粒子、ノーファペンなど）
+
+   > **注意**: タキオンのような実在仮説のある粒子は `speculative`、WIIMの思考実験で初めて定義した概念は `wiim-concepts` を使う。既存のSFトロープ（ワープ航法など）は `sf-concepts`。
 
 2. `glossary/data/new-term.json` を以下の形式で書き込む：
 

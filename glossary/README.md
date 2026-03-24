@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **145**
+用語数: **150**
 
 ---
 
@@ -42,16 +42,26 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g152 | [ノーファペン](wiim-concepts.md) | No-P-Happen | wiim-concepts |
+| g151 | [ホログラフィック原理](physics.md) | Holographic Principle | physics |
+| g150 | [エントロピー重力](physics.md) | Entropic Gravity | physics |
+| g149 | [誘導重力](physics.md) | Induced Gravity | physics |
+| g148 | [パラドックス粒子](wiim-concepts.md) | Paradox Particle | wiim-concepts |
 | g147 | [ラザフォード散乱](physics.md) | Rutherford Scattering | physics |
 | g146 | [時空の泡](physics.md) | Quantum Foam / Spacetime Foam | physics |
 | g145 | [ディラックの海](physics.md) | Dirac Sea | physics |
 | g144 | [量子チェシャ猫](quantum.md) | Quantum Cheshire Cat | quantum |
 | g143 | [マルチバース](speculative.md) | Multiverse | speculative |
-| g142 | [パラレルワールド](speculative.md) | Parallel World | speculative |
-| g141 | [量子テレポーテーション](quantum.md) | Quantum Teleportation | quantum |
-| g140 | [超新星](astronomy.md) | Supernova | astronomy |
-| g139 | [小惑星の分類](astronomy.md) | Asteroid Classification | astronomy |
-| g138 | [カイパーベルト](astronomy.md) | Kuiper Belt | astronomy |
+
+
+
+
+
+
+
+
+
+
 
 
 
