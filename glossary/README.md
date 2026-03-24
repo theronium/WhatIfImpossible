@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **153**
+用語数: **158**
 
 ---
 
@@ -42,16 +42,21 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g160 | [コズミックマイス菌糸誘導通信](wiim-concepts.md) | Cosmic Myce Mycelial Guided Communication | wiim-concepts |
+| g159 | [トートロジー](philosophy.md) | Tautology | philosophy |
+| g158 | [トポロジー](physics.md) | Topology | physics |
+| g157 | [エニオン](physics.md) | Anyon | physics |
+| g156 | [CP対称性](physics.md) | CP Symmetry | physics |
 | g155 | [ハッブル地平線](astronomy.md) | Hubble Sphere | astronomy |
 | g154 | [宙域資産権](wiim-concepts.md) | Spatial Domain Asset Rights | wiim-concepts |
 | g153 | [パラドックス粒子通信](wiim-concepts.md) | Paradox Particle Communication | wiim-concepts |
 | g152 | [ノーファペン](wiim-concepts.md) | No-P-Happen | wiim-concepts |
 | g151 | [ホログラフィック原理](physics.md) | Holographic Principle | physics |
-| g150 | [エントロピー重力](physics.md) | Entropic Gravity | physics |
-| g149 | [誘導重力](physics.md) | Induced Gravity | physics |
-| g148 | [パラドックス粒子](wiim-concepts.md) | Paradox Particle | wiim-concepts |
-| g147 | [ラザフォード散乱](physics.md) | Rutherford Scattering | physics |
-| g146 | [時空の泡](physics.md) | Quantum Foam / Spacetime Foam | physics |
+
+
+
+
+
 
 
 
