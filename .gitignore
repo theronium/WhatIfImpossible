@@ -1,5 +1,8 @@
 editor/node_modules/
+editor/.server.pid
+glossary/data/new-term.json
 .DS_Store
 Thumbs.db
 *.log
 sandbox/
+.claude/settings*.json
