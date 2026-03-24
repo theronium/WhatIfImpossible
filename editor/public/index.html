@@ -221,6 +221,7 @@
       <button class="sidebar-tab active" data-panel="articles">記事</button>
       <button class="sidebar-tab" data-panel="glossary">用語集</button>
       <button class="sidebar-tab" data-panel="notes">補遺</button>
+      <button class="sidebar-tab" data-panel="techtree">技術ツリー</button>
     </div>
     <div class="sidebar-header" id="articles-search-bar">
       <input id="search" type="search" placeholder="記事を検索…">
@@ -236,6 +237,9 @@
       <input id="notes-search" type="search" placeholder="補遺を検索…">
     </div>
     <div id="notes-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
+    <div id="techtree-panel" style="display:none; flex:1; overflow-y:auto; padding:12px;">
+      <p style="color:var(--text-muted);font-size:12px;line-height:1.6;">記事間の前提・派生関係を可視化した技術ツリーです。<br>右ペインに全体マップを表示します。</p>
+    </div>
   </aside>
 
   <!-- Main -->
@@ -483,13 +487,7 @@ function buildFmCard(fm) {
   </div>`;
 }
 
-function updatePreview() {
-  if (viewMode === 'edit') return;
-  const raw = monacoEditor?.getValue() ?? '';
-  const pane = document.getElementById('preview-pane');
-
-  const { fm, body } = parseFrontmatter(raw);
-
+function renderToPane(body, pane, fm = null) {
   // Mermaid: コードブロックをプレースホルダーに変換
   let mermaidBlocks = [];
   const rendered = md.render(body.replace(/```mermaid\n([\s\S]*?)```/g, (_, code) => {
@@ -497,7 +495,7 @@ function updatePreview() {
     mermaidBlocks.push(code.trim());
     return `<div class="mermaid-placeholder" data-idx="${i}"></div>`;
   }));
-  pane.innerHTML = buildFmCard(fm) + rendered;
+  pane.innerHTML = (fm ? buildFmCard(fm) : '') + rendered;
 
   // Mermaid レンダリング
   pane.querySelectorAll('.mermaid-placeholder').forEach(el => {
@@ -507,7 +505,13 @@ function updatePreview() {
     div.textContent = code;
     el.replaceWith(div);
   });
-  mermaid.run({ nodes: pane.querySelectorAll('.mermaid') });
+  const mermaidNodes = pane.querySelectorAll('.mermaid');
+  let mermaidPromise = Promise.resolve();
+  if (mermaidNodes.length) {
+    mermaidPromise = new Promise(resolve => {
+      requestAnimationFrame(() => mermaid.run({ nodes: mermaidNodes }).then(resolve).catch(resolve));
+    });
+  }
 
   // KaTeX
   renderMathInElement(pane, {
@@ -518,8 +522,54 @@ function updatePreview() {
     throwOnError: false,
   });
 
-  // 用語リンク化（glossaryTerms が読み込まれていれば）
+  // 用語リンク化
   linkTermsInPreview(pane);
+  return mermaidPromise;
+}
+
+function addSvgZoom(pane) {
+  pane.querySelectorAll('.mermaid').forEach(mermaidDiv => {
+    const svg = mermaidDiv.querySelector('svg');
+    if (!svg) return;
+    mermaidDiv.style.overflow = 'hidden';
+    mermaidDiv.style.cursor = 'grab';
+    mermaidDiv.style.position = 'relative';
+    mermaidDiv.style.height = '420px';
+    mermaidDiv.style.border = '1px solid var(--border)';
+    mermaidDiv.style.borderRadius = '8px';
+    mermaidDiv.style.marginBottom = '20px';
+    mermaidDiv.style.background = 'var(--surface)';
+    svg.style.transformOrigin = '0 0';
+    svg.style.position = 'absolute';
+    svg.style.top = '0';
+    svg.style.left = '0';
+    const hint = document.createElement('div');
+    hint.textContent = 'ホイール：ズーム　ドラッグ：移動　ダブルクリック：リセット';
+    hint.style.cssText = 'position:absolute;bottom:6px;right:8px;font-size:10px;color:var(--text-muted);pointer-events:none;z-index:10;';
+    mermaidDiv.appendChild(hint);
+    let scale = 1, tx = 0, ty = 0, dragging = false, sx, sy;
+    const apply = () => { svg.style.transform = `translate(${tx}px,${ty}px) scale(${scale})`; };
+    mermaidDiv.addEventListener('wheel', e => {
+      e.preventDefault();
+      scale = Math.max(0.1, Math.min(6, scale * (e.deltaY > 0 ? 0.85 : 1.15)));
+      apply();
+    }, { passive: false });
+    mermaidDiv.addEventListener('mousedown', e => {
+      dragging = true; sx = e.clientX - tx; sy = e.clientY - ty;
+      mermaidDiv.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mousemove', e => { if (dragging) { tx = e.clientX - sx; ty = e.clientY - sy; apply(); } });
+    window.addEventListener('mouseup', () => { dragging = false; mermaidDiv.style.cursor = 'grab'; });
+    mermaidDiv.addEventListener('dblclick', () => { scale = 1; tx = 0; ty = 0; apply(); });
+  });
+}
+
+function updatePreview() {
+  if (viewMode === 'edit') return;
+  const raw = monacoEditor?.getValue() ?? '';
+  const pane = document.getElementById('preview-pane');
+  const { fm, body } = parseFrontmatter(raw);
+  renderToPane(body, pane, fm);
 }
 
 // ── Article list ─────────────────────────────────────────────────────
@@ -527,6 +577,23 @@ async function loadArticles() {
   const res = await fetch('/api/articles');
   articles = await res.json();
   renderList(articles);
+}
+
+async function loadTechtree() {
+  const pane = document.getElementById('preview-pane');
+  const empty = document.getElementById('empty-state');
+  try {
+    const res = await fetch('/api/articles/notes/tech_tree.md');
+    if (!res.ok) throw new Error('tech_tree.md not found');
+    const { content } = await res.json();
+    empty.style.display = 'none';
+    pane.style.display = 'block';
+    renderToPane(content, pane).then(() => addSvgZoom(pane));
+  } catch (e) {
+    empty.style.display = 'none';
+    pane.style.display = 'block';
+    pane.innerHTML = `<p style="color:var(--text-muted)">技術ツリーを読み込めませんでした: ${e.message}</p>`;
+  }
 }
 
 function renderNotesList(query = '') {
@@ -1103,9 +1170,10 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
   tab.onclick = () => {
     sidebarMode = tab.dataset.panel;
     document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t === tab));
-    const isArticles = sidebarMode === 'articles';
-    const isGlossary = sidebarMode === 'glossary';
-    const isNotes    = sidebarMode === 'notes';
+    const isArticles  = sidebarMode === 'articles';
+    const isGlossary  = sidebarMode === 'glossary';
+    const isNotes     = sidebarMode === 'notes';
+    const isTechtree  = sidebarMode === 'techtree';
 
     document.getElementById('articles-search-bar').style.display = isArticles ? '' : 'none';
     document.getElementById('article-list').style.display        = isArticles ? '' : 'none';
@@ -1113,6 +1181,7 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
     document.getElementById('glossary-list').style.display       = isGlossary ? 'block' : 'none';
     document.getElementById('notes-search-bar').style.display    = isNotes    ? '' : 'none';
     document.getElementById('notes-list').style.display          = isNotes    ? 'block' : 'none';
+    document.getElementById('techtree-panel').style.display      = isTechtree ? 'block' : 'none';
 
     // タブ切り替え時は常にメインペインをリセット
     document.getElementById('glossary-form-area').classList.remove('active');
@@ -1134,6 +1203,9 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
       document.getElementById('notes-search').value = '';
       document.querySelector('.mode-tabs').style.display = 'none';
       renderNotesList();
+    } else if (isTechtree) {
+      document.querySelector('.mode-tabs').style.display = 'none';
+      loadTechtree();
     } else {
       // 記事モードに戻るときのリセット
       document.querySelector('.mode-tabs').style.display = '';
