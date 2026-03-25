@@ -32,6 +32,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [forbidden_zone_treaty.md](forbidden_zone_treaty.md) | 禁域条約——宇宙戦争を終わらせた二国消滅事件 | 2026-03-25 | 2026-03-25 |
 | [cosmic_myce_religion.md](cosmic_myce_religion.md) | コズミックマイスをめぐる信仰と社会 | 2026-03-25 | 2026-03-25 |
 | [economy_um_currency.md](economy_um_currency.md) | 世界観：UM通貨制度とエキゾチック物質単価 | 2026-03-25 | 2026-03-25 |
+| [cosmic_mice_godview_game.md](cosmic_mice_godview_game.md) | 世界観メモ：コズミックマイス惑星観測——ゴッドビューゲームとしてのWIIM | 2026-03-26 | 2026-03-26 |
 
 ---
 
