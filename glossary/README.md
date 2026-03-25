@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **177**
+用語数: **178**
 
 ---
 
@@ -42,6 +42,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g180 | [記憶](philosophy.md) | Memory | philosophy |
 | g179 | [カオス理論](mathematics.md) | Chaos Theory | mathematics |
 | g178 | [バタフライ効果](mathematics.md) | Butterfly Effect | mathematics |
 | g177 | [コルモゴロフ複雑性](mathematics.md) | Kolmogorov Complexity | mathematics |
@@ -51,7 +52,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g173 | [デコヒーレンス](physics.md) | Decoherence | physics |
 | g172 | [ランダウアー原理](physics.md) | Landauer's Principle | physics |
 | g171 | [ベッケンシュタイン限界](physics.md) | Bekenstein Bound | physics |
-| g170 | [両立論](philosophy.md) | Compatibilism | philosophy |
+
+
+
 
 
 
