@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **178**
+用語数: **186**
 
 ---
 
@@ -42,16 +42,20 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g188 | [シアノバクテリア](biology.md) | Cyanobacteria | biology |
+| g187 | [地衣類](biology.md) | Lichen | biology |
+| g186 | [ユニバース25](biology.md) | Universe 25 | biology |
+| g185 | [内共生説](biology.md) | Endosymbiotic Theory | biology |
+| g184 | [断続平衡説](biology.md) | Punctuated Equilibrium | biology |
+| g183 | [エピジェネティクス](biology.md) | Epigenetics | biology |
+| g182 | [利己的遺伝子](biology.md) | Selfish Gene | biology |
+| g181 | [自然選択](biology.md) | Natural Selection | biology |
 | g180 | [記憶](philosophy.md) | Memory | philosophy |
 | g179 | [カオス理論](mathematics.md) | Chaos Theory | mathematics |
-| g178 | [バタフライ効果](mathematics.md) | Butterfly Effect | mathematics |
-| g177 | [コルモゴロフ複雑性](mathematics.md) | Kolmogorov Complexity | mathematics |
-| g176 | [チューリングの停止問題](mathematics.md) | Halting Problem | mathematics |
-| g175 | [創発](philosophy.md) | Emergence | philosophy |
-| g174 | [固有時間](physics.md) | Proper Time | physics |
-| g173 | [デコヒーレンス](physics.md) | Decoherence | physics |
-| g172 | [ランダウアー原理](physics.md) | Landauer's Principle | physics |
-| g171 | [ベッケンシュタイン限界](physics.md) | Bekenstein Bound | physics |
+
+
+
+
 
 
 
