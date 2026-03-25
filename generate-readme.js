@@ -11,6 +11,15 @@ const DOCS_DIR  = path.join(ROOT, 'docs');
 const NOTES_DIR = path.join(ROOT, 'docs', 'notes');
 const TERMS_FILE = path.join(ROOT, 'glossary', 'data', 'terms.jsonl');
 
+// ── 日付フォーマット ──────────────────────────────────────────────────
+function fmtDate(d) {
+  const dt = new Date(d);
+  const y = dt.getFullYear();
+  const m = String(dt.getMonth() + 1).padStart(2, '0');
+  const day = String(dt.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
 // ── frontmatter パーサー ──────────────────────────────────────────────
 function parseFrontmatter(content) {
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -69,13 +78,20 @@ function collectNotes() {
   if (!fs.existsSync(NOTES_DIR)) return notes;
   for (const f of fs.readdirSync(NOTES_DIR)) {
     if (!f.endsWith('.md') || f === 'README.md') continue;
-    const content = fs.readFileSync(path.join(NOTES_DIR, f), 'utf-8');
+    const fullPath = path.join(NOTES_DIR, f);
+    const content = fs.readFileSync(fullPath, 'utf-8');
     const fm = parseFrontmatter(content);
     if (!fm.title) continue;
-    notes.push({ ...fm, file: f });
+    const stat = fs.statSync(fullPath);
+    notes.push({
+      ...fm,
+      file: f,
+      birthtime: stat.birthtime,
+      mtime: stat.mtime,
+    });
   }
-  // date でソート
-  notes.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  // ファイル作成日時（登録順）でソート
+  notes.sort((a, b) => a.birthtime - b.birthtime);
   return notes;
 }
 
@@ -175,12 +191,12 @@ function generateNotesReadme(notes) {
   if (supplements.length === 0) {
     lines.push('（なし）');
   } else {
-    lines.push('| ファイル | タイトル | 関連記事 | 日付 |');
-    lines.push('|---------|---------|---------|------|');
+    lines.push('| ファイル | タイトル | 関連記事 | 登録 | 更新 |');
+    lines.push('|---------|---------|---------|------|------|');
     for (const n of supplements) {
       const related = Array.isArray(n.related) ? n.related.join(', ') : (n.related || '—');
       const title = n.title.replace(/^補遺：/, '');
-      lines.push(`| [${n.file}](${n.file}) | ${title} | ${related || '—'} | ${n.date} |`);
+      lines.push(`| [${n.file}](${n.file}) | ${title} | ${related || '—'} | ${fmtDate(n.birthtime)} | ${fmtDate(n.mtime)} |`);
     }
   }
   lines.push('');
@@ -195,10 +211,10 @@ function generateNotesReadme(notes) {
   if (worldbuilding.length === 0) {
     lines.push('（なし）');
   } else {
-    lines.push('| ファイル | タイトル | 日付 |');
-    lines.push('|---------|---------|------|');
+    lines.push('| ファイル | タイトル | 登録 | 更新 |');
+    lines.push('|---------|---------|------|------|');
     for (const n of worldbuilding) {
-      lines.push(`| [${n.file}](${n.file}) | ${n.title} | ${n.date} |`);
+      lines.push(`| [${n.file}](${n.file}) | ${n.title} | ${fmtDate(n.birthtime)} | ${fmtDate(n.mtime)} |`);
     }
   }
   lines.push('');
@@ -211,10 +227,10 @@ function generateNotesReadme(notes) {
   if (techTree.length === 0) {
     lines.push('（なし）');
   } else {
-    lines.push('| ファイル | タイトル | 日付 |');
-    lines.push('|---------|---------|------|');
+    lines.push('| ファイル | タイトル | 登録 | 更新 |');
+    lines.push('|---------|---------|------|------|');
     for (const n of techTree) {
-      lines.push(`| [${n.file}](${n.file}) | ${n.title} | ${n.date} |`);
+      lines.push(`| [${n.file}](${n.file}) | ${n.title} | ${fmtDate(n.birthtime)} | ${fmtDate(n.mtime)} |`);
     }
   }
   lines.push('');

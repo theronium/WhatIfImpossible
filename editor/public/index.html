@@ -169,6 +169,7 @@
   .term-link:hover { background: rgba(125,211,252,0.12); border-bottom-color: #7dd3fc; color: #bae6fd; }
   #term-popup { position: fixed; z-index: 2000; background: #1a1d27; border: 1px solid #444;
     border-radius: 10px; padding: 14px 18px; max-width: 340px; min-width: 220px;
+    max-height: calc(100vh - 24px); overflow-y: auto;
     box-shadow: 0 8px 32px rgba(0,0,0,0.6); display: none; }
   #term-popup.visible { display: block; }
   #term-popup .tp-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
@@ -524,6 +525,20 @@ function renderToPane(body, pane, fm = null) {
 
   // 用語リンク化
   linkTermsInPreview(pane);
+
+  // .md リンクをインターセプトして記事間・補遺間ナビゲーションに変換
+  pane.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http')) return;
+    if (!href.endsWith('.md')) return;
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const base = currentPath ? `http://x/${currentPath}` : 'http://x/';
+      const resolved = new URL(href, base).pathname.replace(/^\//, '');
+      openArticle(resolved);
+    });
+  });
+
   return mermaidPromise;
 }
 
@@ -601,8 +616,9 @@ function renderNotesList(query = '') {
   el.innerHTML = '';
   const q = query.toLowerCase();
   const notes = articles
-    .filter(a => a.path.startsWith('notes/'))
-    .filter(a => !q || a.title.toLowerCase().includes(q));
+    .filter(a => a.path.startsWith('notes/') && a.path !== 'notes/README.md')
+    .filter(a => !q || a.title.toLowerCase().includes(q))
+    .sort((a, b) => (b.birthtime || 0) - (a.birthtime || 0));
   if (!notes.length) {
     el.innerHTML = `<div style="padding:12px 16px;font-size:12px;color:var(--text-muted);">補遺なし</div>`;
     return;
@@ -645,7 +661,7 @@ function renderList(list) {
 }
 
 // ── Open article ─────────────────────────────────────────────────────
-async function openArticle(relPath) {
+async function openArticle(relPath, { pushState = true } = {}) {
   const res = await fetch(`/api/articles/${relPath}`);
   if (!res.ok) { showToast('読み込み失敗', 'err'); return; }
   const { raw } = await res.json();
@@ -669,7 +685,13 @@ async function openArticle(relPath) {
   }
   renderList(articles);
   renderNotesList(document.getElementById('notes-search')?.value || '');
+  if (pushState) history.pushState({ path: relPath }, '', `#${relPath}`);
 }
+
+// ── ブラウザ進む・戻る ────────────────────────────────────────────────
+window.addEventListener('popstate', e => {
+  if (e.state?.path) openArticle(e.state.path, { pushState: false });
+});
 
 // ── Save ─────────────────────────────────────────────────────────────
 async function saveArticle() {
@@ -834,9 +856,19 @@ document.addEventListener('click', e => {
       setTimeout(() => viewTerm(t.id), 100);
     };
     const rect = link.getBoundingClientRect();
-    popup.style.top  = `${Math.min(rect.bottom + 6, window.innerHeight - 300)}px`;
-    popup.style.left = `${Math.min(rect.left, window.innerWidth - 360)}px`;
+    // いったん画面外に出してコンテンツ高さを測る
+    popup.style.top  = '-9999px';
+    popup.style.left = '-9999px';
     popup.classList.add('visible');
+    const ph = popup.offsetHeight;
+    const pw = popup.offsetWidth;
+    const spaceBelow = window.innerHeight - rect.bottom - 8;
+    const top = spaceBelow >= ph
+      ? rect.bottom + 6                          // 下に十分スペースあり
+      : Math.max(8, rect.top - ph - 6);          // 上に表示
+    const left = Math.min(rect.left, window.innerWidth - pw - 8);
+    popup.style.top  = `${top}px`;
+    popup.style.left = `${Math.max(8, left)}px`;
     e.stopPropagation();
     return;
   }
@@ -1303,7 +1335,10 @@ mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 (async () => {
   await loadCategories();
   await loadGlossaryTerms();  // 記事プレビューの用語リンクのために常にロード
-  loadArticles();
+  await loadArticles();
+  // ハッシュから記事を復元（リフレッシュ時・直リンク時）
+  const hash = location.hash.slice(1);
+  if (hash) openArticle(hash, { pushState: false });
 })();
 </script>
 

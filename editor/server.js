@@ -57,7 +57,10 @@ async function walkDocs(dir, base = '') {
       results.push(...children);
     } else if (entry.name.endsWith('.md')) {
       const fullPath = path.join(dir, entry.name);
-      const raw = await fs.readFile(fullPath, 'utf-8');
+      const [raw, stat] = await Promise.all([
+        fs.readFile(fullPath, 'utf-8'),
+        fs.stat(fullPath),
+      ]);
       const { data } = matter(raw);
       results.push({
         path: relPath,
@@ -65,6 +68,8 @@ async function walkDocs(dir, base = '') {
         id: data.id || null,
         category: data.category || (path.dirname(relPath) === '.' ? 'index' : path.dirname(relPath)),
         tags: data.tags || [],
+        birthtime: stat.birthtime.getTime(),
+        mtime: stat.mtime.getTime(),
       });
     }
   }
