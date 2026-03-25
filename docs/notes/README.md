@@ -17,6 +17,8 @@
 | [quantum_cheshire_field_twins.md](quantum_cheshire_field_twins.md) | 場から生まれた双子——粒子と力の統一的起源 | — | 2026-03-24 | 2026-03-24 |
 | [wiim_022_tactical.md](wiim_022_tactical.md) | アンキロンの戦術応用——計量バリケードの強度設計と反アンキロン除去 | wiim_022, wiim_035, wiim_010, wiim_013, wiim_023 | 2026-03-25 | 2026-03-25 |
 | [wiim_037_entropy_observation.md](wiim_037_entropy_observation.md) | エントロピー倍化による観測の非決定化——結果を増やせば観測を無効にできるか | wiim_037, wiim_038 | 2026-03-25 | 2026-03-25 |
+| [wiim_042_clone_consciousness.md](wiim_042_clone_consciousness.md) | クローン意識コピーのp-ゾンビ混入問題——Δφ再現率と意識転写の確率論 | wiim_042, wiim_013 | 2026-03-26 | 2026-03-26 |
+| [wiim_042_crime_coefficient.md](wiim_042_crime_coefficient.md) | クオリアなき者の犯罪係数——p-ゾンビ社会の秩序と倫理 | wiim_042, wiim_040, wiim_041 | 2026-03-26 | 2026-03-26 |
 
 ---
 
@@ -37,4 +39,4 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 
 | ファイル | タイトル | 登録 | 更新 |
 |---------|---------|------|------|
-| [tech_tree.md](tech_tree.md) | WhatIfImpossible 技術ツリー | 2026-03-25 | 2026-03-25 |
+| [tech_tree.md](tech_tree.md) | WhatIfImpossible 技術ツリー | 2026-03-26 | 2026-03-26 |
