@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **162**
+用語数: **177**
 
 ---
 
@@ -42,16 +42,36 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
-| g164 | [波動関数](physics.md) | Wave Function | physics |
-| g163 | [レトロン](wiim-concepts.md) | Retroon | wiim-concepts |
-| g162 | [多世界解釈](physics.md) | Many-Worlds Interpretation | physics |
-| g161 | [パラ粒子](wiim-concepts.md) | Para-particle | wiim-concepts |
-| g160 | [コズミックマイス菌糸誘導通信](wiim-concepts.md) | Cosmic Myce Mycelial Guided Communication | wiim-concepts |
-| g159 | [トートロジー](philosophy.md) | Tautology | philosophy |
-| g158 | [トポロジー](physics.md) | Topology | physics |
-| g157 | [エニオン](physics.md) | Anyon | physics |
-| g156 | [CP対称性](physics.md) | CP Symmetry | physics |
-| g155 | [ハッブル地平線](astronomy.md) | Hubble Sphere | astronomy |
+| g179 | [カオス理論](mathematics.md) | Chaos Theory | mathematics |
+| g178 | [バタフライ効果](mathematics.md) | Butterfly Effect | mathematics |
+| g177 | [コルモゴロフ複雑性](mathematics.md) | Kolmogorov Complexity | mathematics |
+| g176 | [チューリングの停止問題](mathematics.md) | Halting Problem | mathematics |
+| g175 | [創発](philosophy.md) | Emergence | philosophy |
+| g174 | [固有時間](physics.md) | Proper Time | physics |
+| g173 | [デコヒーレンス](physics.md) | Decoherence | physics |
+| g172 | [ランダウアー原理](physics.md) | Landauer's Principle | physics |
+| g171 | [ベッケンシュタイン限界](physics.md) | Bekenstein Bound | physics |
+| g170 | [両立論](philosophy.md) | Compatibilism | philosophy |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
