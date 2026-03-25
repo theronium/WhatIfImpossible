@@ -16,6 +16,7 @@
 | [wiim_023_strange_matter_warp.md](wiim_023_strange_matter_warp.md) | ストレンジ物質とワープドライブ——生成・採取・遠隔利用の可能性 | wiim_023, wiim_019 | 2026-03-24 | 2026-03-24 |
 | [quantum_cheshire_field_twins.md](quantum_cheshire_field_twins.md) | 場から生まれた双子——粒子と力の統一的起源 | — | 2026-03-24 | 2026-03-24 |
 | [wiim_022_tactical.md](wiim_022_tactical.md) | アンキロンの戦術応用——計量バリケードの強度設計と反アンキロン除去 | wiim_022, wiim_035, wiim_010, wiim_013, wiim_023 | 2026-03-25 | 2026-03-25 |
+| [wiim_037_entropy_observation.md](wiim_037_entropy_observation.md) | エントロピー倍化による観測の非決定化——結果を増やせば観測を無効にできるか | wiim_037, wiim_038 | 2026-03-25 | 2026-03-25 |
 
 ---
 

@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **159**
+用語数: **161**
 
 ---
 
@@ -42,6 +42,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g163 | [レトロン](wiim-concepts.md) | Retroon | wiim-concepts |
+| g162 | [多世界解釈](physics.md) | Many-Worlds Interpretation | physics |
 | g161 | [パラ粒子](wiim-concepts.md) | Para-particle | wiim-concepts |
 | g160 | [コズミックマイス菌糸誘導通信](wiim-concepts.md) | Cosmic Myce Mycelial Guided Communication | wiim-concepts |
 | g159 | [トートロジー](philosophy.md) | Tautology | philosophy |
@@ -50,8 +52,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g156 | [CP対称性](physics.md) | CP Symmetry | physics |
 | g155 | [ハッブル地平線](astronomy.md) | Hubble Sphere | astronomy |
 | g154 | [宙域資産権](wiim-concepts.md) | Spatial Domain Asset Rights | wiim-concepts |
-| g153 | [パラドックス粒子通信](wiim-concepts.md) | Paradox Particle Communication | wiim-concepts |
-| g152 | [ノーファペン](wiim-concepts.md) | No-P-Happen | wiim-concepts |
+
+
+
 
 
 
