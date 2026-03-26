@@ -41,6 +41,9 @@ if (duplicate) {
   process.exit(1);
 }
 
+const today = new Date();
+const dateStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+
 const term = {
   id: nextId,
   name: newTerm.name,
@@ -48,6 +51,7 @@ const term = {
   reading: newTerm.reading,
   category: newTerm.category,
   field: newTerm.field,
+  date: dateStr,
   related: newTerm.related || [],
   ...(newTerm.aliases && newTerm.aliases.length ? { aliases: newTerm.aliases } : {}),
   body: newTerm.body,

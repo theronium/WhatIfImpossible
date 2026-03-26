@@ -238,6 +238,70 @@ function generateNotesReadme(notes) {
   return lines.join('\n');
 }
 
+// ── docs/new.md 生成（日時順新着一覧）────────────────────────────────
+function generateChangelog(articles, notes, terms) {
+  const SHOW = 50;
+  const entries = [];
+
+  // 記事
+  for (const a of articles) {
+    if (!a.date) continue;
+    entries.push({
+      date: a.date,
+      type: '記事',
+      id: a.id,
+      title: a.title,
+      link: `${a.category}/${a.file}`,
+    });
+  }
+
+  // 補遺・ノート
+  for (const n of notes) {
+    entries.push({
+      date: fmtDate(n.birthtime),
+      type: '補遺',
+      id: '—',
+      title: n.title,
+      link: `notes/${n.file}`,
+    });
+  }
+
+  // 用語（date フィールドがあるもののみ）
+  for (const t of terms) {
+    if (!t.date) continue;
+    entries.push({
+      date: t.date,
+      type: '用語',
+      id: t.id,
+      title: t.en ? `${t.name}（${t.en}）` : t.name,
+      link: `../glossary/${t.category}.md`,
+    });
+  }
+
+  // 日付降順、同日は id 降順
+  entries.sort((a, b) => {
+    if (b.date !== a.date) return b.date.localeCompare(a.date);
+    return b.id.localeCompare(a.id);
+  });
+
+  const recent = entries.slice(0, SHOW);
+
+  const lines = [
+    '# 新着一覧',
+    '',
+    '記事・用語・補遺を追加日時順に表示します（最新 ' + SHOW + ' 件）。',
+    '',
+    '| 日付 | 種別 | ID | タイトル / 用語名 |',
+    '|------|------|-----|-----------------|',
+  ];
+  for (const e of recent) {
+    lines.push(`| ${e.date} | ${e.type} | ${e.id} | [${e.title}](${e.link}) |`);
+  }
+  lines.push('');
+
+  return lines.join('\n');
+}
+
 // ── README.md（ルート）の数値を更新 ──────────────────────────────────
 function updateRootReadme(articleCount, termCount) {
   const file = path.join(ROOT, 'README.md');
@@ -258,6 +322,11 @@ function main() {
   const notes    = collectNotes();
   const termCount = countTerms();
 
+  // 用語データ（changelog用）
+  const terms = fs.existsSync(TERMS_FILE)
+    ? fs.readFileSync(TERMS_FILE, 'utf-8').trim().split('\n').filter(Boolean).map(l => JSON.parse(l))
+    : [];
+
   // docs/README.md
   const docsReadme = generateDocsReadme(articles);
   fs.writeFileSync(path.join(DOCS_DIR, 'README.md'), docsReadme, 'utf-8');
@@ -267,6 +336,11 @@ function main() {
   const notesReadme = generateNotesReadme(notes);
   fs.writeFileSync(path.join(NOTES_DIR, 'README.md'), notesReadme, 'utf-8');
   console.log(`  docs/notes/README.md: ノート ${notes.length} 件`);
+
+  // docs/new.md（新着一覧）
+  const changelog = generateChangelog(articles, notes, terms);
+  fs.writeFileSync(path.join(DOCS_DIR, 'new.md'), changelog, 'utf-8');
+  console.log(`  docs/new.md: 新着一覧を生成`);
 
   // README.md（ルート）
   updateRootReadme(articles.length, termCount);

@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **198**
+用語数: **200**
 
 ---
 
@@ -42,6 +42,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g202 | [ド・ブロイ波](physics.md) | de Broglie Wave | physics |
+| g201 | [クオリア・シンセサイザー](wiim-concepts.md) | Qualia Synthesizer | wiim-concepts |
 | g200 | [ファジーダークマター](speculative.md) | fuzzy dark matter | speculative |
 | g199 | [クーパー対](physics.md) | Cooper pair | physics |
 | g198 | [マイスナー効果](physics.md) | Meissner effect | physics |
@@ -50,8 +52,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g195 | [テルモクラシス板](wiim-concepts.md) | Thermokrasis Plate | wiim-concepts |
 | g194 | [テルモスタシス板](wiim-concepts.md) | Thermostasis Plate | wiim-concepts |
 | g193 | [キルヒホッフの法則](physics.md) | Kirchhoff's laws | physics |
-| g192 | [暗黒線](astronomy.md) | absorption lines | astronomy |
-| g191 | [フラウンホーファー線](astronomy.md) | Fraunhofer lines | astronomy |
+
+
 
 
 
