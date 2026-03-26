@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **186**
+用語数: **198**
 
 ---
 
@@ -42,16 +42,30 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
-| g188 | [シアノバクテリア](biology.md) | Cyanobacteria | biology |
-| g187 | [地衣類](biology.md) | Lichen | biology |
-| g186 | [ユニバース25](biology.md) | Universe 25 | biology |
-| g185 | [内共生説](biology.md) | Endosymbiotic Theory | biology |
-| g184 | [断続平衡説](biology.md) | Punctuated Equilibrium | biology |
-| g183 | [エピジェネティクス](biology.md) | Epigenetics | biology |
-| g182 | [利己的遺伝子](biology.md) | Selfish Gene | biology |
-| g181 | [自然選択](biology.md) | Natural Selection | biology |
-| g180 | [記憶](philosophy.md) | Memory | philosophy |
-| g179 | [カオス理論](mathematics.md) | Chaos Theory | mathematics |
+| g200 | [ファジーダークマター](speculative.md) | fuzzy dark matter | speculative |
+| g199 | [クーパー対](physics.md) | Cooper pair | physics |
+| g198 | [マイスナー効果](physics.md) | Meissner effect | physics |
+| g197 | [超伝導](physics.md) | superconductivity | physics |
+| g196 | [ボース・アインシュタイン凝縮](physics.md) | Bose-Einstein Condensate | physics |
+| g195 | [テルモクラシス板](wiim-concepts.md) | Thermokrasis Plate | wiim-concepts |
+| g194 | [テルモスタシス板](wiim-concepts.md) | Thermostasis Plate | wiim-concepts |
+| g193 | [キルヒホッフの法則](physics.md) | Kirchhoff's laws | physics |
+| g192 | [暗黒線](astronomy.md) | absorption lines | astronomy |
+| g191 | [フラウンホーファー線](astronomy.md) | Fraunhofer lines | astronomy |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
