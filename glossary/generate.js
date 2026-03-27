@@ -94,6 +94,7 @@ function termToMarkdown(term, termIndex) {
   return [
     '---',
     '',
+    `<a id="${term.id}"></a>`,
     heading,
     '',
     `**読み**: ${term.reading}`,

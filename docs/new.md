@@ -5,7 +5,7 @@
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
 | 2026-03-27 | 記事 | wiim_047 | [双子のデウスエクスラプラス——ラプラスの悪魔が宇宙の内外に同時に存在するとき](philosophy/wiim_047.md) |
-| 2026-03-27 | 用語 | g204 | [ラプラスの悪魔（Laplace's Demon）](../glossary/philosophy.md) |
+| 2026-03-27 | 用語 | g204 | [ラプラスの悪魔（Laplace's Demon）](../glossary/philosophy.md#g204) |
 | 2026-03-27 | 補遺 | — | [補遺：外側のみのデウスエクスラプラス——完全な知識の完全な孤立](notes/wiim_047_outside_only.md) |
 | 2026-03-27 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-03-27 | 補遺 | — | [補遺：エントロピー倍化による観測の非決定化——結果を増やせば観測を無効にできるか](notes/wiim_037_entropy_observation.md) |
@@ -14,8 +14,8 @@
 | 2026-03-26 | 記事 | wiim_044 | [テルモスタシス船体——コーラ粒子格子素材による宇宙熱管理の限界](physics/wiim_044.md) |
 | 2026-03-26 | 記事 | wiim_043 | [宇宙ゴケ——地衣類とコズミックマイスの共生が生む自律型テラフォーミング艦](biology/wiim_043.md) |
 | 2026-03-26 | 記事 | wiim_042 | [クオリア検知機——波動関数の虚数項に意識の痕跡を探す](quantum/wiim_042.md) |
-| 2026-03-26 | 用語 | g203 | [侵害受容（Nociception）](../glossary/biology.md) |
-| 2026-03-26 | 用語 | g202 | [ド・ブロイ波（de Broglie Wave）](../glossary/physics.md) |
+| 2026-03-26 | 用語 | g203 | [侵害受容（Nociception）](../glossary/biology.md#g203) |
+| 2026-03-26 | 用語 | g202 | [ド・ブロイ波（de Broglie Wave）](../glossary/physics.md#g202) |
 | 2026-03-26 | 補遺 | — | [補遺：クローン意識コピーのp-ゾンビ混入問題——Δφ再現率と意識転写の確率論](notes/wiim_042_clone_consciousness.md) |
 | 2026-03-26 | 補遺 | — | [補遺：クオリアなき者の犯罪係数——p-ゾンビ社会の秩序と倫理](notes/wiim_042_crime_coefficient.md) |
 | 2026-03-26 | 補遺 | — | [世界観メモ：コズミックマイス惑星観測——ゴッドビューゲームとしてのWIIM](notes/cosmic_mice_godview_game.md) |

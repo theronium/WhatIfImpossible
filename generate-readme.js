@@ -274,7 +274,7 @@ function generateChangelog(articles, notes, terms) {
       type: '用語',
       id: t.id,
       title: t.en ? `${t.name}（${t.en}）` : t.name,
-      link: `../glossary/${t.category}.md`,
+      link: `../glossary/${t.category}.md#${t.id}`,
     });
   }
 
