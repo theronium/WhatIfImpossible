@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **202**
+用語数: **206**
 
 ---
 
@@ -42,16 +42,30 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g208 | [エリクサー・オブ・ライフ](sf-concepts.md) | Elixir of Life | sf-concepts |
+| g207 | [セントラルドグマ](biology.md) | Central Dogma of Molecular Biology | biology |
+| g206 | [カルマ](philosophy.md) | Karma | philosophy |
+| g205 | [ノビコフ自己整合性条件](physics.md) | Novikov Self-Consistency Principle | physics |
 | g204 | [ラプラスの悪魔](philosophy.md) | Laplace's Demon | philosophy |
 | g203 | [侵害受容](biology.md) | Nociception | biology |
 | g202 | [ド・ブロイ波](physics.md) | de Broglie Wave | physics |
 | g201 | [クオリア・シンセサイザー](wiim-concepts.md) | Qualia Synthesizer | wiim-concepts |
 | g200 | [ファジーダークマター](speculative.md) | fuzzy dark matter | speculative |
 | g199 | [クーパー対](physics.md) | Cooper pair | physics |
-| g198 | [マイスナー効果](physics.md) | Meissner effect | physics |
-| g197 | [超伝導](physics.md) | superconductivity | physics |
-| g196 | [ボース・アインシュタイン凝縮](physics.md) | Bose-Einstein Condensate | physics |
-| g195 | [テルモクラシス板](wiim-concepts.md) | Thermokrasis Plate | wiim-concepts |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

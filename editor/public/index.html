@@ -397,6 +397,16 @@ const FALLBACK_CATS = [
   { id: 'sf-concepts', label: 'SF概念',             color: '#fbbf24', bg: '#1a1f2e', sort: 7 },
 ];
 
+let _toastTimer = null;
+function showToast(msg, type = 'ok') {
+  const el = document.getElementById('toast');
+  if (!el) return;
+  clearTimeout(_toastTimer);
+  el.textContent = msg;
+  el.className = `show ${type}`;
+  _toastTimer = setTimeout(() => { el.className = ''; }, 2500);
+}
+
 async function loadCategories() {
   try {
     const res = await fetch('/api/glossary/categories');
@@ -422,9 +432,11 @@ function injectCatStyles() {
 function populateCatDropdown() {
   const sel = document.getElementById('gf-category');
   if (!sel) return;
+  const current = sel.value;
   sel.innerHTML = GLOSSARY_CATS.map(c =>
     `<option value="${c.id}">${c.id} — ${c.label}</option>`
   ).join('');
+  if (current) sel.value = current;
 }
 
 // ── Monaco ───────────────────────────────────────────────────────────
@@ -958,7 +970,8 @@ function renderGlossaryList(query = '') {
     !q ||
     t.name.toLowerCase().includes(q) ||
     t.reading.includes(q) ||
-    (t.en || '').toLowerCase().includes(q)
+    (t.en || '').toLowerCase().includes(q) ||
+    (t.aliases || []).some(a => a.toLowerCase().includes(q))
   );
 
   if (filtered.length === 0) {
@@ -1363,9 +1376,16 @@ mermaid.initialize({ startOnLoad: false, theme: 'dark' });
   await loadCategories();
   await loadGlossaryTerms();  // 記事プレビューの用語リンクのために常にロード
   await loadArticles();
-  // ハッシュから記事を復元（リフレッシュ時・直リンク時）
+  // ハッシュから状態を復元（リフレッシュ時・直リンク時）
   const hash = location.hash.slice(1);
-  if (hash) openArticle(hash, { pushState: false });
+  if (hash.startsWith('tab/')) {
+    switchToPanel(hash.slice(4), { pushState: false });
+  } else if (hash.startsWith('glossary/')) {
+    switchToPanel('glossary', { pushState: false });
+    viewTerm(hash.slice(9), { pushState: false });
+  } else if (hash) {
+    openArticle(hash, { pushState: false });
+  }
 })();
 </script>
 
