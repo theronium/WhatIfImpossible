@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **200**
+用語数: **202**
 
 ---
 
@@ -42,6 +42,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g204 | [ラプラスの悪魔](philosophy.md) | Laplace's Demon | philosophy |
+| g203 | [侵害受容](biology.md) | Nociception | biology |
 | g202 | [ド・ブロイ波](physics.md) | de Broglie Wave | physics |
 | g201 | [クオリア・シンセサイザー](wiim-concepts.md) | Qualia Synthesizer | wiim-concepts |
 | g200 | [ファジーダークマター](speculative.md) | fuzzy dark matter | speculative |
@@ -50,8 +52,17 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g197 | [超伝導](physics.md) | superconductivity | physics |
 | g196 | [ボース・アインシュタイン凝縮](physics.md) | Bose-Einstein Condensate | physics |
 | g195 | [テルモクラシス板](wiim-concepts.md) | Thermokrasis Plate | wiim-concepts |
-| g194 | [テルモスタシス板](wiim-concepts.md) | Thermostasis Plate | wiim-concepts |
-| g193 | [キルヒホッフの法則](physics.md) | Kirchhoff's laws | physics |
+
+
+
+
+
+
+
+
+
+
+
 
 
 
