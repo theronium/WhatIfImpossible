@@ -530,11 +530,19 @@ function renderToPane(body, pane, fm = null) {
   pane.querySelectorAll('a[href]').forEach(a => {
     const href = a.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('http')) return;
-    if (!href.endsWith('.md')) return;
+    const mdMatch = href.match(/^(.*\.md)(#(.*))?$/);
+    if (!mdMatch) return;
     a.addEventListener('click', e => {
       e.preventDefault();
+      const mdPath = mdMatch[1];
+      const anchor = mdMatch[3] || '';
+      // glossary リンク（../glossary/xxx.md#gXXX）→ viewTerm
+      if (mdPath.includes('glossary/') && /^g\d+$/.test(anchor)) {
+        viewTerm(anchor);
+        return;
+      }
       const base = currentPath ? `http://x/${currentPath}` : 'http://x/';
-      const resolved = new URL(href, base).pathname.replace(/^\//, '');
+      const resolved = new URL(mdPath, base).pathname.replace(/^\//, '');
       openArticle(resolved);
     });
   });
