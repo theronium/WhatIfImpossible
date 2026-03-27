@@ -538,6 +538,7 @@ function renderToPane(body, pane, fm = null) {
       const anchor = mdMatch[3] || '';
       // glossary リンク（../glossary/xxx.md#gXXX）→ viewTerm
       if (mdPath.includes('glossary/') && /^g\d+$/.test(anchor)) {
+        history.pushState({ termId: anchor }, '', `#glossary/${anchor}`);
         viewTerm(anchor);
         return;
       }
@@ -699,6 +700,7 @@ async function openArticle(relPath, { pushState = true } = {}) {
 // ── ブラウザ進む・戻る ────────────────────────────────────────────────
 window.addEventListener('popstate', e => {
   if (e.state?.path) openArticle(e.state.path, { pushState: false });
+  else if (e.state?.termId) viewTerm(e.state.termId);
 });
 
 // ── Save ─────────────────────────────────────────────────────────────
