@@ -538,7 +538,6 @@ function renderToPane(body, pane, fm = null) {
       const anchor = mdMatch[3] || '';
       // glossary リンク（../glossary/xxx.md#gXXX）→ viewTerm
       if (mdPath.includes('glossary/') && /^g\d+$/.test(anchor)) {
-        history.pushState({ termId: anchor }, '', `#glossary/${anchor}`);
         viewTerm(anchor);
         return;
       }
@@ -699,8 +698,15 @@ async function openArticle(relPath, { pushState = true } = {}) {
 
 // ── ブラウザ進む・戻る ────────────────────────────────────────────────
 window.addEventListener('popstate', e => {
-  if (e.state?.path) openArticle(e.state.path, { pushState: false });
-  else if (e.state?.termId) viewTerm(e.state.termId);
+  if (e.state?.path) {
+    restorePanel('articles');
+    openArticle(e.state.path, { pushState: false });
+  } else if (e.state?.termId) {
+    restorePanel('glossary');
+    viewTerm(e.state.termId, { pushState: false });
+  } else if (e.state?.panel) {
+    switchToPanel(e.state.panel, { pushState: false });
+  }
 });
 
 // ── Save ─────────────────────────────────────────────────────────────
@@ -1036,10 +1042,11 @@ function renderGlossaryList(query = '') {
 }
 
 // ── 用語閲覧（プレビュー）────────────────────────────────────────────
-function viewTerm(id) {
+function viewTerm(id, { pushState = true } = {}) {
   const term = glossaryTerms.find(t => t.id === id);
   if (!term) return;
   viewingTermId = id;
+  if (pushState) history.pushState({ termId: id }, '', `#glossary/${id}`);
   currentTermId = null;
 
   // フォームを隠してエディタペインを表示
@@ -1079,7 +1086,7 @@ function viewTerm(id) {
 
   // tv-body内のリンク（#gXXX）をクリックで用語遷移
   document.querySelector('.tv-body').querySelectorAll('a[href^="#g"]').forEach(a => {
-    a.onclick = (e) => { e.preventDefault(); viewTerm(a.getAttribute('href').slice(1)); };
+    a.onclick = (e) => { e.preventDefault(); viewTerm(a.getAttribute('href').slice(1), { pushState: true }); };
   });
 
   // プレビューモード
@@ -1208,24 +1215,34 @@ document.getElementById('btn-delete-term').onclick = deleteTerm;
 document.getElementById('btn-new-term').onclick    = openNewTerm;
 
 // ── Sidebar toggle ────────────────────────────────────────────────────
-document.querySelectorAll('.sidebar-tab').forEach(tab => {
-  tab.onclick = () => {
-    sidebarMode = tab.dataset.panel;
-    document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t === tab));
-    const isArticles  = sidebarMode === 'articles';
-    const isGlossary  = sidebarMode === 'glossary';
-    const isNotes     = sidebarMode === 'notes';
-    const isTechtree  = sidebarMode === 'techtree';
+// サイドバーのタブ・パネル表示のみ切り替え（コンテンツペイン非破壊）
+function restorePanel(panel) {
+  sidebarMode = panel;
+  document.querySelectorAll('.sidebar-tab').forEach(t =>
+    t.classList.toggle('active', t.dataset.panel === panel)
+  );
+  const isArticles = panel === 'articles';
+  const isGlossary = panel === 'glossary';
+  const isNotes    = panel === 'notes';
+  const isTechtree = panel === 'techtree';
+  document.getElementById('articles-search-bar').style.display = isArticles ? '' : 'none';
+  document.getElementById('article-list').style.display        = isArticles ? '' : 'none';
+  document.getElementById('glossary-search-bar').style.display = isGlossary ? '' : 'none';
+  document.getElementById('glossary-list').style.display       = isGlossary ? 'block' : 'none';
+  document.getElementById('notes-search-bar').style.display    = isNotes    ? '' : 'none';
+  document.getElementById('notes-list').style.display          = isNotes    ? 'block' : 'none';
+  document.getElementById('techtree-panel').style.display      = isTechtree ? 'block' : 'none';
+  document.querySelector('.mode-tabs').style.display = isArticles ? '' : 'none';
+}
 
-    document.getElementById('articles-search-bar').style.display = isArticles ? '' : 'none';
-    document.getElementById('article-list').style.display        = isArticles ? '' : 'none';
-    document.getElementById('glossary-search-bar').style.display = isGlossary ? '' : 'none';
-    document.getElementById('glossary-list').style.display       = isGlossary ? 'block' : 'none';
-    document.getElementById('notes-search-bar').style.display    = isNotes    ? '' : 'none';
-    document.getElementById('notes-list').style.display          = isNotes    ? 'block' : 'none';
-    document.getElementById('techtree-panel').style.display      = isTechtree ? 'block' : 'none';
+// タブクリック：コンテンツリセット＋history push
+function switchToPanel(panel, { pushState = true } = {}) {
+  restorePanel(panel);
+  const isGlossary = panel === 'glossary';
+  const isNotes    = panel === 'notes';
+  const isTechtree = panel === 'techtree';
 
-    // タブ切り替え時は常にメインペインをリセット
+  if (pushState) {
     document.getElementById('glossary-form-area').classList.remove('active');
     document.getElementById('preview-pane').innerHTML = '';
     document.getElementById('preview-pane').style.display = 'none';
@@ -1237,22 +1254,22 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
     currentPath = null;
     currentTermId = null;
     viewingTermId = null;
+    history.pushState({ panel }, '', `#tab/${panel}`);
+  }
 
-    if (isGlossary) {
-      loadGlossaryTerms();
-      document.getElementById('glossary-search').value = '';
-    } else if (isNotes) {
-      document.getElementById('notes-search').value = '';
-      document.querySelector('.mode-tabs').style.display = 'none';
-      renderNotesList();
-    } else if (isTechtree) {
-      document.querySelector('.mode-tabs').style.display = 'none';
-      loadTechtree();
-    } else {
-      // 記事モードに戻るときのリセット
-      document.querySelector('.mode-tabs').style.display = '';
-    }
-  };
+  if (isGlossary) {
+    loadGlossaryTerms();
+    if (pushState) document.getElementById('glossary-search').value = '';
+  } else if (isNotes) {
+    if (pushState) document.getElementById('notes-search').value = '';
+    renderNotesList();
+  } else if (isTechtree) {
+    loadTechtree();
+  }
+}
+
+document.querySelectorAll('.sidebar-tab').forEach(tab => {
+  tab.onclick = () => switchToPanel(tab.dataset.panel);
 });
 
 // ── Refresh ───────────────────────────────────────────────────────────
