@@ -20,6 +20,7 @@
 | [wiim_042_crime_coefficient.md](wiim_042_crime_coefficient.md) | クオリアなき者の犯罪係数——p-ゾンビ社会の秩序と倫理 | wiim_042, wiim_040, wiim_041 | 2026-03-26 | 2026-03-26 |
 | [wiim_047_outside_only.md](wiim_047_outside_only.md) | 外側のみのデウスエクスラプラス——完全な知識の完全な孤立 | wiim_047 | 2026-03-27 | 2026-03-27 |
 | [wiim_037_entropy_observation.md](wiim_037_entropy_observation.md) | エントロピー倍化による観測の非決定化——結果を増やせば観測を無効にできるか | wiim_037, wiim_038 | 2026-03-27 | 2026-03-27 |
+| [wiim_054_simulator.md](wiim_054_simulator.md) | シミュレータの内側ではカオスの創発文法は自明になる | wiim_054 | 2026-03-28 | 2026-03-28 |
 
 ---
 

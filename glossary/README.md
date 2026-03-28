@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **211**
+用語数: **214**
 
 ---
 
@@ -42,6 +42,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g216 | [カオスの創発文法](wiim-concepts.md) | Emergent Grammar of Chaos | wiim-concepts |
+| g215 | [秩序パラメータ](physics.md) | Order Parameter | physics |
+| g214 | [リャプノフ指数](physics.md) | Lyapunov Exponent | physics |
 | g213 | [磁気モノポール](speculative.md) | Magnetic Monopole | speculative |
 | g212 | [Qボール](speculative.md) | Q-ball | speculative |
 | g211 | [ソリトン](physics.md) | Soliton | physics |
@@ -49,9 +52,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g209 | [パラポジ粒子](wiim-concepts.md) | Parapositive Particle | wiim-concepts |
 | g208 | [エリクサー・オブ・ライフ](sf-concepts.md) | Elixir of Life | sf-concepts |
 | g207 | [セントラルドグマ](biology.md) | Central Dogma of Molecular Biology | biology |
-| g206 | [カルマ](philosophy.md) | Karma | philosophy |
-| g205 | [ノビコフ自己整合性条件](physics.md) | Novikov Self-Consistency Principle | physics |
-| g204 | [ラプラスの悪魔](philosophy.md) | Laplace's Demon | philosophy |
+
+
+
 
 
 
