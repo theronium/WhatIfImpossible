@@ -45,4 +45,6 @@
 
 ---
 
+ローカル閲覧・編集 → **[editor/](editor/)** を起動すると記事リンクや用語を1件ずつ快適に表示できます（[起動方法](DEVELOPMENT.md)）
+
 開発者・執筆者向け情報 → [DEVELOPMENT.md](DEVELOPMENT.md)
