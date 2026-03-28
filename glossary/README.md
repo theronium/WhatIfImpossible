@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **208**
+用語数: **211**
 
 ---
 
@@ -42,6 +42,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g213 | [磁気モノポール](speculative.md) | Magnetic Monopole | speculative |
+| g212 | [Qボール](speculative.md) | Q-ball | speculative |
+| g211 | [ソリトン](physics.md) | Soliton | physics |
 | g210 | [カオスの悪魔](physics.md) | Chaos Demon | physics |
 | g209 | [パラポジ粒子](wiim-concepts.md) | Parapositive Particle | wiim-concepts |
 | g208 | [エリクサー・オブ・ライフ](sf-concepts.md) | Elixir of Life | sf-concepts |
@@ -49,9 +52,10 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g206 | [カルマ](philosophy.md) | Karma | philosophy |
 | g205 | [ノビコフ自己整合性条件](physics.md) | Novikov Self-Consistency Principle | physics |
 | g204 | [ラプラスの悪魔](philosophy.md) | Laplace's Demon | philosophy |
-| g203 | [侵害受容](biology.md) | Nociception | biology |
-| g202 | [ド・ブロイ波](physics.md) | de Broglie Wave | physics |
-| g201 | [クオリア・シンセサイザー](wiim-concepts.md) | Qualia Synthesizer | wiim-concepts |
+
+
+
+
 
 
 

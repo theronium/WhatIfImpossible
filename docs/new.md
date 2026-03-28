@@ -4,9 +4,13 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-03-28 | 記事 | wiim_053 | [粒子に個性を持たせることができるか——量子的同一性とトポロジカル粒子の標識問題](quantum/wiim_053.md) |
 | 2026-03-28 | 記事 | wiim_052 | [カオスを制御するカオスの悪魔の方程式——確率的粒子誘導と対消滅工学の限界](physics/wiim_052.md) |
 | 2026-03-28 | 記事 | wiim_051 | [パラポジ粒子との衝突——量子数の幽霊状態は何をもたらすか](physics/wiim_051.md) |
 | 2026-03-28 | 記事 | wiim_050 | [目に見えるほど大きな粒子を生成できるか——量子デコヒーレンスとマクロ量子状態の限界](quantum/wiim_050.md) |
+| 2026-03-28 | 用語 | g213 | [磁気モノポール（Magnetic Monopole）](../glossary/speculative.md#g213) |
+| 2026-03-28 | 用語 | g212 | [Qボール（Q-ball）](../glossary/speculative.md#g212) |
+| 2026-03-28 | 用語 | g211 | [ソリトン（Soliton）](../glossary/physics.md#g211) |
 | 2026-03-28 | 用語 | g210 | [カオスの悪魔（Chaos Demon）](../glossary/physics.md#g210) |
 | 2026-03-28 | 用語 | g209 | [パラポジ粒子（Parapositive Particle）](../glossary/wiim-concepts.md#g209) |
 | 2026-03-28 | 用語 | g207 | [セントラルドグマ（Central Dogma of Molecular Biology）](../glossary/biology.md#g207) |
@@ -50,7 +54,3 @@
 | 2026-03-24 | 記事 | wiim_030 | [パラドックス粒子——エキゾチック物質の反動が生む因果矛盾の自動解消](physics/wiim_030.md) |
 | 2026-03-24 | 記事 | wiim_029 | [コーラ粒子通信——ストレンジスターの重力勾配による余剰次元誘導](physics/wiim_029.md) |
 | 2026-03-24 | 記事 | wiim_028 | [重力子と光子の二重搬送FTL通信——エキゾチック物質チャネルによる宇宙際通信](cosmology/wiim_028.md) |
-| 2026-03-24 | 補遺 | — | [補遺：ストレンジ物質とワープドライブ——生成・採取・遠隔利用の可能性](notes/wiim_023_strange_matter_warp.md) |
-| 2026-03-24 | 補遺 | — | [補遺：場から生まれた双子——粒子と力の統一的起源](notes/quantum_cheshire_field_twins.md) |
-| 2026-03-24 | 補遺 | — | [WhatIfImpossible 政治体制メモ](notes/political_structure.md) |
-| 2026-03-23 | 記事 | wiim_027 | [ストレンジスター・ワープゲート——重力チューニングによる固定式時空歪曲点](physics/wiim_027.md) |
