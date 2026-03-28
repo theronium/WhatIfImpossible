@@ -48,10 +48,11 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g213 | [磁気モノポール](speculative.md) | Magnetic Monopole | speculative |
 | g212 | [Qボール](speculative.md) | Q-ball | speculative |
 | g211 | [ソリトン](physics.md) | Soliton | physics |
-| g210 | [カオスの悪魔](physics.md) | Chaos Demon | physics |
+| g210 | [カオスの悪魔](wiim-concepts.md) | Chaos Demon | wiim-concepts |
 | g209 | [パラポジ粒子](wiim-concepts.md) | Parapositive Particle | wiim-concepts |
 | g208 | [エリクサー・オブ・ライフ](sf-concepts.md) | Elixir of Life | sf-concepts |
 | g207 | [セントラルドグマ](biology.md) | Central Dogma of Molecular Biology | biology |
+
 
 
 

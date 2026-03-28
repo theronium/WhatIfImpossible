@@ -14,7 +14,6 @@
 | 2026-03-28 | 用語 | g213 | [磁気モノポール（Magnetic Monopole）](../glossary/speculative.md#g213) |
 | 2026-03-28 | 用語 | g212 | [Qボール（Q-ball）](../glossary/speculative.md#g212) |
 | 2026-03-28 | 用語 | g211 | [ソリトン（Soliton）](../glossary/physics.md#g211) |
-| 2026-03-28 | 用語 | g210 | [カオスの悪魔（Chaos Demon）](../glossary/physics.md#g210) |
 | 2026-03-28 | 用語 | g209 | [パラポジ粒子（Parapositive Particle）](../glossary/wiim-concepts.md#g209) |
 | 2026-03-28 | 用語 | g207 | [セントラルドグマ（Central Dogma of Molecular Biology）](../glossary/biology.md#g207) |
 | 2026-03-28 | 用語 | g206 | [カルマ（Karma）](../glossary/philosophy.md#g206) |
@@ -54,3 +53,4 @@
 | 2026-03-25 | 補遺 | — | [世界観：UM通貨制度とエキゾチック物質単価](notes/economy_um_currency.md) |
 | 2026-03-24 | 記事 | wiim_033 | [コズミックマイス菌糸誘導通信——生きたネットワークが宇宙をつなぐFTLインフラ](biology/wiim_033.md) |
 | 2026-03-24 | 記事 | wiim_032 | [コーラバブルワープ——コーラ粒子場に包まれた船が余剰次元を跳躍する](physics/wiim_032.md) |
+| 2026-03-24 | 記事 | wiim_031 | [真空非対称牽引ビーム——誘導重力が正しければカシミール効果はトラクタービームになる](physics/wiim_031.md) |
