@@ -109,3 +109,5 @@ flowchart LR
 - [wiim_039](quantum/wiim_039.md) 量子永久機関——真空エネルギーの搾取
 - [wiim_044](physics/wiim_044.md) テルモスタシス船体——拒絶型の宇宙応用
 - [wiim_015](physics/wiim_015.md) エントロピーが減少する宇宙
+- [wiim_049](wiim_049.md) — 時間遡行は可能か——素粒子物理からWIIM粒子まで、遡行の条件と限界
+

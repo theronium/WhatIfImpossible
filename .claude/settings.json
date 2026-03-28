@@ -10,7 +10,9 @@
       "Bash(node glossary/generate.js)",
       "Bash(ls d:/Repos/WhatIfImpossible/*.md)",
       "Bash(node glossary/add-term.js)",
-      "Bash(node glossary/update-term.js)"
+      "Bash(node glossary/update-term.js)",
+      "Bash(node scan-related.js --dry-run)",
+      "Bash(node scan-related.js)"
     ]
   }
 }
