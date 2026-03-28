@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **215**
+用語数: **216**
 
 ---
 
@@ -42,6 +42,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g218 | [ダークエネルギー](speculative.md) | Dark Energy | speculative |
 | g217 | [マヨラナ粒子](physics.md) | Majorana Fermion | physics |
 | g216 | [カオスの創発文法](wiim-concepts.md) | Emergent Grammar of Chaos | wiim-concepts |
 | g215 | [秩序パラメータ](physics.md) | Order Parameter | physics |
@@ -51,7 +52,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g211 | [ソリトン](physics.md) | Soliton | physics |
 | g210 | [カオスの悪魔](wiim-concepts.md) | Chaos Demon | wiim-concepts |
 | g209 | [パラポジ粒子](wiim-concepts.md) | Parapositive Particle | wiim-concepts |
-| g208 | [エリクサー・オブ・ライフ](sf-concepts.md) | Elixir of Life | sf-concepts |
+
 
 
 
