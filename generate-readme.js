@@ -303,15 +303,17 @@ function generateChangelog(articles, notes, terms) {
 }
 
 // ── README.md（ルート）の数値を更新 ──────────────────────────────────
-function updateRootReadme(articleCount, termCount) {
+function updateRootReadme(articleCount, termCount, noteCount) {
   const file = path.join(ROOT, 'README.md');
   let content = fs.readFileSync(file, 'utf-8');
-  // 「現在 N 本」を更新
+  // 「現在 N 本」を更新（記事数）
   content = content.replace(/現在 \d+ 本/, `現在 ${articleCount} 本`);
-  // 「現在 N 件」を更新
+  // 「現在 N 件」を更新（用語数）
   content = content.replace(/現在 \d+ 件/, `現在 ${termCount} 件`);
+  // 「補遺 N 件」を更新（補遺・ノート数）
+  content = content.replace(/補遺 \d+ 件/, `補遺 ${noteCount} 件`);
   fs.writeFileSync(file, content, 'utf-8');
-  console.log(`  README.md: 記事 ${articleCount} 本 / 用語 ${termCount} 件`);
+  console.log(`  README.md: 記事 ${articleCount} 本 / 用語 ${termCount} 件 / 補遺 ${noteCount} 件`);
 }
 
 // ── メイン ────────────────────────────────────────────────────────────
@@ -343,7 +345,7 @@ function main() {
   console.log(`  docs/new.md: 新着一覧を生成`);
 
   // README.md（ルート）
-  updateRootReadme(articles.length, termCount);
+  updateRootReadme(articles.length, termCount, notes.length);
 
   console.log('generate-readme: 完了');
 }
