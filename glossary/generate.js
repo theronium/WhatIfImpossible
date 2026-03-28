@@ -10,14 +10,23 @@ const GLOSSARY_DIR = __dirname;
 const DATA_FILE    = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
 const CATEGORIES_FILE = path.join(GLOSSARY_DIR, 'categories.json');
 
-// 記事 ID → docs サブフォルダのマッピング
-const articleFolders = {
-  wiim_001: 'cosmology', wiim_002: 'cosmology', wiim_003: 'physics',
-  wiim_004: 'cosmology', wiim_005: 'cosmology', wiim_006: 'biology',
-  wiim_007: 'quantum',   wiim_008: 'biology',   wiim_009: 'cosmology',
-  wiim_010: 'physics',   wiim_011: 'physics',   wiim_012: 'physics',
-  wiim_013: 'physics',   wiim_014: 'physics',   wiim_015: 'physics',
-};
+// docs/ を動的スキャンして 記事 ID → サブフォルダ のマップを構築
+function buildArticleFolders() {
+  const docsDir = path.join(GLOSSARY_DIR, '..', 'docs');
+  const map = {};
+  if (!fs.existsSync(docsDir)) return map;
+  for (const sub of fs.readdirSync(docsDir)) {
+    const subPath = path.join(docsDir, sub);
+    if (!fs.statSync(subPath).isDirectory()) continue;
+    for (const file of fs.readdirSync(subPath)) {
+      const m = file.match(/^(wiim_\d+)\.md$/);
+      if (m) map[m[1]] = sub;
+    }
+  }
+  return map;
+}
+
+const articleFolders = buildArticleFolders();
 
 const rawCats = JSON.parse(fs.readFileSync(CATEGORIES_FILE, 'utf-8'));
 const categories = rawCats
@@ -49,6 +58,23 @@ function autoLinkBody(body, selfId, termIndex) {
   let result = body;
   const linked = new Set();
 
+  // 既存マークダウンリンクを保護（二重リンク防止）
+  result = result.replace(/\[([^\]]+)\]\([^)]+\)/g, match => {
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(match);
+    return ph;
+  });
+
+  // wiim_XXX を記事リンクに変換
+  result = result.replace(/\bwiim_\d+\b/g, id => {
+    const folder = articleFolders[id];
+    if (!folder) return id;
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(`[${id}](../docs/${folder}/${id}.md)`);
+    return ph;
+  });
+
+  // 用語名を用語集リンクに変換
   for (const { name, id, category } of termIndex) {
     if (id === selfId) continue;
     if (linked.has(id)) continue;
@@ -70,17 +96,24 @@ function autoLinkBody(body, selfId, termIndex) {
   return result;
 }
 
-function buildRelatedStr(related) {
+function buildRelatedStr(related, termMap) {
   if (!related || related.length === 0) return '—';
   return related
     .map(id => {
+      // wiim_XXX → docs リンク
       const folder = articleFolders[id];
-      return folder ? `[${id}](../docs/${folder}/${id}.md)` : id;
+      if (folder) return `[${id}](../docs/${folder}/${id}.md)`;
+      // gXXX → 用語集リンク
+      if (termMap && termMap[id]) {
+        const { name, category } = termMap[id];
+        return `[${name}](${category}.md#${id})`;
+      }
+      return id;
     })
     .join(', ');
 }
 
-function termToMarkdown(term, termIndex) {
+function termToMarkdown(term, termIndex, termMap) {
   const heading = term.en
     ? `## ${term.name}（${term.en}）`
     : `## ${term.name}`;
@@ -100,7 +133,7 @@ function termToMarkdown(term, termIndex) {
     `**読み**: ${term.reading}`,
     ...(aliasLine ? [aliasLine] : []),
     `**分野**: ${term.field}`,
-    `**関連記事**: ${buildRelatedStr(term.related)}`,
+    `**関連記事**: ${buildRelatedStr(term.related, termMap)}`,
     '',
     linkedBody,
   ].join('\n');
@@ -117,6 +150,11 @@ const terms = fs.readFileSync(DATA_FILE, 'utf8')
   .map(l => JSON.parse(l));
 
 const termIndex = buildTermIndex(terms);
+
+// gXXX → { name, category } のマップ（関連記事リンク用）
+const termMap = {};
+for (const t of terms) termMap[t.id] = { name: t.name, category: t.category };
+
 let totalCount = 0;
 
 for (const cat of categories) {
@@ -126,7 +164,7 @@ for (const cat of categories) {
 
   totalCount += catTerms.length;
 
-  const body = catTerms.map(t => termToMarkdown(t, termIndex)).join('\n\n');
+  const body = catTerms.map(t => termToMarkdown(t, termIndex, termMap)).join('\n\n');
   const content = cat.title + '\n\n' + body + '\n';
 
   fs.writeFileSync(path.join(GLOSSARY_DIR, cat.file), content);

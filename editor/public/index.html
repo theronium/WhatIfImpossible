@@ -165,6 +165,8 @@
   .tv-body { line-height: 1.8; margin-top: 4px; }
   .tv-body a { color: #7dd3fc; text-decoration: none; border-bottom: 1px solid #3b82f680; }
   .tv-body a:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
+  .tv-meta a.rel-link { color: #7dd3fc; text-decoration: none; border-bottom: 1px solid #3b82f680; }
+  .tv-meta a.rel-link:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
 
   /* ── Article term links & popup ── */
   .term-link { border-bottom: 1px dashed #7dd3fc88; cursor: pointer; color: #93c5fd; }
@@ -933,6 +935,20 @@ function autoLinkBodyEditor(body, selfId) {
   let result = body;
   const linked = new Set();
 
+  // 既存マークダウンリンクを保護（二重リンク防止）
+  result = result.replace(/\[([^\]]+)\]\([^)]+\)/g, match => {
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(match);
+    return ph;
+  });
+
+  // wiim_XXX を記事リンクに変換
+  result = result.replace(/\bwiim_\d+\b/g, id => {
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(`[${id}](#${id})`);
+    return ph;
+  });
+
   for (const t of index) {
     if (t.id === selfId) continue;
     if (linked.has(t.id)) continue;
@@ -948,6 +964,24 @@ function autoLinkBodyEditor(body, selfId) {
     result = result.replace(`\x00${i}\x00`, placeholders[i]);
   }
   return result;
+}
+
+// ── 関連記事フィールドのHTML生成 ────────────────────────────────────
+function buildRelatedHtml(related) {
+  if (!related || related.length === 0) return '—';
+  return related.map(id => {
+    if (/^g\d+$/.test(id)) {
+      const t = glossaryTerms.find(t => t.id === id);
+      const label = t ? t.name : id;
+      return `<a href="#" class="rel-link" data-rel-type="term" data-rel-id="${id}">${label}</a>`;
+    }
+    if (/^wiim_\d+$/.test(id)) {
+      const a = articles.find(a => a.id === id);
+      if (a) return `<a href="#" class="rel-link" data-rel-type="article" data-rel-path="${a.path}">${id}</a>`;
+      return `<span>${id}</span>`;
+    }
+    return `<span>${id}</span>`;
+  }).join(', ');
 }
 
 // ── Notes Search ──────────────────────────────────────────────────────
@@ -1087,7 +1121,7 @@ function viewTerm(id, { pushState = true } = {}) {
   document.getElementById('file-path').textContent = `${term.id}  ${term.name}${term.en ? '（' + term.en + '）' : ''}`;
 
   // プレビューペインに直接レンダリング
-  const related = (term.related || []).length > 0 ? term.related.join(', ') : '—';
+  const relatedHtml = buildRelatedHtml(term.related);
   const aliases = (term.aliases || []).length > 0 ? term.aliases.join(' / ') : null;
   const linkedBody = autoLinkBodyEditor(term.body || '', term.id);
   const mdBody = md.render(linkedBody);
@@ -1103,14 +1137,32 @@ function viewTerm(id, { pushState = true } = {}) {
       <div class="tv-meta" style="margin-top:4px">
         <span>読み: ${term.reading}</span>
         ${aliases ? `<span>別名: ${aliases}</span>` : ''}
-        <span>関連: ${related}</span>
+        <span>関連: ${relatedHtml}</span>
       </div>
     </div>
     <div class="tv-body">${mdBody}</div>`;
 
-  // tv-body内のリンク（#gXXX）をクリックで用語遷移
-  document.querySelector('.tv-body').querySelectorAll('a[href^="#g"]').forEach(a => {
-    a.onclick = (e) => { e.preventDefault(); viewTerm(a.getAttribute('href').slice(1), { pushState: true }); };
+  // 関連フィールドのリンク
+  document.getElementById('preview-pane').querySelectorAll('a.rel-link').forEach(a => {
+    a.onclick = (e) => {
+      e.preventDefault();
+      if (a.dataset.relType === 'term') viewTerm(a.dataset.relId, { pushState: true });
+      else if (a.dataset.relType === 'article') openArticle(a.dataset.relPath);
+    };
+  });
+
+  // tv-body内のリンク（#gXXX → 用語遷移、#wiim_XXX → 記事を開く）
+  document.querySelector('.tv-body').querySelectorAll('a[href^="#"]').forEach(a => {
+    const href = a.getAttribute('href').slice(1);
+    a.onclick = (e) => {
+      e.preventDefault();
+      if (/^g\d+$/.test(href)) {
+        viewTerm(href, { pushState: true });
+      } else if (/^wiim_\d+$/.test(href)) {
+        const art = articles.find(a => a.id === href);
+        if (art) openArticle(art.path);
+      }
+    };
   });
 
   // プレビューモード
