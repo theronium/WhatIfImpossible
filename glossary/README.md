@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **206**
+用語数: **208**
 
 ---
 
@@ -42,6 +42,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g210 | [カオスの悪魔](physics.md) | Chaos Demon | physics |
+| g209 | [パラポジ粒子](wiim-concepts.md) | Parapositive Particle | wiim-concepts |
 | g208 | [エリクサー・オブ・ライフ](sf-concepts.md) | Elixir of Life | sf-concepts |
 | g207 | [セントラルドグマ](biology.md) | Central Dogma of Molecular Biology | biology |
 | g206 | [カルマ](philosophy.md) | Karma | philosophy |
@@ -50,8 +52,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g203 | [侵害受容](biology.md) | Nociception | biology |
 | g202 | [ド・ブロイ波](physics.md) | de Broglie Wave | physics |
 | g201 | [クオリア・シンセサイザー](wiim-concepts.md) | Qualia Synthesizer | wiim-concepts |
-| g200 | [ファジーダークマター](speculative.md) | fuzzy dark matter | speculative |
-| g199 | [クーパー対](physics.md) | Cooper pair | physics |
+
+
+
 
 
 

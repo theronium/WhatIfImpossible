@@ -4,15 +4,20 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-03-28 | 記事 | wiim_052 | [カオスを制御するカオスの悪魔の方程式——確率的粒子誘導と対消滅工学の限界](physics/wiim_052.md) |
+| 2026-03-28 | 記事 | wiim_051 | [パラポジ粒子との衝突——量子数の幽霊状態は何をもたらすか](physics/wiim_051.md) |
+| 2026-03-28 | 記事 | wiim_050 | [目に見えるほど大きな粒子を生成できるか——量子デコヒーレンスとマクロ量子状態の限界](quantum/wiim_050.md) |
+| 2026-03-28 | 用語 | g210 | [カオスの悪魔（Chaos Demon）](../glossary/physics.md#g210) |
+| 2026-03-28 | 用語 | g209 | [パラポジ粒子（Parapositive Particle）](../glossary/wiim-concepts.md#g209) |
 | 2026-03-28 | 用語 | g207 | [セントラルドグマ（Central Dogma of Molecular Biology）](../glossary/biology.md#g207) |
 | 2026-03-28 | 用語 | g206 | [カルマ（Karma）](../glossary/philosophy.md#g206) |
+| 2026-03-28 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-03-27 | 記事 | wiim_049 | [時間遡行は可能か——素粒子物理からWIIM粒子まで、遡行の条件と限界](physics/wiim_049.md) |
 | 2026-03-27 | 記事 | wiim_048 | [ゴーレムにクオリアを宿せるか——「生命を吹き込む」行為と主観的経験の創造限界](philosophy/wiim_048.md) |
 | 2026-03-27 | 記事 | wiim_047 | [双子のデウスエクスラプラス——ラプラスの悪魔が宇宙の内外に同時に存在するとき](philosophy/wiim_047.md) |
 | 2026-03-27 | 用語 | g205 | [ノビコフ自己整合性条件（Novikov Self-Consistency Principle）](../glossary/physics.md#g205) |
 | 2026-03-27 | 用語 | g204 | [ラプラスの悪魔（Laplace's Demon）](../glossary/philosophy.md#g204) |
 | 2026-03-27 | 補遺 | — | [補遺：外側のみのデウスエクスラプラス——完全な知識の完全な孤立](notes/wiim_047_outside_only.md) |
-| 2026-03-27 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-03-27 | 補遺 | — | [補遺：エントロピー倍化による観測の非決定化——結果を増やせば観測を無効にできるか](notes/wiim_037_entropy_observation.md) |
 | 2026-03-26 | 記事 | wiim_046 | [固体へのクオリア付与——カシミール板から惑星まで、物質に意識を宿す条件とスケールの問題](philosophy/wiim_046.md) |
 | 2026-03-26 | 記事 | wiim_045 | [恒温の二つの原理——コーラ粒子による拒絶型とレトロンによるエントロピー浄化型](physics/wiim_045.md) |
@@ -49,8 +54,3 @@
 | 2026-03-24 | 補遺 | — | [補遺：場から生まれた双子——粒子と力の統一的起源](notes/quantum_cheshire_field_twins.md) |
 | 2026-03-24 | 補遺 | — | [WhatIfImpossible 政治体制メモ](notes/political_structure.md) |
 | 2026-03-23 | 記事 | wiim_027 | [ストレンジスター・ワープゲート——重力チューニングによる固定式時空歪曲点](physics/wiim_027.md) |
-| 2026-03-23 | 記事 | wiim_026 | [コズミックマイスのテラフォーミング——シェルマイセリウムの大気圏降下と惑星統合](biology/wiim_026.md) |
-| 2026-03-23 | 記事 | wiim_025 | [シェルマイセリウム——コスモシェルとコズミックマイスの共生が生む自律型宇宙生命体カプセル](biology/wiim_025.md) |
-| 2026-03-23 | 記事 | wiim_024 | [マイコプラズマギカ——最小生命体による生物的核変換が可能な世界](biology/wiim_024.md) |
-| 2026-03-23 | 補遺 | — | [補遺：シェルマイセリウムの安定立地——重力圏内外のどこに膜を張るか](notes/wiim_025_gravity_zone.md) |
-| 2026-03-23 | 補遺 | — | [補遺：シェルマイセリウムの大気圏突入——テラフォーミングへの経路](notes/wiim_025_atmospheric_entry.md) |
