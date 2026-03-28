@@ -636,6 +636,15 @@ async function loadTechtree() {
 function renderNotesList(query = '') {
   const el = document.getElementById('notes-list');
   el.innerHTML = '';
+  // 一覧インデックスリンク
+  const idx = document.createElement('div');
+  idx.className = 'article-item' + ('notes/README.md' === currentPath ? ' active' : '');
+  idx.innerHTML = `<span style="color:var(--accent2);">📋 補遺一覧（README）</span>`;
+  idx.onclick = () => openArticle('notes/README.md');
+  el.appendChild(idx);
+  const sep = document.createElement('div');
+  sep.style.cssText = 'border-top:1px solid var(--border);margin:4px 8px;';
+  el.appendChild(sep);
   const q = query.toLowerCase();
   const notes = articles
     .filter(a => a.path.startsWith('notes/') && a.path !== 'notes/README.md')
