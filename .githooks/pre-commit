@@ -1,0 +1,8 @@
+#!/bin/sh
+# pre-commit hook: README 再生成 → 関連記事・用語 related の自動更新
+
+node generate-readme.js || exit 1
+node scan-related.js || exit 1
+
+git add docs/README.md docs/notes/README.md docs/new.md README.md
+git add docs/**/*.md glossary/data/terms.jsonl glossary/*.md

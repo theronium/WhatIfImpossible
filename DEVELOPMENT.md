@@ -60,6 +60,10 @@ WhatIfImpossible/
 ### 初回セットアップ
 
 ```bash
+# Git フック有効化（clone 後に一度だけ実行）
+git config core.hooksPath .githooks
+
+# エディターの依存パッケージ
 cd editor
 npm install
 ```
