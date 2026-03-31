@@ -7,12 +7,15 @@
       "Bash(git push:*)",
       "Bash(curl -s http://localhost:3030/api/glossary/terms)",
       "Bash(curl -s --max-time 2 http://localhost:3030/api/glossary/terms)",
+      "Bash(ls d:/Repos/WhatIfImpossible/*)",
+      "Bash(node scan-related.js --dry-run)",
+      "Bash(node scan-related.js)",
       "Bash(node glossary/generate.js)",
-      "Bash(ls d:/Repos/WhatIfImpossible/*.md)",
       "Bash(node glossary/add-term.js)",
       "Bash(node glossary/update-term.js)",
-      "Bash(node scan-related.js --dry-run)",
-      "Bash(node scan-related.js)"
+      "Bash(node glossary/lookup.js *)",
+      "Bash(node glossary/next-id.js)",
+      "Bash(node generate-readme.js)"
     ]
   }
 }

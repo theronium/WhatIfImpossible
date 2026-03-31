@@ -114,3 +114,18 @@ flowchart TD
 - （未作成）パンスペルミア説——生命は宇宙を渡れるか
 - （未作成）ウッドワイドウェブは意識を持っているか
 - （未作成）炭素質コンドライトに生命の前駆体は存在するか
+- [wiim_011](../physics/wiim_011.md) — コスモシェル——真空中に閉鎖膜を作る
+- [wiim_057](../physics/wiim_057.md) — クロノスフィア内部の光量問題——時間倍率が上がるほど「光が届かない」
+- [wiim_017](wiim_017.md) — 胞子雨——菌類による惑星水循環の起動
+- [wiim_018](wiim_018.md) — 胞子の宇宙——金星・タイタン・氷衛星への生物気候工学
+- [wiim_024](wiim_024.md) — マイコプラズマギカ——最小生命体による生物的核変換が可能な世界
+- [wiim_025](wiim_025.md) — シェルマイセリウム——コスモシェルとコズミックマイスの共生が生む自律型宇宙生命体カプセル
+- [wiim_026](wiim_026.md) — コズミックマイスのテラフォーミング——シェルマイセリウムの大気圏降下と惑星統合
+- [wiim_033](wiim_033.md) — コズミックマイス菌糸誘導通信——生きたネットワークが宇宙をつなぐFTLインフラ
+- [wiim_043](wiim_043.md) — 宇宙ゴケ——地衣類とコズミックマイスの共生が生む自律型テラフォーミング艦
+- [ancient_beings_cosmic_horror](../notes/ancient_beings_cosmic_horror.md) — 世界観メモ：WIIM宇宙の古代存在——コズミックホラーの系譜
+- [chronosphere_timeline](../notes/chronosphere_timeline.md) — クロノスフィア年表——発見から太陽系根付きまで
+- [cosmic_mice_godview_game](../notes/cosmic_mice_godview_game.md) — 世界観メモ：コズミックマイス惑星観測——ゴッドビューゲームとしてのWIIM
+- [cosmic_myce_religion](../notes/cosmic_myce_religion.md) — コズミックマイスをめぐる信仰と社会
+- [wiim_026_ecosystem_route](../notes/wiim_026_ecosystem_route.md) — 補遺: コズミックマイスの生態と回遊ルート——地球からトロヤ群へ
+

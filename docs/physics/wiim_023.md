@@ -77,3 +77,16 @@ flowchart TD
 
 - [wiim_001](../cosmology/wiim_001.md) — 光速を超えた場合の因果律
 - [wiim_004](../cosmology/wiim_004.md) — ワープ航法の痕跡を重力波で追跡できる世界
+- [wiim_028](../cosmology/wiim_028.md) — 重力子と光子の二重搬送FTL通信——エキゾチック物質チャネルによる宇宙際通信
+- [wiim_027](wiim_027.md) — ストレンジスター・ワープゲート——重力チューニングによる固定式時空歪曲点
+- [wiim_030](wiim_030.md) — パラドックス粒子——エキゾチック物質の反動が生む因果矛盾の自動解消
+- [wiim_031](wiim_031.md) — 真空非対称牽引ビーム——誘導重力が正しければカシミール効果はトラクタービームになる
+- [wiim_034](wiim_034.md) — エキゾチック物質音響実験——負屈折チャンバーとコーラ粒子音響搬送の試み
+- [wiim_038](wiim_038.md) — 静かな対消滅——パランティ粒子による完全無効化
+- [wiim_039](../quantum/wiim_039.md) — 量子永久機関——非対称カシミール板と真空エネルギーの搾取
+- [economy_um_currency](../notes/economy_um_currency.md) — 世界観：UM通貨制度とエキゾチック物質単価
+- [forbidden_zone_treaty](../notes/forbidden_zone_treaty.md) — 禁域条約——宇宙戦争を終わらせた二国消滅事件
+- [wiim_022_tactical](../notes/wiim_022_tactical.md) — 補遺: アンキロンの戦術応用——計量バリケードの強度設計と反アンキロン除去
+- [wiim_023_strange_matter_warp](../notes/wiim_023_strange_matter_warp.md) — 補遺: ストレンジ物質とワープドライブ——生成・採取・遠隔利用の可能性
+- [wiim_019](wiim_019.md) — 居住しない惑星——エネルギー用途のテラフォーミング
+

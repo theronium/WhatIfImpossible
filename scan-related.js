@@ -91,7 +91,7 @@ function collectSources(articleIndex) {
     });
   }
 
-  // 補遺ノート（gXXX 参照のみ収集。wiim_ID を持たないため用語 related は対象外）
+  // 補遺ノート
   if (fs.existsSync(NOTES_DIR)) {
     for (const f of fs.readdirSync(NOTES_DIR)) {
       if (!f.endsWith('.md') || f === 'README.md' || f === 'tech_tree.md') continue;
@@ -99,12 +99,19 @@ function collectSources(articleIndex) {
       const content = fs.readFileSync(file, 'utf-8');
       const fm = parseFrontmatter(content);
       const { wiimIds, gIds } = extractRefs(content);
+      // ファイル名に wiim_XXX が含まれる場合（例: wiim_002_rotation_principle.md）
+      // → そのベース記事にもバックリンクを追加するため wiimRefs に含める
+      const filenameWiim = (f.match(/^(wiim_\d+)/) || [])[1];
+      const allWiimRefs = [...new Set([
+        ...wiimIds,
+        ...(filenameWiim ? [filenameWiim] : []),
+      ])];
       sources.push({
         id:    f.replace('.md', ''),
         title: fm.title || f,
         file,
         category: 'notes',
-        wiimRefs: wiimIds,
+        wiimRefs: allWiimRefs,
         gRefs: gIds,
         type: 'note',
       });
@@ -166,7 +173,7 @@ function relPath(fromFile, toFile) {
 
 function appendToRelatedSection(content, entry) {
   // ## 関連記事 セクションの末尾（次の ## or EOF）に追記
-  const headerRe = /^## 関連記事[ \t]*\r?\n/m;
+  const headerRe = /^## 関連記事[^\n]*\r?\n/m;
   const hMatch = headerRe.exec(content);
   if (!hMatch) return null; // セクションなし
 

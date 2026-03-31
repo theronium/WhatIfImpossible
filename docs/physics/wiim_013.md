@@ -148,3 +148,19 @@ flowchart TD
 - （未作成）余剰次元は観測できるか——Kaluza-Klein理論の実験的検証
 - （未作成）量子もつれで情報を伝達できない理由——「測定」という壁
 - （未作成）時間の矢はなぜ一方向か——エントロピーと空間の非対称性
+- [wiim_016](../cosmology/wiim_016.md) — 時間同期技術——ウラシマ効果を逆用した時間的保護
+- [wiim_014](wiim_014.md) — 宇宙のルート権限を奪取せよ——物理定数ハッキングによる超光速航法
+- [wiim_021](wiim_021.md) — 切れないエネルギー紐——完全剛体なしに不変距離を定義する
+- [wiim_022](wiim_022.md) — アンキロン——時空の計量に錨を打つ架空粒子
+- [wiim_027](wiim_027.md) — ストレンジスター・ワープゲート——重力チューニングによる固定式時空歪曲点
+- [wiim_034](wiim_034.md) — エキゾチック物質音響実験——負屈折チャンバーとコーラ粒子音響搬送の試み
+- [wiim_035](wiim_035.md) — グラビトーペイクの逆説——遮断した重力波エネルギーはどこへ行くのか
+- [wiim_037](wiim_037.md) — レトロン——負のエントロピーを持つ粒子と因果の逆行
+- [wiim_039](../quantum/wiim_039.md) — 量子永久機関——非対称カシミール板と真空エネルギーの搾取
+- [wiim_033](../biology/wiim_033.md) — コズミックマイス菌糸誘導通信——生きたネットワークが宇宙をつなぐFTLインフラ
+- [ancient_beings_cosmic_horror](../notes/ancient_beings_cosmic_horror.md) — 世界観メモ：WIIM宇宙の古代存在——コズミックホラーの系譜
+- [economy_um_currency](../notes/economy_um_currency.md) — 世界観：UM通貨制度とエキゾチック物質単価
+- [wiim_022_tactical](../notes/wiim_022_tactical.md) — 補遺: アンキロンの戦術応用——計量バリケードの強度設計と反アンキロン除去
+- [wiim_042_clone_consciousness](../notes/wiim_042_clone_consciousness.md) — 補遺: クローン意識コピーのp-ゾンビ混入問題——Δφ再現率と意識転写の確率論
+- [wiim_044_thermal_unit](../notes/wiim_044_thermal_unit.md) — 自律熱管理ユニット——カシミール給電型双方向テルモクラシス系の設計論
+

@@ -102,3 +102,13 @@ flowchart TD
 - [wiim_017](wiim_017.md) — 胞子雨——菌類による惑星水循環の起動
 - [wiim_018](wiim_018.md) — 胞子の宇宙——金星・タイタン・氷衛星への生物気候工学
 - [wiim_024](wiim_024.md) — マイコプラズマギカ（設計された最小生命との対比）
+- [wiim_026](wiim_026.md) — コズミックマイスのテラフォーミング——シェルマイセリウムの大気圏降下と惑星統合
+- [wiim_033](wiim_033.md) — コズミックマイス菌糸誘導通信——生きたネットワークが宇宙をつなぐFTLインフラ
+- [wiim_043](wiim_043.md) — 宇宙ゴケ——地衣類とコズミックマイスの共生が生む自律型テラフォーミング艦
+- [chronosphere_timeline](../notes/chronosphere_timeline.md) — クロノスフィア年表——発見から太陽系根付きまで
+- [cosmic_mice_godview_game](../notes/cosmic_mice_godview_game.md) — 世界観メモ：コズミックマイス惑星観測——ゴッドビューゲームとしてのWIIM
+- [cosmic_myce_religion](../notes/cosmic_myce_religion.md) — コズミックマイスをめぐる信仰と社会
+- [wiim_025_atmospheric_entry](../notes/wiim_025_atmospheric_entry.md) — 補遺: シェルマイセリウムの大気圏突入——テラフォーミングへの経路
+- [wiim_025_gravity_zone](../notes/wiim_025_gravity_zone.md) — 補遺: シェルマイセリウムの安定立地——重力圏内外のどこに膜を張るか
+- [wiim_026_ecosystem_route](../notes/wiim_026_ecosystem_route.md) — 補遺: コズミックマイスの生態と回遊ルート——地球からトロヤ群へ
+
