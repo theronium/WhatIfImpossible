@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **218**
+用語数: **221**
 
 ---
 
@@ -42,6 +42,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g223 | [瓶首効果](biology.md) | Bottleneck Effect | biology |
+| g222 | [水平遺伝子転移](biology.md) | Horizontal Gene Transfer | biology |
+| g221 | [クオラムセンシング](biology.md) | Quorum Sensing | biology |
 | g220 | [ミラー対称性](physics.md) | Mirror Symmetry | physics |
 | g219 | [カラビヤウ多様体](mathematics.md) | Calabi-Yau Manifold | mathematics |
 | g218 | [ダークエネルギー](speculative.md) | Dark Energy | speculative |
@@ -49,9 +52,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g216 | [カオスの創発文法](wiim-concepts.md) | Emergent Grammar of Chaos | wiim-concepts |
 | g215 | [秩序パラメータ](physics.md) | Order Parameter | physics |
 | g214 | [リャプノフ指数](physics.md) | Lyapunov Exponent | physics |
-| g213 | [磁気モノポール](speculative.md) | Magnetic Monopole | speculative |
-| g212 | [Qボール](speculative.md) | Q-ball | speculative |
-| g211 | [ソリトン](physics.md) | Soliton | physics |
+
+
+
 
 
 

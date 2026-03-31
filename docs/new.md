@@ -5,6 +5,9 @@
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
 | 2026-03-31 | 記事 | wiim_057 | [クロノスフィア内部の光量問題——時間倍率が上がるほど「光が届かない」](physics/wiim_057.md) |
+| 2026-03-31 | 用語 | g223 | [瓶首効果（Bottleneck Effect）](../glossary/biology.md#g223) |
+| 2026-03-31 | 用語 | g222 | [水平遺伝子転移（Horizontal Gene Transfer）](../glossary/biology.md#g222) |
+| 2026-03-31 | 用語 | g221 | [クオラムセンシング（Quorum Sensing）](../glossary/biology.md#g221) |
 | 2026-03-31 | 用語 | g220 | [ミラー対称性（Mirror Symmetry）](../glossary/physics.md#g220) |
 | 2026-03-31 | 補遺 | — | [ハッブル地平線外超文明帝国](notes/hubble_horizon_empire.md) |
 | 2026-03-31 | 補遺 | — | [クロノスフィア年表——発見から太陽系根付きまで](notes/chronosphere_timeline.md) |
@@ -51,6 +54,3 @@
 | 2026-03-25 | 記事 | wiim_038 | [静かな対消滅——パランティ粒子による完全無効化](physics/wiim_038.md) |
 | 2026-03-25 | 記事 | wiim_037 | [レトロン——負のエントロピーを持つ粒子と因果の逆行](physics/wiim_037.md) |
 | 2026-03-25 | 記事 | wiim_036 | [アンキロン暦——時空に打った錨で1年を測る](physics/wiim_036.md) |
-| 2026-03-25 | 記事 | wiim_035 | [グラビトーペイクの逆説——遮断した重力波エネルギーはどこへ行くのか](physics/wiim_035.md) |
-| 2026-03-25 | 記事 | wiim_034 | [エキゾチック物質音響実験——負屈折チャンバーとコーラ粒子音響搬送の試み](physics/wiim_034.md) |
-| 2026-03-25 | 補遺 | — | [禁域条約——宇宙戦争を終わらせた二国消滅事件](notes/forbidden_zone_treaty.md) |
