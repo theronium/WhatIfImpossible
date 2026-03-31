@@ -38,6 +38,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [ancient_beings_cosmic_horror.md](ancient_beings_cosmic_horror.md) | 世界観メモ：WIIM宇宙の古代存在——コズミックホラーの系譜 | 2026-03-26 | 2026-03-26 |
 | [greek_letter_naming.md](greek_letter_naming.md) | ギリシャ文字の命名理由——なぜその文字がその量に割り当てられたか | 2026-03-26 | 2026-03-26 |
 | [wiim_044_thermal_unit.md](wiim_044_thermal_unit.md) | 自律熱管理ユニット——カシミール給電型双方向テルモクラシス系の設計論 | 2026-03-26 | 2026-03-26 |
+| [hubble_horizon_empire.md](hubble_horizon_empire.md) | ハッブル地平線外超文明帝国 | 2026-03-31 | 2026-03-31 |
 
 ---
 
