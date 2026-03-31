@@ -167,6 +167,8 @@
   .tv-body a:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
   .tv-meta a.rel-link { color: #7dd3fc; text-decoration: none; border-bottom: 1px solid #3b82f680; }
   .tv-meta a.rel-link:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
+  a.article-inline-link { color: #7dd3fc; text-decoration: none; border-bottom: 1px solid #3b82f680; font-family: monospace; }
+  a.article-inline-link:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
 
   /* ── Article term links & popup ── */
   .term-link { border-bottom: 1px dashed #7dd3fc88; cursor: pointer; color: #93c5fd; }
@@ -857,6 +859,15 @@ function linkTermsInPreview(pane) {
     const placeholders = [];
     const linked = new Set();
 
+    // wiim_XXX を記事リンクに変換
+    html = html.replace(/\bwiim_\d+\b/g, id => {
+      const art = articles.find(a => a.id === id);
+      if (!art) return id;
+      const ph = `\x00${placeholders.length}\x00`;
+      placeholders.push(`<a href="#" class="article-inline-link" data-art-path="${art.path}">${id}</a>`);
+      return ph;
+    });
+
     for (const t of index) {
       if (linked.has(t.id)) continue;
       const escaped = t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -876,6 +887,14 @@ function linkTermsInPreview(pane) {
     node.parentNode.replaceChild(wrap, node);
   }
 }
+
+// article-inline-link のクリックハンドラ
+document.addEventListener('click', e => {
+  const link = e.target.closest('.article-inline-link');
+  if (!link) return;
+  e.preventDefault();
+  openArticle(link.dataset.artPath);
+});
 
 // ── 用語ポップアップの表示 ────────────────────────────────────────────
 function getTermPopup() { return document.getElementById('term-popup'); }

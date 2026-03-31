@@ -39,6 +39,8 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [greek_letter_naming.md](greek_letter_naming.md) | ギリシャ文字の命名理由——なぜその文字がその量に割り当てられたか | 2026-03-26 | 2026-03-26 |
 | [wiim_044_thermal_unit.md](wiim_044_thermal_unit.md) | 自律熱管理ユニット——カシミール給電型双方向テルモクラシス系の設計論 | 2026-03-26 | 2026-03-26 |
 | [hubble_horizon_empire.md](hubble_horizon_empire.md) | ハッブル地平線外超文明帝国 | 2026-03-31 | 2026-03-31 |
+| [chronosphere_timeline.md](chronosphere_timeline.md) | クロノスフィア年表——発見から太陽系根付きまで | 2026-03-31 | 2026-03-31 |
+| [wiim_002_rotation_principle.md](wiim_002_rotation_principle.md) | クロノスフィアの回転原理——粒子・光子シェルによる時間差生成 | 2026-03-31 | 2026-03-31 |
 
 ---
 
@@ -46,4 +48,4 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 
 | ファイル | タイトル | 登録 | 更新 |
 |---------|---------|------|------|
-| [tech_tree.md](tech_tree.md) | WhatIfImpossible 技術ツリー | 2026-03-28 | 2026-03-28 |
+| [tech_tree.md](tech_tree.md) | WhatIfImpossible 技術ツリー | 2026-03-31 | 2026-03-31 |

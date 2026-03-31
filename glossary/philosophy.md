@@ -39,7 +39,7 @@ AIがどれだけ高度に人間の行動を模倣しても、その内側に主
 **読み**: いんがりつ
 **別名**: 因果性
 **分野**: 形而上学・物理哲学
-**関連記事**: [wiim_001](../docs/cosmology/wiim_001.md), [wiim_005](../docs/cosmology/wiim_005.md), [wiim_013](../docs/physics/wiim_013.md), [wiim_015](../docs/physics/wiim_015.md)
+**関連記事**: [wiim_001](../docs/cosmology/wiim_001.md), [wiim_005](../docs/cosmology/wiim_005.md), [wiim_013](../docs/physics/wiim_013.md), [wiim_015](../docs/physics/wiim_015.md), [wiim_057](../docs/physics/wiim_057.md)
 
 「原因は結果に先行する」という原理。物理学では「情報が過去に伝わることはない」という形で定式化される。
 
