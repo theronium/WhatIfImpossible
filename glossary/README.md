@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **216**
+用語数: **218**
 
 ---
 
@@ -42,6 +42,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g220 | [ミラー対称性](physics.md) | Mirror Symmetry | physics |
+| g219 | [カラビヤウ多様体](mathematics.md) | Calabi-Yau Manifold | mathematics |
 | g218 | [ダークエネルギー](speculative.md) | Dark Energy | speculative |
 | g217 | [マヨラナ粒子](physics.md) | Majorana Fermion | physics |
 | g216 | [カオスの創発文法](wiim-concepts.md) | Emergent Grammar of Chaos | wiim-concepts |
@@ -50,8 +52,10 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g213 | [磁気モノポール](speculative.md) | Magnetic Monopole | speculative |
 | g212 | [Qボール](speculative.md) | Q-ball | speculative |
 | g211 | [ソリトン](physics.md) | Soliton | physics |
-| g210 | [カオスの悪魔](wiim-concepts.md) | Chaos Demon | wiim-concepts |
-| g209 | [パラポジ粒子](wiim-concepts.md) | Parapositive Particle | wiim-concepts |
+
+
+
+
 
 
 

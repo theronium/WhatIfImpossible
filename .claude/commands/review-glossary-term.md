@@ -6,7 +6,7 @@
 
 ## レビュー手順
 
-1. `glossary/data/terms.jsonl` を Read ツールで読み込み、指定IDのエントリを確認する
+1. `node glossary/lookup.js <ID>` を実行してエントリを確認する（terms.jsonl 全体を読む必要はない）
 2. 以下のチェックリストに従って問題を洗い出す
 3. 修正が必要な場合は `glossary/data/new-term.json` に修正内容（id フィールド必須）を書き込み、`node glossary/update-term.js` を実行する
 4. 修正した項目・変更なしの項目を報告する

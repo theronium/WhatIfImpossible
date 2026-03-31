@@ -37,10 +37,15 @@ WhatIfImpossible/
 
 ### 用語の追加手順
 
-1. `glossary/data/terms.jsonl` の末尾IDを確認して次の `gXXX` を決定
+1. `node glossary/next-id.js` で次の `gXXX`（用語）と `wiim_XXX`（記事）番号を確認
 2. 末尾に新しい JSON 行を追記
 3. `node glossary/generate.js` を実行して `.md` ファイルを再生成
 4. `/add-glossary-term` スキルはこの手順を自動で行う
+
+### 用語の検索・参照
+
+- **1件取り出し**: `node glossary/lookup.js <ID|用語名>` — terms.jsonl 全体を読む代わりに使う
+- **部分一致検索**: `node glossary/lookup.js <キーワード>` — 複数ヒット時は一覧表示
 
 ### 既存用語の更新手順
 
