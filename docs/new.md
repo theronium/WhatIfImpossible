@@ -4,6 +4,18 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-04 | 記事 | wiim_058 | [クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか](biology/wiim_058.md) |
+| 2026-04-04 | 用語 | g230 | [オイラーの定理（群）（Euler's Theorems）](../glossary/mathematics.md#g230) |
+| 2026-04-04 | 用語 | g229 | [オイラー（Leonhard Euler）](../glossary/mathematics.md#g229) |
+| 2026-04-04 | 用語 | g228 | [ベルヌーイ一族（Bernoulli Family）](../glossary/mathematics.md#g228) |
+| 2026-04-04 | 用語 | g227 | [ベルヌーイの定理（Bernoulli's Principle）](../glossary/physics.md#g227) |
+| 2026-04-04 | 用語 | g226 | [ネイピア数（Euler's Number）](../glossary/mathematics.md#g226) |
+| 2026-04-04 | 用語 | g225 | [対数・自然対数（Logarithm / Natural Logarithm）](../glossary/mathematics.md#g225) |
+| 2026-04-04 | 用語 | g224 | [ツィオルコフスキーのロケット方程式（Tsiolkovsky Rocket Equation）](../glossary/physics.md#g224) |
+| 2026-04-04 | 補遺 | — | [補遺：シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件](notes/wiim_025_chronosphere_shell.md) |
+| 2026-04-04 | 補遺 | — | [ネイピア数と自然対数——複利計算から宇宙工学まで](notes/napier_e_calculus.md) |
+| 2026-04-04 | 補遺 | — | [オイラーの主要定理一覧](notes/euler_theorems.md) |
+| 2026-04-04 | 補遺 | — | [数学記号の由来——ギリシャ文字以外の主要記号](notes/math_symbols.md) |
 | 2026-03-31 | 記事 | wiim_057 | [クロノスフィア内部の光量問題——時間倍率が上がるほど「光が届かない」](physics/wiim_057.md) |
 | 2026-03-31 | 用語 | g223 | [瓶首効果（Bottleneck Effect）](../glossary/biology.md#g223) |
 | 2026-03-31 | 用語 | g222 | [水平遺伝子転移（Horizontal Gene Transfer）](../glossary/biology.md#g222) |
@@ -42,15 +54,3 @@
 | 2026-03-26 | 記事 | wiim_042 | [クオリア検知機——波動関数の虚数項に意識の痕跡を探す](quantum/wiim_042.md) |
 | 2026-03-26 | 用語 | g203 | [侵害受容（Nociception）](../glossary/biology.md#g203) |
 | 2026-03-26 | 用語 | g202 | [ド・ブロイ波（de Broglie Wave）](../glossary/physics.md#g202) |
-| 2026-03-26 | 補遺 | — | [補遺：クローン意識コピーのp-ゾンビ混入問題——Δφ再現率と意識転写の確率論](notes/wiim_042_clone_consciousness.md) |
-| 2026-03-26 | 補遺 | — | [補遺：クオリアなき者の犯罪係数——p-ゾンビ社会の秩序と倫理](notes/wiim_042_crime_coefficient.md) |
-| 2026-03-26 | 補遺 | — | [世界観メモ：コズミックマイス惑星観測——ゴッドビューゲームとしてのWIIM](notes/cosmic_mice_godview_game.md) |
-| 2026-03-26 | 補遺 | — | [世界観メモ：WIIM宇宙の古代存在——コズミックホラーの系譜](notes/ancient_beings_cosmic_horror.md) |
-| 2026-03-26 | 補遺 | — | [ギリシャ文字の命名理由——なぜその文字がその量に割り当てられたか](notes/greek_letter_naming.md) |
-| 2026-03-26 | 補遺 | — | [自律熱管理ユニット——カシミール給電型双方向テルモクラシス系の設計論](notes/wiim_044_thermal_unit.md) |
-| 2026-03-25 | 記事 | wiim_041 | [決定論の計算可能性閾値——スケールが下がると宇宙は解けなくなる](logic/wiim_041.md) |
-| 2026-03-25 | 記事 | wiim_040 | [自由意志とスケールの逆転——光子から宇宙まで、「決まっている」とは何か](philosophy/wiim_040.md) |
-| 2026-03-25 | 記事 | wiim_039 | [量子永久機関——非対称カシミール板と真空エネルギーの搾取](quantum/wiim_039.md) |
-| 2026-03-25 | 記事 | wiim_038 | [静かな対消滅——パランティ粒子による完全無効化](physics/wiim_038.md) |
-| 2026-03-25 | 記事 | wiim_037 | [レトロン——負のエントロピーを持つ粒子と因果の逆行](physics/wiim_037.md) |
-| 2026-03-25 | 記事 | wiim_036 | [アンキロン暦——時空に打った錨で1年を測る](physics/wiim_036.md) |

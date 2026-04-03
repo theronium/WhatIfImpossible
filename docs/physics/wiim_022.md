@@ -225,4 +225,5 @@ flowchart TD
 - [economy_um_currency](../notes/economy_um_currency.md) — 世界観：UM通貨制度とエキゾチック物質単価
 - [greek_letter_naming](../notes/greek_letter_naming.md) — ギリシャ文字の命名理由——なぜその文字がその量に割り当てられたか
 - [wiim_023](wiim_023.md) — カシミールフォージ——仮想粒子の増幅でエキゾチック物質を量産できたら
+- [wiim_058](../biology/wiim_058.md) — クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか
 

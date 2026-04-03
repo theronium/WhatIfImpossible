@@ -99,4 +99,6 @@ flowchart TD
 - [wiim_015](../physics/wiim_015.md) — エントロピーが減少する宇宙——時間の矢が逆を向いた世界の物理と知性
 - [wiim_057](../physics/wiim_057.md) — クロノスフィア内部の光量問題——時間倍率が上がるほど「光が届かない」
 - [wiim_002_rotation_principle](../notes/wiim_002_rotation_principle.md) — クロノスフィアの回転原理——粒子・光子シェルによる時間差生成
+- [wiim_058](../biology/wiim_058.md) — クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか
+- [wiim_025_chronosphere_shell](../notes/wiim_025_chronosphere_shell.md) — 補遺: シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件
 

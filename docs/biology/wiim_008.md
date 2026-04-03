@@ -128,4 +128,6 @@ flowchart TD
 - [cosmic_mice_godview_game](../notes/cosmic_mice_godview_game.md) — 世界観メモ：コズミックマイス惑星観測——ゴッドビューゲームとしてのWIIM
 - [cosmic_myce_religion](../notes/cosmic_myce_religion.md) — コズミックマイスをめぐる信仰と社会
 - [wiim_026_ecosystem_route](../notes/wiim_026_ecosystem_route.md) — 補遺: コズミックマイスの生態と回遊ルート——地球からトロヤ群へ
+- [wiim_058](wiim_058.md) — クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか
+- [wiim_025_chronosphere_shell](../notes/wiim_025_chronosphere_shell.md) — 補遺: シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件
 
