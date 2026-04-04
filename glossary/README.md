@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **231**
+用語数: **232**
 
 ---
 
@@ -42,6 +42,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g234 | [意志論](philosophy.md) | Theory of Will | philosophy |
 | g233 | [集合論](physics.md) | Set Theory | physics |
 | g232 | [離散](physics.md) | Discrete | physics |
 | g231 | [モナド論](philosophy.md) | Monadology | philosophy |
@@ -51,7 +52,11 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g227 | [ベルヌーイの定理](physics.md) | Bernoulli's Principle | physics |
 | g226 | [ネイピア数](mathematics.md) | Euler's Number | mathematics |
 | g225 | [対数・自然対数](mathematics.md) | Logarithm / Natural Logarithm | mathematics |
-| g224 | [ツィオルコフスキーのロケット方程式](physics.md) | Tsiolkovsky Rocket Equation | physics |
+
+
+
+
+
 
 
 
