@@ -130,4 +130,5 @@ flowchart TD
 - [wiim_026_ecosystem_route](../notes/wiim_026_ecosystem_route.md) — 補遺: コズミックマイスの生態と回遊ルート——地球からトロヤ群へ
 - [wiim_058](wiim_058.md) — クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか
 - [wiim_025_chronosphere_shell](../notes/wiim_025_chronosphere_shell.md) — 補遺: シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件
+- [wiim_059](wiim_059.md) — 菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由
 

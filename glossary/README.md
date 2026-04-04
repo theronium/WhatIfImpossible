@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **228**
+用語数: **231**
 
 ---
 
@@ -42,6 +42,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g233 | [集合論](physics.md) | Set Theory | physics |
+| g232 | [離散](physics.md) | Discrete | physics |
+| g231 | [モナド論](philosophy.md) | Monadology | philosophy |
 | g230 | [オイラーの定理（群）](mathematics.md) | Euler's Theorems | mathematics |
 | g229 | [オイラー](mathematics.md) | Leonhard Euler | mathematics |
 | g228 | [ベルヌーイ一族](mathematics.md) | Bernoulli Family | mathematics |
@@ -49,9 +52,11 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g226 | [ネイピア数](mathematics.md) | Euler's Number | mathematics |
 | g225 | [対数・自然対数](mathematics.md) | Logarithm / Natural Logarithm | mathematics |
 | g224 | [ツィオルコフスキーのロケット方程式](physics.md) | Tsiolkovsky Rocket Equation | physics |
-| g223 | [瓶首効果](biology.md) | Bottleneck Effect | biology |
-| g222 | [水平遺伝子転移](biology.md) | Horizontal Gene Transfer | biology |
-| g221 | [クオラムセンシング](biology.md) | Quorum Sensing | biology |
+
+
+
+
+
 
 
 

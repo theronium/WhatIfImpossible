@@ -4,7 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-04 | 記事 | wiim_059 | [菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由](biology/wiim_059.md) |
 | 2026-04-04 | 記事 | wiim_058 | [クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか](biology/wiim_058.md) |
+| 2026-04-04 | 用語 | g233 | [集合論（Set Theory）](../glossary/physics.md#g233) |
+| 2026-04-04 | 用語 | g232 | [離散（Discrete）](../glossary/physics.md#g232) |
+| 2026-04-04 | 用語 | g231 | [モナド論（Monadology）](../glossary/philosophy.md#g231) |
 | 2026-04-04 | 用語 | g230 | [オイラーの定理（群）（Euler's Theorems）](../glossary/mathematics.md#g230) |
 | 2026-04-04 | 用語 | g229 | [オイラー（Leonhard Euler）](../glossary/mathematics.md#g229) |
 | 2026-04-04 | 用語 | g228 | [ベルヌーイ一族（Bernoulli Family）](../glossary/mathematics.md#g228) |
@@ -16,6 +20,7 @@
 | 2026-04-04 | 補遺 | — | [ネイピア数と自然対数——複利計算から宇宙工学まで](notes/napier_e_calculus.md) |
 | 2026-04-04 | 補遺 | — | [オイラーの主要定理一覧](notes/euler_theorems.md) |
 | 2026-04-04 | 補遺 | — | [数学記号の由来——ギリシャ文字以外の主要記号](notes/math_symbols.md) |
+| 2026-04-04 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-03-31 | 記事 | wiim_057 | [クロノスフィア内部の光量問題——時間倍率が上がるほど「光が届かない」](physics/wiim_057.md) |
 | 2026-03-31 | 用語 | g223 | [瓶首効果（Bottleneck Effect）](../glossary/biology.md#g223) |
 | 2026-03-31 | 用語 | g222 | [水平遺伝子転移（Horizontal Gene Transfer）](../glossary/biology.md#g222) |
@@ -23,7 +28,6 @@
 | 2026-03-31 | 用語 | g220 | [ミラー対称性（Mirror Symmetry）](../glossary/physics.md#g220) |
 | 2026-03-31 | 補遺 | — | [ハッブル地平線外超文明帝国](notes/hubble_horizon_empire.md) |
 | 2026-03-31 | 補遺 | — | [クロノスフィア年表——発見から太陽系根付きまで](notes/chronosphere_timeline.md) |
-| 2026-03-31 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-03-31 | 補遺 | — | [クロノスフィアの回転原理——粒子・光子シェルによる時間差生成](notes/wiim_002_rotation_principle.md) |
 | 2026-03-29 | 用語 | g218 | [ダークエネルギー（Dark Energy）](../glossary/speculative.md#g218) |
 | 2026-03-28 | 記事 | wiim_056 | [ベッケンシュタイン限界の突破——局所情報密度が時空を書き換えるとき](philosophy/wiim_056.md) |
@@ -50,7 +54,3 @@
 | 2026-03-26 | 記事 | wiim_046 | [固体へのクオリア付与——カシミール板から惑星まで、物質に意識を宿す条件とスケールの問題](philosophy/wiim_046.md) |
 | 2026-03-26 | 記事 | wiim_045 | [恒温の二つの原理——コーラ粒子による拒絶型とレトロンによるエントロピー浄化型](physics/wiim_045.md) |
 | 2026-03-26 | 記事 | wiim_044 | [テルモスタシス船体——コーラ粒子格子素材による宇宙熱管理の限界](physics/wiim_044.md) |
-| 2026-03-26 | 記事 | wiim_043 | [宇宙ゴケ——地衣類とコズミックマイスの共生が生む自律型テラフォーミング艦](biology/wiim_043.md) |
-| 2026-03-26 | 記事 | wiim_042 | [クオリア検知機——波動関数の虚数項に意識の痕跡を探す](quantum/wiim_042.md) |
-| 2026-03-26 | 用語 | g203 | [侵害受容（Nociception）](../glossary/biology.md#g203) |
-| 2026-03-26 | 用語 | g202 | [ド・ブロイ波（de Broglie Wave）](../glossary/physics.md#g202) |
