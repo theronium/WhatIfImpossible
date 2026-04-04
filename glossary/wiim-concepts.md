@@ -260,7 +260,7 @@ T_th は素材製造時のコーラ粒子格子間隔で決まるため、用途
 **読み**: ねごとん
 **別名**: 負の実質量粒子 / 反重力粒子
 **分野**: 架空粒子・重力物理学
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_058](../docs/biology/wiim_058.md), [wiim_059](../docs/biology/wiim_059.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_058](../docs/biology/wiim_058.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_060](../docs/physics/wiim_060.md)
 
 WhatIfImpossibleの思考実験（[wiim_003](../docs/physics/wiim_003.md)）で命名された架空粒子。「ネガティブ（negative）」と素粒子の接尾辞「-on」を組み合わせた造語で、[エキゾチック物質](speculative.md)（g068）の一種として**負の実質量**を固有属性に持つと仮定される。
 

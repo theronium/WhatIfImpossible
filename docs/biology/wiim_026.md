@@ -159,4 +159,5 @@ flowchart TD
 - [wiim_025_atmospheric_entry](../notes/wiim_025_atmospheric_entry.md) — 補遺: シェルマイセリウムの大気圏突入——テラフォーミングへの経路
 - [wiim_026_ecosystem_route](../notes/wiim_026_ecosystem_route.md) — 補遺: コズミックマイスの生態と回遊ルート——地球からトロヤ群へ
 - [wiim_027](../physics/wiim_027.md) — ストレンジスター・ワープゲート——重力チューニングによる固定式時空歪曲点
+- [wiim_061](wiim_061.md) — 菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき
 

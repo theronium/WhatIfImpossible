@@ -101,4 +101,7 @@ flowchart TD
 - [wiim_002_rotation_principle](../notes/wiim_002_rotation_principle.md) — クロノスフィアの回転原理——粒子・光子シェルによる時間差生成
 - [wiim_058](../biology/wiim_058.md) — クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか
 - [wiim_025_chronosphere_shell](../notes/wiim_025_chronosphere_shell.md) — 補遺: シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件
+- [wiim_060](../physics/wiim_060.md) — 逆クロノスフィア——内部時間を極端に遅くして生命・文明を保存できるか
+- [wiim_061](../biology/wiim_061.md) — 菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき
+- [wiim_022_cosmic_ring](../notes/wiim_022_cosmic_ring.md) — 補遺: 恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー
 

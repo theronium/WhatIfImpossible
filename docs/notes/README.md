@@ -22,6 +22,7 @@
 | [wiim_037_entropy_observation.md](wiim_037_entropy_observation.md) | エントロピー倍化による観測の非決定化——結果を増やせば観測を無効にできるか | wiim_037, wiim_038 | 2026-03-27 | 2026-03-27 |
 | [wiim_054_simulator.md](wiim_054_simulator.md) | シミュレータの内側ではカオスの創発文法は自明になる | wiim_054 | 2026-03-28 | 2026-03-28 |
 | [wiim_025_chronosphere_shell.md](wiim_025_chronosphere_shell.md) | シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件 | wiim_025, wiim_058, wiim_002 | 2026-04-04 | 2026-04-04 |
+| [wiim_022_cosmic_ring.md](wiim_022_cosmic_ring.md) | 恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー | — | 2026-04-05 | 2026-04-05 |
 
 ---
 
@@ -41,10 +42,10 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_044_thermal_unit.md](wiim_044_thermal_unit.md) | 自律熱管理ユニット——カシミール給電型双方向テルモクラシス系の設計論 | 2026-03-26 | 2026-03-26 |
 | [hubble_horizon_empire.md](hubble_horizon_empire.md) | ハッブル地平線外超文明帝国 | 2026-03-31 | 2026-03-31 |
 | [chronosphere_timeline.md](chronosphere_timeline.md) | クロノスフィア年表——発見から太陽系根付きまで | 2026-03-31 | 2026-03-31 |
-| [wiim_002_rotation_principle.md](wiim_002_rotation_principle.md) | クロノスフィアの回転原理——粒子・光子シェルによる時間差生成 | 2026-03-31 | 2026-03-31 |
 | [napier_e_calculus.md](napier_e_calculus.md) | ネイピア数と自然対数——複利計算から宇宙工学まで | 2026-04-04 | 2026-04-04 |
 | [euler_theorems.md](euler_theorems.md) | オイラーの主要定理一覧 | 2026-04-04 | 2026-04-04 |
 | [math_symbols.md](math_symbols.md) | 数学記号の由来——ギリシャ文字以外の主要記号 | 2026-04-04 | 2026-04-04 |
+| [wiim_002_rotation_principle.md](wiim_002_rotation_principle.md) | クロノスフィアの回転原理——粒子・光子シェルによる時間差生成 | 2026-04-05 | 2026-04-05 |
 
 ---
 

@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **232**
+用語数: **235**
 
 ---
 
@@ -42,6 +42,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g237 | [リングレーザージャイロスコープ](physics.md) | Ring Laser Gyroscope | physics |
+| g236 | [サニャック効果](physics.md) | Sagnac Effect | physics |
+| g235 | [光子球](astronomy.md) | Photon Sphere | astronomy |
 | g234 | [意志論](philosophy.md) | Theory of Will | philosophy |
 | g233 | [集合論](physics.md) | Set Theory | physics |
 | g232 | [離散](physics.md) | Discrete | physics |
@@ -49,9 +52,11 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g230 | [オイラーの定理（群）](mathematics.md) | Euler's Theorems | mathematics |
 | g229 | [オイラー](mathematics.md) | Leonhard Euler | mathematics |
 | g228 | [ベルヌーイ一族](mathematics.md) | Bernoulli Family | mathematics |
-| g227 | [ベルヌーイの定理](physics.md) | Bernoulli's Principle | physics |
-| g226 | [ネイピア数](mathematics.md) | Euler's Number | mathematics |
-| g225 | [対数・自然対数](mathematics.md) | Logarithm / Natural Logarithm | mathematics |
+
+
+
+
+
 
 
 
