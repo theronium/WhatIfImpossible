@@ -68,6 +68,7 @@ async function walkDocs(dir, base = '') {
         id: data.id || null,
         category: data.category || (path.dirname(relPath) === '.' ? 'index' : path.dirname(relPath)),
         tags: data.tags || [],
+        date: data.date ? (data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date).slice(0, 10)) : null,
         birthtime: stat.birthtime.getTime(),
         mtime: stat.mtime.getTime(),
       });

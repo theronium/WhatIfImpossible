@@ -57,7 +57,14 @@
   #search { width: 100%; padding: 6px 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-size: 13px; outline: none; }
   #search:focus { border-color: var(--accent); }
   #article-list { flex: 1; overflow-y: auto; padding: 6px 0; }
-  .category-label { padding: 4px 8px; margin: 8px 6px 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px; display: flex; align-items: center; gap: 6px; }
+  .category-label { padding: 4px 8px; margin: 8px 6px 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px; display: flex; align-items: center; gap: 6px; cursor: pointer; user-select: none; }
+  .category-label .cat-arrow { font-size: 9px; opacity: 0.6; transition: transform 0.15s; flex-shrink: 0; }
+  .category-label.open .cat-arrow { transform: rotate(90deg); }
+  .cat-meta { display: flex; align-items: center; gap: 6px; margin-left: auto; margin-right: 6px; }
+  .cat-count { font-size: 10px; background: rgba(255,255,255,0.08); border-radius: 10px; padding: 1px 6px; color: var(--text-muted); font-weight: 400; }
+  .cat-date { font-size: 10px; color: var(--accent2); font-weight: 400; font-family: monospace; opacity: 0.85; }
+  .category-items { overflow: hidden; }
+  .category-items.collapsed { display: none; }
   .category-label[data-cat="cosmology"] { background: #1a2440; color: #60a5fa; border-left: 3px solid #3b82f6; }
   .category-label[data-cat="physics"]   { background: #1f1a2e; color: #c084fc; border-left: 3px solid #a855f7; }
   .category-label[data-cat="quantum"]   { background: #0f2420; color: #34d399; border-left: 3px solid #10b981; }
@@ -132,6 +139,20 @@
   #toast.show { opacity: 1; }
   #toast.ok { background: var(--success); color: #000; }
   #toast.err { background: var(--danger); color: #fff; }
+
+  /* ── Mermaid fullscreen ── */
+  #mermaid-fullscreen { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; display: none; flex-direction: column; }
+  #mermaid-fullscreen.open { display: flex; }
+  #mermaid-fs-toolbar { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+  #mermaid-fs-toolbar span { font-size: 12px; color: var(--text-muted); flex: 1; }
+  #mermaid-fs-viewport { flex: 1; overflow: hidden; position: relative; cursor: grab; }
+  #mermaid-fs-viewport.dragging { cursor: grabbing; }
+  #mermaid-fs-svg-wrap { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
+  #mermaid-fs-svg-wrap svg { display: block; }
+  .mermaid-fs-btn { padding: 4px 10px; font-size: 12px; border-radius: 5px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); cursor: pointer; }
+  .mermaid-fs-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-fullscreen { position: absolute; top: 6px; right: 8px; padding: 3px 8px; font-size: 11px; border-radius: 4px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-muted); cursor: pointer; z-index: 5; }
+  .btn-fullscreen:hover { border-color: var(--accent); color: var(--accent); }
 
   /* ── Sidebar tabs ── */
   .sidebar-tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; }
@@ -325,6 +346,20 @@
   <input id="commit-msg" type="text" placeholder="コミットメッセージ">
   <button class="btn" id="btn-git-status">状態確認</button>
   <button class="btn btn-accent" id="btn-push">Commit & Push</button>
+</div>
+
+<!-- Mermaid Fullscreen -->
+<div id="mermaid-fullscreen">
+  <div id="mermaid-fs-toolbar">
+    <button class="mermaid-fs-btn" id="fs-zoom-in">＋ ズームイン</button>
+    <button class="mermaid-fs-btn" id="fs-zoom-out">－ ズームアウト</button>
+    <button class="mermaid-fs-btn" id="fs-reset">リセット</button>
+    <span>ホイール：ズーム　ドラッグ：移動　ダブルクリック：リセット　ESC：閉じる</span>
+    <button class="mermaid-fs-btn" id="fs-close">✕ 閉じる</button>
+  </div>
+  <div id="mermaid-fs-viewport">
+    <div id="mermaid-fs-svg-wrap"></div>
+  </div>
 </div>
 
 <!-- New Article Modal -->
@@ -588,6 +623,12 @@ function addSvgZoom(pane) {
     hint.textContent = 'ホイール：ズーム　ドラッグ：移動　ダブルクリック：リセット';
     hint.style.cssText = 'position:absolute;bottom:6px;right:8px;font-size:10px;color:var(--text-muted);pointer-events:none;z-index:10;';
     mermaidDiv.appendChild(hint);
+    // 全画面ボタン
+    const fsBtn = document.createElement('button');
+    fsBtn.textContent = '⛶ 全画面';
+    fsBtn.className = 'btn-fullscreen';
+    fsBtn.addEventListener('click', e => { e.stopPropagation(); openMermaidFullscreen(svg); });
+    mermaidDiv.appendChild(fsBtn);
     let scale = 1, tx = 0, ty = 0, dragging = false, sx, sy;
     const apply = () => { svg.style.transform = `translate(${tx}px,${ty}px) scale(${scale})`; };
     mermaidDiv.addEventListener('wheel', e => {
@@ -604,6 +645,98 @@ function addSvgZoom(pane) {
     mermaidDiv.addEventListener('dblclick', () => { scale = 1; tx = 0; ty = 0; apply(); });
   });
 }
+
+// ── Mermaid fullscreen ────────────────────────────────────────────────
+(function() {
+  const fsOverlay  = () => document.getElementById('mermaid-fullscreen');
+  const fsViewport = () => document.getElementById('mermaid-fs-viewport');
+  const fsSvgWrap  = () => document.getElementById('mermaid-fs-svg-wrap');
+
+  let fsScale = 1, fsTx = 0, fsTy = 0, fsDragging = false, fsSx, fsSy;
+  const fsApply = () => {
+    fsSvgWrap().style.transform = `translate(${fsTx}px,${fsTy}px) scale(${fsScale})`;
+  };
+  const fsFitToViewport = () => {
+    const vp = fsViewport();
+    const svg = fsSvgWrap().querySelector('svg');
+    if (!svg) return;
+    const vpW = vp.clientWidth, vpH = vp.clientHeight;
+    // フルスクリーン内でクローンが実際に描画されたサイズを取得
+    const rect = svg.getBoundingClientRect();
+    const svgW = rect.width  || parseFloat(svg.getAttribute('width'))  || 800;
+    const svgH = rect.height || parseFloat(svg.getAttribute('height')) || 600;
+    const padding = 40;
+    fsScale = Math.min((vpW - padding) / svgW, (vpH - padding) / svgH);
+    fsTx = (vpW - svgW * fsScale) / 2;
+    fsTy = (vpH - svgH * fsScale) / 2;
+    fsApply();
+  };
+  const fsReset = fsFitToViewport;
+
+  window.openMermaidFullscreen = function(origSvg) {
+    const wrap = fsSvgWrap();
+    wrap.innerHTML = '';
+    const clone = origSvg.cloneNode(true);
+    // スタイルをすべてクリアして自然サイズで描画させる
+    clone.removeAttribute('style');
+    clone.removeAttribute('width');
+    clone.removeAttribute('height');
+    // viewBox があれば width/height を viewBox から復元
+    const vb = origSvg.viewBox?.baseVal;
+    if (vb && vb.width > 0) {
+      clone.setAttribute('width',  vb.width);
+      clone.setAttribute('height', vb.height);
+    }
+    wrap.appendChild(clone);
+    fsScale = 1; fsTx = 0; fsTy = 0; fsApply();
+    fsOverlay().classList.add('open');
+    // オーバーレイが表示されてから実サイズを測定してフィット
+    requestAnimationFrame(() => requestAnimationFrame(fsFitToViewport));
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const vp = fsViewport();
+
+    // ズーム（ホイール）
+    vp.addEventListener('wheel', e => {
+      e.preventDefault();
+      const rect = vp.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      const prevScale = fsScale;
+      fsScale = Math.max(0.05, Math.min(10, fsScale * (e.deltaY > 0 ? 0.85 : 1.15)));
+      // カーソル位置を基準にズーム
+      fsTx = mx - (mx - fsTx) * (fsScale / prevScale);
+      fsTy = my - (my - fsTy) * (fsScale / prevScale);
+      fsApply();
+    }, { passive: false });
+
+    // ドラッグ（パン）
+    vp.addEventListener('mousedown', e => {
+      fsDragging = true; fsSx = e.clientX - fsTx; fsSy = e.clientY - fsTy;
+      vp.classList.add('dragging');
+    });
+    window.addEventListener('mousemove', e => {
+      if (!fsDragging) return;
+      fsTx = e.clientX - fsSx; fsTy = e.clientY - fsSy; fsApply();
+    });
+    window.addEventListener('mouseup', () => { fsDragging = false; vp.classList.remove('dragging'); });
+
+    // ダブルクリックでリセット
+    vp.addEventListener('dblclick', fsReset);
+
+    // ボタン
+    document.getElementById('fs-zoom-in').onclick  = () => { fsScale = Math.min(10, fsScale * 1.25); fsApply(); };
+    document.getElementById('fs-zoom-out').onclick = () => { fsScale = Math.max(0.05, fsScale * 0.8); fsApply(); };
+    document.getElementById('fs-reset').onclick    = fsReset;
+    document.getElementById('fs-close').onclick    = () => fsOverlay().classList.remove('open');
+
+    // ESC で閉じる
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') fsOverlay().classList.remove('open');
+    });
+  });
+})();
 
 function updatePreview() {
   if (viewMode === 'edit') return;
@@ -680,18 +813,45 @@ function renderList(list) {
     if (b === 'index') return 1;
     return a.localeCompare(b);
   }).forEach(([cat, items]) => {
+    const hasActive = items.some(a => a.path === currentPath);
+    const isOpen = hasActive;
+
+    const count = items.length;
+    const latestDate = items
+      .map(a => a.date || '')
+      .filter(Boolean)
+      .sort()
+      .at(-1);
+    const dateLabel = latestDate ? latestDate.slice(5).replace('-', '/') : '';
+
     const label = document.createElement('div');
-    label.className = 'category-label';
+    label.className = 'category-label' + (isOpen ? ' open' : '');
     label.dataset.cat = cat;
-    label.textContent = cat;
+    label.innerHTML = `<span>${cat}</span>`
+      + `<span class="cat-meta">`
+      + `<span class="cat-count">${count}</span>`
+      + (dateLabel ? `<span class="cat-date">${dateLabel}</span>` : '')
+      + `</span>`
+      + `<span class="cat-arrow">▶</span>`;
+
+    const group = document.createElement('div');
+    group.className = 'category-items' + (isOpen ? '' : ' collapsed');
+
+    label.onclick = () => {
+      const opening = group.classList.contains('collapsed');
+      group.classList.toggle('collapsed', !opening);
+      label.classList.toggle('open', opening);
+    };
+
     el.appendChild(label);
     items.forEach(a => {
       const div = document.createElement('div');
       div.className = 'article-item' + (a.path === currentPath ? ' active' : '');
       div.innerHTML = `<span class="article-id">${a.id || '—'}</span><span>${a.title}</span>`;
       div.onclick = () => openArticle(a.path);
-      el.appendChild(div);
+      group.appendChild(div);
     });
+    el.appendChild(group);
   });
 }
 
@@ -718,6 +878,7 @@ async function openArticle(relPath, { pushState = true } = {}) {
   } else {
     setViewMode('preview');
   }
+  document.getElementById('preview-pane').scrollTop = 0;
   renderList(articles);
   renderNotesList(document.getElementById('notes-search')?.value || '');
   if (pushState) history.pushState({ path: relPath }, '', `#${relPath}`);
