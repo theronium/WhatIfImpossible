@@ -15,7 +15,12 @@
       "Bash(node glossary/update-term.js)",
       "Bash(node glossary/lookup.js *)",
       "Bash(node glossary/next-id.js)",
-      "Bash(node generate-readme.js)"
+      "Bash(node generate-readme.js)",
+      "Bash(node d:/Repos/WhatIfImpossible/glossary/next-id.js)",
+      "Bash(node d:/Repos/WhatIfImpossible/glossary/lookup.js *)"
+    ],
+    "additionalDirectories": [
+      "d:\\Repos\\MyCells"
     ]
   }
 }
