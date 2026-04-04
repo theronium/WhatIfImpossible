@@ -52,4 +52,4 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 
 | ファイル | タイトル | 登録 | 更新 |
 |---------|---------|------|------|
-| [tech_tree.md](tech_tree.md) | WhatIfImpossible 技術ツリー | 2026-04-04 | 2026-04-04 |
+| [tech_tree.md](tech_tree.md) | WhatIfImpossible 技術ツリー | 2026-04-05 | 2026-04-05 |

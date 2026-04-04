@@ -1614,6 +1614,9 @@ ws.onmessage = (e) => {
 };
 
 // ── Init ─────────────────────────────────────────────────────────────
+import('/elk/mermaid-layout-elk.esm.min.mjs').then(m => {
+  mermaid.registerLayoutLoaders(m.default);
+}).catch(() => {});
 mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 (async () => {
   await loadCategories();

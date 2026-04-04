@@ -21,6 +21,8 @@ const git = simpleGit(REPO_DIR);
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+// ELK layout ライブラリを node_modules から配信
+app.use('/elk', express.static(path.join(__dirname, 'node_modules/@mermaid-js/layout-elk/dist')));
 
 // ── WebSocket: ファイル変更でライブリロード ──────────────────────────
 const broadcast = (msg) => {
