@@ -852,7 +852,7 @@ WIIMの文脈では、[レトロン](wiim-concepts.md)（[wiim_037](../docs/phys
 **読み**: ゆうどうじゅうりょく
 **別名**: 創発重力
 **分野**: 理論物理学・量子重力・場の理論
-**関連記事**: [wiim_029](../docs/physics/wiim_029.md), [wiim_030](../docs/physics/wiim_030.md), [wiim_031](../docs/physics/wiim_031.md)
+**関連記事**: [wiim_029](../docs/physics/wiim_029.md), [wiim_030](../docs/physics/wiim_030.md), [wiim_031](../docs/physics/wiim_031.md), [wiim_064](../docs/physics/wiim_064.md)
 
 アンドレイ・サハロフが1967年に提唱した仮説。重力はU(1)ゲージ対称性から生まれる電磁力とは異なり、基本的な力ではなく、真空の[量子ゆらぎ](physics.md)が物質の存在によって乱されることで誘起される[創発現象](philosophy.md)である可能性を論じた。アインシュタイン方程式の左辺（時空の曲率を記述する項）は、物質場の一ループ量子補正として自然に導出できるとするのが核心の主張だ。
 

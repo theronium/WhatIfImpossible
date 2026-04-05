@@ -123,4 +123,5 @@ flowchart TD
 - [economy_um_currency](../notes/economy_um_currency.md) — 世界観：UM通貨制度とエキゾチック物質単価
 - [wiim_022_tactical](../notes/wiim_022_tactical.md) — 補遺: アンキロンの戦術応用——計量バリケードの強度設計と反アンキロン除去
 - [wiim_063](wiim_063.md) — 架空粒子による大気圏突入緩和——ネゴトン・カシミールフォージ・レトロンは再突入熱と重力を制御できるか
+- [wiim_064](wiim_064.md) — ネグレーザー——真空ゆらぎのコヒーレント化による引力・反重力ビームは実現できるか
 
