@@ -119,7 +119,7 @@
 **読み**: かしみーるこうか
 **別名**: カシミール力
 **分野**: 量子場理論
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_014](../docs/physics/wiim_014.md), [wiim_028](../docs/cosmology/wiim_028.md), [wiim_030](../docs/physics/wiim_030.md), [wiim_031](../docs/physics/wiim_031.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_014](../docs/physics/wiim_014.md), [wiim_028](../docs/cosmology/wiim_028.md), [wiim_030](../docs/physics/wiim_030.md), [wiim_031](../docs/physics/wiim_031.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_067](../docs/physics/wiim_067.md)
 
 二枚の導電板を真空中で極めて近くに置いたとき、板の間に引力（または斥力）が生じる現象。1948年にヘンドリック・カシミールが予言し、実験で確認された。
 

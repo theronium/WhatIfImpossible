@@ -122,4 +122,5 @@ flowchart TD
 - [wiim_027](wiim_027.md) — ストレンジスター・ワープゲート——重力チューニングによる固定式時空歪曲点
 - [wiim_024](../biology/wiim_024.md) — マイコプラズマギカ——最小生命体による生物的核変換が可能な世界
 - [forbidden_zone_treaty](../notes/forbidden_zone_treaty.md) — 禁域条約——宇宙戦争を終わらせた二国消滅事件
+- [wiim_067](wiim_067.md) — ネゴトンホワイトホール——排除地平線が閉じるとき、反重力天体はビッグバンを起こすか
 
