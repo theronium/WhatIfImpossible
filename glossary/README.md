@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **245**
+用語数: **247**
 
 ---
 
@@ -42,6 +42,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g249 | [黒体放射](physics.md) | Blackbody Radiation | physics |
+| g248 | [ホーキング放射](physics.md) | Hawking Radiation | physics |
 | g247 | [ネゴトロン](wiim-concepts.md) | Negotron | wiim-concepts |
 | g246 | [ネグレーザー](wiim-concepts.md) | Neg-raser | wiim-concepts |
 | g245 | [コスモライケン](wiim-concepts.md) | Cosmo-Lichen | wiim-concepts |
@@ -50,8 +52,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g242 | [位相](physics.md) | Phase | physics |
 | g241 | [放射光](physics.md) | Synchrotron Radiation | physics |
 | g240 | [円偏光](physics.md) | Circular Polarization | physics |
-| g239 | [光渦](physics.md) | Optical Vortex | physics |
-| g238 | [特異点光学](physics.md) | Singular Optics | physics |
+
+
 
 
 
