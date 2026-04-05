@@ -163,4 +163,5 @@ flowchart TD
 - [wiim_022_tactical](../notes/wiim_022_tactical.md) — 補遺: アンキロンの戦術応用——計量バリケードの強度設計と反アンキロン除去
 - [wiim_042_clone_consciousness](../notes/wiim_042_clone_consciousness.md) — 補遺: クローン意識コピーのp-ゾンビ混入問題——Δφ再現率と意識転写の確率論
 - [wiim_044_thermal_unit](../notes/wiim_044_thermal_unit.md) — 自律熱管理ユニット——カシミール給電型双方向テルモクラシス系の設計論
+- [wiim_063](wiim_063.md) — 架空粒子による大気圏突入緩和——ネゴトン・カシミールフォージ・レトロンは再突入熱と重力を制御できるか
 

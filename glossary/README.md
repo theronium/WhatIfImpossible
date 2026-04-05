@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **242**
+用語数: **243**
 
 ---
 
@@ -42,6 +42,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g245 | [コスモライケン](wiim-concepts.md) | Cosmo-Lichen | wiim-concepts |
 | g244 | [リングレーザー](physics.md) | Ring Laser | physics |
 | g243 | [コヒーレンス長](physics.md) | Coherence Length | physics |
 | g242 | [位相](physics.md) | Phase | physics |
@@ -51,7 +52,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g238 | [特異点光学](physics.md) | Singular Optics | physics |
 | g237 | [リングレーザージャイロスコープ](physics.md) | Ring Laser Gyroscope | physics |
 | g236 | [サニャック効果](physics.md) | Sagnac Effect | physics |
-| g235 | [光子球](astronomy.md) | Photon Sphere | astronomy |
+
+
+
 
 
 

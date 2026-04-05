@@ -89,4 +89,5 @@ flowchart TD
 - [wiim_022_tactical](../notes/wiim_022_tactical.md) — 補遺: アンキロンの戦術応用——計量バリケードの強度設計と反アンキロン除去
 - [wiim_023_strange_matter_warp](../notes/wiim_023_strange_matter_warp.md) — 補遺: ストレンジ物質とワープドライブ——生成・採取・遠隔利用の可能性
 - [wiim_019](wiim_019.md) — 居住しない惑星——エネルギー用途のテラフォーミング
+- [wiim_063](wiim_063.md) — 架空粒子による大気圏突入緩和——ネゴトン・カシミールフォージ・レトロンは再突入熱と重力を制御できるか
 
