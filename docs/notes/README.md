@@ -46,6 +46,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [euler_theorems.md](euler_theorems.md) | オイラーの主要定理一覧 | 2026-04-04 | 2026-04-04 |
 | [math_symbols.md](math_symbols.md) | 数学記号の由来——ギリシャ文字以外の主要記号 | 2026-04-04 | 2026-04-04 |
 | [wiim_002_rotation_principle.md](wiim_002_rotation_principle.md) | クロノスフィアの回転原理——粒子・光子シェルによる時間差生成 | 2026-04-05 | 2026-04-05 |
+| [hac_replistar_plan.md](hac_replistar_plan.md) | HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要 | 2026-04-05 | 2026-04-05 |
 
 ---
 

@@ -115,4 +115,5 @@ flowchart TD
 - [wiim_025](../biology/wiim_025.md) — シェルマイセリウム——コスモシェルとコズミックマイスの共生が生む自律型宇宙生命体カプセル
 - [wiim_043](../biology/wiim_043.md) — 宇宙ゴケ——地衣類とコズミックマイスの共生が生む自律型テラフォーミング艦
 - [wiim_025_gravity_zone](../notes/wiim_025_gravity_zone.md) — 補遺: シェルマイセリウムの安定立地——重力圏内外のどこに膜を張るか
+- [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
 

@@ -116,4 +116,5 @@ flowchart TD
 - [wiim_002](../cosmology/wiim_002.md) — クロノスフィア——相対的に時間を進められる空間
 - [wiim_059](wiim_059.md) — 菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由
 - [wiim_061](wiim_061.md) — 菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき
+- [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
 

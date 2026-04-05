@@ -34,7 +34,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **235**
+用語数: **242**
 
 ---
 
@@ -42,16 +42,25 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g244 | [リングレーザー](physics.md) | Ring Laser | physics |
+| g243 | [コヒーレンス長](physics.md) | Coherence Length | physics |
+| g242 | [位相](physics.md) | Phase | physics |
+| g241 | [放射光](physics.md) | Synchrotron Radiation | physics |
+| g240 | [円偏光](physics.md) | Circular Polarization | physics |
+| g239 | [光渦](physics.md) | Optical Vortex | physics |
+| g238 | [特異点光学](physics.md) | Singular Optics | physics |
 | g237 | [リングレーザージャイロスコープ](physics.md) | Ring Laser Gyroscope | physics |
 | g236 | [サニャック効果](physics.md) | Sagnac Effect | physics |
 | g235 | [光子球](astronomy.md) | Photon Sphere | astronomy |
-| g234 | [意志論](philosophy.md) | Theory of Will | philosophy |
-| g233 | [集合論](physics.md) | Set Theory | physics |
-| g232 | [離散](physics.md) | Discrete | physics |
-| g231 | [モナド論](philosophy.md) | Monadology | philosophy |
-| g230 | [オイラーの定理（群）](mathematics.md) | Euler's Theorems | mathematics |
-| g229 | [オイラー](mathematics.md) | Leonhard Euler | mathematics |
-| g228 | [ベルヌーイ一族](mathematics.md) | Bernoulli Family | mathematics |
+
+
+
+
+
+
+
+
+
 
 
 

@@ -4,14 +4,23 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-05 | 記事 | wiim_062 | [菌類磁気圏——コズミックマイスが磁場を生成しエネルギーを収集できるか](biology/wiim_062.md) |
 | 2026-04-05 | 記事 | wiim_061 | [菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき](biology/wiim_061.md) |
 | 2026-04-05 | 記事 | wiim_060 | [逆クロノスフィア——内部時間を極端に遅くして生命・文明を保存できるか](physics/wiim_060.md) |
+| 2026-04-05 | 用語 | g244 | [リングレーザー（Ring Laser）](../glossary/physics.md#g244) |
+| 2026-04-05 | 用語 | g243 | [コヒーレンス長（Coherence Length）](../glossary/physics.md#g243) |
+| 2026-04-05 | 用語 | g242 | [位相（Phase）](../glossary/physics.md#g242) |
+| 2026-04-05 | 用語 | g241 | [放射光（Synchrotron Radiation）](../glossary/physics.md#g241) |
+| 2026-04-05 | 用語 | g240 | [円偏光（Circular Polarization）](../glossary/physics.md#g240) |
+| 2026-04-05 | 用語 | g239 | [光渦（Optical Vortex）](../glossary/physics.md#g239) |
+| 2026-04-05 | 用語 | g238 | [特異点光学（Singular Optics）](../glossary/physics.md#g238) |
 | 2026-04-05 | 用語 | g237 | [リングレーザージャイロスコープ（Ring Laser Gyroscope）](../glossary/physics.md#g237) |
 | 2026-04-05 | 用語 | g236 | [サニャック効果（Sagnac Effect）](../glossary/physics.md#g236) |
 | 2026-04-05 | 用語 | g235 | [光子球（Photon Sphere）](../glossary/astronomy.md#g235) |
 | 2026-04-05 | 補遺 | — | [クロノスフィアの回転原理——粒子・光子シェルによる時間差生成](notes/wiim_002_rotation_principle.md) |
 | 2026-04-05 | 補遺 | — | [補遺：恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー](notes/wiim_022_cosmic_ring.md) |
 | 2026-04-05 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
+| 2026-04-05 | 補遺 | — | [HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要](notes/hac_replistar_plan.md) |
 | 2026-04-04 | 記事 | wiim_059 | [菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由](biology/wiim_059.md) |
 | 2026-04-04 | 記事 | wiim_058 | [クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか](biology/wiim_058.md) |
 | 2026-04-04 | 用語 | g233 | [集合論（Set Theory）](../glossary/physics.md#g233) |
@@ -45,12 +54,3 @@
 | 2026-03-28 | 記事 | wiim_050 | [目に見えるほど大きな粒子を生成できるか——量子デコヒーレンスとマクロ量子状態の限界](quantum/wiim_050.md) |
 | 2026-03-28 | 用語 | g213 | [磁気モノポール（Magnetic Monopole）](../glossary/speculative.md#g213) |
 | 2026-03-28 | 用語 | g212 | [Qボール（Q-ball）](../glossary/speculative.md#g212) |
-| 2026-03-28 | 用語 | g211 | [ソリトン（Soliton）](../glossary/physics.md#g211) |
-| 2026-03-28 | 用語 | g209 | [パラポジ粒子（Parapositive Particle）](../glossary/wiim-concepts.md#g209) |
-| 2026-03-28 | 用語 | g207 | [セントラルドグマ（Central Dogma of Molecular Biology）](../glossary/biology.md#g207) |
-| 2026-03-28 | 用語 | g206 | [カルマ（Karma）](../glossary/philosophy.md#g206) |
-| 2026-03-28 | 補遺 | — | [補遺：シミュレータの内側ではカオスの創発文法は自明になる](notes/wiim_054_simulator.md) |
-| 2026-03-27 | 記事 | wiim_049 | [時間遡行は可能か——素粒子物理からWIIM粒子まで、遡行の条件と限界](physics/wiim_049.md) |
-| 2026-03-27 | 記事 | wiim_048 | [ゴーレムにクオリアを宿せるか——「生命を吹き込む」行為と主観的経験の創造限界](philosophy/wiim_048.md) |
-| 2026-03-27 | 記事 | wiim_047 | [双子のデウスエクスラプラス——ラプラスの悪魔が宇宙の内外に同時に存在するとき](philosophy/wiim_047.md) |
-| 2026-03-27 | 用語 | g205 | [ノビコフ自己整合性条件（Novikov Self-Consistency Principle）](../glossary/physics.md#g205) |
