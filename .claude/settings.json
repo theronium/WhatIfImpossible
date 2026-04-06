@@ -17,7 +17,8 @@
       "Bash(node glossary/next-id.js)",
       "Bash(node generate-readme.js)",
       "Bash(node d:/Repos/WhatIfImpossible/glossary/next-id.js)",
-      "Bash(node d:/Repos/WhatIfImpossible/glossary/lookup.js *)"
+      "Bash(node d:/Repos/WhatIfImpossible/glossary/lookup.js *)",
+      "Bash(npm audit:*)"
     ],
     "additionalDirectories": [
       "d:\\Repos\\MyCells"
