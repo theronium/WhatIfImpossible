@@ -40,6 +40,9 @@
   /* ── Header ── */
   header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 16px; height: 48px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
   header h1 { font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; flex: 1; }
+  #collection-select { font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; cursor: pointer; flex: 1; max-width: 300px; outline: none; }
+  #collection-select:focus { border-color: var(--accent); }
+  #collection-select option { background: var(--surface2); color: var(--text); font-weight: 400; }
   .btn { padding: 5px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 13px; cursor: pointer; transition: background 0.15s; }
   .btn:hover { background: var(--border); }
   .btn-accent { background: var(--accent); border-color: var(--accent); color: #fff; }
@@ -237,7 +240,7 @@
 <body>
 
 <header>
-  <h1>⚡ WhatIfImpossible Editor</h1>
+  <select id="collection-select" title="コレクション切替"></select>
   <button class="btn" id="btn-refresh">↺ 更新</button>
   <button class="btn btn-accent" id="btn-new">＋ 新規記事</button>
 </header>
@@ -427,6 +430,8 @@ let collapsedCats = new Set(); // 折り畳み中のカテゴリ
 
 let GLOSSARY_CATS = [];
 let GLOSSARY_LABELS = {};
+let activeCollection = null;
+let collectionConfig = null;
 
 const FALLBACK_CATS = [
   { id: 'astronomy',   label: '天文学・宇宙論',     color: '#60a5fa', bg: '#1a2440', sort: 1 },
@@ -447,6 +452,57 @@ function showToast(msg, type = 'ok') {
   el.className = `show ${type}`;
   _toastTimer = setTimeout(() => { el.className = ''; }, 2500);
 }
+
+// ── コレクション ─────────────────────────────────────────────────────
+async function loadCollections() {
+  try {
+    const res = await fetch('/api/collections');
+    if (!res.ok) return;
+    const data = await res.json();
+    activeCollection = data.active;
+    collectionConfig  = data.config;
+
+    const sel = document.getElementById('collection-select');
+    sel.innerHTML = Object.entries(data.collections)
+      .map(([key, col]) => `<option value="${key}" ${key === data.active ? 'selected' : ''}>⚡ ${col.label}</option>`)
+      .join('');
+
+    applyCollectionConfig(data.config);
+  } catch (e) {
+    console.warn('collections API not ready:', e.message);
+  }
+}
+
+function applyCollectionConfig(config) {
+  if (!config) return;
+  const techtreeTab = document.querySelector('.sidebar-tab[data-panel="techtree"]');
+  if (techtreeTab) {
+    techtreeTab.style.display = config.showTechTree ? '' : 'none';
+  }
+}
+
+async function switchCollection(key) {
+  const res = await fetch('/api/collections/switch', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ key }),
+  });
+  if (!res.ok) { showToast('切替失敗', 'error'); return; }
+  const data = await res.json();
+  activeCollection = data.active;
+  collectionConfig  = data.config;
+  applyCollectionConfig(data.config);
+  // パネルが techtree で非表示になる場合は記事パネルに戻す
+  const current = document.querySelector('.sidebar-tab.active')?.dataset.panel;
+  if (current === 'techtree' && !data.config?.showTechTree) {
+    switchToPanel('articles');
+  }
+  await loadCategories();
+  await loadGlossaryTerms();
+  await loadArticles();
+  showToast(`コレクション切替: ${key}`);
+}
+
+document.getElementById('collection-select').onchange = (e) => switchCollection(e.target.value);
 
 async function loadCategories() {
   try {
@@ -1609,7 +1665,10 @@ ws.onmessage = (e) => {
   if (d.type === 'reload') loadArticles();
   if (d.type === 'reload-glossary') {
     loadCategories();
-    loadGlossaryTerms();  // 常に再ロード（記事プレビューのリンクにも使うため）
+    loadGlossaryTerms();
+  }
+  if (d.type === 'collection-switched') {
+    loadCollections();
   }
 };
 
@@ -1619,8 +1678,9 @@ import('/elk/mermaid-layout-elk.esm.min.mjs').then(m => {
 }).catch(() => {});
 mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 (async () => {
+  await loadCollections();
   await loadCategories();
-  await loadGlossaryTerms();  // 記事プレビューの用語リンクのために常にロード
+  await loadGlossaryTerms();
   await loadArticles();
   // ハッシュから状態を復元（リフレッシュ時・直リンク時）
   const hash = location.hash.slice(1);
