@@ -212,6 +212,16 @@ app.patch('/api/collection/config', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
+// ── API: リンク情報（自動リンク用パス） ──────────────────────────────
+app.get('/api/collection/link-info', async (req, res) => {
+  try {
+    // docsDir から見た glossary/terms の相対パス
+    const termsDir = path.join(col.glossaryDir, 'terms');
+    const termLinkBase = path.relative(col.docsDir, termsDir).replace(/\\/g, '/');
+    res.json({ termLinkBase });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
 // ── API: 次の ID を返す ──────────────────────────────────────────────
 app.get('/api/collection/next-id', async (req, res) => {
   try {

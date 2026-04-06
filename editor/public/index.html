@@ -442,6 +442,16 @@
     <div id="stab-collections" style="display:none;flex-direction:column;gap:12px;flex:1;overflow-y:auto;">
       <!-- 登録済みコレクション -->
       <div id="col-list" style="display:flex;flex-direction:column;gap:4px;"></div>
+      <!-- 用語自動リンク設定 -->
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">保存時の用語自動リンク</div>
+        <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
+          <label><input type="radio" name="auto-link" value="on"  onchange="setAutoLink(true)"> 有効</label>
+          <label><input type="radio" name="auto-link" value="off" onchange="setAutoLink(false)"> 無効</label>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);">有効時: 保存のたびに用語名を <code style="font-size:10px;background:var(--surface);padding:1px 4px;border-radius:3px;">[用語名](glossary/terms/gXXX.md)</code> に変換。既存リンク・コードブロックは保護。小説など用語リンク不要なコレクションは無効に。</div>
+      </div>
+
       <!-- 出力形式設定 -->
       <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
         <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">現在のコレクションの出力形式</div>
@@ -1083,13 +1093,79 @@ window.addEventListener('popstate', e => {
 // ── Save ─────────────────────────────────────────────────────────────
 async function saveArticle() {
   if (!currentPath) return;
-  const raw = monacoEditor.getValue();
+  let raw = monacoEditor.getValue();
+
+  // autoLink: 用語リンクを本文に挿入
+  if (collectionConfig?.autoLink && glossaryTerms.length) {
+    raw = await applyAutoLink(raw, currentPath);
+    // エディタ表示も更新（保存内容と一致させる）
+    const pos = monacoEditor.getPosition();
+    monacoEditor.setValue(raw);
+    monacoEditor.setPosition(pos);
+  }
+
   const res = await fetch(`/api/articles/${currentPath}`, {
     method: 'PUT', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ raw })
   });
   if (res.ok) { showToast('保存しました', 'ok'); loadArticles(); }
   else showToast('保存失敗', 'err');
+}
+
+async function applyAutoLink(raw, relPath) {
+  // termLinkBase を取得（docsDir から glossary/terms への相対パス）
+  const { termLinkBase } = await fetch('/api/collection/link-info')
+    .then(r => r.json()).catch(() => ({ termLinkBase: '../glossary/terms' }));
+
+  // 記事の深さに応じて ../ を付加
+  const depth = relPath.split('/').length - 1;
+  const prefix = '../'.repeat(depth) + termLinkBase + '/';
+
+  const { fm, body } = parseFrontmatter(raw);
+  const linked = autoLinkBodyForSave(body, prefix);
+  // frontmatter を再構築して返す
+  const fmLines = raw.match(/^---\r?\n[\s\S]*?\r?\n---/)?.[0] ?? '';
+  return fmLines ? fmLines + '\n\n' + linked : linked;
+}
+
+function autoLinkBodyForSave(body, termPrefix) {
+  const index = [];
+  for (const t of glossaryTerms) {
+    index.push({ name: t.name, id: t.id });
+    for (const alias of (t.aliases || [])) index.push({ name: alias, id: t.id });
+  }
+  index.sort((a, b) => b.name.length - a.name.length);
+
+  const placeholders = [];
+  let result = body;
+  const linked = new Set();
+
+  // 既存マークダウンリンクを保護
+  result = result.replace(/\[([^\]]+)\]\([^)]+\)/g, match => {
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(match);
+    return ph;
+  });
+  // コードブロック・インラインコードを保護
+  result = result.replace(/```[\s\S]*?```|`[^`]+`/g, match => {
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(match);
+    return ph;
+  });
+
+  for (const t of index) {
+    if (linked.has(t.id)) continue;
+    const escaped = t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    if (!new RegExp(escaped).test(result)) continue;
+    const ph = `\x00${placeholders.length}\x00`;
+    placeholders.push(`[${t.name}](${termPrefix}${t.id}.md)`);
+    result = result.replace(new RegExp(escaped), ph);
+    linked.add(t.id);
+  }
+  for (let i = 0; i < placeholders.length; i++) {
+    result = result.replace(`\x00${i}\x00`, placeholders[i]);
+  }
+  return result;
 }
 
 // ── Delete ───────────────────────────────────────────────────────────
@@ -1860,6 +1936,10 @@ async function renderColList() {
     </div>
   `).join('');
 
+  // 用語自動リンクラジオを現在の config に合わせる
+  const alRadio = document.querySelector(`input[name="auto-link"][value="${data.config?.autoLink ? 'on' : 'off'}"]`);
+  if (alRadio) alRadio.checked = true;
+
   // 出力形式ラジオを現在の config に合わせる
   const output = data.config?.output || ['markdown'];
   const fmt = output.includes('html') && output.includes('markdown') ? 'both'
@@ -1867,6 +1947,18 @@ async function renderColList() {
   const radio = document.querySelector(`input[name="output-format"][value="${fmt}"]`);
   if (radio) radio.checked = true;
   updateOutputHint(fmt);
+}
+
+async function setAutoLink(value) {
+  const res = await fetch('/api/collection/config', {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ autoLink: value }),
+  });
+  if (res.ok) {
+    const { config } = await res.json();
+    collectionConfig = config;
+    showToast(`用語自動リンク: ${value ? '有効' : '無効'}`, 'ok');
+  } else { showToast('更新失敗', 'err'); }
 }
 
 async function setOutputFormat(value) {

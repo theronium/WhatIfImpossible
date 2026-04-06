@@ -8,5 +8,6 @@
   "output": [
     "markdown"
   ],
-  "showTechTree": true
+  "showTechTree": true,
+  "autoLink": true
 }
