@@ -5,6 +5,8 @@
     "byCategory": {},
     "termCounter": 249
   },
-  "output": ["markdown"],
+  "output": [
+    "markdown"
+  ],
   "showTechTree": true
 }

@@ -5,97 +5,107 @@
 
 ---
 
-## Phase 1 — 用語ファイル単体化（generate.js 拡張）
+## Phase 1 — 用語ファイル単体化（generate.js 拡張）✅
 
-既存フローへの影響ゼロ。単独で完結。
-
-- [ ] `glossary/terms/gXXX.md` を generate.js で出力
+- [x] `glossary/terms/gXXX.md` を generate.js で出力
   - frontmatter に id / name / en / reading / category / field / related を含める
   - body は段落ごとに改行
   - related リンクは `[用語名](gXXX.md)` 形式（GitHub 上でクリック可能）
-- [ ] generate.js 実行後に `terms/` フォルダが正しく生成されることを確認
+- [x] generate.js 実行後に `terms/` フォルダが正しく生成されることを確認
 
 ---
 
-## Phase 2 — コレクション基盤（サーバー側）
+## Phase 2 — コレクション基盤（サーバー側）✅
 
-UI より先にデータ構造とAPIを固める。
-
-- [ ] `editor/data/collections.json` の設計・初期ファイル作成
-  - `active` キーと `collections` マップ（label / docsPath / glossaryPath）
-  - docsPath / glossaryPath が null の場合は `editor/data/[subkey]/docs|glossary/` を使う
-- [ ] `editor/data/wiim/config.json` 作成（WhatIfImpossible 用の初期設定）
-  - idFormat: `"global-only"` or `"category-prefix"`
-  - counters: `{ global: N, byCategory: {}, termCounter: N }`
-  - output: `["markdown"]`（将来 html 追加）
-- [ ] サーバーの `DOCS_DIR` / `GLOSSARY_DIR` をコレクション設定から動的解決に変更
-- [ ] `GET /api/collections` — コレクション一覧と active を返す
-- [ ] `POST /api/collections/switch` — active を切り替え、一覧と設定を返す
+- [x] `editor/data/collections.json` の設計・初期ファイル作成
+- [x] `editor/data/wiim/config.json` 作成
+- [x] サーバーの `DOCS_DIR` / `GLOSSARY_DIR` をコレクション設定から動的解決に変更
+- [x] `GET /api/collections`
+- [x] `POST /api/collections/switch`
 
 ---
 
-## Phase 3 — コレクション切替 UI
+## Phase 3 — コレクション切替 UI ✅
 
-- [ ] ヘッダー左上にコレクション選択セレクトボックスを追加
-  - 現在の `WhatIfImpossible Editor` テキストをセレクトに置き換え
-  - 選択肢は `label` フィールドから生成
-- [ ] 切替時にサイドバー（記事・補遺・用語）をリロード（ページリフレッシュなし）
-- [ ] 技術ツリータブをコレクション設定 `showTechTree: true/false` で表示/非表示制御
-  - WhatIfImpossible はデフォルト `true`、新規サブコレクションは `false`
+- [x] ヘッダー左上にコレクション選択セレクトボックスを追加
+- [x] 切替時にサイドバー（記事・補遺・用語）をリロード
+- [x] 技術ツリータブをコレクション設定 `showTechTree` で表示/非表示制御
 
 ---
 
-## Phase 4 — 新規作成フォーム改善
+## Phase 4 — 新規作成フォーム改善 ✅
 
-### 記事（思考実験）
-- [ ] カテゴリをセレクトボックスに変更（`categories.json` から動的生成）
-- [ ] カテゴリ選択後に連番プレビューを表示（保存時に確定）
-- [ ] テンプレート選択（`data/[subkey]/templates/` 内の `.md` 一覧）
-- [ ] 連番は config.json の counter を increment して保存
-
-### 補遺（notes）
-- [ ] 補遺の新規作成ボタンを補遺パネルに追加
-- [ ] 連番付きファイル名の自動生成（例: `notes/note_001.md`）
-- [ ] テンプレート選択（補遺用）
-
-### 用語
-- [ ] 用語新規作成フォームに連番自動付与（`termCounter` を使用）
-- [ ] カテゴリセレクトボックス化
+- [x] カテゴリをセレクトボックスに変更（動的生成）
+- [x] 連番は config.json の counter を increment して保存
+- [x] テンプレート選択（`data/[subkey]/templates/` 内の `.md` 一覧）
+- [x] 補遺の新規作成ボタンを補遺パネルに追加
+- [x] 用語新規作成フォームに連番自動付与
 
 ---
 
-## Phase 5 — テンプレート管理
+## Phase 5 — テンプレート管理 ✅
 
-- [ ] `editor/data/[subkey]/templates/` フォルダ設計
-  - `default.md` — 思考実験デフォルト
-  - `novel-chapter.md` — 前書き・本文・後書き・参考リンク
-  - `addendum.md` — 補遺デフォルト
-- [ ] テンプレート登録・編集 UI（設定画面またはモーダル）
-- [ ] `GET /api/templates` / `POST /api/templates/:name` API
+- [x] `editor/data/[subkey]/templates/` フォルダ設計
+  - `default.md` / `novel-chapter.md` / `addendum.md` を初期作成
+- [x] テンプレート登録・編集 UI（settings-modal のテンプレートタブ）
+- [x] `GET/PUT/DELETE /api/templates/:name` API
 
 ---
 
-## Phase 6 — 新規サブコレクション作成 UI
+## Phase 6 — 新規サブコレクション作成 UI ✅
 
-- [ ] 設定画面に「新規コレクション作成」フォームを追加
-  - コレクションキー（英数字）・ラベル名・保存先（内部 or 外部パス）
-  - カテゴリ引継ぎ or デフォルトのみ を選択
-  - ID フォーマット設定（global-only / category-prefix）
-- [ ] 作成時に `data/[subkey]/config.json`・`categories.json`・`docs/`・`glossary/data/` を初期化
-- [ ] `collections.json` に追加してセレクトボックスに反映
-
----
-
-## Phase 7 — ナビゲーション・出力設定
-
-- [ ] 前後記事リンクをプレビュー下部に自動表示（連番に基づく最近傍を検索）
-  - セレクトボックス形式（全記事番号から選択）も検討
-- [ ] config.json の `output` 設定に応じて MD / HTML / both を保存
-  - HTML 出力時は用語リンクをエディタと同様に展開して保存
+- [x] settings-modal にタブを追加（テンプレート / コレクション）
+- [x] 登録済みコレクション一覧表示・出力形式設定
+- [x] 「新規コレクション作成」フォーム
+- [x] `POST /api/collections` でディレクトリ構造を初期化
+- [x] `collections.json` に追加してセレクトボックスに反映
 
 ---
 
-## Phase 8 — リポジトリ分離（最終目標）
+## Phase 7 — ナビゲーション・出力設定 ✅
+
+- [x] 前後記事リンクをプレビュー下部に自動表示（連番に基づく隣接記事を検索）
+- [x] config.json の `output` 設定に応じて MD / HTML / both を保存
+- [x] `PATCH /api/collection/config` エンドポイント
+- [x] settings-modal（コレクションタブ）に出力形式ラジオを追加
+
+---
+
+## Phase 8 — UI 整理・カテゴリ管理統合
+
+### 8-1. 新規記事ボタンをサイドバーに移動
+
+- [ ] ヘッダーの「＋ 新規記事」ボタンを削除
+- [ ] 記事パネルのサイドバーヘッダー（`articles-search-bar`）に「＋ 新規」ボタンを追加
+  - 補遺・用語の既存パターンに合わせる
+
+### 8-2. カテゴリ管理を settings-modal に統合
+
+- [ ] settings-modal に3つ目のタブ「カテゴリ」を追加
+- [ ] 用語集サイドバーの ⚙ ボタン（`openCatModal`）を削除し、cat-modal を廃止
+- [ ] カテゴリタブの構成
+  - **記事カテゴリ** セクション：色・ラベルのみ編集可（フォルダ名は変更不可）
+  - **用語カテゴリ** セクション：フル CRUD（既存の cat-modal と同等機能）
+
+### 8-3. 記事カテゴリ定義ファイルの新設
+
+- [ ] `editor/data/[subkey]/article-categories.json` を新設
+  - 形式は `categories.json` と同じ（`id / label / color / bg / sort`）
+  - id はフォルダ名と一致させる（変更不可）
+  - wiim の初期値は既存の CSS 定義から生成
+- [ ] `GET /api/article-categories` と `PUT /api/article-categories/:id` を追加
+- [ ] サイドバーの記事カテゴリ色・ラベルを CSS 直書きから動的適用に変更
+  - 未定義のカテゴリはフォールバック色で表示
+
+### 設計方針メモ
+
+- 記事カテゴリ（フォルダ紐付き）と用語カテゴリ（タグ的自由分類）は**別データで管理**
+- 両方とも同じ `{ id, label, color, bg, sort }` 形式を使い、仕組みは共通
+- サブコレクション（小説等）では両者の性質が全く異なるため統合しない
+
+---
+
+## Phase 9 — リポジトリ分離（最終目標）
 
 - [ ] `editor/` を `termlink-editor/` として独立リポジトリ化
 - [ ] `WhatIfImpossible/editor/` を削除し、sibling リポジトリから起動する手順を整備

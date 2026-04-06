@@ -542,6 +542,34 @@ app.delete('/api/glossary/categories/:id', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
+// ── API: 記事カテゴリ ────────────────────────────────────────────────
+const getArticleCategoriesFile = () =>
+  path.join(__dirname, 'data', col.active, 'article-categories.json');
+
+async function readArticleCategories() {
+  try {
+    return JSON.parse(await fs.readFile(getArticleCategoriesFile(), 'utf-8'));
+  } catch {
+    return [];
+  }
+}
+
+app.get('/api/article-categories', async (req, res) => {
+  res.json(await readArticleCategories());
+});
+
+app.put('/api/article-categories/:id', async (req, res) => {
+  try {
+    const cats = await readArticleCategories();
+    const idx = cats.findIndex(c => c.id === req.params.id);
+    if (idx === -1) return res.status(404).json({ error: 'Not found' });
+    cats[idx] = { id: req.params.id, ...req.body };
+    cats.sort((a, b) => a.sort - b.sort);
+    await fs.writeFile(getArticleCategoriesFile(), JSON.stringify(cats, null, 2) + '\n', 'utf-8');
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
 // ── API: Git ─────────────────────────────────────────────────────────
 app.get('/api/git/status', async (req, res) => {
   try {

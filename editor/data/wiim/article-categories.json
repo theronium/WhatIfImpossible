@@ -1,0 +1,8 @@
+[
+  { "id": "cosmology",  "label": "宇宙・時空間",   "color": "#60a5fa", "bg": "#1a2440", "sort": 1 },
+  { "id": "physics",    "label": "物理・素粒子",   "color": "#c084fc", "bg": "#1f1a2e", "sort": 2 },
+  { "id": "quantum",    "label": "量子力学",        "color": "#34d399", "bg": "#0f2420", "sort": 3 },
+  { "id": "biology",    "label": "生命・進化",      "color": "#86efac", "bg": "#1a2818", "sort": 4 },
+  { "id": "logic",      "label": "論理・パラドックス","color": "#fbbf24", "bg": "#2a1f10", "sort": 5 },
+  { "id": "philosophy", "label": "哲学・意識",      "color": "#f0abfc", "bg": "#251525", "sort": 6 }
+]
