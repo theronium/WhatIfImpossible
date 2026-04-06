@@ -10,38 +10,129 @@ import { fileURLToPath } from 'url';
 import { spawn } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DOCS_DIR = path.resolve(__dirname, '../docs');
-const GLOSSARY_DIR = path.resolve(__dirname, '../glossary');
-const REPO_DIR = path.resolve(__dirname, '..');
+const COLLECTIONS_FILE = path.join(__dirname, 'data', 'collections.json');
 
+// ── コレクション状態 ─────────────────────────────────────────────────
+const col = {
+  active: null,
+  collections: {},
+  docsDir: null,
+  glossaryDir: null,
+  repoDir: null,
+  docWatcher: null,
+  glossaryWatcher: null,
+};
+
+function resolvePath(p, key) {
+  if (!p) return null;
+  if (path.isAbsolute(p)) return p;
+  return path.resolve(__dirname, 'data', key, p.replace(/^\.\.\/\.\.\//, ''))
+    // collections.json の相対パスは editor/ 起点
+    || path.resolve(__dirname, p);
+}
+
+function resolveCollectionPaths(key) {
+  const c = col.collections[key];
+  if (!c) throw new Error(`Collection "${key}" not found`);
+  const resolve = p => p
+    ? (path.isAbsolute(p) ? p : path.resolve(__dirname, p))
+    : null;
+  return {
+    docsDir:     resolve(c.docsPath)     ?? path.join(__dirname, 'data', key, 'docs'),
+    glossaryDir: resolve(c.glossaryPath) ?? path.join(__dirname, 'data', key, 'glossary'),
+  };
+}
+
+function startWatchers() {
+  if (col.docWatcher)      col.docWatcher.close();
+  if (col.glossaryWatcher) col.glossaryWatcher.close();
+
+  col.docWatcher = chokidar.watch(col.docsDir, { ignoreInitial: true })
+    .on('all', (event, filePath) => {
+      broadcast({ type: 'reload', event, file: path.relative(col.docsDir, filePath) });
+    });
+  col.glossaryWatcher = chokidar.watch(col.glossaryDir, { ignoreInitial: true })
+    .on('all', () => broadcast({ type: 'reload-glossary' }));
+}
+
+async function activateCollection(key) {
+  const { docsDir, glossaryDir } = resolveCollectionPaths(key);
+  col.active      = key;
+  col.docsDir     = docsDir;
+  col.glossaryDir = glossaryDir;
+  col.repoDir     = path.dirname(docsDir);
+  startWatchers();
+}
+
+async function loadCollections() {
+  const raw = await fs.readFile(COLLECTIONS_FILE, 'utf-8');
+  const data = JSON.parse(raw);
+  col.collections = data.collections;
+  await activateCollection(data.active);
+}
+
+async function saveActiveKey(key) {
+  const raw = await fs.readFile(COLLECTIONS_FILE, 'utf-8');
+  const data = JSON.parse(raw);
+  data.active = key;
+  await fs.writeFile(COLLECTIONS_FILE, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+}
+
+async function loadCollectionConfig(key) {
+  const configPath = path.join(__dirname, 'data', key, 'config.json');
+  try {
+    const raw = await fs.readFile(configPath, 'utf-8');
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+// ── Express / WebSocket ──────────────────────────────────────────────
 const app = express();
 const server = createServer(app);
 const wss = new WebSocketServer({ server });
-const git = simpleGit(REPO_DIR);
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-// ELK layout ライブラリを node_modules から配信
 app.use('/elk', express.static(path.join(__dirname, 'node_modules/@mermaid-js/layout-elk/dist')));
 
-// ── WebSocket: ファイル変更でライブリロード ──────────────────────────
 const broadcast = (msg) => {
   wss.clients.forEach(client => {
     if (client.readyState === 1) client.send(JSON.stringify(msg));
   });
 };
 
-chokidar.watch(DOCS_DIR, { ignoreInitial: true }).on('all', (event, filePath) => {
-  broadcast({ type: 'reload', event, file: path.relative(DOCS_DIR, filePath) });
+// ── API: コレクション ────────────────────────────────────────────────
+app.get('/api/collections', async (req, res) => {
+  try {
+    const raw = await fs.readFile(COLLECTIONS_FILE, 'utf-8');
+    const data = JSON.parse(raw);
+    const config = await loadCollectionConfig(data.active);
+    res.json({ active: data.active, collections: data.collections, config });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
 });
-chokidar.watch(GLOSSARY_DIR, { ignoreInitial: true }).on('all', () => {
-  broadcast({ type: 'reload-glossary' });
+
+app.post('/api/collections/switch', async (req, res) => {
+  const { key } = req.body;
+  try {
+    if (!col.collections[key]) return res.status(404).json({ error: `Collection "${key}" not found` });
+    await activateCollection(key);
+    await saveActiveKey(key);
+    const config = await loadCollectionConfig(key);
+    broadcast({ type: 'collection-switched', key });
+    res.json({ ok: true, active: key, config });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
 });
 
 // ── API: 記事一覧 ────────────────────────────────────────────────────
 app.get('/api/articles', async (req, res) => {
   try {
-    const articles = await walkDocs(DOCS_DIR);
+    const articles = await walkDocs(col.docsDir);
     res.json(articles);
   } catch (e) {
     res.status(500).json({ error: e.message });
@@ -82,7 +173,7 @@ async function walkDocs(dir, base = '') {
 // ── API: 記事取得 ────────────────────────────────────────────────────
 app.get('/api/articles/*', async (req, res) => {
   const relPath = req.params[0];
-  const fullPath = path.join(DOCS_DIR, relPath);
+  const fullPath = path.join(col.docsDir, relPath);
   try {
     const raw = await fs.readFile(fullPath, 'utf-8');
     const { data, content } = matter(raw);
@@ -95,7 +186,7 @@ app.get('/api/articles/*', async (req, res) => {
 // ── API: 記事保存 ────────────────────────────────────────────────────
 app.put('/api/articles/*', async (req, res) => {
   const relPath = req.params[0];
-  const fullPath = path.join(DOCS_DIR, relPath);
+  const fullPath = path.join(col.docsDir, relPath);
   const { raw } = req.body;
   try {
     await fs.mkdir(path.dirname(fullPath), { recursive: true });
@@ -109,13 +200,13 @@ app.put('/api/articles/*', async (req, res) => {
 // ── API: 記事新規作成 ────────────────────────────────────────────────
 app.post('/api/articles', async (req, res) => {
   const { relPath, frontmatter } = req.body;
-  const fullPath = path.join(DOCS_DIR, relPath);
+  const fullPath = path.join(col.docsDir, relPath);
   try {
     await fs.access(fullPath);
     return res.status(409).json({ error: 'Already exists' });
   } catch { /* ok */ }
 
-  const template = await fs.readFile(path.join(DOCS_DIR, '_template.md'), 'utf-8');
+  const template = await fs.readFile(path.join(col.docsDir, '_template.md'), 'utf-8');
   const { content } = matter(template);
   const fm = matter.stringify(content, frontmatter);
   await fs.mkdir(path.dirname(fullPath), { recursive: true });
@@ -125,7 +216,7 @@ app.post('/api/articles', async (req, res) => {
 
 // ── API: 記事削除 ────────────────────────────────────────────────────
 app.delete('/api/articles/*', async (req, res) => {
-  const fullPath = path.join(DOCS_DIR, req.params[0]);
+  const fullPath = path.join(col.docsDir, req.params[0]);
   try {
     await fs.unlink(fullPath);
     res.json({ ok: true });
@@ -135,23 +226,23 @@ app.delete('/api/articles/*', async (req, res) => {
 });
 
 // ── 用語集ヘルパー ────────────────────────────────────────────────────
-const TERMS_FILE     = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
-const CATEGORIES_FILE = path.join(GLOSSARY_DIR, 'categories.json');
-const GENERATE_SCRIPT = path.join(GLOSSARY_DIR, 'generate.js');
+const getTermsFile     = () => path.join(col.glossaryDir, 'data', 'terms.jsonl');
+const getCategoriesFile = () => path.join(col.glossaryDir, 'categories.json');
+const getGenerateScript = () => path.join(col.glossaryDir, 'scripts', 'generate.js');
 
 async function readTerms() {
-  const raw = await fs.readFile(TERMS_FILE, 'utf-8');
+  const raw = await fs.readFile(getTermsFile(), 'utf-8');
   return raw.trim().split('\n').filter(Boolean).map(l => JSON.parse(l));
 }
 
 async function writeTerms(terms) {
   const jsonl = terms.map(t => JSON.stringify(t)).join('\n') + '\n';
-  await fs.writeFile(TERMS_FILE, jsonl, 'utf-8');
+  await fs.writeFile(getTermsFile(), jsonl, 'utf-8');
 }
 
 function runGenerate() {
   return new Promise((resolve, reject) => {
-    const child = spawn('node', [GENERATE_SCRIPT]);
+    const child = spawn('node', [getGenerateScript()]);
     child.on('close', code =>
       code === 0 ? resolve() : reject(new Error(`generate.js exited with code ${code}`))
     );
@@ -159,8 +250,6 @@ function runGenerate() {
 }
 
 // ── API: 用語集 CRUD ─────────────────────────────────────────────────
-// ※ /api/glossary/terms は /api/glossary/* より先に登録する
-
 app.get('/api/glossary/terms', async (req, res) => {
   try { res.json(await readTerms()); }
   catch (e) { res.status(500).json({ error: e.message }); }
@@ -207,12 +296,12 @@ app.delete('/api/glossary/terms/:id', async (req, res) => {
 
 // ── API: カテゴリ管理 ────────────────────────────────────────────────
 async function readCategories() {
-  const raw = await fs.readFile(CATEGORIES_FILE, 'utf-8');
+  const raw = await fs.readFile(getCategoriesFile(), 'utf-8');
   return JSON.parse(raw);
 }
 
 async function writeCategories(cats) {
-  await fs.writeFile(CATEGORIES_FILE, JSON.stringify(cats, null, 2) + '\n', 'utf-8');
+  await fs.writeFile(getCategoriesFile(), JSON.stringify(cats, null, 2) + '\n', 'utf-8');
 }
 
 app.get('/api/glossary/categories', async (req, res) => {
@@ -260,20 +349,20 @@ app.delete('/api/glossary/categories/:id', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-// ── API: Git ステータス ──────────────────────────────────────────────
+// ── API: Git ─────────────────────────────────────────────────────────
 app.get('/api/git/status', async (req, res) => {
   try {
-    const status = await git.status();
-    res.json(status);
+    const git = simpleGit(col.repoDir);
+    res.json(await git.status());
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-// ── API: Git commit & push ───────────────────────────────────────────
 app.post('/api/git/push', async (req, res) => {
   const { message } = req.body;
   try {
+    const git = simpleGit(col.repoDir);
     await git.add(['docs/.', 'glossary/.']);
     await git.commit(message || 'Update articles');
     await git.push();
@@ -285,7 +374,13 @@ app.post('/api/git/push', async (req, res) => {
 
 // ── 起動 ─────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3030;
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`WhatIfImpossible Editor: http://localhost:${PORT}`);
-  console.log(`LAN access: http://<this-machine-ip>:${PORT}`);
+
+loadCollections().then(() => {
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`termlink-editor: http://localhost:${PORT}`);
+    console.log(`Active collection: ${col.active} (${col.docsDir})`);
+  });
+}).catch(e => {
+  console.error('Failed to load collections:', e.message);
+  process.exit(1);
 });

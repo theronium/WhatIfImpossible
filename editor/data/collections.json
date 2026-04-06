@@ -1,0 +1,10 @@
+{
+  "active": "wiim",
+  "collections": {
+    "wiim": {
+      "label": "WhatIfImpossible",
+      "docsPath": "../docs",
+      "glossaryPath": "../glossary"
+    }
+  }
+}

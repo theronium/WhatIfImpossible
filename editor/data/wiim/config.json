@@ -1,0 +1,10 @@
+{
+  "idFormat": "global-only",
+  "counters": {
+    "global": 67,
+    "byCategory": {},
+    "termCounter": 249
+  },
+  "output": ["markdown"],
+  "showTechTree": true
+}
