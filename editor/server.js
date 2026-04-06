@@ -8,9 +8,11 @@ import path from 'path';
 import { createServer } from 'http';
 import { fileURLToPath } from 'url';
 import { spawn } from 'child_process';
+import MarkdownIt from 'markdown-it';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const COLLECTIONS_FILE = path.join(__dirname, 'data', 'collections.json');
+const mdRenderer = new MarkdownIt({ html: true, linkify: true });
 
 // ── コレクション状態 ─────────────────────────────────────────────────
 const col = {
@@ -103,6 +105,11 @@ const broadcast = (msg) => {
   });
 };
 
+// デフォルトカテゴリ（新規コレクション用）
+const DEFAULT_CATEGORIES = [
+  { id: 'general', label: '一般',     color: '#60a5fa', bg: '#1a2440', sort: 1 },
+];
+
 // ── API: コレクション ────────────────────────────────────────────────
 app.get('/api/collections', async (req, res) => {
   try {
@@ -113,6 +120,56 @@ app.get('/api/collections', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
+});
+
+app.post('/api/collections', async (req, res) => {
+  const { key, label, storage, path: extPath, cats, idFormat } = req.body;
+  if (!/^[a-z0-9_-]+$/.test(key)) return res.status(400).json({ error: 'キーは英小文字・数字・ハイフン・アンダースコアのみ使用できます' });
+
+  const data = JSON.parse(await fs.readFile(COLLECTIONS_FILE, 'utf-8'));
+  if (data.collections[key]) return res.status(409).json({ error: `"${key}" は既に存在します` });
+
+  const internalBase  = path.join(__dirname, 'data', key);
+  const isExternal    = storage === 'external' && extPath;
+  const resolvedDocs  = isExternal ? path.join(extPath, 'docs')     : path.join(internalBase, 'docs');
+  const resolvedGloss = isExternal ? path.join(extPath, 'glossary') : path.join(internalBase, 'glossary');
+
+  try {
+    // ディレクトリ構造を作成
+    await fs.mkdir(resolvedDocs,                          { recursive: true });
+    await fs.mkdir(path.join(resolvedGloss, 'data'),      { recursive: true });
+    await fs.mkdir(internalBase,                          { recursive: true });
+
+    // config.json
+    const config = {
+      idFormat: idFormat || 'global-only',
+      counters: { global: 0, byCategory: {}, termCounter: 0 },
+      output: ['markdown'],
+      showTechTree: false,
+    };
+    await fs.writeFile(path.join(internalBase, 'config.json'), JSON.stringify(config, null, 2) + '\n', 'utf-8');
+
+    // categories.json
+    const inheritCategories = cats === 'inherit';
+    const catData = inheritCategories
+      ? JSON.parse(await fs.readFile(path.join(col.glossaryDir, 'categories.json'), 'utf-8'))
+      : DEFAULT_CATEGORIES;
+    await fs.writeFile(path.join(resolvedGloss, 'categories.json'), JSON.stringify(catData, null, 2) + '\n', 'utf-8');
+
+    // 空の terms.jsonl
+    await fs.writeFile(path.join(resolvedGloss, 'data', 'terms.jsonl'), '', 'utf-8');
+
+    // collections.json に登録
+    data.collections[key] = {
+      label,
+      docsPath:     isExternal ? path.join(extPath, 'docs')     : null,
+      glossaryPath: isExternal ? path.join(extPath, 'glossary') : null,
+    };
+    await fs.writeFile(COLLECTIONS_FILE, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+    col.collections = data.collections;
+
+    res.json({ ok: true, key });
+  } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
 app.post('/api/collections/switch', async (req, res) => {
@@ -143,6 +200,17 @@ async function incrementConfigCounter(key) {
     await fs.writeFile(p, JSON.stringify(config, null, 2) + '\n', 'utf-8');
   } catch { /* config なしのコレクションでは無視 */ }
 }
+
+// ── API: コレクション設定の更新 ───────────────────────────────────────
+app.patch('/api/collection/config', async (req, res) => {
+  const p = path.join(__dirname, 'data', col.active, 'config.json');
+  try {
+    const config = JSON.parse(await fs.readFile(p, 'utf-8'));
+    Object.assign(config, req.body);
+    await fs.writeFile(p, JSON.stringify(config, null, 2) + '\n', 'utf-8');
+    res.json({ ok: true, config });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
 
 // ── API: 次の ID を返す ──────────────────────────────────────────────
 app.get('/api/collection/next-id', async (req, res) => {
@@ -262,11 +330,48 @@ app.put('/api/articles/*', async (req, res) => {
   try {
     await fs.mkdir(path.dirname(fullPath), { recursive: true });
     await fs.writeFile(fullPath, raw, 'utf-8');
+
+    // HTML 出力（config.output に "html" が含まれる場合）
+    const config = await readCollectionConfig();
+    if (config?.output?.includes('html')) {
+      const { data: fm, content } = matter(raw);
+      const bodyHtml = mdRenderer.render(content);
+      const title = fm.title || relPath;
+      const html = buildHtmlPage(title, bodyHtml);
+      const htmlPath = fullPath.replace(/\.md$/, '.html');
+      await fs.writeFile(htmlPath, html, 'utf-8');
+    }
+
     res.json({ ok: true });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
+
+function buildHtmlPage(title, bodyHtml) {
+  return `<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; line-height: 1.75; color: #222; }
+  h1 { font-size: 26px; border-bottom: 1px solid #ddd; padding-bottom: 8px; }
+  h2 { font-size: 20px; margin-top: 32px; }
+  h3 { font-size: 16px; margin-top: 20px; }
+  code { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+  pre { background: #f4f4f4; padding: 16px; border-radius: 6px; overflow-x: auto; }
+  blockquote { border-left: 3px solid #999; padding-left: 14px; color: #555; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ddd; padding: 6px 12px; }
+</style>
+</head>
+<body>
+${bodyHtml}
+</body>
+</html>`;
+}
 
 // ── API: 記事新規作成 ────────────────────────────────────────────────
 app.post('/api/articles', async (req, res) => {

@@ -231,6 +231,18 @@
   .gf-field textarea:focus { border-color: var(--accent); }
   .gf-hint { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
 
+  /* ── Prev/Next nav ── */
+  .article-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .article-nav-btn { flex: 1; display: flex; flex-direction: column; gap: 3px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 7px; cursor: pointer; text-decoration: none; color: var(--text); transition: border-color 0.15s; }
+  .article-nav-btn:hover { border-color: var(--accent); }
+  .article-nav-btn.next { align-items: flex-end; text-align: right; }
+  .article-nav-btn .nav-dir { font-size: 11px; color: var(--text-muted); }
+  .article-nav-btn .nav-id  { font-size: 11px; font-family: monospace; color: var(--accent); }
+  .article-nav-btn .nav-title { font-size: 13px; }
+
+  /* ── Settings tab ── */
+  .settings-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
   /* ── Empty state ── */
   .empty { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 12px; color: var(--text-muted); }
   .empty p { font-size: 14px; }
@@ -401,29 +413,78 @@
 <!-- Toast -->
 <div id="toast"></div>
 
-<!-- テンプレート管理モーダル -->
-<div id="tpl-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;">
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;width:640px;max-height:85vh;display:flex;flex-direction:column;gap:12px;">
+<!-- 設定モーダル（テンプレート + コレクション） -->
+<div id="settings-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;width:680px;max-height:88vh;display:flex;flex-direction:column;gap:12px;">
+    <!-- ヘッダー -->
     <div style="display:flex;align-items:center;justify-content:space-between;">
-      <h3 style="margin:0;font-size:15px;">テンプレート管理</h3>
-      <button onclick="closeTplModal()" style="background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;">✕</button>
+      <div style="display:flex;gap:4px;">
+        <button class="btn settings-tab active" data-stab="templates" onclick="switchSettingsTab('templates')">テンプレート</button>
+        <button class="btn settings-tab" data-stab="collections" onclick="switchSettingsTab('collections')">コレクション</button>
+      </div>
+      <button onclick="closeSettingsModal()" style="background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;">✕</button>
     </div>
-    <div style="display:flex;gap:8px;align-items:center;">
-      <select id="tpl-select" style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></select>
-      <button class="btn btn-accent" onclick="newTemplate()" style="font-size:12px;padding:4px 10px;">＋ 新規</button>
-      <button class="btn btn-danger" onclick="deleteTemplate()" style="font-size:12px;padding:4px 10px;">削除</button>
+
+    <!-- テンプレートタブ -->
+    <div id="stab-templates" style="display:flex;flex-direction:column;gap:10px;flex:1;overflow:hidden;">
+      <div style="display:flex;gap:8px;align-items:center;">
+        <select id="tpl-select" style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></select>
+        <button class="btn btn-accent" onclick="newTemplate()" style="font-size:12px;padding:4px 10px;">＋ 新規</button>
+        <button class="btn btn-danger" onclick="deleteTemplate()" style="font-size:12px;padding:4px 10px;">削除</button>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <label style="font-size:11px;color:var(--text-muted);white-space:nowrap;">テンプレート名</label>
+        <input id="tpl-name" type="text" placeholder="例: novel-chapter"
+          style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
+      </div>
+      <textarea id="tpl-content"
+        style="flex:1;min-height:280px;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:10px;font-size:13px;font-family:monospace;resize:vertical;outline:none;"
+        placeholder="テンプレート内容（Markdown）"></textarea>
+      <div style="display:flex;gap:8px;justify-content:flex-end;">
+        <button class="btn btn-accent" onclick="saveTemplate()">保存</button>
+      </div>
     </div>
-    <div style="display:flex;gap:6px;align-items:center;">
-      <label style="font-size:11px;color:var(--text-muted);white-space:nowrap;">テンプレート名</label>
-      <input id="tpl-name" type="text" placeholder="例: novel-chapter"
-        style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
-    </div>
-    <textarea id="tpl-content"
-      style="flex:1;min-height:320px;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:10px;font-size:13px;font-family:monospace;resize:vertical;outline:none;"
-      placeholder="テンプレート内容（Markdown）"></textarea>
-    <div style="display:flex;gap:8px;justify-content:flex-end;">
-      <button class="btn" onclick="closeTplModal()">閉じる</button>
-      <button class="btn btn-accent" onclick="saveTemplate()">保存</button>
+
+    <!-- コレクションタブ -->
+    <div id="stab-collections" style="display:none;flex-direction:column;gap:12px;flex:1;overflow-y:auto;">
+      <!-- 登録済みコレクション -->
+      <div id="col-list" style="display:flex;flex-direction:column;gap:4px;"></div>
+      <!-- 出力形式設定 -->
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">現在のコレクションの出力形式</div>
+        <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
+          <label><input type="radio" name="output-format" value="markdown" onchange="setOutputFormat(this.value)"> Markdown のみ</label>
+          <label><input type="radio" name="output-format" value="html"     onchange="setOutputFormat(this.value)"> HTML のみ</label>
+          <label><input type="radio" name="output-format" value="both"     onchange="setOutputFormat(this.value)"> 両方</label>
+        </div>
+        <div id="output-format-hint" style="font-size:11px;color:var(--text-muted);"></div>
+      </div>
+      <hr style="border-color:var(--border);margin:4px 0;">
+      <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">新規コレクションを作成</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="field"><label style="font-size:11px;color:var(--text-muted);">キー（英小文字・ハイフン）</label>
+          <input id="nc-key" placeholder="例: my-novel" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></div>
+        <div class="field"><label style="font-size:11px;color:var(--text-muted);">表示名</label>
+          <input id="nc-label" placeholder="例: My Novel" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
+        <label><input type="radio" name="nc-storage" value="internal" checked onchange="toggleNcPath()"> 内部（editor/data/）</label>
+        <label><input type="radio" name="nc-storage" value="external" onchange="toggleNcPath()"> 外部パス</label>
+      </div>
+      <input id="nc-path" placeholder="絶対パス（例: D:/Repos/MyProject）" style="display:none;width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
+      <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
+        <span style="font-size:11px;color:var(--text-muted);">カテゴリ:</span>
+        <label><input type="radio" name="nc-cats" value="default" checked> デフォルトのみ</label>
+        <label><input type="radio" name="nc-cats" value="inherit"> 現在のコレクションから引継ぎ</label>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
+        <span style="font-size:11px;color:var(--text-muted);">ID形式:</span>
+        <label><input type="radio" name="nc-idformat" value="global-only" checked> 全体連番</label>
+        <label><input type="radio" name="nc-idformat" value="category-prefix"> カテゴリ＋連番</label>
+      </div>
+      <div style="display:flex;justify-content:flex-end;">
+        <button class="btn btn-accent" onclick="createCollection()">作成</button>
+      </div>
     </div>
   </div>
 </div>
@@ -832,7 +893,10 @@ function updatePreview() {
   const raw = monacoEditor?.getValue() ?? '';
   const pane = document.getElementById('preview-pane');
   const { fm, body } = parseFrontmatter(raw);
-  renderToPane(body, pane, fm);
+  renderToPane(body, pane, fm).then(() => {
+    addSvgZoom(pane);
+    if (currentPath && !currentPath.startsWith('notes/')) appendPrevNext(pane, currentPath);
+  });
 }
 
 // ── Article list ─────────────────────────────────────────────────────
@@ -1097,6 +1161,46 @@ document.getElementById('modal-create').onclick = async () => {
     showToast(err.error || '作成失敗', 'err');
   }
 };
+
+// ── Prev/Next navigation ─────────────────────────────────────────────
+function appendPrevNext(pane, currentArticlePath) {
+  const current = articles.find(a => a.path === currentArticlePath);
+  if (!current?.id) return;
+  const idMatch = current.id.match(/^([a-z_]+)(\d+)$/);
+  if (!idMatch) return;
+  const [, prefix, numStr] = idMatch;
+  const num = parseInt(numStr, 10);
+  const regex = new RegExp(`^${prefix}\\d+$`);
+  const sorted = articles
+    .filter(a => a.id && regex.test(a.id) && !a.path.startsWith('notes/'))
+    .sort((a, b) => parseInt(a.id.slice(prefix.length)) - parseInt(b.id.slice(prefix.length)));
+  const idx = sorted.findIndex(a => a.id === current.id);
+  const prev = idx > 0 ? sorted[idx - 1] : null;
+  const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
+  if (!prev && !next) return;
+
+  const nav = document.createElement('div');
+  nav.className = 'article-nav';
+  if (prev) {
+    const btn = document.createElement('div');
+    btn.className = 'article-nav-btn prev';
+    btn.innerHTML = `<span class="nav-dir">← 前の記事</span><span class="nav-id">${prev.id}</span><span class="nav-title">${prev.title}</span>`;
+    btn.onclick = () => openArticle(prev.path);
+    nav.appendChild(btn);
+  } else {
+    nav.appendChild(document.createElement('div'));
+  }
+  if (next) {
+    const btn = document.createElement('div');
+    btn.className = 'article-nav-btn next';
+    btn.innerHTML = `<span class="nav-dir">次の記事 →</span><span class="nav-id">${next.id}</span><span class="nav-title">${next.title}</span>`;
+    btn.onclick = () => openArticle(next.path);
+    nav.appendChild(btn);
+  } else {
+    nav.appendChild(document.createElement('div'));
+  }
+  pane.appendChild(nav);
+}
 
 // ── View mode ─────────────────────────────────────────────────────────
 function setViewMode(mode) {
@@ -1684,16 +1788,103 @@ document.getElementById('btn-refresh').onclick = () => {
 document.getElementById('btn-save').onclick = saveArticle;
 document.getElementById('btn-delete').onclick = deleteArticle;
 
-// ── Template modal ────────────────────────────────────────────────────
-document.getElementById('btn-settings').onclick = openTplModal;
+// ── Settings modal ────────────────────────────────────────────────────
+document.getElementById('btn-settings').onclick = () => openSettingsModal('templates');
 
-async function openTplModal() {
+async function openSettingsModal(tab = 'templates') {
   await loadTplList();
-  document.getElementById('tpl-modal').style.display = 'flex';
+  await renderColList();
+  switchSettingsTab(tab);
+  document.getElementById('settings-modal').style.display = 'flex';
 }
 
-function closeTplModal() {
-  document.getElementById('tpl-modal').style.display = 'none';
+function closeSettingsModal() {
+  document.getElementById('settings-modal').style.display = 'none';
+}
+
+function switchSettingsTab(tab) {
+  document.querySelectorAll('.settings-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.stab === tab)
+  );
+  document.getElementById('stab-templates').style.display   = tab === 'templates'   ? 'flex' : 'none';
+  document.getElementById('stab-collections').style.display = tab === 'collections' ? 'flex' : 'none';
+}
+
+function toggleNcPath() {
+  const external = document.querySelector('input[name="nc-storage"]:checked')?.value === 'external';
+  document.getElementById('nc-path').style.display = external ? '' : 'none';
+}
+
+async function renderColList() {
+  const res = await fetch('/api/collections').catch(() => null);
+  if (!res || !res.ok) return;
+  const data = await res.json();
+  const el = document.getElementById('col-list');
+  el.innerHTML = Object.entries(data.collections).map(([key, col]) => `
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;background:var(--surface2);border-radius:5px;font-size:13px;">
+      <span style="font-family:monospace;color:var(--accent);min-width:80px;">${key}</span>
+      <span style="flex:1;">${col.label}</span>
+      ${key === data.active ? '<span style="font-size:11px;color:var(--success);font-weight:600;">● アクティブ</span>' : ''}
+    </div>
+  `).join('');
+
+  // 出力形式ラジオを現在の config に合わせる
+  const output = data.config?.output || ['markdown'];
+  const fmt = output.includes('html') && output.includes('markdown') ? 'both'
+    : output.includes('html') ? 'html' : 'markdown';
+  const radio = document.querySelector(`input[name="output-format"][value="${fmt}"]`);
+  if (radio) radio.checked = true;
+  updateOutputHint(fmt);
+}
+
+async function setOutputFormat(value) {
+  const outputArr = value === 'both' ? ['markdown', 'html']
+    : value === 'html' ? ['html'] : ['markdown'];
+  const res = await fetch('/api/collection/config', {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ output: outputArr }),
+  });
+  if (res.ok) {
+    const { config } = await res.json();
+    collectionConfig = config;
+    updateOutputHint(value);
+    showToast('出力形式を更新しました', 'ok');
+  } else {
+    showToast('更新失敗', 'err');
+  }
+}
+
+function updateOutputHint(fmt) {
+  const hints = {
+    markdown: 'MD のみ保存（デフォルト）',
+    html:     'HTML のみ保存 — .md ファイルは上書き保存しません',
+    both:     '保存時に .md と .html を両方生成します',
+  };
+  const el = document.getElementById('output-format-hint');
+  if (el) el.textContent = hints[fmt] || '';
+}
+
+async function createCollection() {
+  const key      = document.getElementById('nc-key').value.trim();
+  const label    = document.getElementById('nc-label').value.trim();
+  const storage  = document.querySelector('input[name="nc-storage"]:checked')?.value || 'internal';
+  const path     = document.getElementById('nc-path').value.trim();
+  const cats     = document.querySelector('input[name="nc-cats"]:checked')?.value || 'default';
+  const idFormat = document.querySelector('input[name="nc-idformat"]:checked')?.value || 'global-only';
+  if (!key || !label) { showToast('キーと表示名は必須です', 'err'); return; }
+
+  const res = await fetch('/api/collections', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ key, label, storage, path, cats, idFormat }),
+  });
+  const data = await res.json();
+  if (!res.ok) { showToast(data.error || '作成失敗', 'err'); return; }
+
+  showToast(`コレクション "${label}" を作成しました`, 'ok');
+  document.getElementById('nc-key').value   = '';
+  document.getElementById('nc-label').value = '';
+  await loadCollections();
+  await renderColList();
 }
 
 async function loadTplList() {
