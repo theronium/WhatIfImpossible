@@ -251,7 +251,7 @@ function main() {
 
   if (!DRY_RUN && termsUpdated) {
     // 用語 .md ファイルを再生成
-    require('./glossary/generate.js');
+    require('./glossary/scripts/generate.js');
   }
 
   if (!DRY_RUN && (termsUpdated || articlesUpdated)) {

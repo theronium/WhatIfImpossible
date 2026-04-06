@@ -8,7 +8,7 @@ $ARGUMENTS
 
 - CLAUDE.md に定義されたセクション構成に従う
 - frontmatter（title / id / category / tags / date）を必ず含める
-  - id は `node glossary/next-id.js` を実行して次の番号を確認する
+  - id は `node glossary/scripts/next-id.js` を実行して次の番号を確認する
   - date は今日の日付
 - 日本語で執筆する
 - 「実現不可能性の根拠」セクションは物理的・技術的・論理的の3観点から論じる

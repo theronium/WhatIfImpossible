@@ -36,7 +36,7 @@
    - 本文の改行は `\n`、段落間は `\n\n`
    - 既存の glossary 内の他の用語や docs/ の記事と関連があれば本文中で言及する
 
-3. `node glossary/add-term.js` を実行する（ID自動採番・重複チェック・generate.js実行まで自動で行われる）。
+3. `node glossary/scripts/add-term.js` を実行する（ID自動採番・重複チェック・generate.js実行まで自動で行われる）。
 
 4. `review-glossary-term` スキルを呼び出し、追加した用語のIDを引数として渡してレビュー・修正を行う。
 

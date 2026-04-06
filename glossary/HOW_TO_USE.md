@@ -7,11 +7,16 @@ glossary/
 ├── data/
 │   ├── terms.jsonl      ← 全用語のソースデータ（JSONL形式）
 │   └── new-term.json    ← 新規用語追加時の一時ファイル
+├── scripts/             ← 管理スクリプト
+│   ├── generate.js      ← terms.jsonl → .md ファイルを再生成
+│   ├── add-term.js      ← 新規用語を1件追加するスクリプト
+│   ├── update-term.js   ← 既存用語をフィールド単位で上書き更新するスクリプト
+│   ├── lookup.js        ← ID・用語名で1件検索
+│   ├── next-id.js       ← 次の gXXX / wiim_XXX 番号を確認
+│   └── migrate.js       ← 【一回限り】旧 .md から terms.jsonl を生成
+├── terms/               ← 個別用語ファイル（自動生成）
+│   └── gXXX.md
 ├── categories.json      ← カテゴリ定義（名称・色・並び順）
-├── generate.js          ← terms.jsonl → .md ファイルを再生成
-├── add-term.js          ← 新規用語を1件追加するスクリプト
-├── update-term.js       ← 既存用語をフィールド単位で上書き更新するスクリプト
-├── migrate.js           ← 【一回限り】旧 .md から terms.jsonl を生成
 ├── astronomy.md         ← 自動生成（編集不要）
 ├── physics.md           ← 自動生成（編集不要）
 ├── mathematics.md       ← 自動生成（編集不要）
@@ -58,7 +63,7 @@ Claude が内容を調べ、`new-term.json` の作成から `add-term.js` の実
 2. スクリプトを実行（ID自動採番・重複チェック・.md 再生成まで自動）：
 
 ```bash
-node glossary/add-term.js
+node glossary/scripts/add-term.js
 ```
 
 ---
@@ -77,7 +82,7 @@ node glossary/add-term.js
 ```
 
 ```bash
-node glossary/update-term.js
+node glossary/scripts/update-term.js
 ```
 
 - 指定したフィールドのみ上書き。省略したフィールドは変更されない
@@ -93,7 +98,7 @@ node glossary/update-term.js
 `glossary/data/terms.jsonl` を直接編集し、`generate.js` を再実行：
 
 ```bash
-node glossary/generate.js
+node glossary/scripts/generate.js
 ```
 
 ---
@@ -134,7 +139,7 @@ node glossary/generate.js
 - 長い用語名を優先してマッチ（部分一致を防ぐ）
 - 同じ用語名は最初の1回のみリンク
 - 自分自身の用語名はリンクしない
-- `node glossary/generate.js` を再実行するだけで全リンクが更新される
+- `node glossary/scripts/generate.js` を再実行するだけで全リンクが更新される
 
 ---
 
