@@ -158,18 +158,46 @@ app.get('/api/collection/next-id', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-// ── API: テンプレート一覧 ────────────────────────────────────────────
+// ── API: テンプレート ────────────────────────────────────────────────
+const getTemplatesDir = () => path.join(__dirname, 'data', col.active, 'templates');
+
 app.get('/api/templates', async (req, res) => {
-  const templatesDir = path.join(__dirname, 'data', col.active, 'templates');
   try {
-    const files = await fs.readdir(templatesDir);
+    const files = await fs.readdir(getTemplatesDir());
     const list = files
       .filter(f => f.endsWith('.md'))
       .map(f => ({ name: f.replace('.md', ''), file: f }));
     res.json(list);
   } catch {
-    res.json([]); // テンプレートフォルダなし = 空
+    res.json([]);
   }
+});
+
+app.get('/api/templates/:name', async (req, res) => {
+  const file = path.join(getTemplatesDir(), `${req.params.name}.md`);
+  try {
+    const content = await fs.readFile(file, 'utf-8');
+    res.json({ name: req.params.name, content });
+  } catch {
+    res.status(404).json({ error: 'Not found' });
+  }
+});
+
+app.put('/api/templates/:name', async (req, res) => {
+  const { content } = req.body;
+  const dir = getTemplatesDir();
+  try {
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(path.join(dir, `${req.params.name}.md`), content, 'utf-8');
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.delete('/api/templates/:name', async (req, res) => {
+  try {
+    await fs.unlink(path.join(getTemplatesDir(), `${req.params.name}.md`));
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
 // ── API: 記事一覧 ────────────────────────────────────────────────────
@@ -249,9 +277,21 @@ app.post('/api/articles', async (req, res) => {
     return res.status(409).json({ error: 'Already exists' });
   } catch { /* ok */ }
 
-  const template = await fs.readFile(path.join(col.docsDir, '_template.md'), 'utf-8');
-  const { content } = matter(template);
-  const fm = matter.stringify(content, frontmatter);
+  // テンプレート解決: リクエスト指定 → collection templates/ → docs/_template.md → 空
+  let body = '';
+  const tplName = req.body.template;
+  if (tplName) {
+    try {
+      body = await fs.readFile(path.join(getTemplatesDir(), tplName.endsWith('.md') ? tplName : `${tplName}.md`), 'utf-8');
+    } catch { /* 指定テンプレートなければ次へ */ }
+  }
+  if (!body) {
+    try {
+      const fallback = await fs.readFile(path.join(col.docsDir, '_template.md'), 'utf-8');
+      body = matter(fallback).content;
+    } catch { /* docs/_template.md なし */ }
+  }
+  const fm = matter.stringify(body, frontmatter);
   await fs.mkdir(path.dirname(fullPath), { recursive: true });
   await fs.writeFile(fullPath, fm, 'utf-8');
   // notes/ 配下でなければ記事カウンターを increment

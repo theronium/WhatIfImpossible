@@ -243,6 +243,7 @@
   <select id="collection-select" title="コレクション切替"></select>
   <button class="btn" id="btn-refresh">↺ 更新</button>
   <button class="btn btn-accent" id="btn-new">＋ 新規記事</button>
+  <button class="btn" id="btn-settings" title="テンプレート管理">⚙</button>
 </header>
 
 <div class="layout">
@@ -399,6 +400,33 @@
 
 <!-- Toast -->
 <div id="toast"></div>
+
+<!-- テンプレート管理モーダル -->
+<div id="tpl-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;width:640px;max-height:85vh;display:flex;flex-direction:column;gap:12px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <h3 style="margin:0;font-size:15px;">テンプレート管理</h3>
+      <button onclick="closeTplModal()" style="background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;">✕</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <select id="tpl-select" style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></select>
+      <button class="btn btn-accent" onclick="newTemplate()" style="font-size:12px;padding:4px 10px;">＋ 新規</button>
+      <button class="btn btn-danger" onclick="deleteTemplate()" style="font-size:12px;padding:4px 10px;">削除</button>
+    </div>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <label style="font-size:11px;color:var(--text-muted);white-space:nowrap;">テンプレート名</label>
+      <input id="tpl-name" type="text" placeholder="例: novel-chapter"
+        style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
+    </div>
+    <textarea id="tpl-content"
+      style="flex:1;min-height:320px;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:10px;font-size:13px;font-family:monospace;resize:vertical;outline:none;"
+      placeholder="テンプレート内容（Markdown）"></textarea>
+    <div style="display:flex;gap:8px;justify-content:flex-end;">
+      <button class="btn" onclick="closeTplModal()">閉じる</button>
+      <button class="btn btn-accent" onclick="saveTemplate()">保存</button>
+    </div>
+  </div>
+</div>
 
 <!-- カテゴリ管理モーダル -->
 <div id="cat-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;">
@@ -1054,9 +1082,10 @@ document.getElementById('modal-create').onclick = async () => {
     frontmatter = { title, id: slug, category, tags, date: new Date().toISOString().slice(0, 10) };
   }
 
+  const template = document.getElementById('f-template')?.value || '';
   const res = await fetch('/api/articles', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ relPath, frontmatter }),
+    body: JSON.stringify({ relPath, frontmatter, template }),
   });
   if (res.ok) {
     document.getElementById('modal-overlay').classList.remove('open');
@@ -1654,6 +1683,62 @@ document.getElementById('btn-refresh').onclick = () => {
 };
 document.getElementById('btn-save').onclick = saveArticle;
 document.getElementById('btn-delete').onclick = deleteArticle;
+
+// ── Template modal ────────────────────────────────────────────────────
+document.getElementById('btn-settings').onclick = openTplModal;
+
+async function openTplModal() {
+  await loadTplList();
+  document.getElementById('tpl-modal').style.display = 'flex';
+}
+
+function closeTplModal() {
+  document.getElementById('tpl-modal').style.display = 'none';
+}
+
+async function loadTplList() {
+  const list = await fetch('/api/templates').then(r => r.json()).catch(() => []);
+  const sel = document.getElementById('tpl-select');
+  sel.innerHTML = list.map(t => `<option value="${t.name}">${t.name}</option>`).join('');
+  if (list.length) await loadTplContent(list[0].name);
+  else { document.getElementById('tpl-name').value = ''; document.getElementById('tpl-content').value = ''; }
+  sel.onchange = () => loadTplContent(sel.value);
+}
+
+async function loadTplContent(name) {
+  const data = await fetch(`/api/templates/${name}`).then(r => r.json()).catch(() => null);
+  if (!data) return;
+  document.getElementById('tpl-name').value    = data.name;
+  document.getElementById('tpl-content').value = data.content;
+}
+
+function newTemplate() {
+  document.getElementById('tpl-select').value   = '';
+  document.getElementById('tpl-name').value     = '';
+  document.getElementById('tpl-content').value  = '';
+  document.getElementById('tpl-name').focus();
+}
+
+async function saveTemplate() {
+  const name    = document.getElementById('tpl-name').value.trim();
+  const content = document.getElementById('tpl-content').value;
+  if (!name) { showToast('テンプレート名は必須です', 'err'); return; }
+  const res = await fetch(`/api/templates/${name}`, {
+    method: 'PUT', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content }),
+  });
+  if (res.ok) { showToast('保存しました', 'ok'); await loadTplList(); }
+  else showToast('保存失敗', 'err');
+}
+
+async function deleteTemplate() {
+  const name = document.getElementById('tpl-select').value;
+  if (!name) return;
+  if (!confirm(`"${name}" を削除しますか？`)) return;
+  const res = await fetch(`/api/templates/${name}`, { method: 'DELETE' });
+  if (res.ok) { showToast('削除しました', 'ok'); await loadTplList(); }
+  else showToast('削除失敗', 'err');
+}
 
 // ── Category modal ────────────────────────────────────────────────────
 function openCatModal() {
