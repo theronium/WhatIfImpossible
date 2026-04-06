@@ -294,12 +294,10 @@
       <button class="btn btn-accent" id="btn-save">保存</button>
       <button class="btn btn-danger" id="btn-delete">削除</button>
     </div>
-    <div class="editor-panes" id="editor-panes">
+    <div class="editor-panes" id="editor-panes" style="display:none">
       <div id="monaco-container"></div>
       <div id="preview-pane"></div>
-      <div class="empty" id="empty-state">
-        <p>左の記事一覧から選択するか、「＋ 新規記事」で作成してください</p>
-      </div>
+      <div class="empty" id="empty-state"></div>
     </div>
 
     <!-- 用語集フォーム -->
@@ -500,8 +498,8 @@
         <div style="display:grid;grid-template-columns:1fr 1fr 56px 56px 48px 36px;gap:6px;align-items:center;margin-top:4px;">
           <input id="new-cat-id"    placeholder="id（英数字）" style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:4px 8px;color:var(--text);font-size:12px;outline:none;">
           <input id="new-cat-label" placeholder="ラベル"       style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:4px 8px;color:var(--text);font-size:12px;outline:none;">
-          <input id="new-cat-color" type="color" value="#60a5fa" style="width:100%;height:28px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
-          <input id="new-cat-bg"    type="color" value="#1a2440" style="width:100%;height:28px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
+          <input id="new-cat-color" type="color" value="#60a5fa" title="文字色" style="width:100%;height:28px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
+          <input id="new-cat-bg"    type="color" value="#1a2440" title="背景色" style="width:100%;height:28px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
           <button onclick="addCategory()" style="background:#1a3a1a;border:1px solid #2d5a2d;border-radius:4px;color:#86efac;font-size:12px;padding:4px 8px;cursor:pointer;white-space:nowrap;">＋ 追加</button>
         </div>
       </div>
@@ -1047,6 +1045,7 @@ async function openArticle(relPath, { pushState = true } = {}) {
   currentGlossaryPath = null;
   monacoEditor.setValue(raw);
   document.getElementById('file-path').textContent = relPath;
+  document.getElementById('editor-panes').style.display = 'flex';
   document.getElementById('toolbar').style.display = 'flex';
   const isNote = relPath.startsWith('notes/');
   document.querySelector('.mode-tabs').style.display = isNote ? 'none' : '';
@@ -1060,6 +1059,7 @@ async function openArticle(relPath, { pushState = true } = {}) {
     updatePreview();
   } else {
     setViewMode('preview');
+    monacoEditor?.layout();
   }
   document.getElementById('preview-pane').scrollTop = 0;
   renderList(articles);
@@ -1978,14 +1978,20 @@ function renderArtCatList() {
     list.innerHTML = `<div style="font-size:12px;color:var(--text-muted);padding:4px 0;">定義なし（CSSフォールバック使用中）</div>`;
     return;
   }
-  list.innerHTML = ARTICLE_CATS.map(c => `
+  const header = `<div style="display:grid;grid-template-columns:90px 1fr 48px 48px;gap:6px;align-items:center;margin-bottom:2px;">
+    <span style="font-size:10px;color:var(--text-muted);letter-spacing:.05em;">ID</span>
+    <span style="font-size:10px;color:var(--text-muted);">ラベル</span>
+    <span style="font-size:10px;color:var(--text-muted);text-align:center;">文字色</span>
+    <span style="font-size:10px;color:var(--text-muted);text-align:center;">背景色</span>
+  </div>`;
+  list.innerHTML = header + ARTICLE_CATS.map(c => `
     <div style="display:grid;grid-template-columns:90px 1fr 48px 48px;gap:6px;align-items:center;">
       <span style="font-size:11px;font-family:monospace;color:var(--accent);padding:3px 0;">${c.id}</span>
       <input value="${c.label}" onchange="updateArtCat('${c.id}','label',this.value)"
         style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-size:12px;outline:none;">
-      <input type="color" value="${c.color}" onchange="updateArtCat('${c.id}','color',this.value)"
+      <input type="color" value="${c.color}" title="文字色" onchange="updateArtCat('${c.id}','color',this.value)"
         style="width:100%;height:26px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
-      <input type="color" value="${c.bg}" onchange="updateArtCat('${c.id}','bg',this.value)"
+      <input type="color" value="${c.bg}" title="背景色" onchange="updateArtCat('${c.id}','bg',this.value)"
         style="width:100%;height:26px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
     </div>
   `).join('');
@@ -2005,16 +2011,24 @@ async function updateArtCat(id, field, value) {
 function renderTermCatList() {
   const list = document.getElementById('term-cat-list');
   if (!list) return;
-  list.innerHTML = GLOSSARY_CATS.map(c => `
+  const header = `<div style="display:grid;grid-template-columns:1fr 1fr 48px 48px 44px 32px;gap:6px;align-items:center;margin-bottom:2px;">
+    <span style="font-size:10px;color:var(--text-muted);letter-spacing:.05em;">ID</span>
+    <span style="font-size:10px;color:var(--text-muted);">ラベル</span>
+    <span style="font-size:10px;color:var(--text-muted);text-align:center;">文字色</span>
+    <span style="font-size:10px;color:var(--text-muted);text-align:center;">背景色</span>
+    <span style="font-size:10px;color:var(--text-muted);text-align:center;">順序</span>
+    <span></span>
+  </div>`;
+  list.innerHTML = header + GLOSSARY_CATS.map(c => `
     <div style="display:grid;grid-template-columns:1fr 1fr 48px 48px 44px 32px;gap:6px;align-items:center;">
       <span style="font-size:11px;font-family:monospace;color:var(--text-muted);">${c.id}</span>
       <input value="${c.label}" onchange="updateCat('${c.id}','label',this.value)"
         style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-size:12px;outline:none;">
-      <input type="color" value="${c.color}" onchange="updateCat('${c.id}','color',this.value)"
+      <input type="color" value="${c.color}" title="文字色" onchange="updateCat('${c.id}','color',this.value)"
         style="width:100%;height:26px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
-      <input type="color" value="${c.bg}" onchange="updateCat('${c.id}','bg',this.value)"
+      <input type="color" value="${c.bg}" title="背景色" onchange="updateCat('${c.id}','bg',this.value)"
         style="width:100%;height:26px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
-      <input type="number" value="${c.sort}" min="1" onchange="updateCat('${c.id}','sort',+this.value)"
+      <input type="number" value="${c.sort}" min="1" title="表示順序" onchange="updateCat('${c.id}','sort',+this.value)"
         style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-size:12px;width:100%;outline:none;">
       <button onclick="deleteCat('${c.id}')"
         style="background:#2a1212;border:1px solid #5a2020;border-radius:4px;color:var(--danger);font-size:11px;padding:3px 5px;cursor:pointer;">✕</button>
