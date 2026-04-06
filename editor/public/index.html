@@ -266,6 +266,7 @@
     <div id="glossary-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
     <div class="sidebar-header" id="notes-search-bar" style="display:none;">
       <input id="notes-search" type="search" placeholder="補遺を検索…">
+      <button class="btn btn-accent" id="btn-new-note" style="white-space:nowrap;font-size:11px;padding:4px 8px;">＋ 新規</button>
     </div>
     <div id="notes-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
     <div id="techtree-panel" style="display:none; flex:1; overflow-y:auto; padding:12px;">
@@ -365,25 +366,29 @@
   </div>
 </div>
 
-<!-- New Article Modal -->
+<!-- New Article / Note Modal -->
 <div class="overlay" id="modal-overlay">
   <div class="modal">
-    <h2>新規思考実験を作成</h2>
+    <h2 id="modal-title">新規記事を作成</h2>
+    <div class="field" id="modal-cat-field">
+      <label>カテゴリ</label>
+      <select id="f-category"></select>
+    </div>
+    <div class="field">
+      <label id="modal-id-label">ID（自動）</label>
+      <input id="f-id" type="text" placeholder="自動生成">
+    </div>
     <div class="field">
       <label>タイトル (日本語可)</label>
       <input id="f-title" type="text" placeholder="例: 光速を超えた場合の因果律">
     </div>
     <div class="field">
-      <label>カテゴリ (フォルダ名)</label>
-      <input id="f-category" type="text" placeholder="例: physics / logic / philosophy">
-    </div>
-    <div class="field">
-      <label>通し番号</label>
-      <input id="f-id" type="text" placeholder="例: wiim_001">
-    </div>
-    <div class="field">
       <label>タグ (カンマ区切り)</label>
       <input id="f-tags" type="text" placeholder="例: 相対性理論, 因果律">
+    </div>
+    <div class="field" id="modal-tpl-field" style="display:none;">
+      <label>テンプレート</label>
+      <select id="f-template"><option value="">デフォルト</option></select>
     </div>
     <div class="modal-actions">
       <button class="btn" id="modal-cancel">キャンセル</button>
@@ -977,29 +982,87 @@ async function deleteArticle() {
   showToast('削除しました', 'ok');
 }
 
-// ── New article modal ─────────────────────────────────────────────────
-document.getElementById('btn-new').onclick = () => document.getElementById('modal-overlay').classList.add('open');
-document.getElementById('modal-cancel').onclick = () => document.getElementById('modal-overlay').classList.remove('open');
+// ── New article / note modal ──────────────────────────────────────────
+let _modalMode = 'article'; // 'article' | 'note'
+
+function populateModalCategorySelect() {
+  const sel = document.getElementById('f-category');
+  sel.innerHTML = GLOSSARY_CATS.map(c =>
+    `<option value="${c.id}">${c.id} — ${c.label}</option>`
+  ).join('');
+}
+
+async function openNewModal(mode = 'article') {
+  _modalMode = mode;
+  const isNote = mode === 'note';
+
+  document.getElementById('modal-title').textContent    = isNote ? '新規補遺を作成' : '新規記事を作成';
+  document.getElementById('modal-id-label').textContent = isNote ? 'スラッグ（ファイル名）' : 'ID（自動）';
+  document.getElementById('modal-cat-field').style.display = isNote ? 'none' : '';
+
+  // カテゴリセレクトを GLOSSARY_CATS で構築
+  if (!isNote) populateModalCategorySelect();
+
+  // テンプレート一覧を取得
+  const tplRes = await fetch('/api/templates').then(r => r.json()).catch(() => []);
+  const tplField = document.getElementById('modal-tpl-field');
+  if (tplRes.length) {
+    const sel = document.getElementById('f-template');
+    sel.innerHTML = '<option value="">デフォルト</option>' +
+      tplRes.map(t => `<option value="${t.file}">${t.name}</option>`).join('');
+    tplField.style.display = '';
+  } else {
+    tplField.style.display = 'none';
+  }
+
+  // 次の ID を取得（記事のみ）
+  if (!isNote) {
+    const nextId = await fetch('/api/collection/next-id').then(r => r.json()).catch(() => ({}));
+    document.getElementById('f-id').value = nextId.articleId || '';
+    document.getElementById('f-id').readOnly = false;
+  } else {
+    document.getElementById('f-id').value = '';
+    document.getElementById('f-id').readOnly = false;
+  }
+
+  document.getElementById('f-title').value = '';
+  document.getElementById('f-tags').value  = '';
+  document.getElementById('modal-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('f-title').focus(), 50);
+}
+
+document.getElementById('btn-new').onclick      = () => openNewModal('article');
+document.getElementById('btn-new-note').onclick  = () => openNewModal('note');
+document.getElementById('modal-cancel').onclick  = () => document.getElementById('modal-overlay').classList.remove('open');
 
 document.getElementById('modal-create').onclick = async () => {
   const title    = document.getElementById('f-title').value.trim();
-  const category = document.getElementById('f-category').value.trim() || 'misc';
   const id       = document.getElementById('f-id').value.trim();
   const tags     = document.getElementById('f-tags').value.split(',').map(t => t.trim()).filter(Boolean);
   if (!title) { showToast('タイトルは必須です', 'err'); return; }
 
-  const slug = id || ('wiim_' + String(articles.length + 1).padStart(3, '0'));
-  const relPath = `${category}/${slug}.md`;
+  let relPath, frontmatter;
+
+  if (_modalMode === 'note') {
+    const slug = id || title.toLowerCase().replace(/[^a-z0-9ぁ-ん一-龥]+/g, '_').slice(0, 40);
+    relPath = `notes/${slug}.md`;
+    frontmatter = { title, date: new Date().toISOString().slice(0, 10) };
+  } else {
+    const category = document.getElementById('f-category').value || 'misc';
+    const slug = id || `wiim_${String(articles.length + 1).padStart(3, '0')}`;
+    relPath = `${category}/${slug}.md`;
+    frontmatter = { title, id: slug, category, tags, date: new Date().toISOString().slice(0, 10) };
+  }
 
   const res = await fetch('/api/articles', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ relPath, frontmatter: { title, id: slug, category, tags, date: new Date().toISOString().slice(0, 10) } })
+    body: JSON.stringify({ relPath, frontmatter }),
   });
   if (res.ok) {
     document.getElementById('modal-overlay').classList.remove('open');
     await loadArticles();
     openArticle(relPath);
-    showToast('記事を作成しました', 'ok');
+    showToast(`作成しました: ${relPath}`, 'ok');
   } else {
     const err = await res.json();
     showToast(err.error || '作成失敗', 'err');

@@ -19,7 +19,10 @@
       "Bash(node d:/Repos/WhatIfImpossible/glossary/scripts/next-id.js)",
       "Bash(node d:/Repos/WhatIfImpossible/glossary/scripts/lookup.js *)",
       "Bash(npm audit:*)",
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "Bash(node server.js)",
+      "Bash(curl -s http://localhost:3030/api/collection/next-id)",
+      "Bash(curl -s http://localhost:3030/api/templates)"
     ],
     "additionalDirectories": [
       "d:\\Repos\\MyCells"

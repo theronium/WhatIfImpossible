@@ -129,6 +129,49 @@ app.post('/api/collections/switch', async (req, res) => {
   }
 });
 
+// ── コレクション設定ヘルパー ─────────────────────────────────────────
+async function readCollectionConfig() {
+  const p = path.join(__dirname, 'data', col.active, 'config.json');
+  try { return JSON.parse(await fs.readFile(p, 'utf-8')); } catch { return null; }
+}
+
+async function incrementConfigCounter(key) {
+  const p = path.join(__dirname, 'data', col.active, 'config.json');
+  try {
+    const config = JSON.parse(await fs.readFile(p, 'utf-8'));
+    config.counters[key] = (config.counters[key] || 0) + 1;
+    await fs.writeFile(p, JSON.stringify(config, null, 2) + '\n', 'utf-8');
+  } catch { /* config なしのコレクションでは無視 */ }
+}
+
+// ── API: 次の ID を返す ──────────────────────────────────────────────
+app.get('/api/collection/next-id', async (req, res) => {
+  try {
+    const config = await readCollectionConfig();
+    if (!config) return res.json({ articleId: null, termId: null });
+    const g = config.counters.global || 0;
+    const t = config.counters.termCounter || 0;
+    res.json({
+      articleId: `wiim_${String(g + 1).padStart(3, '0')}`,
+      termId:    `g${String(t + 1).padStart(3, '0')}`,
+    });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── API: テンプレート一覧 ────────────────────────────────────────────
+app.get('/api/templates', async (req, res) => {
+  const templatesDir = path.join(__dirname, 'data', col.active, 'templates');
+  try {
+    const files = await fs.readdir(templatesDir);
+    const list = files
+      .filter(f => f.endsWith('.md'))
+      .map(f => ({ name: f.replace('.md', ''), file: f }));
+    res.json(list);
+  } catch {
+    res.json([]); // テンプレートフォルダなし = 空
+  }
+});
+
 // ── API: 記事一覧 ────────────────────────────────────────────────────
 app.get('/api/articles', async (req, res) => {
   try {
@@ -211,6 +254,10 @@ app.post('/api/articles', async (req, res) => {
   const fm = matter.stringify(content, frontmatter);
   await fs.mkdir(path.dirname(fullPath), { recursive: true });
   await fs.writeFile(fullPath, fm, 'utf-8');
+  // notes/ 配下でなければ記事カウンターを increment
+  if (!relPath.startsWith('notes/')) {
+    await incrementConfigCounter('global');
+  }
   res.json({ ok: true, path: relPath });
 });
 
@@ -265,6 +312,7 @@ app.post('/api/glossary/terms', async (req, res) => {
     terms.push(newTerm);
     await writeTerms(terms);
     await runGenerate();
+    await incrementConfigCounter('termCounter');
     broadcast({ type: 'reload-glossary' });
     res.json({ ok: true, term: newTerm });
   } catch (e) { res.status(500).json({ error: e.message }); }
