@@ -470,6 +470,11 @@
         <div class="field"><label style="font-size:11px;color:var(--text-muted);">表示名</label>
           <input id="nc-label" placeholder="例: My Novel" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></div>
       </div>
+      <div class="field">
+        <label style="font-size:11px;color:var(--text-muted);">記事 ID プレフィックス</label>
+        <input id="nc-prefix" placeholder="例: wiim, sf, ch（記事ID: prefix_001 形式）" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
+        <span style="font-size:11px;color:var(--text-muted);margin-top:3px;display:block;">記事・ファイル名の連番の前に付く英字省略名。空欄の場合はキー名を使用。</span>
+      </div>
       <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
         <label><input type="radio" name="nc-storage" value="internal" checked onchange="toggleNcPath()"> 内部（editor/data/）</label>
         <label><input type="radio" name="nc-storage" value="external" onchange="toggleNcPath()"> 外部パス</label>
@@ -1247,7 +1252,7 @@ document.getElementById('modal-create').onclick = async () => {
     frontmatter = { title, date: new Date().toISOString().slice(0, 10) };
   } else {
     const category = document.getElementById('f-category').value || 'misc';
-    const slug = id || `wiim_${String(articles.length + 1).padStart(3, '0')}`;
+    const slug = id || document.getElementById('f-id').value || 'article_001';
     relPath = `${category}/${slug}.md`;
     frontmatter = { title, id: slug, category, tags, date: new Date().toISOString().slice(0, 10) };
   }
@@ -1991,6 +1996,7 @@ function updateOutputHint(fmt) {
 async function createCollection() {
   const key      = document.getElementById('nc-key').value.trim();
   const label    = document.getElementById('nc-label').value.trim();
+  const idPrefix = document.getElementById('nc-prefix').value.trim();
   const storage  = document.querySelector('input[name="nc-storage"]:checked')?.value || 'internal';
   const path     = document.getElementById('nc-path').value.trim();
   const cats     = document.querySelector('input[name="nc-cats"]:checked')?.value || 'default';
@@ -1999,14 +2005,15 @@ async function createCollection() {
 
   const res = await fetch('/api/collections', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ key, label, storage, path, cats, idFormat }),
+    body: JSON.stringify({ key, label, idPrefix, storage, path, cats, idFormat }),
   });
   const data = await res.json();
   if (!res.ok) { showToast(data.error || '作成失敗', 'err'); return; }
 
   showToast(`コレクション "${label}" を作成しました`, 'ok');
-  document.getElementById('nc-key').value   = '';
-  document.getElementById('nc-label').value = '';
+  document.getElementById('nc-key').value    = '';
+  document.getElementById('nc-label').value  = '';
+  document.getElementById('nc-prefix').value = '';
   await loadCollections();
   await renderColList();
 }

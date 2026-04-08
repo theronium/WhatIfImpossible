@@ -123,7 +123,7 @@ app.get('/api/collections', async (req, res) => {
 });
 
 app.post('/api/collections', async (req, res) => {
-  const { key, label, storage, path: extPath, cats, idFormat } = req.body;
+  const { key, label, storage, path: extPath, cats, idFormat, idPrefix } = req.body;
   if (!/^[a-z0-9_-]+$/.test(key)) return res.status(400).json({ error: 'キーは英小文字・数字・ハイフン・アンダースコアのみ使用できます' });
 
   const data = JSON.parse(await fs.readFile(COLLECTIONS_FILE, 'utf-8'));
@@ -142,10 +142,12 @@ app.post('/api/collections', async (req, res) => {
 
     // config.json
     const config = {
-      idFormat: idFormat || 'global-only',
+      idFormat:  idFormat  || 'global-only',
+      idPrefix:  idPrefix  || key,
       counters: { global: 0, byCategory: {}, termCounter: 0 },
       output: ['markdown'],
       showTechTree: false,
+      autoLink: false,
     };
     await fs.writeFile(path.join(internalBase, 'config.json'), JSON.stringify(config, null, 2) + '\n', 'utf-8');
 
@@ -227,10 +229,11 @@ app.get('/api/collection/next-id', async (req, res) => {
   try {
     const config = await readCollectionConfig();
     if (!config) return res.json({ articleId: null, termId: null });
-    const g = config.counters.global || 0;
-    const t = config.counters.termCounter || 0;
+    const g      = config.counters.global || 0;
+    const t      = config.counters.termCounter || 0;
+    const prefix = config.idPrefix || 'article';
     res.json({
-      articleId: `wiim_${String(g + 1).padStart(3, '0')}`,
+      articleId: `${prefix}_${String(g + 1).padStart(3, '0')}`,
       termId:    `g${String(t + 1).padStart(3, '0')}`,
     });
   } catch (e) { res.status(500).json({ error: e.message }); }

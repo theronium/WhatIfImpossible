@@ -1,5 +1,6 @@
 {
   "idFormat": "global-only",
+  "idPrefix": "wiim",
   "counters": {
     "global": 67,
     "byCategory": {},
