@@ -1332,6 +1332,7 @@ document.getElementById('modal-create').onclick = async () => {
 
 // ── Prev/Next navigation ─────────────────────────────────────────────
 function appendPrevNext(pane, currentArticlePath) {
+  pane.querySelectorAll('.article-nav').forEach(el => el.remove());
   const current = articles.find(a => a.path === currentArticlePath);
   if (!current?.id) return;
   const idMatch = current.id.match(/^([a-z_]+)(\d+)$/);
