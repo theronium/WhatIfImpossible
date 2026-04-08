@@ -17,6 +17,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | [biology.md](biology.md) | 生物学・進化用語 |
 | [sf-concepts.md](sf-concepts.md) | SF概念用語 |
 | [wiim-concepts.md](wiim-concepts.md) | WIIM概念用語 |
+| [wiim-engineering.md](wiim-engineering.md) | WIIM派生技術用語 |
 
 ---
 
@@ -34,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **247**
+用語数: **256**
 
 ---
 
@@ -42,16 +43,17 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g258 | [核物理学](physics.md) | Nuclear Physics / Scattering Theory | physics |
+| g257 | [材料科学](physics.md) | Materials Science | physics |
+| g256 | [超低温・レーザー冷却技術](physics.md) | Cryogenic / Laser Cooling Technology | physics |
+| g255 | [余剰次元](physics.md) | Extra Dimensions | physics |
+| g254 | [核融合技術](physics.md) | Nuclear Fusion Technology | physics |
+| g253 | [量子力学](physics.md) | Quantum Mechanics | physics |
+| g252 | [量子情報理論](physics.md) | Quantum Information Theory | physics |
+| g251 | [情報理論](physics.md) | Information Theory | physics |
+| g250 | [熱力学](physics.md) | Thermodynamics | physics |
 | g249 | [黒体放射](physics.md) | Blackbody Radiation | physics |
-| g248 | [ホーキング放射](physics.md) | Hawking Radiation | physics |
-| g247 | [ネゴトロン](wiim-concepts.md) | Negotron | wiim-concepts |
-| g246 | [ネグレーザー](wiim-concepts.md) | Neg-raser | wiim-concepts |
-| g245 | [コスモライケン](wiim-concepts.md) | Cosmo-Lichen | wiim-concepts |
-| g244 | [リングレーザー](physics.md) | Ring Laser | physics |
-| g243 | [コヒーレンス長](physics.md) | Coherence Length | physics |
-| g242 | [位相](physics.md) | Phase | physics |
-| g241 | [放射光](physics.md) | Synchrotron Radiation | physics |
-| g240 | [円偏光](physics.md) | Circular Polarization | physics |
+
 
 
 
