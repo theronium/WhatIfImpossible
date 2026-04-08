@@ -6,8 +6,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const GLOSSARY_DIR = path.join(__dirname, '..');
-const DATA_FILE    = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
+const GLOSSARY_DIR    = process.env.GLOSSARY_DIR || path.join(__dirname, '..');
+const DATA_FILE       = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
 const CATEGORIES_FILE = path.join(GLOSSARY_DIR, 'categories.json');
 
 // docs/ を動的スキャンして 記事 ID → サブフォルダ のマップを構築
@@ -260,39 +260,42 @@ for (const cat of categories) {
 
 // README の用語数・最近追加を更新
 const readmePath = path.join(GLOSSARY_DIR, 'README.md');
-let readme = fs.readFileSync(readmePath, 'utf8');
+let readme = '';
+try { readme = fs.readFileSync(readmePath, 'utf8'); } catch {}
 
-// ファイル一覧テーブルを更新
-const fileListRows = categories
-  .map(c => `| [${c.file}](${c.file}) | ${rawCats.find(r => r.id === c.id).label}用語 |`)
-  .join('\n');
-const fileListSection = `## ファイル一覧\n\n| ファイル | 内容 |\n|---------|------|\n${fileListRows}\n`;
-readme = readme.replace(/## ファイル一覧[\s\S]*?(?=\n---|\n## )/, fileListSection);
+if (readme) {
+  // ファイル一覧テーブルを更新
+  const fileListRows = categories
+    .map(c => `| [${c.file}](${c.file}) | ${rawCats.find(r => r.id === c.id).label}用語 |`)
+    .join('\n');
+  const fileListSection = `## ファイル一覧\n\n| ファイル | 内容 |\n|---------|------|\n${fileListRows}\n`;
+  readme = readme.replace(/## ファイル一覧[\s\S]*?(?=\n---|\n## )/, fileListSection);
 
-// 用語数
-readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${totalCount}**`);
+  // 用語数
+  readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${totalCount}**`);
 
-// 最近追加した用語（ID順で直近10件）
-const RECENT_COUNT = 10;
-const recentLines = [...terms]
-  .slice(-RECENT_COUNT)
-  .reverse()
-  .map(t => `| ${t.id} | [${t.name}](${t.category}.md) | ${t.en || '—'} | ${t.category} |`)
-  .join('\n');
-const recentSection =
-  `## 最近追加した用語\n\n` +
-  `| ID | 用語 | English | カテゴリ |\n` +
-  `|----|------|---------|----------|\n` +
-  recentLines + '\n';
+  // 最近追加した用語（ID順で直近10件）
+  const RECENT_COUNT = 10;
+  const recentLines = [...terms]
+    .slice(-RECENT_COUNT)
+    .reverse()
+    .map(t => `| ${t.id} | [${t.name}](${t.category}.md) | ${t.en || '—'} | ${t.category} |`)
+    .join('\n');
+  const recentSection =
+    `## 最近追加した用語\n\n` +
+    `| ID | 用語 | English | カテゴリ |\n` +
+    `|----|------|---------|----------|\n` +
+    recentLines + '\n';
 
-// セクションを置換（なければ末尾に追加）
-if (readme.includes('## 最近追加した用語')) {
-  readme = readme.replace(/## 最近追加した用語[\s\S]*?(?=\n## |\n---|\s*$)/, recentSection);
-} else {
-  readme = readme.trimEnd() + '\n\n---\n\n' + recentSection;
+  // セクションを置換（なければ末尾に追加）
+  if (readme.includes('## 最近追加した用語')) {
+    readme = readme.replace(/## 最近追加した用語[\s\S]*?(?=\n## |\n---|\s*$)/, recentSection);
+  } else {
+    readme = readme.trimEnd() + '\n\n---\n\n' + recentSection;
+  }
+
+  fs.writeFileSync(readmePath, readme);
 }
-
-fs.writeFileSync(readmePath, readme);
 
 // ── 個別用語ファイル terms/gXXX.md を生成 ──────────────────────────
 const TERMS_DIR = path.join(GLOSSARY_DIR, 'terms');

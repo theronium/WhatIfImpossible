@@ -4,6 +4,7 @@ import chokidar from 'chokidar';
 import simpleGit from 'simple-git';
 import matter from 'gray-matter';
 import fs from 'fs/promises';
+import { existsSync } from 'fs';
 import path from 'path';
 import { createServer } from 'http';
 import { fileURLToPath } from 'url';
@@ -116,7 +117,8 @@ app.get('/api/collections', async (req, res) => {
     const raw = await fs.readFile(COLLECTIONS_FILE, 'utf-8');
     const data = JSON.parse(raw);
     const config = await loadCollectionConfig(data.active);
-    res.json({ active: data.active, collections: data.collections, config });
+    res.json({ active: data.active, collections: data.collections, config,
+               docsDir: col.docsDir, glossaryDir: col.glossaryDir });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
@@ -171,7 +173,26 @@ app.post('/api/collections', async (req, res) => {
     await fs.writeFile(COLLECTIONS_FILE, JSON.stringify(data, null, 2) + '\n', 'utf-8');
     col.collections = data.collections;
 
-    res.json({ ok: true, key });
+    // 内部ストレージかつ git=false の場合、リポジトリの .gitignore に追記
+    let gitignoreAdded = false;
+    if (!isExternal) {
+      try {
+        const git = simpleGit(__dirname);
+        const root = (await git.revparse(['--show-toplevel'])).trim();
+        const relPath = path.relative(root, internalBase).replace(/\\/g, '/') + '/';
+        const gitignorePath = path.join(root, '.gitignore');
+        let content = '';
+        try { content = await fs.readFile(gitignorePath, 'utf-8'); } catch {}
+        const lines = content.split('\n').map(l => l.trim());
+        if (!lines.includes(relPath)) {
+          const sep = content.length > 0 && !content.endsWith('\n') ? '\n' : '';
+          await fs.appendFile(gitignorePath, `${sep}# コレクション: ${label} (git=無効)\n${relPath}\n`, 'utf-8');
+          gitignoreAdded = true;
+        }
+      } catch { /* git 管理外の環境では無視 */ }
+    }
+
+    res.json({ ok: true, key, gitignoreAdded });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
@@ -183,7 +204,7 @@ app.post('/api/collections/switch', async (req, res) => {
     await saveActiveKey(key);
     const config = await loadCollectionConfig(key);
     broadcast({ type: 'collection-switched', key });
-    res.json({ ok: true, active: key, config });
+    res.json({ ok: true, active: key, config, docsDir: col.docsDir, glossaryDir: col.glossaryDir });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
@@ -211,7 +232,34 @@ app.patch('/api/collection/config', async (req, res) => {
     const config = JSON.parse(await fs.readFile(p, 'utf-8'));
     Object.assign(config, req.body);
     await fs.writeFile(p, JSON.stringify(config, null, 2) + '\n', 'utf-8');
-    res.json({ ok: true, config });
+
+    // git=false に変更 かつ 内部ストレージの場合、.gitignore に追記
+    let gitignoreAdded = false;
+    if (req.body.git === false) {
+      const colData = JSON.parse(await fs.readFile(COLLECTIONS_FILE, 'utf-8'));
+      const colEntry = colData.collections[col.active];
+      const isExternal = colEntry?.docsPath || colEntry?.glossaryPath;
+      if (!isExternal) {
+        try {
+          const git = simpleGit(__dirname);
+          const root = (await git.revparse(['--show-toplevel'])).trim();
+          const internalBase = path.join(__dirname, 'data', col.active);
+          const relPath = path.relative(root, internalBase).replace(/\\/g, '/') + '/';
+          const gitignorePath = path.join(root, '.gitignore');
+          let content = '';
+          try { content = await fs.readFile(gitignorePath, 'utf-8'); } catch {}
+          const lines = content.split('\n').map(l => l.trim());
+          if (!lines.includes(relPath)) {
+            const sep = content.length > 0 && !content.endsWith('\n') ? '\n' : '';
+            const label = colEntry?.label || col.active;
+            await fs.appendFile(gitignorePath, `${sep}# コレクション: ${label} (git=無効)\n${relPath}\n`, 'utf-8');
+            gitignoreAdded = true;
+          }
+        } catch { /* git 管理外の環境では無視 */ }
+      }
+    }
+
+    res.json({ ok: true, config, gitignoreAdded });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
@@ -446,9 +494,17 @@ async function writeTerms(terms) {
   await fs.writeFile(getTermsFile(), jsonl, 'utf-8');
 }
 
+const COMMON_GENERATE = path.join(__dirname, '..', 'glossary', 'scripts', 'generate.js');
+
 function runGenerate() {
   return new Promise((resolve, reject) => {
-    const child = spawn('node', [getGenerateScript()]);
+    const colScript = getGenerateScript();
+    const useCommon = !existsSync(colScript);
+    const scriptPath = useCommon ? COMMON_GENERATE : colScript;
+    const env = useCommon
+      ? { ...process.env, GLOSSARY_DIR: col.glossaryDir }
+      : process.env;
+    const child = spawn('node', [scriptPath], { env });
     child.on('close', code =>
       code === 0 ? resolve() : reject(new Error(`generate.js exited with code ${code}`))
     );
@@ -570,6 +626,29 @@ async function readArticleCategories() {
 
 app.get('/api/article-categories', async (req, res) => {
   res.json(await readArticleCategories());
+});
+
+app.post('/api/article-categories', async (req, res) => {
+  try {
+    const cats = await readArticleCategories();
+    if (cats.find(c => c.id === req.body.id))
+      return res.status(409).json({ error: 'ID already exists' });
+    const maxSort = cats.reduce((m, c) => Math.max(m, c.sort || 0), 0);
+    cats.push({ ...req.body, sort: req.body.sort ?? maxSort + 1 });
+    cats.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    await fs.writeFile(getArticleCategoriesFile(), JSON.stringify(cats, null, 2) + '\n', 'utf-8');
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.delete('/api/article-categories/:id', async (req, res) => {
+  try {
+    const cats = await readArticleCategories();
+    const next = cats.filter(c => c.id !== req.params.id);
+    if (next.length === cats.length) return res.status(404).json({ error: 'Not found' });
+    await fs.writeFile(getArticleCategoriesFile(), JSON.stringify(next, null, 2) + '\n', 'utf-8');
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
 app.put('/api/article-categories/:id', async (req, res) => {

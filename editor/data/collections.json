@@ -5,6 +5,11 @@
       "label": "WhatIfImpossible",
       "docsPath": "../docs",
       "glossaryPath": "../glossary"
+    },
+    "garbage": {
+      "label": "GarbageNotes",
+      "docsPath": null,
+      "glossaryPath": null
     }
   }
 }

@@ -133,7 +133,7 @@
   #commit-msg:focus { border-color: var(--accent); }
 
   /* ── Toast ── */
-  #toast { position: fixed; bottom: 64px; right: 16px; padding: 8px 16px; border-radius: 6px; font-size: 13px; opacity: 0; transition: opacity 0.2s; pointer-events: none; z-index: 200; }
+  #toast { position: fixed; bottom: 64px; right: 16px; padding: 8px 16px; border-radius: 6px; font-size: 13px; opacity: 0; transition: opacity 0.2s; pointer-events: none; z-index: 2100; }
   #toast.show { opacity: 1; }
   #toast.ok { background: var(--success); color: #000; }
   #toast.err { background: var(--danger); color: #fff; }
@@ -294,6 +294,7 @@
       <button class="btn btn-accent" id="btn-save">保存</button>
       <button class="btn btn-danger" id="btn-delete">削除</button>
     </div>
+    <div id="status-bar" style="display:none;padding:2px 12px;font-size:11px;font-family:monospace;color:var(--text-muted);background:var(--surface2);border-bottom:1px solid var(--border);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
     <div class="editor-panes" id="editor-panes" style="display:none">
       <div id="monaco-container"></div>
       <div id="preview-pane"></div>
@@ -307,6 +308,7 @@
         <button class="btn btn-danger" id="btn-delete-term" style="display:none">削除</button>
         <button class="btn btn-accent" id="btn-save-term">保存</button>
       </div>
+      <div id="gf-status-bar" style="padding:2px 12px;font-size:11px;font-family:monospace;color:var(--text-muted);background:var(--surface2);border-bottom:1px solid var(--border);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
       <div class="gf-body" id="gf-body">
         <div class="gf-field">
           <label>用語名 *</label>
@@ -419,7 +421,7 @@
     </div>
 
     <!-- テンプレートタブ -->
-    <div id="stab-templates" style="display:flex;flex-direction:column;gap:10px;flex:1;overflow:hidden;">
+    <div id="stab-templates" style="display:flex;flex-direction:column;gap:10px;overflow-y:auto;max-height:calc(88vh - 100px);">
       <div style="display:flex;gap:8px;align-items:center;">
         <select id="tpl-select" style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></select>
         <button class="btn btn-accent" onclick="newTemplate()" style="font-size:12px;padding:4px 10px;">＋ 新規</button>
@@ -439,78 +441,112 @@
     </div>
 
     <!-- コレクションタブ -->
-    <div id="stab-collections" style="display:none;flex-direction:column;gap:12px;flex:1;overflow-y:auto;">
-      <!-- 登録済みコレクション -->
-      <div id="col-list" style="display:flex;flex-direction:column;gap:4px;"></div>
-      <!-- Git 設定 -->
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">Git 連携</div>
-        <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
-          <label><input type="radio" name="col-git" value="on"  onchange="setGitEnabled(true)"> 有効</label>
-          <label><input type="radio" name="col-git" value="off" onchange="setGitEnabled(false)"> 無効</label>
+    <div id="stab-collections" style="display:none;flex-direction:column;gap:12px;">
+      <!-- 既存コレクション設定グループ（新規作成フォーム展開時に非表示） -->
+      <div id="col-settings-group" style="display:flex;flex-direction:column;gap:12px;">
+        <!-- 登録済みコレクション -->
+        <div id="col-list" style="display:flex;flex-direction:column;gap:4px;"></div>
+        <!-- Git 設定 -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">Git 連携</div>
+          <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
+            <label><input type="radio" name="col-git" value="on"  onchange="setGitEnabled(true)"> 有効</label>
+            <label><input type="radio" name="col-git" value="off" onchange="setGitEnabled(false)"> 無効</label>
+          </div>
+          <div style="font-size:11px;color:var(--text-muted);">無効時は Git パネルを非表示にし、内部ストレージのフォルダを <code style="font-size:10px;background:var(--surface);padding:1px 4px;border-radius:3px;">.gitignore</code> に自動追記します。内部コレクション（小説等）は無効推奨。</div>
+          <div style="font-size:11px;color:var(--text-muted);">再度有効にする場合は、リポジトリルートの <code style="font-size:10px;background:var(--surface);padding:1px 4px;border-radius:3px;">.gitignore</code> から対象フォルダの行を手動で削除してください。</div>
         </div>
-        <div style="font-size:11px;color:var(--text-muted);">無効時は Git パネルを非表示にします。内部コレクション（小説等）は無効推奨。</div>
-      </div>
 
-      <!-- 用語自動リンク設定 -->
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">保存時の用語自動リンク</div>
-        <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
-          <label><input type="radio" name="auto-link" value="on"  onchange="setAutoLink(true)"> 有効</label>
-          <label><input type="radio" name="auto-link" value="off" onchange="setAutoLink(false)"> 無効</label>
+        <!-- 用語自動リンク設定 -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">保存時の用語自動リンク</div>
+          <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
+            <label><input type="radio" name="auto-link" value="on"  onchange="setAutoLink(true)"> 有効</label>
+            <label><input type="radio" name="auto-link" value="off" onchange="setAutoLink(false)"> 無効</label>
+          </div>
+          <div style="font-size:11px;color:var(--text-muted);">有効時: 保存のたびに用語名を <code style="font-size:10px;background:var(--surface);padding:1px 4px;border-radius:3px;">[用語名](glossary/terms/gXXX.md)</code> に変換。既存リンク・コードブロックは保護。小説など用語リンク不要なコレクションは無効に。</div>
         </div>
-        <div style="font-size:11px;color:var(--text-muted);">有効時: 保存のたびに用語名を <code style="font-size:10px;background:var(--surface);padding:1px 4px;border-radius:3px;">[用語名](glossary/terms/gXXX.md)</code> に変換。既存リンク・コードブロックは保護。小説など用語リンク不要なコレクションは無効に。</div>
-      </div>
 
-      <!-- 出力形式設定 -->
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
-        <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">現在のコレクションの出力形式</div>
-        <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
-          <label><input type="radio" name="output-format" value="markdown" onchange="setOutputFormat(this.value)"> Markdown のみ</label>
-          <label><input type="radio" name="output-format" value="html"     onchange="setOutputFormat(this.value)"> HTML のみ</label>
-          <label><input type="radio" name="output-format" value="both"     onchange="setOutputFormat(this.value)"> 両方</label>
+        <!-- 出力形式設定 -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">現在のコレクションの出力形式</div>
+          <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
+            <label><input type="radio" name="output-format" value="markdown" onchange="setOutputFormat(this.value)"> Markdown のみ</label>
+            <label><input type="radio" name="output-format" value="html"     onchange="setOutputFormat(this.value)"> HTML のみ</label>
+            <label><input type="radio" name="output-format" value="both"     onchange="setOutputFormat(this.value)"> 両方</label>
+          </div>
+          <div id="output-format-hint" style="font-size:11px;color:var(--text-muted);"></div>
         </div>
-        <div id="output-format-hint" style="font-size:11px;color:var(--text-muted);"></div>
-      </div>
-      <hr style="border-color:var(--border);margin:4px 0;">
-      <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">新規コレクションを作成</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-        <div class="field"><label style="font-size:11px;color:var(--text-muted);">キー（英小文字・ハイフン）</label>
-          <input id="nc-key" placeholder="例: my-novel" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></div>
-        <div class="field"><label style="font-size:11px;color:var(--text-muted);">表示名</label>
-          <input id="nc-label" placeholder="例: My Novel" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></div>
-      </div>
-      <div class="field">
-        <label style="font-size:11px;color:var(--text-muted);">記事 ID プレフィックス</label>
-        <input id="nc-prefix" placeholder="例: wiim, sf, ch（記事ID: prefix_001 形式）" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
-        <span style="font-size:11px;color:var(--text-muted);margin-top:3px;display:block;">記事・ファイル名の連番の前に付く英字省略名。空欄の場合はキー名を使用。</span>
-      </div>
-      <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
-        <label><input type="radio" name="nc-storage" value="internal" checked onchange="toggleNcPath()"> 内部（editor/data/）</label>
-        <label><input type="radio" name="nc-storage" value="external" onchange="toggleNcPath()"> 外部パス</label>
-      </div>
-      <input id="nc-path" placeholder="絶対パス（例: D:/Repos/MyProject）" style="display:none;width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
-      <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
-        <span style="font-size:11px;color:var(--text-muted);">カテゴリ:</span>
-        <label><input type="radio" name="nc-cats" value="default" checked> デフォルトのみ</label>
-        <label><input type="radio" name="nc-cats" value="inherit"> 現在のコレクションから引継ぎ</label>
-      </div>
-      <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
-        <span style="font-size:11px;color:var(--text-muted);">ID形式:</span>
-        <label><input type="radio" name="nc-idformat" value="global-only" checked> 全体連番</label>
-        <label><input type="radio" name="nc-idformat" value="category-prefix"> カテゴリ＋連番</label>
-      </div>
-      <div style="display:flex;justify-content:flex-end;">
-        <button class="btn btn-accent" onclick="createCollection()">作成</button>
-      </div>
+
+        <!-- 記事ID設定 -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">記事ID</div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <label style="font-size:12px;color:var(--text-muted);white-space:nowrap;">プレフィックス</label>
+            <input id="col-id-prefix" placeholder="例: wiim" style="width:120px;background:var(--surface);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:4px 8px;font-size:13px;" oninput="scheduleIdPrefixSave()">
+            <span style="font-size:11px;color:var(--text-muted);">_001 形式で記事IDに使用</span>
+          </div>
+          <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
+            <span style="font-size:11px;color:var(--text-muted);">ID形式:</span>
+            <label><input type="radio" name="col-idformat" value="global-only"      onchange="setIdFormat(this.value)"> 全体連番</label>
+            <label><input type="radio" name="col-idformat" value="category-prefix"  onchange="setIdFormat(this.value)"> カテゴリ＋連番</label>
+          </div>
+        </div>
+      </div><!-- /col-settings-group -->
+
+      <!-- 新規コレクション作成（折り畳み） -->
+      <details style="border:1px solid var(--border);border-radius:7px;overflow:hidden;">
+        <summary style="padding:10px 14px;cursor:pointer;font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;background:var(--surface2);list-style:none;display:flex;align-items:center;gap:6px;user-select:none;">
+          <span id="nc-arrow" style="font-size:10px;transition:transform .15s;">▶</span> 新規コレクションを作成
+        </summary>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:var(--surface);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div class="field"><label style="font-size:11px;color:var(--text-muted);">キー（英小文字・ハイフン）</label>
+              <input id="nc-key" placeholder="例: my-novel" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></div>
+            <div class="field"><label style="font-size:11px;color:var(--text-muted);">表示名</label>
+              <input id="nc-label" placeholder="例: My Novel" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;"></div>
+          </div>
+          <div class="field">
+            <label style="font-size:11px;color:var(--text-muted);">記事 ID プレフィックス</label>
+            <input id="nc-prefix" placeholder="例: wiim, sf, ch（記事ID: prefix_001 形式）" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
+            <span style="font-size:11px;color:var(--text-muted);margin-top:3px;display:block;">記事・ファイル名の連番の前に付く英字省略名。空欄の場合はキー名を使用。</span>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
+            <label><input type="radio" name="nc-storage" value="internal" checked onchange="toggleNcPath()"> 内部（editor/data/）</label>
+            <label><input type="radio" name="nc-storage" value="external" onchange="toggleNcPath()"> 外部パス</label>
+          </div>
+          <input id="nc-path" placeholder="絶対パス（例: D:/Repos/MyProject）" style="display:none;width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);padding:5px 8px;font-size:13px;">
+          <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
+            <span style="font-size:11px;color:var(--text-muted);">カテゴリ:</span>
+            <label><input type="radio" name="nc-cats" value="default" checked> デフォルトのみ</label>
+            <label><input type="radio" name="nc-cats" value="inherit"> 現在のコレクションから引継ぎ</label>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center;font-size:13px;">
+            <span style="font-size:11px;color:var(--text-muted);">ID形式:</span>
+            <label><input type="radio" name="nc-idformat" value="global-only" checked> 全体連番</label>
+            <label><input type="radio" name="nc-idformat" value="category-prefix"> カテゴリ＋連番</label>
+          </div>
+          <div style="display:flex;justify-content:flex-end;">
+            <button class="btn btn-accent" onclick="createCollection()">作成</button>
+          </div>
+          <!-- 作成後ガイド -->
+          <div id="nc-result" style="display:none;background:var(--surface);border:1px solid var(--accent);border-radius:6px;padding:10px 12px;font-size:12px;line-height:1.7;">
+            <div style="font-weight:600;color:var(--accent);margin-bottom:2px;" id="nc-result-title"></div>
+            <div style="color:var(--text-muted);">デフォルト設定: Git=無効 / 用語自動リンク=無効 / 出力=Markdown</div>
+            <div id="nc-result-gitignore" style="display:none;color:var(--text-muted);">.gitignore にフォルダを追記しました</div>
+            <div style="color:var(--text-muted);margin-top:2px;">切り替えてから「コレクション」タブで設定を確認・変更してください。</div>
+            <button class="btn" style="margin-top:8px;font-size:12px;" id="nc-switch-btn" onclick="">切り替えて設定を確認</button>
+          </div>
+        </div>
+      </details>
     </div>
 
     <!-- カテゴリタブ -->
-    <div id="stab-categories" style="display:none;flex-direction:column;gap:16px;flex:1;overflow-y:auto;">
+    <div id="stab-categories" style="display:none;flex-direction:column;gap:16px;overflow-y:auto;max-height:calc(88vh - 100px);">
 
       <!-- 記事カテゴリ -->
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">記事カテゴリ <span style="font-weight:400;opacity:.6;">（色・ラベルのみ編集可）</span></div>
+        <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">記事カテゴリ</div>
         <div id="art-cat-list" style="display:flex;flex-direction:column;gap:4px;"></div>
       </div>
 
@@ -570,6 +606,8 @@ let GLOSSARY_LABELS = {};
 let ARTICLE_CATS = [];   // article-categories.json から読み込む
 let activeCollection = null;
 let collectionConfig = null;
+let activeDocsDir    = '';
+let activeGlossaryDir = '';
 
 const FALLBACK_CATS = [
   { id: 'astronomy',   label: '天文学・宇宙論',     color: '#60a5fa', bg: '#1a2440', sort: 1 },
@@ -597,8 +635,10 @@ async function loadCollections() {
     const res = await fetch('/api/collections');
     if (!res.ok) return;
     const data = await res.json();
-    activeCollection = data.active;
+    activeCollection  = data.active;
     collectionConfig  = data.config;
+    activeDocsDir     = data.docsDir    || '';
+    activeGlossaryDir = data.glossaryDir || '';
 
     const sel = document.getElementById('collection-select');
     sel.innerHTML = Object.entries(data.collections)
@@ -625,8 +665,10 @@ async function switchCollection(key) {
   });
   if (!res.ok) { showToast('切替失敗', 'error'); return; }
   const data = await res.json();
-  activeCollection = data.active;
+  activeCollection  = data.active;
   collectionConfig  = data.config;
+  activeDocsDir     = data.docsDir     || '';
+  activeGlossaryDir = data.glossaryDir || '';
   applyCollectionConfig(data.config);
   // パネルが techtree で非表示になる場合は記事パネルに戻す
   const current = document.querySelector('.sidebar-tab.active')?.dataset.panel;
@@ -1071,10 +1113,13 @@ async function openArticle(relPath, { pushState = true } = {}) {
   document.getElementById('file-path').textContent = relPath;
   document.getElementById('editor-panes').style.display = 'flex';
   document.getElementById('toolbar').style.display = 'flex';
+  const sb = document.getElementById('status-bar');
+  if (sb) { sb.textContent = activeDocsDir ? `${activeDocsDir}/${relPath}` : relPath; sb.style.display = ''; }
   const isNote = relPath.startsWith('notes/');
   document.querySelector('.mode-tabs').style.display = isNote ? 'none' : '';
   document.getElementById('btn-save').style.display = isNote ? 'none' : '';
   document.getElementById('btn-delete').style.display = isNote ? 'none' : '';
+  document.getElementById('btn-edit-viewing').style.display = isNote ? '' : 'none';
   document.getElementById('empty-state').style.display = 'none';
   if (isNote) {
     document.getElementById('monaco-container').style.display = 'none';
@@ -1189,6 +1234,8 @@ async function deleteArticle() {
   currentPath = null;
   monacoEditor.setValue('');
   document.getElementById('toolbar').style.display = 'none';
+  const _sb = document.getElementById('status-bar');
+  if (_sb) _sb.style.display = 'none';
   document.getElementById('empty-state').style.display = 'flex';
   loadArticles();
   showToast('削除しました', 'ok');
@@ -1199,9 +1246,10 @@ let _modalMode = 'article'; // 'article' | 'note'
 
 function populateModalCategorySelect() {
   const sel = document.getElementById('f-category');
-  sel.innerHTML = GLOSSARY_CATS.map(c =>
-    `<option value="${c.id}">${c.id} — ${c.label}</option>`
-  ).join('');
+  const src = ARTICLE_CATS.length ? ARTICLE_CATS : GLOSSARY_CATS;
+  sel.innerHTML = src.length
+    ? src.map(c => `<option value="${c.id}">${c.id} — ${c.label}</option>`).join('')
+    : `<option value="general">general — 一般</option>`;
 }
 
 async function openNewModal(mode = 'article') {
@@ -1664,7 +1712,9 @@ function viewTerm(id, { pushState = true } = {}) {
   document.getElementById('editor-panes').style.display = 'flex';
   document.getElementById('empty-state').style.display = 'none';
 
-  // ツールバー設定
+  // ツールバー設定（用語プレビュー時はステータスバーにパスを表示）
+  const _sbView = document.getElementById('status-bar');
+  if (_sbView) { _sbView.textContent = activeGlossaryDir ? `${activeGlossaryDir}/terms/${term.id}.md` : `terms/${term.id}.md`; _sbView.style.display = ''; }
   document.getElementById('toolbar').style.display = 'flex';
   document.querySelector('.mode-tabs').style.display = 'none';
   document.getElementById('btn-save').style.display = 'none';
@@ -1725,13 +1775,27 @@ function viewTerm(id, { pushState = true } = {}) {
 }
 
 document.getElementById('btn-edit-viewing').onclick = () => {
-  if (viewingTermId) editTerm(viewingTermId);
+  if (viewingTermId) {
+    editTerm(viewingTermId);
+  } else if (currentPath?.startsWith('notes/')) {
+    // 補遺: プレビューからエディタに切り替え
+    document.getElementById('btn-edit-viewing').style.display = 'none';
+    document.getElementById('btn-save').style.display = '';
+    document.getElementById('btn-delete').style.display = '';
+    document.querySelector('.mode-tabs').style.display = '';
+    document.getElementById('monaco-container').style.display = '';
+    document.getElementById('preview-pane').style.display = 'none';
+    setViewMode('edit');
+    monacoEditor?.layout();
+  }
 };
 
 // ── 用語編集フォームを開く ───────────────────────────────────────────
 function showGlossaryForm() {
   document.getElementById('editor-panes').style.display = 'none';
   document.getElementById('toolbar').style.display = 'none';
+  const _sbHide = document.getElementById('status-bar');
+  if (_sbHide) _sbHide.style.display = 'none';
   document.getElementById('glossary-form-area').classList.add('active');
 }
 
@@ -1742,6 +1806,8 @@ function editTerm(id) {
   viewingTermId = null;
 
   document.getElementById('gf-id-label').textContent = `${term.id} / ${term.name}`;
+  const _gfsb = document.getElementById('gf-status-bar');
+  if (_gfsb) { _gfsb.textContent = activeGlossaryDir ? `${activeGlossaryDir}/terms/${term.id}.md` : `terms/${term.id}.md`; _gfsb.style.display = ''; }
   document.getElementById('gf-name').value = term.name || '';
   document.getElementById('gf-en').value = term.en || '';
   document.getElementById('gf-reading').value = term.reading || '';
@@ -1763,6 +1829,8 @@ function openNewTerm() {
   currentTermId = null;
   viewingTermId = null;
   document.getElementById('gf-id-label').textContent = '新規用語';
+  const _gfsbNew = document.getElementById('gf-status-bar');
+  if (_gfsbNew) { _gfsbNew.textContent = activeGlossaryDir ? `${activeGlossaryDir}/terms/（保存後に確定）` : '（保存後に確定）'; _gfsbNew.style.display = ''; }
   document.getElementById('gf-name').value = '';
   document.getElementById('gf-en').value = '';
   document.getElementById('gf-reading').value = '';
@@ -1879,6 +1947,10 @@ function switchToPanel(panel, { pushState = true } = {}) {
     document.getElementById('toolbar').style.display = 'none';
     document.getElementById('btn-edit-viewing').style.display = 'none';
     document.getElementById('empty-state').style.display = 'flex';
+    const _sbClear = document.getElementById('status-bar');
+    if (_sbClear) _sbClear.style.display = 'none';
+    const _gfsbClear = document.getElementById('gf-status-bar');
+    if (_gfsbClear) _gfsbClear.style.display = 'none';
     currentPath = null;
     currentTermId = null;
     viewingTermId = null;
@@ -1937,6 +2009,19 @@ function toggleNcPath() {
   document.getElementById('nc-path').style.display = external ? '' : 'none';
 }
 
+// 新規コレクション折り畳み：開閉で設定グループを切り替え
+document.addEventListener('DOMContentLoaded', () => {
+  const det = document.querySelector('details:has(#nc-key)');
+  if (det) det.addEventListener('toggle', () => {
+    const arrow   = document.getElementById('nc-arrow');
+    const group   = document.getElementById('col-settings-group');
+    const result  = document.getElementById('nc-result');
+    if (arrow) arrow.style.transform = det.open ? 'rotate(90deg)' : '';
+    if (group)  group.style.display  = det.open ? 'none' : 'flex';
+    if (!det.open && result) result.style.display = 'none';
+  });
+});
+
 async function renderColList() {
   const res = await fetch('/api/collections').catch(() => null);
   if (!res || !res.ok) return;
@@ -1965,18 +2050,38 @@ async function renderColList() {
   const radio = document.querySelector(`input[name="output-format"][value="${fmt}"]`);
   if (radio) radio.checked = true;
   updateOutputHint(fmt);
+
+  // 記事IDプレフィックス・ID形式を現在の config に合わせる
+  const prefixInput = document.getElementById('col-id-prefix');
+  if (prefixInput) prefixInput.value = data.config?.idPrefix || '';
+  const idFmtRadio = document.querySelector(`input[name="col-idformat"][value="${data.config?.idFormat || 'global-only'}"]`);
+  if (idFmtRadio) idFmtRadio.checked = true;
 }
 
 async function setGitEnabled(value) {
+  if (!value) {
+    const ok = confirm(
+      'Git 連携を無効にすると、内部ストレージのフォルダが .gitignore に追記されます。\n' +
+      '再度有効にする場合は .gitignore を手動で編集する必要があります。\n\n' +
+      '無効にしますか？'
+    );
+    if (!ok) {
+      // ラジオを元に戻す
+      const radio = document.querySelector('input[name="col-git"][value="on"]');
+      if (radio) radio.checked = true;
+      return;
+    }
+  }
   const res = await fetch('/api/collection/config', {
     method: 'PATCH', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ git: value }),
   });
   if (res.ok) {
-    const { config } = await res.json();
+    const { config, gitignoreAdded } = await res.json();
     collectionConfig = config;
     applyCollectionConfig(config);
-    showToast(`Git 連携: ${value ? '有効' : '無効'}`, 'ok');
+    const msg = value ? 'Git 連携: 有効' : ('Git 連携: 無効' + (gitignoreAdded ? '（.gitignore に追記しました）' : ''));
+    showToast(msg, 'ok');
   } else { showToast('更新失敗', 'err'); }
 }
 
@@ -2009,6 +2114,38 @@ async function setOutputFormat(value) {
   }
 }
 
+async function setIdFormat(value) {
+  const res = await fetch('/api/collection/config', {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ idFormat: value }),
+  });
+  if (res.ok) {
+    const { config } = await res.json();
+    collectionConfig = config;
+    showToast('ID形式を更新しました', 'ok');
+  } else { showToast('更新失敗', 'err'); }
+}
+
+let _idPrefixTimer = null;
+function scheduleIdPrefixSave() {
+  clearTimeout(_idPrefixTimer);
+  _idPrefixTimer = setTimeout(saveIdPrefix, 800);
+}
+
+async function saveIdPrefix() {
+  const val = document.getElementById('col-id-prefix')?.value.trim();
+  if (!val) return;
+  const res = await fetch('/api/collection/config', {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ idPrefix: val }),
+  });
+  if (res.ok) {
+    const { config } = await res.json();
+    collectionConfig = config;
+    showToast('プレフィックスを更新しました', 'ok');
+  } else { showToast('更新失敗', 'err'); }
+}
+
 function updateOutputHint(fmt) {
   const hints = {
     markdown: 'MD のみ保存（デフォルト）',
@@ -2036,12 +2173,27 @@ async function createCollection() {
   const data = await res.json();
   if (!res.ok) { showToast(data.error || '作成失敗', 'err'); return; }
 
-  showToast(`コレクション "${label}" を作成しました`, 'ok');
   document.getElementById('nc-key').value    = '';
   document.getElementById('nc-label').value  = '';
   document.getElementById('nc-prefix').value = '';
   await loadCollections();
   await renderColList();
+
+  // 作成後ガイドを表示
+  const resultEl    = document.getElementById('nc-result');
+  const titleEl     = document.getElementById('nc-result-title');
+  const gitignoreEl = document.getElementById('nc-result-gitignore');
+  const switchBtn   = document.getElementById('nc-switch-btn');
+  if (resultEl) {
+    titleEl.textContent = `"${label}" を作成しました`;
+    gitignoreEl.style.display = data.gitignoreAdded ? '' : 'none';
+    switchBtn.onclick = async () => {
+      await switchCollection(data.key);
+      switchSettingsTab('collections');
+      resultEl.style.display = 'none';
+    };
+    resultEl.style.display = '';
+  }
 }
 
 async function loadTplList() {
@@ -2099,18 +2251,16 @@ async function renderCategoryTab() {
 function renderArtCatList() {
   const list = document.getElementById('art-cat-list');
   if (!list) return;
-  if (!ARTICLE_CATS.length) {
-    list.innerHTML = `<div style="font-size:12px;color:var(--text-muted);padding:4px 0;">定義なし（CSSフォールバック使用中）</div>`;
-    return;
-  }
-  const header = `<div style="display:grid;grid-template-columns:90px 1fr 48px 48px;gap:6px;align-items:center;margin-bottom:2px;">
+  const COL = 'grid-template-columns:90px 1fr 48px 48px 32px';
+  const header = `<div style="display:grid;${COL};gap:6px;align-items:center;margin-bottom:2px;">
     <span style="font-size:10px;color:var(--text-muted);letter-spacing:.05em;">ID</span>
     <span style="font-size:10px;color:var(--text-muted);">ラベル</span>
     <span style="font-size:10px;color:var(--text-muted);text-align:center;">文字色</span>
     <span style="font-size:10px;color:var(--text-muted);text-align:center;">背景色</span>
+    <span></span>
   </div>`;
-  list.innerHTML = header + ARTICLE_CATS.map(c => `
-    <div style="display:grid;grid-template-columns:90px 1fr 48px 48px;gap:6px;align-items:center;">
+  const rows = ARTICLE_CATS.map(c => `
+    <div style="display:grid;${COL};gap:6px;align-items:center;">
       <span style="font-size:11px;font-family:monospace;color:var(--accent);padding:3px 0;">${c.id}</span>
       <input value="${c.label}" onchange="updateArtCat('${c.id}','label',this.value)"
         style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-size:12px;outline:none;">
@@ -2118,8 +2268,54 @@ function renderArtCatList() {
         style="width:100%;height:26px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
       <input type="color" value="${c.bg}" title="背景色" onchange="updateArtCat('${c.id}','bg',this.value)"
         style="width:100%;height:26px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
+      <button onclick="deleteArtCat('${c.id}')"
+        style="background:#3a1a1a;border:1px solid #6b2a2a;border-radius:4px;color:#f87171;font-size:13px;padding:2px 6px;cursor:pointer;line-height:1;">×</button>
     </div>
   `).join('');
+  const addRow = `<div style="display:grid;${COL};gap:6px;align-items:center;margin-top:4px;">
+    <input id="new-art-cat-id"    placeholder="id（英数字）"
+      style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:4px 8px;color:var(--text);font-size:12px;outline:none;">
+    <input id="new-art-cat-label" placeholder="ラベル"
+      style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:4px 8px;color:var(--text);font-size:12px;outline:none;">
+    <input id="new-art-cat-color" type="color" value="#60a5fa" title="文字色"
+      style="width:100%;height:28px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
+    <input id="new-art-cat-bg"    type="color" value="#1a2440" title="背景色"
+      style="width:100%;height:28px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
+    <button onclick="addArtCat()"
+      style="background:#1a3a1a;border:1px solid #2d5a2d;border-radius:4px;color:#86efac;font-size:12px;padding:4px 6px;cursor:pointer;white-space:nowrap;">＋</button>
+  </div>`;
+  list.innerHTML = (ARTICLE_CATS.length ? header + rows : '') + addRow;
+}
+
+async function addArtCat() {
+  const id    = document.getElementById('new-art-cat-id')?.value.trim();
+  const label = document.getElementById('new-art-cat-label')?.value.trim();
+  const color = document.getElementById('new-art-cat-color')?.value || '#60a5fa';
+  const bg    = document.getElementById('new-art-cat-bg')?.value    || '#1a2440';
+  if (!id || !label) { showToast('IDとラベルは必須です', 'err'); return; }
+  const res = await fetch('/api/article-categories', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, label, color, bg }),
+  });
+  if (!res.ok) {
+    let msg = '追加失敗';
+    try { const e = await res.json(); msg = e.error || msg; } catch {}
+    showToast(msg, 'err'); return;
+  }
+  const cats = await fetch('/api/article-categories').then(r => r.json()).catch(() => ARTICLE_CATS);
+  ARTICLE_CATS = cats;
+  injectCatStyles();
+  renderArtCatList();
+  populateModalCategorySelect();
+}
+
+async function deleteArtCat(id) {
+  if (!confirm(`記事カテゴリ "${id}" を削除しますか？`)) return;
+  await fetch(`/api/article-categories/${id}`, { method: 'DELETE' });
+  ARTICLE_CATS = ARTICLE_CATS.filter(c => c.id !== id);
+  injectCatStyles();
+  renderArtCatList();
+  populateModalCategorySelect();
 }
 
 async function updateArtCat(id, field, value) {
