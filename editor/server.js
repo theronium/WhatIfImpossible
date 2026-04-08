@@ -148,6 +148,7 @@ app.post('/api/collections', async (req, res) => {
       output: ['markdown'],
       showTechTree: false,
       autoLink: false,
+      git: false,
     };
     await fs.writeFile(path.join(internalBase, 'config.json'), JSON.stringify(config, null, 2) + '\n', 'utf-8');
 

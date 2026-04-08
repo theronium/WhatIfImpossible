@@ -10,5 +10,6 @@
     "markdown"
   ],
   "showTechTree": true,
-  "autoLink": true
+  "autoLink": true,
+  "git": true
 }

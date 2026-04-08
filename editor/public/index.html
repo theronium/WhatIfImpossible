@@ -411,9 +411,9 @@
     <!-- ヘッダー -->
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <div style="display:flex;gap:4px;">
-        <button class="btn settings-tab active" data-stab="templates"   onclick="switchSettingsTab('templates')">テンプレート</button>
+        <button class="btn settings-tab active" data-stab="categories"  onclick="switchSettingsTab('categories')">カテゴリ</button>
+        <button class="btn settings-tab" data-stab="templates"   onclick="switchSettingsTab('templates')">テンプレート</button>
         <button class="btn settings-tab" data-stab="collections" onclick="switchSettingsTab('collections')">コレクション</button>
-        <button class="btn settings-tab" data-stab="categories"  onclick="switchSettingsTab('categories')">カテゴリ</button>
       </div>
       <button onclick="closeSettingsModal()" style="background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;">✕</button>
     </div>
@@ -442,6 +442,16 @@
     <div id="stab-collections" style="display:none;flex-direction:column;gap:12px;flex:1;overflow-y:auto;">
       <!-- 登録済みコレクション -->
       <div id="col-list" style="display:flex;flex-direction:column;gap:4px;"></div>
+      <!-- Git 設定 -->
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">Git 連携</div>
+        <div style="display:flex;gap:16px;font-size:13px;align-items:center;">
+          <label><input type="radio" name="col-git" value="on"  onchange="setGitEnabled(true)"> 有効</label>
+          <label><input type="radio" name="col-git" value="off" onchange="setGitEnabled(false)"> 無効</label>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);">無効時は Git パネルを非表示にします。内部コレクション（小説等）は無効推奨。</div>
+      </div>
+
       <!-- 用語自動リンク設定 -->
       <div style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
         <div style="font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.06em;">保存時の用語自動リンク</div>
@@ -604,9 +614,8 @@ async function loadCollections() {
 function applyCollectionConfig(config) {
   if (!config) return;
   const techtreeTab = document.querySelector('.sidebar-tab[data-panel="techtree"]');
-  if (techtreeTab) {
-    techtreeTab.style.display = config.showTechTree ? '' : 'none';
-  }
+  if (techtreeTab) techtreeTab.style.display = config.showTechTree ? '' : 'none';
+  document.getElementById('git-panel').style.display = config.git !== false ? '' : 'none';
 }
 
 async function switchCollection(key) {
@@ -1900,9 +1909,9 @@ document.getElementById('btn-save').onclick = saveArticle;
 document.getElementById('btn-delete').onclick = deleteArticle;
 
 // ── Settings modal ────────────────────────────────────────────────────
-document.getElementById('btn-settings').onclick = () => openSettingsModal('templates');
+document.getElementById('btn-settings').onclick = () => openSettingsModal();
 
-async function openSettingsModal(tab = 'templates') {
+async function openSettingsModal(tab = 'categories') {
   await loadTplList();
   await renderColList();
   switchSettingsTab(tab);
@@ -1941,6 +1950,10 @@ async function renderColList() {
     </div>
   `).join('');
 
+  // Git ラジオを現在の config に合わせる
+  const gitRadio = document.querySelector(`input[name="col-git"][value="${data.config?.git !== false ? 'on' : 'off'}"]`);
+  if (gitRadio) gitRadio.checked = true;
+
   // 用語自動リンクラジオを現在の config に合わせる
   const alRadio = document.querySelector(`input[name="auto-link"][value="${data.config?.autoLink ? 'on' : 'off'}"]`);
   if (alRadio) alRadio.checked = true;
@@ -1952,6 +1965,19 @@ async function renderColList() {
   const radio = document.querySelector(`input[name="output-format"][value="${fmt}"]`);
   if (radio) radio.checked = true;
   updateOutputHint(fmt);
+}
+
+async function setGitEnabled(value) {
+  const res = await fetch('/api/collection/config', {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ git: value }),
+  });
+  if (res.ok) {
+    const { config } = await res.json();
+    collectionConfig = config;
+    applyCollectionConfig(config);
+    showToast(`Git 連携: ${value ? '有効' : '無効'}`, 'ok');
+  } else { showToast('更新失敗', 'err'); }
 }
 
 async function setAutoLink(value) {
