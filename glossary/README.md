@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **257**
+用語数: **268**
 
 ---
 
@@ -43,16 +43,17 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
-| g259 | [バイオテクノロジー](biology.md) | Biotechnology | biology |
-| g258 | [核物理学](physics.md) | Nuclear Physics / Scattering Theory | physics |
-| g257 | [材料科学](physics.md) | Materials Science | physics |
-| g256 | [超低温・レーザー冷却技術](physics.md) | Cryogenic / Laser Cooling Technology | physics |
-| g255 | [余剰次元](physics.md) | Extra Dimensions | physics |
-| g254 | [核融合技術](physics.md) | Nuclear Fusion Technology | physics |
-| g253 | [量子力学](physics.md) | Quantum Mechanics | physics |
-| g252 | [量子情報理論](physics.md) | Quantum Information Theory | physics |
-| g251 | [情報理論](physics.md) | Information Theory | physics |
-| g250 | [熱力学](physics.md) | Thermodynamics | physics |
+| g270 | [進化アクセラレータ網](wiim-engineering.md) | Evolution Accelerator Network | wiim-engineering |
+| g269 | [菌類超進化プロジェクト](wiim-engineering.md) | Fungal Hyper-Evolution Project | wiim-engineering |
+| g268 | [深時間炉](wiim-engineering.md) | Deep-Time Furnace | wiim-engineering |
+| g267 | [宇宙航法座標系](wiim-engineering.md) | Cosmic Navigation Coordinate System | wiim-engineering |
+| g266 | [軌道計量汚染除去](wiim-engineering.md) | Orbital Metric Pollution Remediation | wiim-engineering |
+| g265 | [計量暦システム](wiim-engineering.md) | Metric Calendar System | wiim-engineering |
+| g264 | [反アンキロン除去技術](wiim-engineering.md) | Anti-Anchilon Removal Technology | wiim-engineering |
+| g263 | [計量測量学](wiim-engineering.md) | Metric Survey Science | wiim-engineering |
+| g262 | [余剰次元バンク](wiim-engineering.md) | Extra-Dimensional Energy Bank | wiim-engineering |
+| g261 | [パランティ粒子生成技術](wiim-engineering.md) | Paranti-Particle Production Technology | wiim-engineering |
+
 
 
 
