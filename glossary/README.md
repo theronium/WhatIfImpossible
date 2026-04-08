@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **256**
+用語数: **257**
 
 ---
 
@@ -43,6 +43,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g259 | [バイオテクノロジー](biology.md) | Biotechnology | biology |
 | g258 | [核物理学](physics.md) | Nuclear Physics / Scattering Theory | physics |
 | g257 | [材料科学](physics.md) | Materials Science | physics |
 | g256 | [超低温・レーザー冷却技術](physics.md) | Cryogenic / Laser Cooling Technology | physics |
@@ -52,7 +53,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g252 | [量子情報理論](physics.md) | Quantum Information Theory | physics |
 | g251 | [情報理論](physics.md) | Information Theory | physics |
 | g250 | [熱力学](physics.md) | Thermodynamics | physics |
-| g249 | [黒体放射](physics.md) | Blackbody Radiation | physics |
+
 
 
 
