@@ -84,11 +84,15 @@
 
 ---
 
-## Phase 9 — リポジトリ分離（最終目標）
+## Phase 9 — リポジトリ分離（保留）
 
-- [ ] `editor/` を `termlink-editor/` として独立リポジトリ化
-- [ ] `WhatIfImpossible/editor/` を削除し、sibling リポジトリから起動する手順を整備
-- [ ] README に「別コンテンツリポジトリへの接続方法」を記載
+他コレクション（小説等）を実際に作成するタイミングで改めて検討する。
+`collections.json` の外部パス指定で複数リポジトリへの接続は既に実装済み。
+
+分離方法の候補:
+- **単純分離**: `termlink-editor/` を独立リポジトリとして横に置く（clone 2回必要）
+- **git submodule**: WhatIfImpossible に埋め込む（`--recurse-submodules` で一緒に来るが管理コスト高）
+- **現状維持**: `editor/` を同居のまま運用（最もシンプル）
 
 ---
 
