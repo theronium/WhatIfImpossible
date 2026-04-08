@@ -1,28 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm --version)",
+      "Bash(netstat -ano)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(curl -s http://localhost:3030/api/glossary/terms)",
-      "Bash(curl -s --max-time 2 http://localhost:3030/api/glossary/terms)",
       "Bash(ls d:/Repos/WhatIfImpossible/*)",
+      "Bash(node server.js)",
       "Bash(node scan-related.js --dry-run)",
       "Bash(node scan-related.js)",
-      "Bash(node glossary/scripts/generate.js)",
-      "Bash(node glossary/scripts/add-term.js)",
-      "Bash(node glossary/scripts/update-term.js)",
-      "Bash(node glossary/scripts/lookup.js *)",
-      "Bash(node glossary/scripts/next-id.js)",
+      "Bash(node glossary/scripts/*)",
       "Bash(node generate-readme.js)",
-      "Bash(node d:/Repos/WhatIfImpossible/glossary/scripts/next-id.js)",
-      "Bash(node d:/Repos/WhatIfImpossible/glossary/scripts/lookup.js *)",
+      "Bash(node d:/Repos/WhatIfImpossible/*)",
+      "Bash(npm --version)",
       "Bash(npm audit:*)",
-      "Bash(netstat -ano)",
-      "Bash(node server.js)",
-      "Bash(curl -s http://localhost:3030/api/collection/next-id)",
-      "Bash(curl -s http://localhost:3030/api/templates)"
+      "Bash(curl -s http://localhost:3030/api/*)",
+      "Bash(curl -s --max-time 2 http://localhost:3030/api/*)"
     ],
     "additionalDirectories": [
       "d:\\Repos\\MyCells"
