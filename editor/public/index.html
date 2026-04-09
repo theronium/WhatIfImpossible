@@ -210,6 +210,16 @@
   #term-popup .tp-goto { font-size: 12px; color: #7dd3fc; cursor: pointer; background: none; border: none; padding: 0; }
   #term-popup .tp-goto:hover { text-decoration: underline; }
 
+  /* ── TOC ── */
+  #toc-list { padding: 4px 0; }
+  .toc-empty { padding: 16px 14px; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+  .toc-item { display: flex; align-items: baseline; gap: 6px; padding: 4px 10px; margin: 1px 4px; border-radius: 4px; cursor: pointer; font-size: 13px; color: var(--text); line-height: 1.4; }
+  .toc-item:hover { background: var(--surface2); color: var(--accent2); }
+  .toc-item.h2 { padding-left: 10px; font-weight: 600; color: var(--accent2); }
+  .toc-item.h3 { padding-left: 22px; font-size: 12px; color: var(--text-muted); }
+  .toc-item.h3:hover { color: var(--accent2); }
+  .toc-num { font-size: 10px; color: var(--text-muted); font-family: monospace; flex-shrink: 0; opacity: 0.6; }
+
   /* ── Glossary form ── */
   #glossary-form-area { flex: 1; display: none; flex-direction: column; overflow: hidden; }
   #glossary-form-area.active { display: flex; }
@@ -260,6 +270,7 @@
       <button class="sidebar-tab" data-panel="glossary">用語集</button>
       <button class="sidebar-tab" data-panel="notes">補遺</button>
       <button class="sidebar-tab" data-panel="techtree">技術ツリー</button>
+      <button class="sidebar-tab" data-panel="toc">目次</button>
     </div>
     <div class="sidebar-header" id="articles-search-bar">
       <input id="search" type="search" placeholder="記事を検索…">
@@ -276,8 +287,11 @@
       <button class="btn btn-accent" id="btn-new-note" style="white-space:nowrap;font-size:11px;padding:4px 8px;">＋ 新規</button>
     </div>
     <div id="notes-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
-    <div id="techtree-panel" style="display:none; flex:1; overflow-y:auto; padding:12px;">
-      <p style="color:var(--text-muted);font-size:12px;line-height:1.6;">記事間の前提・派生関係を可視化した技術ツリーです。<br>右ペインに全体マップを表示します。</p>
+    <div id="techtree-panel" style="display:none; flex:1; overflow-y:auto; padding:6px 0;">
+      <div id="techtree-toc"></div>
+    </div>
+    <div id="toc-panel" style="display:none; flex:1; overflow-y:auto; padding:6px 0;">
+      <div id="toc-list"></div>
     </div>
   </aside>
 
@@ -795,6 +809,12 @@ function renderToPane(body, pane, fm = null) {
   }));
   pane.innerHTML = (fm ? buildFmCard(fm) : '') + rendered;
 
+  // 見出しにアンカーIDを付与（TOC用）
+  pane.querySelectorAll('h1,h2,h3,h4').forEach((el, i) => {
+    const slug = el.textContent.trim().replace(/[^\p{L}\p{N}ぁ-ん一-龯ァ-ヶー]+/gu, '-').replace(/^-|-$/g, '') || `heading-${i}`;
+    el.id = slug;
+  });
+
   // Mermaid レンダリング
   pane.querySelectorAll('.mermaid-placeholder').forEach(el => {
     const code = mermaidBlocks[el.dataset.idx];
@@ -990,6 +1010,7 @@ function updatePreview() {
   renderToPane(body, pane, fm).then(() => {
     addSvgZoom(pane);
     if (currentPath && !currentPath.startsWith('notes/')) appendPrevNext(pane, currentPath);
+    if (sidebarMode === 'toc') renderToc();
   });
 }
 
@@ -1000,6 +1021,28 @@ async function loadArticles() {
   renderList(articles);
 }
 
+function renderTechtreeToc(pane) {
+  const toc = document.getElementById('techtree-toc');
+  toc.innerHTML = '';
+  const headings = Array.from(pane.querySelectorAll('h2'));
+  if (!headings.length) return;
+  headings.forEach(h => {
+    const text = h.textContent.trim();
+    const item = document.createElement('div');
+    item.className = 'toc-item h2';
+    item.textContent = text;
+    item.style.fontSize = '12px';
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', () => {
+      const hRect    = h.getBoundingClientRect();
+      const paneRect = pane.getBoundingClientRect();
+      const delta    = hRect.top - paneRect.top - 8;
+      pane.scrollTop += delta;
+    });
+    toc.appendChild(item);
+  });
+}
+
 async function loadTechtree() {
   const pane = document.getElementById('preview-pane');
   const empty = document.getElementById('empty-state');
@@ -1008,8 +1051,13 @@ async function loadTechtree() {
     if (!res.ok) throw new Error('tech_tree.md not found');
     const { content } = await res.json();
     empty.style.display = 'none';
+    document.getElementById('editor-panes').style.display = 'flex';
+    document.getElementById('monaco-container').style.display = 'none';
     pane.style.display = 'block';
-    renderToPane(content, pane).then(() => addSvgZoom(pane));
+    renderToPane(content, pane).then(() => {
+      addSvgZoom(pane);
+      renderTechtreeToc(pane);
+    });
   } catch (e) {
     empty.style.display = 'none';
     pane.style.display = 'block';
@@ -1911,6 +1959,35 @@ document.getElementById('btn-save-term').onclick  = saveTerm;
 document.getElementById('btn-delete-term').onclick = deleteTerm;
 document.getElementById('btn-new-term').onclick    = openNewTerm;
 
+// ── TOC ──────────────────────────────────────────────────────────────
+function renderToc() {
+  const list = document.getElementById('toc-list');
+  const pane = document.getElementById('preview-pane');
+  const headings = pane.querySelectorAll('h2, h3');
+  if (!headings.length) {
+    list.innerHTML = '<div class="toc-empty">記事を開くと<br>見出しが表示されます。</div>';
+    return;
+  }
+  let n2 = 0, n3 = 0;
+  list.innerHTML = '';
+  headings.forEach(h => {
+    const isH2 = h.tagName === 'H2';
+    if (isH2) { n2++; n3 = 0; }
+    else n3++;
+    const num  = isH2 ? `${n2}.` : `${n2}.${n3}`;
+    const text = h.textContent.replace(/^\d+\.\s*/, '').trim(); // 番号プレフィクス除去
+    const item = document.createElement('div');
+    item.className = `toc-item ${isH2 ? 'h2' : 'h3'}`;
+    item.innerHTML = `<span class="toc-num">${num}</span><span>${text}</span>`;
+    item.onclick = () => {
+      const hRect    = h.getBoundingClientRect();
+      const paneRect = pane.getBoundingClientRect();
+      pane.scrollTop += hRect.top - paneRect.top - 8;
+    };
+    list.appendChild(item);
+  });
+}
+
 // ── Sidebar toggle ────────────────────────────────────────────────────
 // サイドバーのタブ・パネル表示のみ切り替え（コンテンツペイン非破壊）
 function restorePanel(panel) {
@@ -1922,6 +1999,7 @@ function restorePanel(panel) {
   const isGlossary = panel === 'glossary';
   const isNotes    = panel === 'notes';
   const isTechtree = panel === 'techtree';
+  const isToc      = panel === 'toc';
   document.getElementById('articles-search-bar').style.display = isArticles ? '' : 'none';
   document.getElementById('article-list').style.display        = isArticles ? '' : 'none';
   document.getElementById('glossary-search-bar').style.display = isGlossary ? '' : 'none';
@@ -1929,6 +2007,7 @@ function restorePanel(panel) {
   document.getElementById('notes-search-bar').style.display    = isNotes    ? '' : 'none';
   document.getElementById('notes-list').style.display          = isNotes    ? 'block' : 'none';
   document.getElementById('techtree-panel').style.display      = isTechtree ? 'block' : 'none';
+  document.getElementById('toc-panel').style.display           = isToc      ? 'block' : 'none';
   document.querySelector('.mode-tabs').style.display = isArticles ? '' : 'none';
 }
 
@@ -1938,8 +2017,9 @@ function switchToPanel(panel, { pushState = true } = {}) {
   const isGlossary = panel === 'glossary';
   const isNotes    = panel === 'notes';
   const isTechtree = panel === 'techtree';
+  const isToc      = panel === 'toc';
 
-  if (pushState) {
+  if (pushState && !isToc) {
     document.getElementById('glossary-form-area').classList.remove('active');
     document.getElementById('preview-pane').innerHTML = '';
     document.getElementById('preview-pane').style.display = 'none';
@@ -1956,6 +2036,8 @@ function switchToPanel(panel, { pushState = true } = {}) {
     currentTermId = null;
     viewingTermId = null;
     history.pushState({ panel }, '', `#tab/${panel}`);
+  } else if (pushState && isToc) {
+    history.pushState({ panel }, '', `#tab/${panel}`);
   }
 
   if (isGlossary) {
@@ -1966,6 +2048,8 @@ function switchToPanel(panel, { pushState = true } = {}) {
     renderNotesList();
   } else if (isTechtree) {
     loadTechtree();
+  } else if (isToc) {
+    renderToc();
   }
 }
 
