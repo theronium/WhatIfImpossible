@@ -29,10 +29,11 @@ WhatIfImpossible/
 {"id":"g001","name":"用語名","en":"English Name","reading":"よみがな","category":"astronomy","field":"分野名","related":["wiim_XXX"],"body":"説明文（\n\n で段落区切り）"}
 ```
 
-- `category`: `astronomy` / `physics` / `speculative` / `philosophy` / `biology` / `sf-concepts` / `wiim-concepts`
-  - `speculative`   — タキオン・ダークマターなど実在仮説はあるが未観測の粒子・物質
-  - `sf-concepts`   — ワープ航法・タイムマシンなどSF全般に存在する概念
-  - `wiim-concepts` — WIIMで独自に命名・創作した粒子・素材・概念（コーラ粒子、パラドックス粒子、ノーファペンなど）
+- `category`: `astronomy` / `physics` / `speculative` / `philosophy` / `biology` / `sf-concepts` / `wiim-concepts` / `wiim-engineering`
+  - `speculative`      — タキオン・ダークマターなど実在仮説はあるが未観測の粒子・物質
+  - `sf-concepts`      — ワープ航法・タイムマシンなどSF全般に存在する概念
+  - `wiim-concepts`    — WIIMで独自に命名・創作した粒子・素材・概念（コーラ粒子、パラドックス粒子、エネルギー紐など）
+  - `wiim-engineering` — WIIM世界観から派生した装置・通信技術・工学システム（カシミールフォージ、ノーファペンなど）
 - `related`: 関連記事IDの配列（なければ `[]`）
 
 ### 用語の追加手順

@@ -298,7 +298,7 @@ WIIMの文脈では、最小ゲノムを持つ生命体の生物的核変換（[
 
 生物の機能・特性を工学的に利用・改変する応用科学の総称。遺伝子工学・発酵技術・細胞培養・育種工学などを含み、医薬品・農[業](philosophy.md)・環境浄化・素材開発など広範な分野に及ぶ。
 
-WIIMの技術ツリーでは、宇宙環境に適応した菌類を設計・育種するための基盤知識として位置づけられる。[コズミックマイス](wiim-concepts.md)（[wiim_008](../docs/biology/wiim_008.md)）の誕生を導く菌類の宇宙耐性育種、[胞子](biology.md)技術（[wiim_017](../docs/biology/wiim_017.md)・018）による[惑星](astronomy.md)間播種、[クロノスフィア](wiim-concepts.md)内部への宇宙耐性菌の選定・播種（[wiim_025](../docs/biology/wiim_025.md)関連）は、いずれもバイオテクノロジーの延長線上にある応用だ。純粋な生物学的知識にとどまらず、「生物を道具として設計する」という工学的視点が[コスモシェル](wiim-concepts.md)（g132）や[シェルマイセリウム](wiim-concepts.md)（[wiim_025](../docs/biology/wiim_025.md)）の実現に直接結びつく。
+WIIMの技術ツリーでは、宇宙環境に適応した菌類を設計・育種するための基盤知識として位置づけられる。[コズミックマイス](wiim-concepts.md)（[wiim_008](../docs/biology/wiim_008.md)）の誕生を導く菌類の宇宙耐性育種、[胞子](biology.md)技術（[wiim_017](../docs/biology/wiim_017.md)・018）による[惑星](astronomy.md)間播種、[クロノスフィア](wiim-concepts.md)内部への宇宙耐性菌の選定・播種（[wiim_025](../docs/biology/wiim_025.md)関連）は、いずれもバイオテクノロジーの延長線上にある応用だ。純粋な生物学的知識にとどまらず、「生物を道具として設計する」という工学的視点が[コスモシェル](wiim-engineering.md)（g132）や[シェルマイセリウム](wiim-concepts.md)（[wiim_025](../docs/biology/wiim_025.md)）の実現に直接結びつく。
 
 ---
 

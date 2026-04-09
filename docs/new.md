@@ -11,7 +11,7 @@
 | 2026-04-06 | 記事 | wiim_064 | [ネグレーザー——真空ゆらぎのコヒーレント化による引力・反重力ビームは実現できるか](physics/wiim_064.md) |
 | 2026-04-06 | 用語 | g249 | [黒体放射（Blackbody Radiation）](../glossary/physics.md#g249) |
 | 2026-04-06 | 用語 | g248 | [ホーキング放射（Hawking Radiation）](../glossary/physics.md#g248) |
-| 2026-04-06 | 用語 | g246 | [ネグレーザー（Neg-raser）](../glossary/wiim-concepts.md#g246) |
+| 2026-04-06 | 用語 | g246 | [ネグレーザー（Neg-raser）](../glossary/wiim-engineering.md#g246) |
 | 2026-04-05 | 記事 | wiim_063 | [架空粒子による大気圏突入緩和——ネゴトン・カシミールフォージ・レトロンは再突入熱と重力を制御できるか](physics/wiim_063.md) |
 | 2026-04-05 | 記事 | wiim_062 | [菌類磁気圏——コズミックマイスが磁場を生成しエネルギーを収集できるか](biology/wiim_062.md) |
 | 2026-04-05 | 記事 | wiim_061 | [菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき](biology/wiim_061.md) |
