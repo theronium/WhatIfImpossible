@@ -8,6 +8,7 @@
 | 2026-04-09 | 記事 | wiim_070 | [核融合生成物の即時中性化——アルファ固着をゼロにすればミュオン触媒核融合は実用化するか](physics/wiim_070.md) |
 | 2026-04-09 | 記事 | wiim_069 | [架空粒子で元素変換は安価になるか——クーロン障壁を回避する5つの思考実験](physics/wiim_069.md) |
 | 2026-04-09 | 記事 | wiim_068 | [マイコプラズマギカと宇宙菌糸知性の共生——深宇宙で「何でも作れる」生態系は成立するか](biology/wiim_068.md) |
+| 2026-04-09 | 用語 | g276 | [磁気モーメント（Magnetic Moment）](../glossary/physics.md#g276) |
 | 2026-04-09 | 用語 | g275 | [アルファ凝縮（Alpha Condensation）](../glossary/physics.md#g275) |
 | 2026-04-09 | 用語 | g274 | [アルファ固着問題（Alpha Sticking Problem）](../glossary/physics.md#g274) |
 | 2026-04-09 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
@@ -53,4 +54,3 @@
 | 2026-04-04 | 補遺 | — | [オイラーの主要定理一覧](notes/euler_theorems.md) |
 | 2026-04-04 | 補遺 | — | [数学記号の由来——ギリシャ文字以外の主要記号](notes/math_symbols.md) |
 | 2026-03-31 | 記事 | wiim_057 | [クロノスフィア内部の光量問題——時間倍率が上がるほど「光が届かない」](physics/wiim_057.md) |
-| 2026-03-31 | 用語 | g223 | [瓶首効果（Bottleneck Effect）](../glossary/biology.md#g223) |

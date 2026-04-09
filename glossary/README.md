@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **273**
+用語数: **274**
 
 ---
 
@@ -43,6 +43,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g276 | [磁気モーメント](physics.md) | Magnetic Moment | physics |
 | g275 | [アルファ凝縮](physics.md) | Alpha Condensation | physics |
 | g274 | [アルファ固着問題](physics.md) | Alpha Sticking Problem | physics |
 | g273 | [ミュオン触媒核融合](physics.md) | Muon-Catalyzed Fusion | physics |
@@ -52,7 +53,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g269 | [菌類超進化プロジェクト](wiim-engineering.md) | Fungal Hyper-Evolution Project | wiim-engineering |
 | g268 | [深時間炉](wiim-engineering.md) | Deep-Time Furnace | wiim-engineering |
 | g267 | [宇宙航法座標系](wiim-engineering.md) | Cosmic Navigation Coordinate System | wiim-engineering |
-| g266 | [軌道計量汚染除去](wiim-engineering.md) | Orbital Metric Pollution Remediation | wiim-engineering |
+
 
 
 

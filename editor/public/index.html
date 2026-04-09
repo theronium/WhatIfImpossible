@@ -210,6 +210,18 @@
   #term-popup .tp-goto { font-size: 12px; color: #7dd3fc; cursor: pointer; background: none; border: none; padding: 0; }
   #term-popup .tp-goto:hover { text-decoration: underline; }
 
+  /* ── ToC right panel ── */
+  #toc-aside { width: 200px; background: var(--surface); border-left: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; overflow: hidden; transition: width 0.2s ease; }
+  #toc-aside.collapsed { width: 28px; }
+  #toc-aside.collapsed #toc-list { display: none; }
+  .toc-aside-header { padding: 8px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-muted); border-bottom: 1px solid var(--border); flex-shrink: 0; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; }
+  .toc-aside-header:hover { color: var(--text); }
+  .toc-aside-label { white-space: nowrap; overflow: hidden; }
+  #toc-aside.collapsed .toc-aside-header { flex-direction: column-reverse; justify-content: flex-start; gap: 8px; padding: 10px 0; align-items: center; border-bottom: none; height: 100%; }
+  #toc-aside.collapsed .toc-aside-label { writing-mode: vertical-rl; font-size: 10px; letter-spacing: 0.12em; }
+  .toc-toggle-btn { font-size: 11px; color: var(--text-muted); flex-shrink: 0; line-height: 1; }
+  #toc-aside #toc-list { flex: 1; overflow-y: auto; padding: 4px 0; }
+
   /* ── TOC ── */
   #toc-list { padding: 4px 0; }
   .toc-empty { padding: 16px 14px; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
@@ -270,7 +282,6 @@
       <button class="sidebar-tab" data-panel="glossary">用語集</button>
       <button class="sidebar-tab" data-panel="notes">補遺</button>
       <button class="sidebar-tab" data-panel="techtree">技術ツリー</button>
-      <button class="sidebar-tab" data-panel="toc">目次</button>
     </div>
     <div class="sidebar-header" id="articles-search-bar">
       <input id="search" type="search" placeholder="記事を検索…">
@@ -289,9 +300,6 @@
     <div id="notes-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
     <div id="techtree-panel" style="display:none; flex:1; overflow-y:auto; padding:6px 0;">
       <div id="techtree-toc"></div>
-    </div>
-    <div id="toc-panel" style="display:none; flex:1; overflow-y:auto; padding:6px 0;">
-      <div id="toc-list"></div>
     </div>
   </aside>
 
@@ -363,6 +371,15 @@
       </div>
     </div>
   </main>
+
+  <!-- ToC (右パネル) -->
+  <aside id="toc-aside" style="display:none;">
+    <div class="toc-aside-header" onclick="toggleTocAside()">
+      <span class="toc-aside-label">目次</span>
+      <span class="toc-toggle-btn" id="toc-toggle-icon">›</span>
+    </div>
+    <div id="toc-list"></div>
+  </aside>
 </div>
 
 <!-- Git Panel -->
@@ -1010,7 +1027,7 @@ function updatePreview() {
   renderToPane(body, pane, fm).then(() => {
     addSvgZoom(pane);
     if (currentPath && !currentPath.startsWith('notes/')) appendPrevNext(pane, currentPath);
-    if (sidebarMode === 'toc') renderToc();
+    renderToc();
   });
 }
 
@@ -1963,11 +1980,17 @@ document.getElementById('btn-new-term').onclick    = openNewTerm;
 function renderToc() {
   const list = document.getElementById('toc-list');
   const pane = document.getElementById('preview-pane');
+  const aside = document.getElementById('toc-aside');
   const headings = pane.querySelectorAll('h2, h3');
   if (!headings.length) {
-    list.innerHTML = '<div class="toc-empty">記事を開くと<br>見出しが表示されます。</div>';
+    aside.style.display = 'none';
+    list.innerHTML = '';
     return;
   }
+  const collapsed = localStorage.getItem('tocCollapsed') === '1';
+  aside.style.display = '';
+  aside.classList.toggle('collapsed', collapsed);
+  document.getElementById('toc-toggle-icon').textContent = collapsed ? '‹' : '›';
   let n2 = 0, n3 = 0;
   list.innerHTML = '';
   headings.forEach(h => {
@@ -1988,6 +2011,13 @@ function renderToc() {
   });
 }
 
+function toggleTocAside() {
+  const aside = document.getElementById('toc-aside');
+  const collapsed = aside.classList.toggle('collapsed');
+  document.getElementById('toc-toggle-icon').textContent = collapsed ? '‹' : '›';
+  localStorage.setItem('tocCollapsed', collapsed ? '1' : '0');
+}
+
 // ── Sidebar toggle ────────────────────────────────────────────────────
 // サイドバーのタブ・パネル表示のみ切り替え（コンテンツペイン非破壊）
 function restorePanel(panel) {
@@ -1999,7 +2029,6 @@ function restorePanel(panel) {
   const isGlossary = panel === 'glossary';
   const isNotes    = panel === 'notes';
   const isTechtree = panel === 'techtree';
-  const isToc      = panel === 'toc';
   document.getElementById('articles-search-bar').style.display = isArticles ? '' : 'none';
   document.getElementById('article-list').style.display        = isArticles ? '' : 'none';
   document.getElementById('glossary-search-bar').style.display = isGlossary ? '' : 'none';
@@ -2007,7 +2036,6 @@ function restorePanel(panel) {
   document.getElementById('notes-search-bar').style.display    = isNotes    ? '' : 'none';
   document.getElementById('notes-list').style.display          = isNotes    ? 'block' : 'none';
   document.getElementById('techtree-panel').style.display      = isTechtree ? 'block' : 'none';
-  document.getElementById('toc-panel').style.display           = isToc      ? 'block' : 'none';
   document.querySelector('.mode-tabs').style.display = isArticles ? '' : 'none';
 }
 
@@ -2017,9 +2045,8 @@ function switchToPanel(panel, { pushState = true } = {}) {
   const isGlossary = panel === 'glossary';
   const isNotes    = panel === 'notes';
   const isTechtree = panel === 'techtree';
-  const isToc      = panel === 'toc';
 
-  if (pushState && !isToc) {
+  if (pushState) {
     document.getElementById('glossary-form-area').classList.remove('active');
     document.getElementById('preview-pane').innerHTML = '';
     document.getElementById('preview-pane').style.display = 'none';
@@ -2035,8 +2062,7 @@ function switchToPanel(panel, { pushState = true } = {}) {
     currentPath = null;
     currentTermId = null;
     viewingTermId = null;
-    history.pushState({ panel }, '', `#tab/${panel}`);
-  } else if (pushState && isToc) {
+    document.getElementById('toc-aside').style.display = 'none';
     history.pushState({ panel }, '', `#tab/${panel}`);
   }
 
@@ -2048,8 +2074,6 @@ function switchToPanel(panel, { pushState = true } = {}) {
     renderNotesList();
   } else if (isTechtree) {
     loadTechtree();
-  } else if (isToc) {
-    renderToc();
   }
 }
 
