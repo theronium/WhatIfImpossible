@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **270**
+用語数: **273**
 
 ---
 
@@ -43,13 +43,19 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g275 | [アルファ凝縮](physics.md) | Alpha Condensation | physics |
+| g274 | [アルファ固着問題](physics.md) | Alpha Sticking Problem | physics |
+| g273 | [ミュオン触媒核融合](physics.md) | Muon-Catalyzed Fusion | physics |
+| g272 | [核変換](physics.md) | Nuclear Transmutation | physics |
+| g271 | [クーロン障壁](physics.md) | Coulomb Barrier | physics |
 | g270 | [進化アクセラレータ網](wiim-engineering.md) | Evolution Accelerator Network | wiim-engineering |
 | g269 | [菌類超進化プロジェクト](wiim-engineering.md) | Fungal Hyper-Evolution Project | wiim-engineering |
 | g268 | [深時間炉](wiim-engineering.md) | Deep-Time Furnace | wiim-engineering |
 | g267 | [宇宙航法座標系](wiim-engineering.md) | Cosmic Navigation Coordinate System | wiim-engineering |
 | g266 | [軌道計量汚染除去](wiim-engineering.md) | Orbital Metric Pollution Remediation | wiim-engineering |
-| g265 | [計量暦システム](wiim-engineering.md) | Metric Calendar System | wiim-engineering |
-| g264 | [反アンキロン除去技術](wiim-engineering.md) | Anti-Anchilon Removal Technology | wiim-engineering |
-| g263 | [計量測量学](wiim-engineering.md) | Metric Survey Science | wiim-engineering |
-| g262 | [余剰次元バンク](wiim-engineering.md) | Extra-Dimensional Energy Bank | wiim-engineering |
-| g261 | [パランティ粒子生成技術](wiim-engineering.md) | Paranti-Particle Production Technology | wiim-engineering |
+
+
+
+
+
+

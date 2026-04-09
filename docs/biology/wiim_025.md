@@ -117,4 +117,5 @@ flowchart TD
 - [wiim_059](wiim_059.md) — 菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由
 - [wiim_061](wiim_061.md) — 菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき
 - [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
+- [wiim_068](wiim_068.md) — マイコプラズマギカと宇宙菌糸知性の共生——深宇宙で「何でも作れる」生態系は成立するか
 

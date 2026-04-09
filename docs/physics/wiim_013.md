@@ -164,4 +164,5 @@ flowchart TD
 - [wiim_042_clone_consciousness](../notes/wiim_042_clone_consciousness.md) — 補遺: クローン意識コピーのp-ゾンビ混入問題——Δφ再現率と意識転写の確率論
 - [wiim_044_thermal_unit](../notes/wiim_044_thermal_unit.md) — 自律熱管理ユニット——カシミール給電型双方向テルモクラシス系の設計論
 - [wiim_063](wiim_063.md) — 架空粒子による大気圏突入緩和——ネゴトン・カシミールフォージ・レトロンは再突入熱と重力を制御できるか
+- [wiim_070](wiim_070.md) — 核融合生成物の即時中性化——アルファ固着をゼロにすればミュオン触媒核融合は実用化するか
 
