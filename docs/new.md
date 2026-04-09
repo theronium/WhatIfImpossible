@@ -4,6 +4,13 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-10 | 記事 | wiim_072 | [エイソンによる非崩壊量子マッピング — 電子の分布を壊さずに読めるか](quantum/wiim_072.md) |
+| 2026-04-10 | 用語 | g282 | [基本相互作用（Fundamental Interactions）](../glossary/physics.md#g282) |
+| 2026-04-10 | 用語 | g281 | [縮退（Degeneracy）](../glossary/physics.md#g281) |
+| 2026-04-10 | 用語 | g280 | [量子複製不可能定理（No-Cloning Theorem）](../glossary/physics.md#g280) |
+| 2026-04-10 | 用語 | g279 | [ガウスの法則（Gauss's Law）](../glossary/physics.md#g279) |
+| 2026-04-10 | 用語 | g278 | [エバネッセント波（Evanescent Wave）](../glossary/physics.md#g278) |
+| 2026-04-10 | 用語 | g277 | [エイソン（Eison）](../glossary/wiim-concepts.md#g277) |
 | 2026-04-09 | 記事 | wiim_071 | [中性核融合生成物の世界——電荷ゼロで生まれたヘリウムが変える物理・工学・文明](physics/wiim_071.md) |
 | 2026-04-09 | 記事 | wiim_070 | [核融合生成物の即時中性化——アルファ固着をゼロにすればミュオン触媒核融合は実用化するか](physics/wiim_070.md) |
 | 2026-04-09 | 記事 | wiim_069 | [架空粒子で元素変換は安価になるか——クーロン障壁を回避する5つの思考実験](physics/wiim_069.md) |
@@ -47,10 +54,3 @@
 | 2026-04-04 | 用語 | g228 | [ベルヌーイ一族（Bernoulli Family）](../glossary/mathematics.md#g228) |
 | 2026-04-04 | 用語 | g227 | [ベルヌーイの定理（Bernoulli's Principle）](../glossary/physics.md#g227) |
 | 2026-04-04 | 用語 | g226 | [ネイピア数（Euler's Number）](../glossary/mathematics.md#g226) |
-| 2026-04-04 | 用語 | g225 | [対数・自然対数（Logarithm / Natural Logarithm）](../glossary/mathematics.md#g225) |
-| 2026-04-04 | 用語 | g224 | [ツィオルコフスキーのロケット方程式（Tsiolkovsky Rocket Equation）](../glossary/physics.md#g224) |
-| 2026-04-04 | 補遺 | — | [補遺：シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件](notes/wiim_025_chronosphere_shell.md) |
-| 2026-04-04 | 補遺 | — | [ネイピア数と自然対数——複利計算から宇宙工学まで](notes/napier_e_calculus.md) |
-| 2026-04-04 | 補遺 | — | [オイラーの主要定理一覧](notes/euler_theorems.md) |
-| 2026-04-04 | 補遺 | — | [数学記号の由来——ギリシャ文字以外の主要記号](notes/math_symbols.md) |
-| 2026-03-31 | 記事 | wiim_057 | [クロノスフィア内部の光量問題——時間倍率が上がるほど「光が届かない」](physics/wiim_057.md) |

@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **274**
+用語数: **280**
 
 ---
 
@@ -43,16 +43,26 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g282 | [基本相互作用](physics.md) | Fundamental Interactions | physics |
+| g281 | [縮退](physics.md) | Degeneracy | physics |
+| g280 | [量子複製不可能定理](physics.md) | No-Cloning Theorem | physics |
+| g279 | [ガウスの法則](physics.md) | Gauss's Law | physics |
+| g278 | [エバネッセント波](physics.md) | Evanescent Wave | physics |
+| g277 | [エイソン](wiim-concepts.md) | Eison | wiim-concepts |
 | g276 | [磁気モーメント](physics.md) | Magnetic Moment | physics |
 | g275 | [アルファ凝縮](physics.md) | Alpha Condensation | physics |
 | g274 | [アルファ固着問題](physics.md) | Alpha Sticking Problem | physics |
 | g273 | [ミュオン触媒核融合](physics.md) | Muon-Catalyzed Fusion | physics |
-| g272 | [核変換](physics.md) | Nuclear Transmutation | physics |
-| g271 | [クーロン障壁](physics.md) | Coulomb Barrier | physics |
-| g270 | [進化アクセラレータ網](wiim-engineering.md) | Evolution Accelerator Network | wiim-engineering |
-| g269 | [菌類超進化プロジェクト](wiim-engineering.md) | Fungal Hyper-Evolution Project | wiim-engineering |
-| g268 | [深時間炉](wiim-engineering.md) | Deep-Time Furnace | wiim-engineering |
-| g267 | [宇宙航法座標系](wiim-engineering.md) | Cosmic Navigation Coordinate System | wiim-engineering |
+
+
+
+
+
+
+
+
+
+
 
 
 
