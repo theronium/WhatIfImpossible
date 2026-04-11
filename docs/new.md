@@ -4,6 +4,13 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-11 | 記事 | wiim_073 | [クオリア波動関数によるクオリア識別——偽クオリア問題](philosophy/wiim_073.md) |
+| 2026-04-11 | 用語 | g287 | [クオリア波動関数（Qualia Wave Function）](../glossary/wiim-concepts.md#g287) |
+| 2026-04-11 | 用語 | g286 | [量子認知論（Quantum Cognition）](../glossary/philosophy.md#g286) |
+| 2026-04-11 | 用語 | g285 | [ミンコフスキー距離（Minkowski Distance）](../glossary/physics.md#g285) |
+| 2026-04-11 | 用語 | g284 | [マンハッタン距離（Manhattan Distance）](../glossary/physics.md#g284) |
+| 2026-04-11 | 用語 | g283 | [ユークリッド距離（Euclidean Distance）](../glossary/physics.md#g283) |
+| 2026-04-11 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-10 | 記事 | wiim_072 | [エイソンによる非崩壊量子マッピング — 電子の分布を壊さずに読めるか](quantum/wiim_072.md) |
 | 2026-04-10 | 用語 | g282 | [基本相互作用（Fundamental Interactions）](../glossary/physics.md#g282) |
 | 2026-04-10 | 用語 | g281 | [縮退（Degeneracy）](../glossary/physics.md#g281) |
@@ -18,7 +25,6 @@
 | 2026-04-09 | 用語 | g276 | [磁気モーメント（Magnetic Moment）](../glossary/physics.md#g276) |
 | 2026-04-09 | 用語 | g275 | [アルファ凝縮（Alpha Condensation）](../glossary/physics.md#g275) |
 | 2026-04-09 | 用語 | g274 | [アルファ固着問題（Alpha Sticking Problem）](../glossary/physics.md#g274) |
-| 2026-04-09 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-06 | 記事 | wiim_067 | [ネゴトンホワイトホール——排除地平線が閉じるとき、反重力天体はビッグバンを起こすか](physics/wiim_067.md) |
 | 2026-04-06 | 記事 | wiim_066 | [ネゴトン凝縮体の外部照射構築法——ネゴトロンビームで反重力天体を組み上げる](physics/wiim_066.md) |
 | 2026-04-06 | 記事 | wiim_065 | [反重力天体——エキゾチック物質とカシミールフォージで斥力場を生成できるか](physics/wiim_065.md) |
@@ -48,9 +54,3 @@
 | 2026-04-04 | 記事 | wiim_058 | [クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか](biology/wiim_058.md) |
 | 2026-04-04 | 用語 | g233 | [集合論（Set Theory）](../glossary/physics.md#g233) |
 | 2026-04-04 | 用語 | g232 | [離散（Discrete）](../glossary/physics.md#g232) |
-| 2026-04-04 | 用語 | g231 | [モナド論（Monadology）](../glossary/philosophy.md#g231) |
-| 2026-04-04 | 用語 | g230 | [オイラーの定理（群）（Euler's Theorems）](../glossary/mathematics.md#g230) |
-| 2026-04-04 | 用語 | g229 | [オイラー（Leonhard Euler）](../glossary/mathematics.md#g229) |
-| 2026-04-04 | 用語 | g228 | [ベルヌーイ一族（Bernoulli Family）](../glossary/mathematics.md#g228) |
-| 2026-04-04 | 用語 | g227 | [ベルヌーイの定理（Bernoulli's Principle）](../glossary/physics.md#g227) |
-| 2026-04-04 | 用語 | g226 | [ネイピア数（Euler's Number）](../glossary/mathematics.md#g226) |

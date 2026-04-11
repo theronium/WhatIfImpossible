@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **280**
+用語数: **285**
 
 ---
 
@@ -43,16 +43,29 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g287 | [クオリア波動関数](wiim-concepts.md) | Qualia Wave Function | wiim-concepts |
+| g286 | [量子認知論](philosophy.md) | Quantum Cognition | philosophy |
+| g285 | [ミンコフスキー距離](physics.md) | Minkowski Distance | physics |
+| g284 | [マンハッタン距離](physics.md) | Manhattan Distance | physics |
+| g283 | [ユークリッド距離](physics.md) | Euclidean Distance | physics |
 | g282 | [基本相互作用](physics.md) | Fundamental Interactions | physics |
 | g281 | [縮退](physics.md) | Degeneracy | physics |
 | g280 | [量子複製不可能定理](physics.md) | No-Cloning Theorem | physics |
 | g279 | [ガウスの法則](physics.md) | Gauss's Law | physics |
 | g278 | [エバネッセント波](physics.md) | Evanescent Wave | physics |
-| g277 | [エイソン](wiim-concepts.md) | Eison | wiim-concepts |
-| g276 | [磁気モーメント](physics.md) | Magnetic Moment | physics |
-| g275 | [アルファ凝縮](physics.md) | Alpha Condensation | physics |
-| g274 | [アルファ固着問題](physics.md) | Alpha Sticking Problem | physics |
-| g273 | [ミュオン触媒核融合](physics.md) | Muon-Catalyzed Fusion | physics |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
