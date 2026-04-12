@@ -9,6 +9,7 @@ sandbox/
 .claude/settings*.json
 # コレクション: GarbageNotes (git=無効)
 editor/data/garbage/
-# ONNX モデル本体（サイズが大きいため除外、build_vectors.py で再生成）
+# モデル本体・トークナイザー（サイズが大きいため除外、build_vectors.py で再生成）
 editor/public/checker/model.onnx
 editor/public/checker/tokenizer/
+editor/public/checker/model/

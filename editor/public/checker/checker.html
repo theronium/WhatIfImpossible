@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WIIM-Link — 設定整合性チェッカー</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: #0f1117;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    h1 { font-size: 1.3rem; color: #7ecfff; margin-bottom: 0.3rem; }
+    .subtitle { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; }
+
+    #status {
+      font-size: 0.78rem;
+      color: #ffcc55;
+      margin-bottom: 1rem;
+      min-height: 1.2em;
+    }
+
+    textarea {
+      width: min(700px, 100%);
+      height: 140px;
+      background: #1a1d27;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 0.8rem;
+      font-size: 0.95rem;
+      resize: vertical;
+      outline: none;
+    }
+    textarea:focus { border-color: #7ecfff; }
+
+    .toolbar {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+      width: min(700px, 100%);
+      align-items: center;
+    }
+    button {
+      background: #1e5fa0;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    button:hover { background: #2a7bcc; }
+    button:disabled { background: #333; color: #666; cursor: default; }
+
+    label { font-size: 0.82rem; color: #888; }
+    select {
+      background: #1a1d27;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.82rem;
+    }
+
+    /* 結果エリア */
+    #results {
+      width: min(700px, 100%);
+      margin-top: 1.5rem;
+    }
+    .section-title {
+      font-size: 0.75rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* マッチした用語バッジ */
+    #terms-area { margin-bottom: 1.2rem; }
+    .term-badge {
+      display: inline-block;
+      background: #1a3550;
+      border: 1px solid #2a5580;
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.82rem;
+      margin: 0.2rem 0.2rem 0.2rem 0;
+      cursor: default;
+    }
+    .term-badge span { color: #7ecfff; }
+
+    /* 類似エントリカード */
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 6px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+    }
+    .card-name { font-size: 0.95rem; color: #fff; font-weight: 600; }
+    .card-id   { font-size: 0.72rem; color: #555; }
+    .card-score {
+      font-size: 0.8rem;
+      color: #7ecfff;
+      font-weight: 600;
+    }
+    .card-source {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: #222;
+      border-radius: 3px;
+      padding: 0 0.4rem;
+      color: #888;
+      margin-right: 0.4rem;
+    }
+    .card-excerpt { font-size: 0.83rem; color: #aaa; line-height: 1.5; }
+
+    .score-bar {
+      height: 3px;
+      background: #222;
+      border-radius: 2px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .score-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1e5fa0, #7ecfff);
+      border-radius: 2px;
+    }
+
+    #no-result { font-size: 0.85rem; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>WIIM-Link</h1>
+  <div class="subtitle">設定整合性チェッカー — 用語辞書・記事との類似度照合</div>
+  <div id="status">初期化中...</div>
+
+  <textarea id="input" placeholder="チェックしたいテキストを入力してください..."></textarea>
+
+  <div class="toolbar">
+    <button id="btn-check" disabled>チェック</button>
+    <label>
+      件数:
+      <select id="top-n">
+        <option value="3">3件</option>
+        <option value="5" selected>5件</option>
+        <option value="10">10件</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="results" hidden>
+    <div id="terms-area">
+      <div class="section-title">検出された用語</div>
+      <div id="terms-list"></div>
+    </div>
+    <div id="similar-area">
+      <div class="section-title">類似エントリ（上位）</div>
+      <div id="similar-list"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { init, check } from './checker.js';
+
+    const statusEl  = document.getElementById('status');
+    const btnCheck  = document.getElementById('btn-check');
+    const inputEl   = document.getElementById('input');
+    const topNEl    = document.getElementById('top-n');
+    const resultsEl = document.getElementById('results');
+    const termsList = document.getElementById('terms-list');
+    const simList   = document.getElementById('similar-list');
+
+    // ── WebSocket（サーバーからのモデルロード進捗を受信） ────
+    const ws = new WebSocket(`ws://${location.host}`);
+    ws.addEventListener('message', (ev) => {
+      try {
+        const msg = JSON.parse(ev.data);
+        if (msg.type !== 'checker-progress') return;
+        if (msg.status === 'downloading') {
+          statusEl.textContent =
+            `モデルをダウンロード中… ${msg.pct}% (${msg.mb} / ${msg.tot} MB)  ${msg.file}`;
+        } else if (msg.status === 'loading') {
+          statusEl.textContent = `モデルをロード中… ${msg.file}`;
+        } else if (msg.status === 'ready') {
+          statusEl.textContent = '準備完了 — テキストを入力してチェックボタンを押してください';
+          btnCheck.disabled = false;
+        }
+      } catch { /* ignore */ }
+    });
+
+    // ── 初期化（vectors.json / terms-dict.json の読み込み） ──
+    try {
+      await init(msg => { statusEl.textContent = msg; });
+      statusEl.textContent = '準備完了 — テキストを入力してチェックボタンを押してください';
+      btnCheck.disabled = false;
+    } catch (e) {
+      statusEl.textContent = `エラー: ${e.message}`;
+    }
+
+    // ── チェック実行 ─────────────────────────────────────────
+    btnCheck.addEventListener('click', async () => {
+      const text = inputEl.value.trim();
+      if (!text) return;
+
+      btnCheck.disabled = true;
+      statusEl.textContent = '照合中...';
+      resultsEl.hidden = true;
+
+      try {
+        const topN = Number(topNEl.value);
+        const { terms, similar } = await check(text, topN);
+
+        // 用語バッジ
+        termsList.innerHTML = terms.length
+          ? terms.map(t => `<span class="term-badge"><span>${t.keyword}</span> ${t.id}</span>`).join('')
+          : '<span id="no-result">用語辞書にヒットした語句はありませんでした</span>';
+
+        // 類似エントリカード
+        simList.innerHTML = similar.length
+          ? similar.map(e => {
+              const pct = Math.round(e.score * 100);
+              return `
+                <div class="card">
+                  <div class="card-header">
+                    <span class="card-name">${e.name}</span>
+                    <span class="card-score">${pct}%</span>
+                  </div>
+                  <div>
+                    <span class="card-source">${e.source}</span>
+                    <span class="card-id">${e.id}</span>
+                  </div>
+                  <div class="card-excerpt">${e.excerpt}</div>
+                  <div class="score-bar"><div class="score-fill" style="width:${pct}%"></div></div>
+                </div>`;
+            }).join('')
+          : '<span id="no-result">類似エントリが見つかりませんでした</span>';
+
+        resultsEl.hidden = false;
+        statusEl.textContent = `完了 — 用語 ${terms.length} 件 / 類似 ${similar.length} 件`;
+      } catch (e) {
+        statusEl.textContent = `エラー: ${e.message}`;
+      } finally {
+        btnCheck.disabled = false;
+      }
+    });
+
+    // Ctrl+Enter で実行
+    inputEl.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) btnCheck.click();
+    });
+  </script>
+</body>
+</html>

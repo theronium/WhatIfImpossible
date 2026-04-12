@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>検索 — What If Impossible</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: #0f1117;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header { width: min(720px, 100%); margin-bottom: 2rem; }
+    header a { font-size: 0.8rem; color: #555; text-decoration: none; }
+    header a:hover { color: #7ecfff; }
+    h1 { font-size: 1.4rem; color: #7ecfff; margin: 0.4rem 0 0.2rem; }
+    .subtitle { font-size: 0.8rem; color: #555; }
+
+    .search-box {
+      width: min(720px, 100%);
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    input[type="search"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #1a1d27;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+    input[type="search"]:focus { border-color: #7ecfff; }
+    input[type="search"]:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    #status {
+      width: min(720px, 100%);
+      font-size: 0.78rem;
+      color: #ffcc55;
+      min-height: 1.4em;
+    }
+    #progress-wrap {
+      width: min(720px, 100%);
+      height: 3px;
+      background: #222;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #1e5fa0, #7ecfff);
+      border-radius: 2px;
+      transition: width 0.2s;
+    }
+
+    /* 結果 */
+    #results { width: min(720px, 100%); }
+    .section-title {
+      font-size: 0.7rem;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 1rem 0 0.4rem;
+    }
+
+    /* 用語バッジ */
+    .kw-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #1a3550;
+      border: 1px solid #2a5580;
+      border-radius: 4px;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.82rem;
+      margin: 0.2rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .kw-badge:hover { border-color: #7ecfff; }
+    .kw-name { color: #7ecfff; }
+    .kw-id { font-size: 0.7rem; color: #555; font-family: monospace; }
+
+    /* 類似カード */
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card:hover { border-color: #7ecfff; }
+    .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.3rem; }
+    .card-name { font-size: 0.95rem; color: #fff; font-weight: 600; }
+    .card-score { font-size: 0.78rem; color: #7ecfff; font-family: monospace; }
+    .card-meta { display: flex; gap: 6px; margin-bottom: 0.3rem; align-items: center; }
+    .card-source { font-size: 0.7rem; background: #222; border-radius: 3px; padding: 0 5px; color: #666; }
+    .card-id { font-size: 0.7rem; color: #555; font-family: monospace; }
+    .card-excerpt { font-size: 0.82rem; color: #aaa; line-height: 1.55; }
+    .score-bar { height: 2px; background: #222; border-radius: 1px; margin-top: 0.5rem; overflow: hidden; }
+    .score-fill { height: 100%; background: linear-gradient(90deg, #1e5fa0, #7ecfff); border-radius: 1px; }
+
+    #empty { font-size: 0.85rem; color: #555; padding: 1rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../">← What If Impossible</a>
+    <h1>記事・用語を検索</h1>
+    <div class="subtitle">意味的類似度検索（初回のみモデルDLあり ~30MB）</div>
+  </header>
+
+  <div class="search-box">
+    <input id="q" type="search" placeholder="例: 情報を食う粒子、時空を固定する..." disabled autocomplete="off">
+  </div>
+  <div id="status">モデルをロード中…</div>
+  <div id="progress-wrap"><div id="progress-bar"></div></div>
+  <div id="results"></div>
+
+  <script type="module">
+    import { init, check } from './checker.js';
+
+    const qEl       = document.getElementById('q');
+    const statusEl  = document.getElementById('status');
+    const resultsEl = document.getElementById('results');
+    const progBar   = document.getElementById('progress-bar');
+    const progWrap  = document.getElementById('progress-wrap');
+
+    function onProgress(msg) {
+      statusEl.textContent = msg;
+      // "モデルDL中… 42% (12.6 / 30.0 MB)" からパーセントを抽出
+      const m = msg.match(/(\d+)%/);
+      if (m) {
+        progBar.style.width = `${m[1]}%`;
+      } else if (msg.includes('ロード中')) {
+        progBar.style.transition = 'none';
+        progBar.style.width = '100%';
+        progBar.style.opacity = '0.5';
+      } else if (msg.includes('準備完了')) {
+        progWrap.style.display = 'none';
+      }
+    }
+
+    // 記事・用語の GitHub URL を生成
+    function entryUrl(item) {
+      if (item.source === 'doc') {
+        // docs/ 以下の記事へ（カテゴリはIDから推定できないため README へ）
+        return `../README.md#${item.id}`;
+      }
+      return `../glossary/terms/${item.id}.md`;
+    }
+
+    function renderResults({ terms, similar }) {
+      let html = '';
+
+      if (terms.length) {
+        html += `<div class="section-title">用語ヒット</div><div>`;
+        html += terms.map(t =>
+          `<a class="kw-badge" href="../glossary/terms/${t.id}.md">
+             <span class="kw-name">${t.keyword}</span>
+             <span class="kw-id">${t.id}</span>
+           </a>`
+        ).join('');
+        html += `</div>`;
+      }
+
+      if (similar.length) {
+        html += `<div class="section-title">類似エントリ</div>`;
+        html += similar.map(e => {
+          const pct  = Math.round(e.score * 100);
+          const src  = e.source === 'doc' ? '記事' : '用語';
+          const href = entryUrl(e);
+          return `
+            <a class="card" href="${href}">
+              <div class="card-header">
+                <span class="card-name">${e.name}</span>
+                <span class="card-score">${pct}%</span>
+              </div>
+              <div class="card-meta">
+                <span class="card-source">${src}</span>
+                <span class="card-id">${e.id}</span>
+              </div>
+              <div class="card-excerpt">${e.excerpt}</div>
+              <div class="score-bar"><div class="score-fill" style="width:${pct}%"></div></div>
+            </a>`;
+        }).join('');
+      }
+
+      resultsEl.innerHTML = html ||
+        `<div id="empty">該当するエントリが見つかりませんでした</div>`;
+    }
+
+    let debounce;
+    async function doSearch(q) {
+      if (!q.trim()) { resultsEl.innerHTML = ''; return; }
+      statusEl.textContent = '照合中…';
+      try {
+        const data = await check(q, 8);
+        renderResults(data);
+        statusEl.textContent = `${data.terms.length + data.similar.length} 件`;
+      } catch (e) {
+        statusEl.textContent = `エラー: ${e.message}`;
+      }
+    }
+
+    qEl.addEventListener('input', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(() => doSearch(qEl.value), 500);
+    });
+    qEl.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { clearTimeout(debounce); doSearch(qEl.value); }
+    });
+
+    // 初期化
+    try {
+      await init(onProgress);
+      qEl.disabled = false;
+      qEl.focus();
+      // URL クエリパラメータから初期検索
+      const params = new URLSearchParams(location.search);
+      if (params.get('q')) { qEl.value = params.get('q'); doSearch(qEl.value); }
+    } catch (e) {
+      statusEl.textContent = `エラー: ${e.message}`;
+    }
+  </script>
+</body>
+</html>
