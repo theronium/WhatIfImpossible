@@ -22,7 +22,7 @@
 **読み**: かしみーるふぉーじ
 **別名**: QIE装置 / 量子不等式増幅装置 / エキゾチック物質生成装置
 **分野**: 架空装置・量子物理学・ワープ技術
-**関連記事**: [wiim_023](../docs/physics/wiim_023.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_064](../docs/physics/wiim_064.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_066](../docs/physics/wiim_066.md)
+**関連記事**: [wiim_023](../docs/physics/wiim_023.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_064](../docs/physics/wiim_064.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_066](../docs/physics/wiim_066.md), [wiim_074](../docs/physics/wiim_074.md)
 
 WhatIfImpossibleの思考実験（[wiim_023](../docs/physics/wiim_023.md)）で命名された架空の装置。「[カシミール効果](physics.md)（Casimir effect）」と「鍛造（Forge）」を組み合わせた造語で、量子真空の揺らぎを増幅・同期させて[エキゾチック物質](speculative.md)（g068）を実用規模で連続生成する装置を指す。記事内では「QIE（Quantum Inequality Enhancer：量子不等式増幅装置）」とも呼ばれる。
 

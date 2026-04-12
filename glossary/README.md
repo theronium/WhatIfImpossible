@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **290**
+用語数: **292**
 
 ---
 
@@ -43,6 +43,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g294 | [トポロン](wiim-concepts.md) | Topolon | wiim-concepts |
+| g293 | [トポロフィ](wiim-concepts.md) | Topolophy | wiim-concepts |
 | g292 | [ヌルクオリア](wiim-concepts.md) | Nullqualia | wiim-concepts |
 | g291 | [四元数](mathematics.md) | Quaternion | mathematics |
 | g290 | [アーベル・ルフィニの定理](mathematics.md) | Abel-Ruffini Theorem | mathematics |
@@ -51,8 +53,11 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g287 | [クオリア波動関数](wiim-concepts.md) | Qualia Wave Function | wiim-concepts |
 | g286 | [量子認知論](philosophy.md) | Quantum Cognition | philosophy |
 | g285 | [ミンコフスキー距離](physics.md) | Minkowski Distance | physics |
-| g284 | [マンハッタン距離](physics.md) | Manhattan Distance | physics |
-| g283 | [ユークリッド距離](physics.md) | Euclidean Distance | physics |
+
+
+
+
+
 
 
 

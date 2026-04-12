@@ -104,4 +104,5 @@ flowchart LR
 - [chronosphere_timeline](../notes/chronosphere_timeline.md) — クロノスフィア年表——発見から太陽系根付きまで
 - [wiim_026_ecosystem_route](../notes/wiim_026_ecosystem_route.md) — 補遺: コズミックマイスの生態と回遊ルート——地球からトロヤ群へ
 - [wiim_065](wiim_065.md) — 反重力天体——エキゾチック物質とカシミールフォージで斥力場を生成できるか
+- [wiim_074](wiim_074.md) — ワープゲート基礎理論——コーラ粒子のマヨラナ的自己対とエニオンブレイドによるトポロジー接続
 
