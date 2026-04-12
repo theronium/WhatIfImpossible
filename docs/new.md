@@ -5,6 +5,7 @@
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
 | 2026-04-12 | 記事 | wiim_074 | [ワープゲート基礎理論——コーラ粒子のマヨラナ的自己対とエニオンブレイドによるトポロジー接続](physics/wiim_074.md) |
+| 2026-04-12 | 用語 | g295 | [アーベル群（Abelian Group）](../glossary/mathematics.md#g295) |
 | 2026-04-12 | 用語 | g294 | [トポロン（Topolon）](../glossary/wiim-concepts.md#g294) |
 | 2026-04-12 | 用語 | g293 | [トポロフィ（Topolophy）](../glossary/wiim-concepts.md#g293) |
 | 2026-04-12 | 用語 | g291 | [四元数（Quaternion）](../glossary/mathematics.md#g291) |
@@ -53,4 +54,3 @@
 | 2026-04-05 | 用語 | g237 | [リングレーザージャイロスコープ（Ring Laser Gyroscope）](../glossary/physics.md#g237) |
 | 2026-04-05 | 用語 | g236 | [サニャック効果（Sagnac Effect）](../glossary/physics.md#g236) |
 | 2026-04-05 | 用語 | g235 | [光子球（Photon Sphere）](../glossary/astronomy.md#g235) |
-| 2026-04-05 | 補遺 | — | [クロノスフィアの回転原理——粒子・光子シェルによる時間差生成](notes/wiim_002_rotation_principle.md) |
