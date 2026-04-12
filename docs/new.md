@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-12 | 用語 | g289 | [哲学探究（Philosophical Investigations）](../glossary/philosophy.md#g289) |
 | 2026-04-11 | 記事 | wiim_073 | [クオリア波動関数によるクオリア識別——偽クオリア問題](philosophy/wiim_073.md) |
 | 2026-04-11 | 用語 | g287 | [クオリア波動関数（Qualia Wave Function）](../glossary/wiim-concepts.md#g287) |
 | 2026-04-11 | 用語 | g286 | [量子認知論（Quantum Cognition）](../glossary/philosophy.md#g286) |
@@ -53,4 +54,3 @@
 | 2026-04-04 | 記事 | wiim_059 | [菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由](biology/wiim_059.md) |
 | 2026-04-04 | 記事 | wiim_058 | [クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか](biology/wiim_058.md) |
 | 2026-04-04 | 用語 | g233 | [集合論（Set Theory）](../glossary/physics.md#g233) |
-| 2026-04-04 | 用語 | g232 | [離散（Discrete）](../glossary/physics.md#g232) |

@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **285**
+用語数: **287**
 
 ---
 
@@ -43,6 +43,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g289 | [哲学探究](philosophy.md) | Philosophical Investigations | philosophy |
+| g288 | [トラクタトゥス](philosophy.md) | Tractatus Logico-Philosophicus | philosophy |
 | g287 | [クオリア波動関数](wiim-concepts.md) | Qualia Wave Function | wiim-concepts |
 | g286 | [量子認知論](philosophy.md) | Quantum Cognition | philosophy |
 | g285 | [ミンコフスキー距離](physics.md) | Minkowski Distance | physics |
@@ -51,8 +53,12 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g282 | [基本相互作用](physics.md) | Fundamental Interactions | physics |
 | g281 | [縮退](physics.md) | Degeneracy | physics |
 | g280 | [量子複製不可能定理](physics.md) | No-Cloning Theorem | physics |
-| g279 | [ガウスの法則](physics.md) | Gauss's Law | physics |
-| g278 | [エバネッセント波](physics.md) | Evanescent Wave | physics |
+
+
+
+
+
+
 
 
 
