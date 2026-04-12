@@ -15,7 +15,8 @@
       "Bash(npm --version)",
       "Bash(npm audit:*)",
       "Bash(curl -s http://localhost:3030/api/*)",
-      "Bash(curl -s --max-time 2 http://localhost:3030/api/*)"
+      "Bash(curl -s --max-time 2 http://localhost:3030/api/*)",
+      "Bash(python editor/scripts/build_vectors.py)"
     ],
     "additionalDirectories": [
       "d:\\Repos\\MyCells"
