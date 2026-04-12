@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **289**
+用語数: **290**
 
 ---
 
@@ -43,6 +43,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g292 | [ヌルクオリア](philosophy.md) | Nullqualia | philosophy |
 | g291 | [四元数](mathematics.md) | Quaternion | mathematics |
 | g290 | [アーベル・ルフィニの定理](mathematics.md) | Abel-Ruffini Theorem | mathematics |
 | g289 | [哲学探究](philosophy.md) | Philosophical Investigations | philosophy |
@@ -52,7 +53,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g285 | [ミンコフスキー距離](physics.md) | Minkowski Distance | physics |
 | g284 | [マンハッタン距離](physics.md) | Manhattan Distance | physics |
 | g283 | [ユークリッド距離](physics.md) | Euclidean Distance | physics |
-| g282 | [基本相互作用](physics.md) | Fundamental Interactions | physics |
+
 
 
 
