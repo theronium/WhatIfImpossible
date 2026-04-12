@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **287**
+用語数: **289**
 
 ---
 
@@ -43,6 +43,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g291 | [四元数](mathematics.md) | Quaternion | mathematics |
+| g290 | [アーベル・ルフィニの定理](mathematics.md) | Abel-Ruffini Theorem | mathematics |
 | g289 | [哲学探究](philosophy.md) | Philosophical Investigations | philosophy |
 | g288 | [トラクタトゥス](philosophy.md) | Tractatus Logico-Philosophicus | philosophy |
 | g287 | [クオリア波動関数](wiim-concepts.md) | Qualia Wave Function | wiim-concepts |
@@ -51,8 +53,10 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g284 | [マンハッタン距離](physics.md) | Manhattan Distance | physics |
 | g283 | [ユークリッド距離](physics.md) | Euclidean Distance | physics |
 | g282 | [基本相互作用](physics.md) | Fundamental Interactions | physics |
-| g281 | [縮退](physics.md) | Degeneracy | physics |
-| g280 | [量子複製不可能定理](physics.md) | No-Cloning Theorem | physics |
+
+
+
+
 
 
 

@@ -4,6 +4,8 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-12 | 用語 | g291 | [四元数（Quaternion）](../glossary/mathematics.md#g291) |
+| 2026-04-12 | 用語 | g290 | [アーベル・ルフィニの定理（Abel-Ruffini Theorem）](../glossary/mathematics.md#g290) |
 | 2026-04-12 | 用語 | g289 | [哲学探究（Philosophical Investigations）](../glossary/philosophy.md#g289) |
 | 2026-04-11 | 記事 | wiim_073 | [クオリア波動関数によるクオリア識別——偽クオリア問題](philosophy/wiim_073.md) |
 | 2026-04-11 | 用語 | g287 | [クオリア波動関数（Qualia Wave Function）](../glossary/wiim-concepts.md#g287) |
@@ -52,5 +54,3 @@
 | 2026-04-05 | 補遺 | — | [補遺：恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー](notes/wiim_022_cosmic_ring.md) |
 | 2026-04-05 | 補遺 | — | [HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要](notes/hac_replistar_plan.md) |
 | 2026-04-04 | 記事 | wiim_059 | [菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由](biology/wiim_059.md) |
-| 2026-04-04 | 記事 | wiim_058 | [クロノスフィア内在化——菌類が時間加速因子を自己に組み込めるか](biology/wiim_058.md) |
-| 2026-04-04 | 用語 | g233 | [集合論（Set Theory）](../glossary/physics.md#g233) |
