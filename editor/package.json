@@ -9,6 +9,7 @@
     "dev": "node --watch server.js"
   },
   "dependencies": {
+    "@huggingface/transformers": "^3.0.0",
     "@mermaid-js/layout-elk": "^0.1.4",
     "chokidar": "^3.6.0",
     "express": "^4.18.3",

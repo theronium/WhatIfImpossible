@@ -96,6 +96,13 @@ const app = express();
 const server = createServer(app);
 const wss = new WebSocketServer({ server });
 
+// 新規 WS 接続時、モデルがすでに ready なら即通知
+wss.on('connection', (ws) => {
+  if (_checkerReady) {
+    ws.send(JSON.stringify({ type: 'checker-progress', status: 'ready' }));
+  }
+});
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/elk', express.static(path.join(__dirname, 'node_modules/@mermaid-js/layout-elk/dist')));
@@ -686,6 +693,223 @@ app.post('/api/git/push', async (req, res) => {
   }
 });
 
+// ── API: チェッカー Embedding ─────────────────────────────────────────
+// @huggingface/transformers を遅延ロードし、初回リクエスト時にモデルをDL・キャッシュする。
+// モデル: Xenova/multilingual-e5-small（量子化済み、~30MB、日英対応）
+let _embedPipeline = null;
+let _checkerReady   = false;   // true になったら新規 WS 接続に即 ready を送る
+
+async function getEmbedPipeline() {
+  if (_embedPipeline) return _embedPipeline;
+  let pipeline;
+  try {
+    ({ pipeline } = await import('@huggingface/transformers'));
+  } catch {
+    throw new Error(
+      '@huggingface/transformers が見つかりません。\n' +
+      '  cd editor && npm install @huggingface/transformers\n' +
+      'を実行してください。'
+    );
+  }
+  console.log('[checker] Embedding モデルをロード中（初回のみ時間がかかります）...');
+  _embedPipeline = await pipeline('feature-extraction', 'Xenova/multilingual-e5-small', {
+    dtype: 'q8',   // INT8量子化（~30MB）。v3では quantized:true でなく dtype を使う
+    progress_callback: (p) => {
+      // ファイルのダウンロード進捗を WebSocket でブラウザに流す
+      if (p.status === 'downloading') {
+        const pct = p.total > 0 ? Math.round((p.loaded / p.total) * 100) : 0;
+        const mb  = (p.loaded / 1024 / 1024).toFixed(1);
+        const tot = (p.total  / 1024 / 1024).toFixed(1);
+        broadcast({ type: 'checker-progress', status: 'downloading', file: p.name, pct, mb, tot });
+      } else if (p.status === 'loading') {
+        broadcast({ type: 'checker-progress', status: 'loading', file: p.name });
+      } else if (p.status === 'ready') {
+        broadcast({ type: 'checker-progress', status: 'ready' });
+      }
+    },
+  });
+  console.log('[checker] モデルロード完了');
+  return _embedPipeline;
+}
+
+app.post('/api/checker/embed', async (req, res) => {
+  const { text } = req.body;
+  if (!text || typeof text !== 'string') {
+    return res.status(400).json({ error: 'text フィールドが必要です' });
+  }
+  try {
+    const pipe = await getEmbedPipeline();
+    const result = await pipe(text, { pooling: 'mean', normalize: true });
+    res.json({ vector: Array.from(result.data) });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ── API: セマンティック検索 ───────────────────────────────────────────
+// vectors.json をサーバー側でキャッシュし、クエリを embed して類似検索する。
+// ブラウザに 1.5MB の vectors.json を送らずに済む。
+let _vectorDB    = null;   // [{id, name, source, excerpt, vector}]
+let _termsDict   = null;   // {keyword: id}
+let _fullTextMap = null;   // {id: bodyText}  全文検索用（遅延ロード）
+
+async function loadVectorDB() {
+  if (_vectorDB) return;
+  const vPath = path.join(__dirname, 'public', 'checker', 'vectors.json');
+  const tPath = path.join(__dirname, 'public', 'checker', 'terms-dict.json');
+  try {
+    _vectorDB  = JSON.parse(await fs.readFile(vPath, 'utf-8'));
+    _termsDict = JSON.parse(await fs.readFile(tPath, 'utf-8'));
+  } catch {
+    throw new Error('vectors.json が見つかりません。build_vectors.py を実行してください。');
+  }
+}
+
+// 記事・用語の本文を全文インデックスとしてメモリにロード
+// _fullTextMap: { id: { name, body, source } }
+async function loadFullTextMap() {
+  if (_fullTextMap) return;
+  _fullTextMap = {};
+
+  // 1. ドキュメント（docs/**/*.md）
+  if (col.docsDir) {
+    const walk = async (dir) => {
+      let entries;
+      try { entries = await fs.readdir(dir, { withFileTypes: true }); } catch { return; }
+      for (const e of entries) {
+        const full = path.join(dir, e.name);
+        if (e.isDirectory()) { await walk(full); }
+        else if (e.name.endsWith('.md') && !['README.md', '_template.md', 'new.md'].includes(e.name)) {
+          try {
+            const text = await fs.readFile(full, 'utf-8');
+            const m = text.match(/^---\s*\n(.*?)\n---\s*\n/s);
+            let docId = path.basename(e.name, '.md'), title = docId;
+            if (m) {
+              const idM = m[1].match(/^id:\s*(.+)$/m); if (idM) docId = idM[1].trim();
+              const tM  = m[1].match(/^title:\s*(.+)$/m); if (tM) title = tM[1].trim();
+            }
+            _fullTextMap[docId] = { name: title, body: text, source: 'doc' };
+          } catch { /* skip */ }
+        }
+      }
+    };
+    await walk(col.docsDir);
+  }
+
+  // 2. ライブ用語集（col.glossaryDir/data/terms.jsonl）— 最新のソース
+  const loadJsonl = async (filePath, source) => {
+    try {
+      const lines = (await fs.readFile(filePath, 'utf-8')).split('\n');
+      for (const line of lines) {
+        if (!line.trim()) continue;
+        try {
+          const e = JSON.parse(line);
+          if (e.id) _fullTextMap[e.id] = {
+            name:    e.name,
+            aliases: e.aliases || [],
+            body:    e.body || '',
+            source:  source,
+          };
+        } catch { /* skip */ }
+      }
+    } catch { /* ファイルなければスキップ */ }
+  };
+
+  if (col.glossaryDir) {
+    await loadJsonl(path.join(col.glossaryDir, 'data', 'terms.jsonl'), 'term');
+  }
+
+
+  // 3. editor/data/dictionaries/*.jsonl（カスタム辞書、live glossary で未カバーの場合）
+  const dictDir = path.join(__dirname, 'data', 'dictionaries');
+  try {
+    const files = await fs.readdir(dictDir);
+    for (const f of files.filter(f => f.endsWith('.jsonl') && !f.startsWith('novel-example'))) {
+      await loadJsonl(path.join(dictDir, f), 'term');
+    }
+  } catch { /* dictionaries フォルダがなければスキップ */ }
+
+  console.log(`[checker] 全文インデックス: ${Object.keys(_fullTextMap).length} 件`);
+}
+
+function cosine(a, b) {
+  let dot = 0, na = 0, nb = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; na += a[i]*a[i]; nb += b[i]*b[i]; }
+  return dot / (Math.sqrt(na) * Math.sqrt(nb) + 1e-9);
+}
+
+// テキストマッチスコア: 名前完全一致 > 名前/別名部分一致 > excerpt > 本文中一致
+function calcTextScore(entry, ft, query) {
+  const q    = query.toLowerCase();
+  const name = entry.name.toLowerCase();
+  if (name === q) return 0.98;
+  if (name.includes(q)) return 0.92;
+  // 別名一致（ft.aliases がある場合）
+  if (ft?.aliases?.some(a => a.toLowerCase().includes(q))) return 0.92;
+  // 別名が entry.name と同じフィールドにある場合（vectorDB エントリ用フォールバック）
+  const excerpt = (entry.excerpt || '').toLowerCase();
+  if (excerpt.includes(q)) return 0.80;
+  const body = typeof ft === 'string' ? ft : ft?.body;
+  if (body && body.toLowerCase().includes(q)) return 0.75;
+  return 0;
+}
+
+// 検索モデルの準備状態を返す（ポーリング用）
+app.get('/api/checker/ready', (_req, res) => {
+  res.json({ ready: _checkerReady, entries: _vectorDB ? _vectorDB.length : 0 });
+});
+
+app.post('/api/search', async (req, res) => {
+  const { query, topN = 8 } = req.body;
+  if (!query || typeof query !== 'string') {
+    return res.status(400).json({ error: 'query フィールドが必要です' });
+  }
+  try {
+    await loadVectorDB();
+    await loadFullTextMap();
+    const pipe = await getEmbedPipeline();
+
+    // キーワードマッチ（termsDict 完全一致）
+    const matched = new Map();
+    for (const [kw, id] of Object.entries(_termsDict)) {
+      if (query.includes(kw) && !matched.has(id)) matched.set(id, kw);
+    }
+    const terms = [...matched.entries()].map(([id, keyword]) => ({ id, keyword }));
+
+    // セマンティック類似検索
+    const result = await pipe(`query: ${query}`, { pooling: 'mean', normalize: true });
+    const qVec   = Array.from(result.data);
+
+    // セマンティック検索（vectorDB エントリ、テキストスコアで補正）
+    const vectorIds = new Set(_vectorDB.map(e => e.id));
+    const scored = _vectorDB.map(e => {
+      const semantic = cosine(qVec, e.vector);
+      const ft       = _fullTextMap?.[e.id];
+      const text     = calcTextScore(e, ft, query);
+      const score    = text > 0 ? Math.max(text, semantic * 0.9) : semantic;
+      return { id: e.id, name: e.name, source: e.source, excerpt: e.excerpt, score };
+    });
+
+    // vectorDB に存在しないエントリをテキストマッチで補完
+    for (const [id, ft] of Object.entries(_fullTextMap ?? {})) {
+      if (vectorIds.has(id)) continue;
+      const text = calcTextScore({ name: ft.name, excerpt: '' }, ft, query);
+      if (text > 0) {
+        scored.push({
+          id, name: ft.name, source: ft.source,
+          excerpt: (ft.body || '').slice(0, 120).replace(/\n/g, ' '),
+          score: text,
+        });
+      }
+    }
+
+    const similar = scored.sort((a, b) => b.score - a.score).slice(0, topN);
+    res.json({ terms, similar });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // ── 起動 ─────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3030;
 
@@ -693,6 +917,17 @@ loadCollections().then(() => {
   server.listen(PORT, '0.0.0.0', () => {
     console.log(`termlink-editor: http://localhost:${PORT}`);
     console.log(`Active collection: ${col.active} (${col.docsDir})`);
+
+    // 検索モデルをバックグラウンドでプリロード（起動をブロックしない）
+    Promise.all([
+      getEmbedPipeline(),
+      loadVectorDB(),
+    ]).then(() => {
+      _checkerReady = true;
+      broadcast({ type: 'checker-progress', status: 'ready' });
+    }).catch(e => {
+      console.error('[checker] プリロード失敗:', e.message);
+    });
   });
 }).catch(e => {
   console.error('Failed to load collections:', e.message);
