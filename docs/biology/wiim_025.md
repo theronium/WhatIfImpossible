@@ -118,4 +118,5 @@ flowchart TD
 - [wiim_061](wiim_061.md) — 菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき
 - [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
 - [wiim_068](wiim_068.md) — マイコプラズマギカと宇宙菌糸知性の共生——深宇宙で「何でも作れる」生態系は成立するか
+- [wiim_075](wiim_075.md) — コズミックマイスは歌うか——菌糸振動が音楽・通信・癒しに転化する世界
 

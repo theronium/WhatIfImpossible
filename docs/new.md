@@ -4,6 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-14 | 用語 | g299 | [マイセリアン（Mycelian）](../glossary/wiim-concepts.md#g299) |
+| 2026-04-14 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
+| 2026-04-14 | 補遺 | — | [コズミックマイスをめぐる信仰と社会](notes/cosmic_myce_religion.md) |
+| 2026-04-14 | 補遺 | — | [マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈](notes/mycelian_horror.md) |
+| 2026-04-13 | 記事 | wiim_075 | [コズミックマイスは歌うか——菌糸振動が音楽・通信・癒しに転化する世界](biology/wiim_075.md) |
+| 2026-04-13 | 用語 | g298 | [セルオートマトン（Cellular Automaton）](../glossary/philosophy.md#g298) |
 | 2026-04-13 | 用語 | g297 | [フェルマーの原理（Fermat's Principle）](../glossary/physics.md#g297) |
 | 2026-04-13 | 用語 | g296 | [測地線（Geodesic）](../glossary/physics.md#g296) |
 | 2026-04-12 | 記事 | wiim_074 | [ワープゲート基礎理論——コーラ粒子のマヨラナ的自己対とエニオンブレイドによるトポロジー接続](physics/wiim_074.md) |
@@ -19,7 +25,6 @@
 | 2026-04-11 | 用語 | g285 | [ミンコフスキー距離（Minkowski Distance）](../glossary/physics.md#g285) |
 | 2026-04-11 | 用語 | g284 | [マンハッタン距離（Manhattan Distance）](../glossary/physics.md#g284) |
 | 2026-04-11 | 用語 | g283 | [ユークリッド距離（Euclidean Distance）](../glossary/physics.md#g283) |
-| 2026-04-11 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-10 | 記事 | wiim_072 | [エイソンによる非崩壊量子マッピング — 電子の分布を壊さずに読めるか](quantum/wiim_072.md) |
 | 2026-04-10 | 用語 | g282 | [基本相互作用（Fundamental Interactions）](../glossary/physics.md#g282) |
 | 2026-04-10 | 用語 | g281 | [縮退（Degeneracy）](../glossary/physics.md#g281) |
@@ -49,8 +54,3 @@
 | 2026-04-05 | 用語 | g244 | [リングレーザー（Ring Laser）](../glossary/physics.md#g244) |
 | 2026-04-05 | 用語 | g243 | [コヒーレンス長（Coherence Length）](../glossary/physics.md#g243) |
 | 2026-04-05 | 用語 | g242 | [位相（Phase）](../glossary/physics.md#g242) |
-| 2026-04-05 | 用語 | g241 | [放射光（Synchrotron Radiation）](../glossary/physics.md#g241) |
-| 2026-04-05 | 用語 | g240 | [円偏光（Circular Polarization）](../glossary/physics.md#g240) |
-| 2026-04-05 | 用語 | g239 | [光渦（Optical Vortex）](../glossary/physics.md#g239) |
-| 2026-04-05 | 用語 | g238 | [特異点光学（Singular Optics）](../glossary/physics.md#g238) |
-| 2026-04-05 | 用語 | g237 | [リングレーザージャイロスコープ（Ring Laser Gyroscope）](../glossary/physics.md#g237) |

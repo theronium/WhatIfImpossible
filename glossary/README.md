@@ -35,7 +35,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **295**
+用語数: **297**
 
 ---
 
@@ -43,6 +43,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g299 | [マイセリアン](wiim-concepts.md) | Mycelian | wiim-concepts |
+| g298 | [セルオートマトン](philosophy.md) | Cellular Automaton | philosophy |
 | g297 | [フェルマーの原理](physics.md) | Fermat's Principle | physics |
 | g296 | [測地線](physics.md) | Geodesic | physics |
 | g295 | [アーベル群](mathematics.md) | Abelian Group | mathematics |
@@ -51,8 +53,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g292 | [ヌルクオリア](wiim-concepts.md) | Nullqualia | wiim-concepts |
 | g291 | [四元数](mathematics.md) | Quaternion | mathematics |
 | g290 | [アーベル・ルフィニの定理](mathematics.md) | Abel-Ruffini Theorem | mathematics |
-| g289 | [哲学探究](philosophy.md) | Philosophical Investigations | philosophy |
-| g288 | [トラクタトゥス](philosophy.md) | Tractatus Logico-Philosophicus | philosophy |
+
+
+
 
 
 
