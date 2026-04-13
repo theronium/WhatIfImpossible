@@ -4,6 +4,8 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-13 | 用語 | g297 | [フェルマーの原理（Fermat's Principle）](../glossary/physics.md#g297) |
+| 2026-04-13 | 用語 | g296 | [測地線（Geodesic）](../glossary/physics.md#g296) |
 | 2026-04-12 | 記事 | wiim_074 | [ワープゲート基礎理論——コーラ粒子のマヨラナ的自己対とエニオンブレイドによるトポロジー接続](physics/wiim_074.md) |
 | 2026-04-12 | 用語 | g295 | [アーベル群（Abelian Group）](../glossary/mathematics.md#g295) |
 | 2026-04-12 | 用語 | g294 | [トポロン（Topolon）](../glossary/wiim-concepts.md#g294) |
@@ -52,5 +54,3 @@
 | 2026-04-05 | 用語 | g239 | [光渦（Optical Vortex）](../glossary/physics.md#g239) |
 | 2026-04-05 | 用語 | g238 | [特異点光学（Singular Optics）](../glossary/physics.md#g238) |
 | 2026-04-05 | 用語 | g237 | [リングレーザージャイロスコープ（Ring Laser Gyroscope）](../glossary/physics.md#g237) |
-| 2026-04-05 | 用語 | g236 | [サニャック効果（Sagnac Effect）](../glossary/physics.md#g236) |
-| 2026-04-05 | 用語 | g235 | [光子球（Photon Sphere）](../glossary/astronomy.md#g235) |
