@@ -1,11 +1,79 @@
 [
-  { "id": "astronomy",   "label": "天文学・宇宙論",     "color": "#60a5fa", "bg": "#1a2440", "sort": 1 },
-  { "id": "physics",     "label": "物理学",             "color": "#c084fc", "bg": "#1f1a2e", "sort": 2 },
-  { "id": "mathematics", "label": "数学・論理・幾何学", "color": "#34d399", "bg": "#181f1a", "sort": 3 },
-  { "id": "speculative", "label": "仮説・未観測の粒子", "color": "#fb923c", "bg": "#1f1a18", "sort": 4 },
-  { "id": "philosophy",  "label": "哲学・存在論",       "color": "#f0abfc", "bg": "#251525", "sort": 5 },
-  { "id": "biology",     "label": "生物学・進化",       "color": "#86efac", "bg": "#1a2818", "sort": 6 },
-  { "id": "sf-concepts", "label": "SF概念",             "color": "#fbbf24", "bg": "#1a1f2e", "sort": 7 },
-  { "id": "wiim-concepts",     "label": "WIIM概念",       "color": "#f472b6", "bg": "#25182a", "sort": 8 },
-  { "id": "wiim-engineering", "label": "WIIM派生技術",   "color": "#22d3ee", "bg": "#1a2530", "sort": 9 }
+  {
+    "id": "astronomy",
+    "label": "天文学・宇宙論",
+    "color": "#60a5fa",
+    "bg": "#1a2440",
+    "sort": 10
+  },
+  {
+    "id": "physics",
+    "label": "物理学",
+    "color": "#c084fc",
+    "bg": "#1f1a2e",
+    "sort": 20
+  },
+  {
+    "id": "quantum",
+    "label": "量子物理学",
+    "color": "#a78bfa",
+    "bg": "#1e1a2e",
+    "sort": 30
+  },
+  {
+    "id": "particle",
+    "label": "素粒子・核物理学",
+    "color": "#fb923c",
+    "bg": "#201810",
+    "sort": 40
+  },
+  {
+    "id": "mathematics",
+    "label": "数学・論理・幾何学",
+    "color": "#34d399",
+    "bg": "#181f1a",
+    "sort": 50
+  },
+  {
+    "id": "speculative",
+    "label": "仮説・未観測の粒子",
+    "color": "#fb923c",
+    "bg": "#1f1a18",
+    "sort": 60
+  },
+  {
+    "id": "philosophy",
+    "label": "哲学・存在論",
+    "color": "#f0abfc",
+    "bg": "#251525",
+    "sort": 70
+  },
+  {
+    "id": "biology",
+    "label": "生物学・進化",
+    "color": "#86efac",
+    "bg": "#1a2818",
+    "sort": 80
+  },
+  {
+    "id": "sf-concepts",
+    "label": "SF概念",
+    "color": "#fbbf24",
+    "bg": "#1a1f2e",
+    "sort": 90
+  },
+  {
+    "id": "wiim-concepts",
+    "label": "WIIM概念",
+    "color": "#f472b6",
+    "bg": "#25182a",
+    "sort": 100
+  },
+  {
+    "id": "wiim-engineering",
+    "label": "WIIM派生技術",
+    "color": "#22d3ee",
+    "bg": "#1a2530",
+    "sort": 110
+  }
 ]

@@ -29,7 +29,9 @@ WhatIfImpossible/
 {"id":"g001","name":"用語名","en":"English Name","reading":"よみがな","category":"astronomy","field":"分野名","related":["wiim_XXX"],"body":"説明文（\n\n で段落区切り）"}
 ```
 
-- `category`: `astronomy` / `physics` / `speculative` / `philosophy` / `biology` / `sf-concepts` / `wiim-concepts` / `wiim-engineering`
+- `category`: `astronomy` / `physics` / `quantum` / `particle` / `mathematics` / `speculative` / `philosophy` / `biology` / `sf-concepts` / `wiim-concepts` / `wiim-engineering`
+  - `quantum`          — 量子力学・量子場理論・量子統計・量子情報・量子重力など量子系全般
+  - `particle`         — 素粒子物理学・核物理学・標準模型・弦理論など
   - `speculative`      — タキオン・ダークマターなど実在仮説はあるが未観測の粒子・物質
   - `sf-concepts`      — ワープ航法・タイムマシンなどSF全般に存在する概念
   - `wiim-concepts`    — WIIMで独自に命名・創作した粒子・素材・概念（コーラ粒子、パラドックス粒子、エネルギー紐など）

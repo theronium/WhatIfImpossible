@@ -11,6 +11,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 |---------|------|
 | [astronomy.md](astronomy.md) | 天文学・宇宙論用語 |
 | [physics.md](physics.md) | 物理学用語 |
+| [quantum.md](quantum.md) | 量子物理学用語 |
+| [particle.md](particle.md) | 素粒子・核物理学用語 |
 | [mathematics.md](mathematics.md) | 数学・論理・幾何学用語 |
 | [speculative.md](speculative.md) | 仮説・未観測の粒子用語 |
 | [philosophy.md](philosophy.md) | 哲学・存在論用語 |
@@ -35,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **297**
+用語数: **299**
 
 ---
 
@@ -53,6 +55,33 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g292 | [ヌルクオリア](wiim-concepts.md) | Nullqualia | wiim-concepts |
 | g291 | [四元数](mathematics.md) | Quaternion | mathematics |
 | g290 | [アーベル・ルフィニの定理](mathematics.md) | Abel-Ruffini Theorem | mathematics |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
