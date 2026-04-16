@@ -105,4 +105,5 @@ flowchart TD
 - [wiim_061](../biology/wiim_061.md) — 菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき
 - [wiim_022_cosmic_ring](../notes/wiim_022_cosmic_ring.md) — 補遺: 恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー
 - [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
+- [wiim_076](wiim_076.md) — 投射の停止——静かな対消滅は宇宙の外側を映す影か
 

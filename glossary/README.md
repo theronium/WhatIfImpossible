@@ -20,7 +20,6 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | [sf-concepts.md](sf-concepts.md) | SF概念用語 |
 | [wiim-concepts.md](wiim-concepts.md) | WIIM概念用語 |
 | [wiim-engineering.md](wiim-engineering.md) | WIIM派生技術用語 |
-| [junk.md](junk.md) | ジャンク用語 |
 
 ---
 
@@ -56,6 +55,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g292 | [ヌルクオリア](wiim-concepts.md) | Nullqualia | wiim-concepts |
 | g291 | [四元数](mathematics.md) | Quaternion | mathematics |
 | g290 | [アーベル・ルフィニの定理](mathematics.md) | Abel-Ruffini Theorem | mathematics |
+
 
 
 

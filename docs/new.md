@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-17 | 記事 | wiim_076 | [投射の停止——静かな対消滅は宇宙の外側を映す影か](cosmology/wiim_076.md) |
 | 2026-04-14 | 用語 | g299 | [マイセリアン（Mycelian）](../glossary/wiim-concepts.md#g299) |
 | 2026-04-14 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-14 | 補遺 | — | [コズミックマイスをめぐる信仰と社会](notes/cosmic_myce_religion.md) |
@@ -53,4 +54,3 @@
 | 2026-04-05 | 用語 | g245 | [コスモライケン（Cosmo-Lichen）](../glossary/wiim-concepts.md#g245) |
 | 2026-04-05 | 用語 | g244 | [リングレーザー（Ring Laser）](../glossary/physics.md#g244) |
 | 2026-04-05 | 用語 | g243 | [コヒーレンス長（Coherence Length）](../glossary/physics.md#g243) |
-| 2026-04-05 | 用語 | g242 | [位相（Phase）](../glossary/physics.md#g242) |
