@@ -588,7 +588,6 @@ app.post('/api/glossary/categories', async (req, res) => {
     cats.push({ ...req.body, sort: req.body.sort ?? maxSort + 1 });
     cats.sort((a, b) => a.sort - b.sort);
     await writeCategories(cats);
-    await runGenerate();
     broadcast({ type: 'reload-glossary' });
     res.json({ ok: true });
   } catch (e) { res.status(500).json({ error: e.message }); }
@@ -602,7 +601,6 @@ app.put('/api/glossary/categories/:id', async (req, res) => {
     cats[idx] = { id: req.params.id, ...req.body };
     cats.sort((a, b) => a.sort - b.sort);
     await writeCategories(cats);
-    await runGenerate();
     broadcast({ type: 'reload-glossary' });
     res.json({ ok: true });
   } catch (e) { res.status(500).json({ error: e.message }); }
@@ -613,6 +611,13 @@ app.delete('/api/glossary/categories/:id', async (req, res) => {
     let cats = await readCategories();
     cats = cats.filter(c => c.id !== req.params.id);
     await writeCategories(cats);
+    broadcast({ type: 'reload-glossary' });
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.post('/api/glossary/generate', async (req, res) => {
+  try {
     await runGenerate();
     broadcast({ type: 'reload-glossary' });
     res.json({ ok: true });

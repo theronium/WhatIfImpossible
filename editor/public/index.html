@@ -105,6 +105,8 @@
   #preview-pane th, #preview-pane td { border: 1px solid var(--border); padding: 6px 12px; font-size: 13px; }
   #preview-pane th { background: var(--surface); }
   .katex-display { overflow-x: auto; padding: 4px 0; }
+  .no-spin::-webkit-outer-spin-button, .no-spin::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .no-spin { -moz-appearance: textfield; appearance: textfield; }
 
   /* ── Frontmatter card ── */
   .fm-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
@@ -626,6 +628,9 @@
           <input id="new-cat-bg"    type="color" value="#1a2440" title="背景色" style="width:100%;height:28px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
           <button onclick="addCategory()" style="background:#1a3a1a;border:1px solid #2d5a2d;border-radius:4px;color:#86efac;font-size:12px;padding:4px 8px;cursor:pointer;white-space:nowrap;">＋ 追加</button>
         </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:4px;">
+          <button id="btn-generate-glossary" onclick="generateGlossary(this)" style="background:#1a2a3a;border:1px solid #2d4a6a;border-radius:4px;color:#60a5fa;font-size:12px;padding:4px 12px;cursor:pointer;">▶ .md 再生成</button>
+        </div>
       </div>
     </div>
   </div>
@@ -764,6 +769,7 @@ async function loadCategories() {
 
   injectCatStyles();
   populateCatDropdown();
+  renderTermCatList();
 }
 
 function injectCatStyles() {
@@ -2618,7 +2624,7 @@ async function updateArtCat(id, field, value) {
 function renderTermCatList() {
   const list = document.getElementById('term-cat-list');
   if (!list) return;
-  const header = `<div style="display:grid;grid-template-columns:1fr 1fr 48px 48px 44px 32px;gap:6px;align-items:center;margin-bottom:2px;">
+  const header = `<div style="display:grid;grid-template-columns:1fr 1fr 48px 48px 52px 32px;gap:6px;align-items:center;margin-bottom:2px;">
     <span style="font-size:10px;color:var(--text-muted);letter-spacing:.05em;">ID</span>
     <span style="font-size:10px;color:var(--text-muted);">ラベル</span>
     <span style="font-size:10px;color:var(--text-muted);text-align:center;">文字色</span>
@@ -2627,7 +2633,7 @@ function renderTermCatList() {
     <span></span>
   </div>`;
   list.innerHTML = header + GLOSSARY_CATS.map(c => `
-    <div style="display:grid;grid-template-columns:1fr 1fr 48px 48px 44px 32px;gap:6px;align-items:center;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 48px 48px 52px 32px;gap:6px;align-items:center;">
       <span style="font-size:11px;font-family:monospace;color:var(--text-muted);">${c.id}</span>
       <input value="${c.label}" onchange="updateCat('${c.id}','label',this.value)"
         style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-size:12px;outline:none;">
@@ -2636,7 +2642,7 @@ function renderTermCatList() {
       <input type="color" value="${c.bg}" title="背景色" onchange="updateCat('${c.id}','bg',this.value)"
         style="width:100%;height:26px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;">
       <input type="number" value="${c.sort}" min="1" title="表示順序" onchange="updateCat('${c.id}','sort',+this.value)"
-        style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-size:12px;width:100%;outline:none;">
+        class="no-spin" style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-size:12px;width:100%;outline:none;">
       <button onclick="deleteCat('${c.id}')"
         style="background:#2a1212;border:1px solid #5a2020;border-radius:4px;color:var(--danger);font-size:11px;padding:3px 5px;cursor:pointer;">✕</button>
     </div>
@@ -2677,6 +2683,22 @@ async function addCategory() {
   document.getElementById('new-cat-label').value = '';
   await loadCategories();
   renderTermCatList();
+  requestAnimationFrame(() => {
+    const list = document.getElementById('term-cat-list');
+    list.lastElementChild?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+}
+
+async function generateGlossary(btn) {
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '生成中…';
+  try {
+    await fetch('/api/glossary/generate', { method: 'POST' });
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+  }
 }
 
 // ── WebSocket live reload ──────────────────────────────────────────────
