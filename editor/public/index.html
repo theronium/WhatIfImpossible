@@ -908,9 +908,10 @@ function renderToPane(body, pane, fm = null) {
       e.preventDefault();
       const mdPath = mdMatch[1];
       const anchor = mdMatch[3] || '';
-      // glossary リンク（../glossary/xxx.md#gXXX）→ viewTerm
-      if (mdPath.includes('glossary/') && /^g\d+$/.test(anchor)) {
-        viewTerm(anchor);
+      // glossary リンク（../glossary/xxx.md#gXXX または ../glossary/terms/gXXX.md）→ viewTerm
+      const filenameId = mdPath.match(/\/(g\d+)\.md$/)?.[1];
+      if (mdPath.includes('glossary/') && (/^g\d+$/.test(anchor) || filenameId)) {
+        viewTerm(anchor || filenameId);
         return;
       }
       const base = currentPath ? `http://x/${currentPath}` : 'http://x/';
