@@ -660,6 +660,8 @@
 <script>
 // ── State ────────────────────────────────────────────────────────────
 let monacoEditor = null;
+let _monacoResolve;
+const monacoReady = new Promise(r => { _monacoResolve = r; });
 let currentPath = null;
 let articles = [];
 let viewMode = 'edit';
@@ -817,6 +819,7 @@ require(['vs/editor/editor.main'], () => {
   });
   monacoEditor.onDidChangeModelContent(() => updatePreview());
   window.addEventListener('resize', () => monacoEditor.layout());
+  _monacoResolve();
 });
 
 // ── Markdown renderer ────────────────────────────────────────────────
@@ -1213,6 +1216,7 @@ async function openArticle(relPath, { pushState = true } = {}) {
   const { raw } = await res.json();
   currentPath = relPath;
   currentGlossaryPath = null;
+  await monacoReady;
   monacoEditor.setValue(raw);
   document.getElementById('file-path').textContent = relPath;
   document.getElementById('editor-panes').style.display = 'flex';
