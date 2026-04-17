@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **312**
+用語数: **316**
 
 ---
 
@@ -45,16 +45,21 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g316 | [ボース・ネゴトン](wiim-concepts.md) | Bose-Negoton | wiim-concepts |
+| g315 | [トポロフィピン](wiim-engineering.md) | Topolophy Pin | wiim-engineering |
+| g314 | [アンキロンピン](wiim-engineering.md) | Ankyron Pin | wiim-engineering |
+| g313 | [光ピンセット](physics.md) | Optical Tweezers | physics |
 | g312 | [ラッセルのパラドックス](mathematics.md) | Russell's Paradox | mathematics |
 | g311 | [不確定性原理](quantum.md) | Uncertainty Principle | quantum |
 | g310 | [認識可能性の地平](philosophy.md) | Epistemological Horizon | philosophy |
 | g309 | [フェルマーの最終定理](mathematics.md) | Fermat's Last Theorem | mathematics |
 | g308 | [コルモゴロフの公理](mathematics.md) | Kolmogorov axioms | mathematics |
 | g307 | [原則](philosophy.md) | Rule / Guiding principle | philosophy |
-| g306 | [原理](physics.md) | Principle | physics |
-| g305 | [公理](mathematics.md) | Axiom | mathematics |
-| g304 | [定理](mathematics.md) | Theorem | mathematics |
-| g303 | [クラインの壺](mathematics.md) | Klein bottle | mathematics |
+
+
+
+
+
 
 
 
