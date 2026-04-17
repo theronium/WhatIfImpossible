@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **316**
+用語数: **318**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g318 | [エクスタイドフロート](wiim-engineering.md) | ExTide Float | wiim-engineering |
+| g317 | [ピエゾアンキロン効果](wiim-concepts.md) | Piezoankyronic Effect | wiim-concepts |
 | g316 | [ボース・ネゴトン](wiim-concepts.md) | Bose-Negoton | wiim-concepts |
 | g315 | [トポロフィピン](wiim-engineering.md) | Topolophy Pin | wiim-engineering |
 | g314 | [アンキロンピン](wiim-engineering.md) | Ankyron Pin | wiim-engineering |
@@ -53,8 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g311 | [不確定性原理](quantum.md) | Uncertainty Principle | quantum |
 | g310 | [認識可能性の地平](philosophy.md) | Epistemological Horizon | philosophy |
 | g309 | [フェルマーの最終定理](mathematics.md) | Fermat's Last Theorem | mathematics |
-| g308 | [コルモゴロフの公理](mathematics.md) | Kolmogorov axioms | mathematics |
-| g307 | [原則](philosophy.md) | Rule / Guiding principle | philosophy |
+
+
 
 
 
