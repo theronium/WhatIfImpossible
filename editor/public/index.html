@@ -860,7 +860,7 @@ function buildFmCard(fm) {
 function renderToPane(body, pane, fm = null) {
   // Mermaid: コードブロックをプレースホルダーに変換
   let mermaidBlocks = [];
-  const rendered = md.render(body.replace(/```mermaid\n([\s\S]*?)```/g, (_, code) => {
+  const rendered = md.render(body.replace(/```mermaid\r?\n([\s\S]*?)```/g, (_, code) => {
     const i = mermaidBlocks.length;
     mermaidBlocks.push(code.trim());
     return `<div class="mermaid-placeholder" data-idx="${i}"></div>`;
@@ -1260,7 +1260,7 @@ window.addEventListener('popstate', e => {
 // ── Save ─────────────────────────────────────────────────────────────
 async function saveArticle() {
   if (!currentPath) return;
-  let raw = monacoEditor.getValue();
+  let raw = monacoEditor.getValue().replace(/\r\n/g, '\n');
 
   // autoLink: 用語リンクを本文に挿入
   if (collectionConfig?.autoLink && glossaryTerms.length) {
