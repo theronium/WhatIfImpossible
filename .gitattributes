@@ -1,0 +1,9 @@
+# テキストファイルはLFに統一
+* text=auto eol=lf
+
+# Markdownは必ずLF（MermaidのCRLF誤動作を防ぐ）
+*.md text eol=lf
+
+# JSONLはLF
+*.jsonl text eol=lf
+*.json text eol=lf
