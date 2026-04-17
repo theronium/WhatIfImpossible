@@ -4,7 +4,21 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-18 | 用語 | g312 | [ラッセルのパラドックス（Russell's Paradox）](../glossary/mathematics.md#g312) |
+| 2026-04-18 | 用語 | g311 | [不確定性原理（Uncertainty Principle）](../glossary/quantum.md#g311) |
+| 2026-04-18 | 用語 | g310 | [認識可能性の地平（Epistemological Horizon）](../glossary/philosophy.md#g310) |
+| 2026-04-18 | 用語 | g309 | [フェルマーの最終定理（Fermat's Last Theorem）](../glossary/mathematics.md#g309) |
+| 2026-04-18 | 用語 | g308 | [コルモゴロフの公理（Kolmogorov axioms）](../glossary/mathematics.md#g308) |
+| 2026-04-18 | 補遺 | — | [認識可能性の地平——自己言及が引き起こす原理的限界の地図](notes/ninshiki_chiheisen.md) |
 | 2026-04-17 | 記事 | wiim_076 | [投射の停止——静かな対消滅は宇宙の外側を映す影か](cosmology/wiim_076.md) |
+| 2026-04-17 | 用語 | g307 | [原則（Rule / Guiding principle）](../glossary/philosophy.md#g307) |
+| 2026-04-17 | 用語 | g306 | [原理（Principle）](../glossary/physics.md#g306) |
+| 2026-04-17 | 用語 | g305 | [公理（Axiom）](../glossary/mathematics.md#g305) |
+| 2026-04-17 | 用語 | g304 | [定理（Theorem）](../glossary/mathematics.md#g304) |
+| 2026-04-17 | 用語 | g303 | [クラインの壺（Klein bottle）](../glossary/mathematics.md#g303) |
+| 2026-04-17 | 用語 | g302 | [メビウス環（Möbius strip）](../glossary/mathematics.md#g302) |
+| 2026-04-17 | 用語 | g301 | [同相（Homeomorphism）](../glossary/mathematics.md#g301) |
+| 2026-04-17 | 用語 | g300 | [三体問題（Three-body problem）](../glossary/physics.md#g300) |
 | 2026-04-14 | 用語 | g299 | [マイセリアン（Mycelian）](../glossary/wiim-concepts.md#g299) |
 | 2026-04-14 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-14 | 補遺 | — | [コズミックマイスをめぐる信仰と社会](notes/cosmic_myce_religion.md) |
@@ -40,17 +54,3 @@
 | 2026-04-09 | 用語 | g276 | [磁気モーメント（Magnetic Moment）](../glossary/physics.md#g276) |
 | 2026-04-09 | 用語 | g275 | [アルファ凝縮（Alpha Condensation）](../glossary/particle.md#g275) |
 | 2026-04-09 | 用語 | g274 | [アルファ固着問題（Alpha Sticking Problem）](../glossary/particle.md#g274) |
-| 2026-04-06 | 記事 | wiim_067 | [ネゴトンホワイトホール——排除地平線が閉じるとき、反重力天体はビッグバンを起こすか](physics/wiim_067.md) |
-| 2026-04-06 | 記事 | wiim_066 | [ネゴトン凝縮体の外部照射構築法——ネゴトロンビームで反重力天体を組み上げる](physics/wiim_066.md) |
-| 2026-04-06 | 記事 | wiim_065 | [反重力天体——エキゾチック物質とカシミールフォージで斥力場を生成できるか](physics/wiim_065.md) |
-| 2026-04-06 | 記事 | wiim_064 | [ネグレーザー——真空ゆらぎのコヒーレント化による引力・反重力ビームは実現できるか](physics/wiim_064.md) |
-| 2026-04-06 | 用語 | g249 | [黒体放射（Blackbody Radiation）](../glossary/physics.md#g249) |
-| 2026-04-06 | 用語 | g248 | [ホーキング放射（Hawking Radiation）](../glossary/quantum.md#g248) |
-| 2026-04-06 | 用語 | g246 | [ネグレーザー（Neg-raser）](../glossary/wiim-engineering.md#g246) |
-| 2026-04-05 | 記事 | wiim_063 | [架空粒子による大気圏突入緩和——ネゴトン・カシミールフォージ・レトロンは再突入熱と重力を制御できるか](physics/wiim_063.md) |
-| 2026-04-05 | 記事 | wiim_062 | [菌類磁気圏——コズミックマイスが磁場を生成しエネルギーを収集できるか](biology/wiim_062.md) |
-| 2026-04-05 | 記事 | wiim_061 | [菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき](biology/wiim_061.md) |
-| 2026-04-05 | 記事 | wiim_060 | [逆クロノスフィア——内部時間を極端に遅くして生命・文明を保存できるか](physics/wiim_060.md) |
-| 2026-04-05 | 用語 | g245 | [コスモライケン（Cosmo-Lichen）](../glossary/wiim-concepts.md#g245) |
-| 2026-04-05 | 用語 | g244 | [リングレーザー（Ring Laser）](../glossary/physics.md#g244) |
-| 2026-04-05 | 用語 | g243 | [コヒーレンス長（Coherence Length）](../glossary/physics.md#g243) |

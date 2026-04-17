@@ -130,4 +130,5 @@ flowchart TD
 - 質量ゼロの粒子 (g065)
 - 人間原理（用語集参照）
 - [wiim_052](wiim_052.md) — カオスを制御するカオスの悪魔の方程式——確率的粒子誘導と対消滅工学の限界
+- [ninshiki_chiheisen](../notes/ninshiki_chiheisen.md) — 認識可能性の地平——自己言及が引き起こす原理的限界の地図
 

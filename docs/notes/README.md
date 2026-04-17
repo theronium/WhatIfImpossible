@@ -48,6 +48,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [hac_replistar_plan.md](hac_replistar_plan.md) | HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要 | 2026-04-05 | 2026-04-05 |
 | [cosmic_myce_religion.md](cosmic_myce_religion.md) | コズミックマイスをめぐる信仰と社会 | 2026-04-14 | 2026-04-14 |
 | [mycelian_horror.md](mycelian_horror.md) | マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈 | 2026-04-14 | 2026-04-14 |
+| [ninshiki_chiheisen.md](ninshiki_chiheisen.md) | 認識可能性の地平——自己言及が引き起こす原理的限界の地図 | 2026-04-18 | 2026-04-18 |
 
 ---
 

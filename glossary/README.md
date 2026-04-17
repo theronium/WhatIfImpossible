@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **299**
+用語数: **312**
 
 ---
 
@@ -45,16 +45,39 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
-| g299 | [マイセリアン](wiim-concepts.md) | Mycelian | wiim-concepts |
-| g298 | [セルオートマトン](philosophy.md) | Cellular Automaton | philosophy |
-| g297 | [フェルマーの原理](physics.md) | Fermat's Principle | physics |
-| g296 | [測地線](physics.md) | Geodesic | physics |
-| g295 | [アーベル群](mathematics.md) | Abelian Group | mathematics |
-| g294 | [トポロン](wiim-concepts.md) | Topolon | wiim-concepts |
-| g293 | [トポロフィ](wiim-concepts.md) | Topolophy | wiim-concepts |
-| g292 | [ヌルクオリア](wiim-concepts.md) | Nullqualia | wiim-concepts |
-| g291 | [四元数](mathematics.md) | Quaternion | mathematics |
-| g290 | [アーベル・ルフィニの定理](mathematics.md) | Abel-Ruffini Theorem | mathematics |
+| g312 | [ラッセルのパラドックス](mathematics.md) | Russell's Paradox | mathematics |
+| g311 | [不確定性原理](quantum.md) | Uncertainty Principle | quantum |
+| g310 | [認識可能性の地平](philosophy.md) | Epistemological Horizon | philosophy |
+| g309 | [フェルマーの最終定理](mathematics.md) | Fermat's Last Theorem | mathematics |
+| g308 | [コルモゴロフの公理](mathematics.md) | Kolmogorov axioms | mathematics |
+| g307 | [原則](philosophy.md) | Rule / Guiding principle | philosophy |
+| g306 | [原理](physics.md) | Principle | physics |
+| g305 | [公理](mathematics.md) | Axiom | mathematics |
+| g304 | [定理](mathematics.md) | Theorem | mathematics |
+| g303 | [クラインの壺](mathematics.md) | Klein bottle | mathematics |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

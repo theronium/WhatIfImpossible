@@ -6,6 +6,7 @@ glossary/data/new-term.json
 Thumbs.db
 *.log
 sandbox/
+.playwright-mcp/
 .claude/settings*.json
 # コレクション: GarbageNotes (git=無効)
 editor/data/garbage/

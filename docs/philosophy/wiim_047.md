@@ -97,4 +97,5 @@ flowchart LR
 - [決定論の計算可能性閾値](wiim_041.md) — ラプラスの悪魔を封じる計算資源の限界
 - 用語: ラプラスの悪魔 g204 / ベッケンシュタイン限界 g171 / 両立論 g170 / 創発 g203
 - [wiim_047_outside_only](../notes/wiim_047_outside_only.md) — 補遺: 外側のみのデウスエクスラプラス——完全な知識の完全な孤立
+- [ninshiki_chiheisen](../notes/ninshiki_chiheisen.md) — 認識可能性の地平——自己言及が引き起こす原理的限界の地図
 
