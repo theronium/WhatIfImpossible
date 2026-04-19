@@ -8,7 +8,7 @@
 **読み**: あるくびえれどらいぶ
 **別名**: アルクビエレドライブ / ワープ航法 / ワープ
 **分野**: 相対論的宇宙物理・SF
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_014](../docs/physics/wiim_014.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_014](../docs/physics/wiim_014.md), [wiim_079](../docs/cosmology/wiim_079.md)
 
 1994年に物理学者ミゲル・アルクビエレが一般相対性理論の方程式を解いて提案したワープドライブの理論モデル。宇宙船自体は光速を超えず、船の前方の空間を収縮させ後方を膨張させることで、船ごと「空間の泡」を移動させる。
 

@@ -4,6 +4,14 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-19 | 記事 | wiim_081 | [コーラ粒子は事象の地平線を抜けられるか——ブラックホール内外の空間超越と因果律の衝突](physics/wiim_081.md) |
+| 2026-04-19 | 記事 | wiim_080 | [ネゴトンホワイトホールワープ——安定維持した排除地平線を推進力に転用できるか](physics/wiim_080.md) |
+| 2026-04-19 | 記事 | wiim_079 | [ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか](cosmology/wiim_079.md) |
+| 2026-04-19 | 用語 | g323 | [量子イモムシ（Quantum Caterpillar）](../glossary/physics.md#g323) |
+| 2026-04-19 | 用語 | g322 | [ER=EPR予想（ER=EPR Conjecture）](../glossary/physics.md#g322) |
+| 2026-04-19 | 用語 | g321 | [ギャラクシードライブ（Galaxy Drive）](../glossary/wiim-concepts.md#g321) |
+| 2026-04-19 | 用語 | g320 | [バーディーン・ペッターソン効果（Bardeen-Petterson Effect）](../glossary/astronomy.md#g320) |
+| 2026-04-19 | 用語 | g319 | [活動銀河核（Active Galactic Nucleus）](../glossary/astronomy.md#g319) |
 | 2026-04-18 | 記事 | wiim_078 | [エクスタイドフロート——宇宙膨張の満ち引きをピエゾアンキロン素子で回収できるか](cosmology/wiim_078.md) |
 | 2026-04-18 | 記事 | wiim_077 | [架空粒子を掴む——光ピンセットから場の閉じ込めへ](physics/wiim_077.md) |
 | 2026-04-18 | 用語 | g316 | [ボース・ネゴトン（Bose-Negoton）](../glossary/wiim-concepts.md#g316) |
@@ -46,11 +54,3 @@
 | 2026-04-11 | 用語 | g285 | [ミンコフスキー距離（Minkowski Distance）](../glossary/physics.md#g285) |
 | 2026-04-11 | 用語 | g284 | [マンハッタン距離（Manhattan Distance）](../glossary/physics.md#g284) |
 | 2026-04-11 | 用語 | g283 | [ユークリッド距離（Euclidean Distance）](../glossary/physics.md#g283) |
-| 2026-04-10 | 記事 | wiim_072 | [エイソンによる非崩壊量子マッピング — 電子の分布を壊さずに読めるか](quantum/wiim_072.md) |
-| 2026-04-10 | 用語 | g282 | [基本相互作用（Fundamental Interactions）](../glossary/particle.md#g282) |
-| 2026-04-10 | 用語 | g281 | [縮退（Degeneracy）](../glossary/quantum.md#g281) |
-| 2026-04-10 | 用語 | g280 | [量子複製不可能定理（No-Cloning Theorem）](../glossary/quantum.md#g280) |
-| 2026-04-10 | 用語 | g279 | [ガウスの法則（Gauss's Law）](../glossary/physics.md#g279) |
-| 2026-04-10 | 用語 | g278 | [エバネッセント波（Evanescent Wave）](../glossary/quantum.md#g278) |
-| 2026-04-10 | 用語 | g277 | [エイソン（Eison）](../glossary/wiim-concepts.md#g277) |
-| 2026-04-09 | 記事 | wiim_071 | [中性核融合生成物の世界——電荷ゼロで生まれたヘリウムが変える物理・工学・文明](physics/wiim_071.md) |

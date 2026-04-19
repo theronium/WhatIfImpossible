@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **318**
+用語数: **323**
 
 ---
 
@@ -45,16 +45,26 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g323 | [量子イモムシ](physics.md) | Quantum Caterpillar | physics |
+| g322 | [ER=EPR予想](physics.md) | ER=EPR Conjecture | physics |
+| g321 | [ギャラクシードライブ](wiim-concepts.md) | Galaxy Drive | wiim-concepts |
+| g320 | [バーディーン・ペッターソン効果](astronomy.md) | Bardeen-Petterson Effect | astronomy |
+| g319 | [活動銀河核](astronomy.md) | Active Galactic Nucleus | astronomy |
 | g318 | [エクスタイドフロート](wiim-engineering.md) | ExTide Float | wiim-engineering |
 | g317 | [ピエゾアンキロン効果](wiim-concepts.md) | Piezoankyronic Effect | wiim-concepts |
 | g316 | [ボース・ネゴトン](wiim-concepts.md) | Bose-Negoton | wiim-concepts |
 | g315 | [トポロフィピン](wiim-engineering.md) | Topolophy Pin | wiim-engineering |
 | g314 | [アンキロンピン](wiim-engineering.md) | Ankyron Pin | wiim-engineering |
-| g313 | [光ピンセット](physics.md) | Optical Tweezers | physics |
-| g312 | [ラッセルのパラドックス](mathematics.md) | Russell's Paradox | mathematics |
-| g311 | [不確定性原理](quantum.md) | Uncertainty Principle | quantum |
-| g310 | [認識可能性の地平](philosophy.md) | Epistemological Horizon | philosophy |
-| g309 | [フェルマーの最終定理](mathematics.md) | Fermat's Last Theorem | mathematics |
+
+
+
+
+
+
+
+
+
+
 
 
 
