@@ -12,6 +12,7 @@
 | 2026-04-19 | 用語 | g321 | [ギャラクシードライブ（Galaxy Drive）](../glossary/wiim-concepts.md#g321) |
 | 2026-04-19 | 用語 | g320 | [バーディーン・ペッターソン効果（Bardeen-Petterson Effect）](../glossary/astronomy.md#g320) |
 | 2026-04-19 | 用語 | g319 | [活動銀河核（Active Galactic Nucleus）](../glossary/astronomy.md#g319) |
+| 2026-04-19 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-18 | 記事 | wiim_078 | [エクスタイドフロート——宇宙膨張の満ち引きをピエゾアンキロン素子で回収できるか](cosmology/wiim_078.md) |
 | 2026-04-18 | 記事 | wiim_077 | [架空粒子を掴む——光ピンセットから場の閉じ込めへ](physics/wiim_077.md) |
 | 2026-04-18 | 用語 | g316 | [ボース・ネゴトン（Bose-Negoton）](../glossary/wiim-concepts.md#g316) |
@@ -24,7 +25,6 @@
 | 2026-04-18 | 用語 | g309 | [フェルマーの最終定理（Fermat's Last Theorem）](../glossary/mathematics.md#g309) |
 | 2026-04-18 | 用語 | g308 | [コルモゴロフの公理（Kolmogorov axioms）](../glossary/mathematics.md#g308) |
 | 2026-04-18 | 補遺 | — | [認識可能性の地平——自己言及が引き起こす原理的限界の地図](notes/ninshiki_chiheisen.md) |
-| 2026-04-18 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-17 | 記事 | wiim_076 | [投射の停止——静かな対消滅は宇宙の外側を映す影か](cosmology/wiim_076.md) |
 | 2026-04-17 | 用語 | g307 | [原則（Rule / Guiding principle）](../glossary/philosophy.md#g307) |
 | 2026-04-17 | 用語 | g306 | [原理（Principle）](../glossary/physics.md#g306) |
