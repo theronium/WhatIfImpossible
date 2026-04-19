@@ -47,7 +47,9 @@ flowchart LR
 
     T2A --> T2D
     T2A --> T3A[ワープゲート網]
-    T2A --> T2H[パラドックス粒子観測 wiim_030]
+    C0H --> T2H_theory[パラドックス解消公理 g324 wiim_082\n情報量閾値条件・可能性空間拡張]
+    T2H_theory --> T2H[パラドックス粒子観測 wiim_030]
+    T2A --> T2H
     T2B --> T2H
     T2C --> T3B[コーラ粒子誘導 wiim_029]
     T2C --> T3I[コーラバブルワープ wiim_032]

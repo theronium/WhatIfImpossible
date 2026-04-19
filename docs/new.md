@@ -4,9 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-19 | 記事 | wiim_082 | [パラドックス解消公理——空間歪みが因果矛盾を自動解消するとき](physics/wiim_082.md) |
 | 2026-04-19 | 記事 | wiim_081 | [コーラ粒子は事象の地平線を抜けられるか——ブラックホール内外の空間超越と因果律の衝突](physics/wiim_081.md) |
 | 2026-04-19 | 記事 | wiim_080 | [ネゴトンホワイトホールワープ——安定維持した排除地平線を推進力に転用できるか](physics/wiim_080.md) |
 | 2026-04-19 | 記事 | wiim_079 | [ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか](cosmology/wiim_079.md) |
+| 2026-04-19 | 用語 | g324 | [パラドックス解消公理（Paradox Resolution Axiom）](../glossary/wiim-concepts.md#g324) |
 | 2026-04-19 | 用語 | g323 | [量子イモムシ（Quantum Caterpillar）](../glossary/physics.md#g323) |
 | 2026-04-19 | 用語 | g322 | [ER=EPR予想（ER=EPR Conjecture）](../glossary/physics.md#g322) |
 | 2026-04-19 | 用語 | g321 | [ギャラクシードライブ（Galaxy Drive）](../glossary/wiim-concepts.md#g321) |
@@ -52,5 +54,3 @@
 | 2026-04-11 | 用語 | g287 | [クオリア波動関数（Qualia Wave Function）](../glossary/wiim-concepts.md#g287) |
 | 2026-04-11 | 用語 | g286 | [量子認知論（Quantum Cognition）](../glossary/philosophy.md#g286) |
 | 2026-04-11 | 用語 | g285 | [ミンコフスキー距離（Minkowski Distance）](../glossary/physics.md#g285) |
-| 2026-04-11 | 用語 | g284 | [マンハッタン距離（Manhattan Distance）](../glossary/physics.md#g284) |
-| 2026-04-11 | 用語 | g283 | [ユークリッド距離（Euclidean Distance）](../glossary/physics.md#g283) |

@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **323**
+用語数: **324**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g324 | [パラドックス解消公理](wiim-concepts.md) | Paradox Resolution Axiom | wiim-concepts |
 | g323 | [量子イモムシ](physics.md) | Quantum Caterpillar | physics |
 | g322 | [ER=EPR予想](physics.md) | ER=EPR Conjecture | physics |
 | g321 | [ギャラクシードライブ](wiim-concepts.md) | Galaxy Drive | wiim-concepts |
@@ -54,7 +55,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g317 | [ピエゾアンキロン効果](wiim-concepts.md) | Piezoankyronic Effect | wiim-concepts |
 | g316 | [ボース・ネゴトン](wiim-concepts.md) | Bose-Negoton | wiim-concepts |
 | g315 | [トポロフィピン](wiim-engineering.md) | Topolophy Pin | wiim-engineering |
-| g314 | [アンキロンピン](wiim-engineering.md) | Ankyron Pin | wiim-engineering |
+
 
 
 
