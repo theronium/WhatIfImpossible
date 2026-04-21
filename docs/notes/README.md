@@ -49,6 +49,8 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [cosmic_myce_religion.md](cosmic_myce_religion.md) | コズミックマイスをめぐる信仰と社会 | 2026-04-14 | 2026-04-14 |
 | [mycelian_horror.md](mycelian_horror.md) | マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈 | 2026-04-14 | 2026-04-14 |
 | [ninshiki_chiheisen.md](ninshiki_chiheisen.md) | 認識可能性の地平——自己言及が引き起こす原理的限界の地図 | 2026-04-18 | 2026-04-18 |
+| [particle_hierarchy.md](particle_hierarchy.md) | 素粒子・複合粒子の分類階層 | 2026-04-19 | 2026-04-19 |
+| [kepler_geostationary_derivation.md](kepler_geostationary_derivation.md) | 天体質量の測定手法と静止軌道パラメータの導出 | 2026-04-20 | 2026-04-20 |
 
 ---
 

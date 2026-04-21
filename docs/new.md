@@ -4,10 +4,16 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-21 | 用語 | g329 | [星震学（Asteroseismology）](../glossary/astronomy.md#g329) |
+| 2026-04-20 | 用語 | g328 | [アリスタルコス（Aristarchus of Samos）](../glossary/astronomy.md#g328) |
+| 2026-04-20 | 用語 | g327 | [エラトステネス（Eratosthenes）](../glossary/astronomy.md#g327) |
+| 2026-04-20 | 用語 | g326 | [ケプラーの法則（Kepler's Laws）](../glossary/astronomy.md#g326) |
+| 2026-04-20 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
 | 2026-04-19 | 記事 | wiim_082 | [パラドックス解消公理——空間歪みが因果矛盾を自動解消するとき](physics/wiim_082.md) |
 | 2026-04-19 | 記事 | wiim_081 | [コーラ粒子は事象の地平線を抜けられるか——ブラックホール内外の空間超越と因果律の衝突](physics/wiim_081.md) |
 | 2026-04-19 | 記事 | wiim_080 | [ネゴトンホワイトホールワープ——安定維持した排除地平線を推進力に転用できるか](physics/wiim_080.md) |
 | 2026-04-19 | 記事 | wiim_079 | [ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか](cosmology/wiim_079.md) |
+| 2026-04-19 | 用語 | g325 | [ラニアケア超銀河団（Laniakea Supercluster）](../glossary/astronomy.md#g325) |
 | 2026-04-19 | 用語 | g324 | [パラドックス解消公理（Paradox Resolution Axiom）](../glossary/wiim-concepts.md#g324) |
 | 2026-04-19 | 用語 | g323 | [量子イモムシ（Quantum Caterpillar）](../glossary/physics.md#g323) |
 | 2026-04-19 | 用語 | g322 | [ER=EPR予想（ER=EPR Conjecture）](../glossary/physics.md#g322) |
@@ -15,6 +21,7 @@
 | 2026-04-19 | 用語 | g320 | [バーディーン・ペッターソン効果（Bardeen-Petterson Effect）](../glossary/astronomy.md#g320) |
 | 2026-04-19 | 用語 | g319 | [活動銀河核（Active Galactic Nucleus）](../glossary/astronomy.md#g319) |
 | 2026-04-19 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
+| 2026-04-19 | 補遺 | — | [素粒子・複合粒子の分類階層](notes/particle_hierarchy.md) |
 | 2026-04-18 | 記事 | wiim_078 | [エクスタイドフロート——宇宙膨張の満ち引きをピエゾアンキロン素子で回収できるか](cosmology/wiim_078.md) |
 | 2026-04-18 | 記事 | wiim_077 | [架空粒子を掴む——光ピンセットから場の閉じ込めへ](physics/wiim_077.md) |
 | 2026-04-18 | 用語 | g316 | [ボース・ネゴトン（Bose-Negoton）](../glossary/wiim-concepts.md#g316) |
@@ -47,10 +54,3 @@
 | 2026-04-12 | 用語 | g295 | [アーベル群（Abelian Group）](../glossary/mathematics.md#g295) |
 | 2026-04-12 | 用語 | g294 | [トポロン（Topolon）](../glossary/wiim-concepts.md#g294) |
 | 2026-04-12 | 用語 | g293 | [トポロフィ（Topolophy）](../glossary/wiim-concepts.md#g293) |
-| 2026-04-12 | 用語 | g291 | [四元数（Quaternion）](../glossary/mathematics.md#g291) |
-| 2026-04-12 | 用語 | g290 | [アーベル・ルフィニの定理（Abel-Ruffini Theorem）](../glossary/mathematics.md#g290) |
-| 2026-04-12 | 用語 | g289 | [哲学探究（Philosophical Investigations）](../glossary/philosophy.md#g289) |
-| 2026-04-11 | 記事 | wiim_073 | [クオリア波動関数によるクオリア識別——パラクオリア問題](philosophy/wiim_073.md) |
-| 2026-04-11 | 用語 | g287 | [クオリア波動関数（Qualia Wave Function）](../glossary/wiim-concepts.md#g287) |
-| 2026-04-11 | 用語 | g286 | [量子認知論（Quantum Cognition）](../glossary/philosophy.md#g286) |
-| 2026-04-11 | 用語 | g285 | [ミンコフスキー距離（Minkowski Distance）](../glossary/physics.md#g285) |

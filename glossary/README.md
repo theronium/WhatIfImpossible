@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **324**
+用語数: **329**
 
 ---
 
@@ -45,16 +45,22 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g329 | [星震学](astronomy.md) | Asteroseismology | astronomy |
+| g328 | [アリスタルコス](astronomy.md) | Aristarchus of Samos | astronomy |
+| g327 | [エラトステネス](astronomy.md) | Eratosthenes | astronomy |
+| g326 | [ケプラーの法則](astronomy.md) | Kepler's Laws | astronomy |
+| g325 | [ラニアケア超銀河団](astronomy.md) | Laniakea Supercluster | astronomy |
 | g324 | [パラドックス解消公理](wiim-concepts.md) | Paradox Resolution Axiom | wiim-concepts |
 | g323 | [量子イモムシ](physics.md) | Quantum Caterpillar | physics |
 | g322 | [ER=EPR予想](physics.md) | ER=EPR Conjecture | physics |
 | g321 | [ギャラクシードライブ](wiim-concepts.md) | Galaxy Drive | wiim-concepts |
 | g320 | [バーディーン・ペッターソン効果](astronomy.md) | Bardeen-Petterson Effect | astronomy |
-| g319 | [活動銀河核](astronomy.md) | Active Galactic Nucleus | astronomy |
-| g318 | [エクスタイドフロート](wiim-engineering.md) | ExTide Float | wiim-engineering |
-| g317 | [ピエゾアンキロン効果](wiim-concepts.md) | Piezoankyronic Effect | wiim-concepts |
-| g316 | [ボース・ネゴトン](wiim-concepts.md) | Bose-Negoton | wiim-concepts |
-| g315 | [トポロフィピン](wiim-engineering.md) | Topolophy Pin | wiim-engineering |
+
+
+
+
+
+
 
 
 
