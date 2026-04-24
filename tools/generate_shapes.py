@@ -419,12 +419,13 @@ def gen_reuleaux():
         center = verts[i]
         p1 = verts[(i + 1) % 3]
         p2 = verts[(i + 2) % 3]
+        r = np.linalg.norm(p1 - center)  # side length = sqrt(3)
         a1 = np.arctan2(p1[1] - center[1], p1[0] - center[0])
         a2 = np.arctan2(p2[1] - center[1], p2[0] - center[0])
         if a2 - a1 > np.pi:  a2 -= 2 * np.pi
         if a1 - a2 > np.pi:  a1 -= 2 * np.pi
         t_arc = np.linspace(a1, a2, 80)
-        pts.extend(zip(center[0] + np.cos(t_arc), center[1] + np.sin(t_arc)))
+        pts.extend(zip(center[0] + r * np.cos(t_arc), center[1] + r * np.sin(t_arc)))
     xs, ys = zip(*pts)
     ax.fill(xs, ys, alpha=0.3, color="royalblue")
     ax.plot(xs, ys, "navy", linewidth=2)

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 280" width="300" height="280">
+  <rect width="300" height="280" fill="white"/>
+
+  <!-- Reference equilateral triangle (dashed) -->
+  <polygon points="150,48 63.4,198 236.6,198"
+           fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5,4"/>
+
+  <!-- Reuleaux Triangle
+       V1=(150,48)  V2=(63.4,198)  V3=(236.6,198)
+       Arc radius = side length = 100*sqrt(3) = 173.2
+       Each arc: centered at the opposite vertex, sweep CCW (0 0 0), minor arc (60deg), bulges outward
+  -->
+  <path d="M 63.4 198
+           A 173.2 173.2 0 0 0 236.6 198
+           A 173.2 173.2 0 0 0 150 48
+           A 173.2 173.2 0 0 0 63.4 198 Z"
+        fill="#3b82f6" fill-opacity="0.28" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Vertices -->
+  <circle cx="150"   cy="48"  r="4.5" fill="#1d4ed8"/>
+  <circle cx="63.4"  cy="198" r="4.5" fill="#1d4ed8"/>
+  <circle cx="236.6" cy="198" r="4.5" fill="#1d4ed8"/>
+
+  <!-- Vertical width annotation (right side)
+       Top: V1 at y=48, Bottom: lowest point of bottom arc = 48+173.2 = 221.2 -->
+  <line x1="257" y1="48"  x2="257" y2="221" stroke="#dc2626" stroke-width="1.5"/>
+  <line x1="250" y1="48"  x2="264" y2="48"  stroke="#dc2626" stroke-width="1.2"/>
+  <line x1="250" y1="221" x2="264" y2="221" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="267" y="138" font-family="sans-serif" font-size="12" font-style="italic" fill="#dc2626">w</text>
+
+  <!-- Horizontal width annotation (bottom)
+       Left: V2 at x=63.4, Right: V3 at x=236.6, same w -->
+  <line x1="63.4"  y1="214" x2="236.6" y2="214" stroke="#dc2626" stroke-width="1.5"/>
+  <line x1="63.4"  y1="208" x2="63.4"  y2="220" stroke="#dc2626" stroke-width="1.2"/>
+  <line x1="236.6" y1="208" x2="236.6" y2="220" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="150" y="232" text-anchor="middle" font-family="sans-serif" font-size="12" font-style="italic" fill="#dc2626">w</text>
+
+  <!-- Equal-width note -->
+  <text x="150" y="250" text-anchor="middle"
+        font-family="'Yu Gothic','Hiragino Sans','MS Gothic',sans-serif"
+        font-size="10" fill="#64748b">定幅図形 — 任意方向の幅 w が一定</text>
+
+  <!-- Title -->
+  <text x="150" y="266" text-anchor="middle"
+        font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Reuleaux Triangle</text>
+  <text x="150" y="278" text-anchor="middle"
+        font-family="'Yu Gothic','Hiragino Sans','MS Gothic',sans-serif"
+        font-size="10" fill="#475569">ルーローの三角形</text>
+</svg>
