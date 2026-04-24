@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **339**
+用語数: **340**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g340 | [極小曲面](mathematics.md) | Minimal Surface | mathematics |
 | g339 | [バブルシェルマイセリウム](wiim-concepts.md) | Bubble Shell Mycelium | wiim-concepts |
 | g338 | [プラトーの法則](physics.md) | Plateau's Laws | physics |
 | g337 | [ルーローの三角形](mathematics.md) | Reuleaux Triangle | mathematics |
@@ -54,7 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g333 | [フラクタル分岐](physics.md) | Fractal Branching | physics |
 | g332 | [ジオデシック構造](physics.md) | Geodesic Structure | physics |
 | g331 | [テンセグリティ](physics.md) | Tensegrity | physics |
-| g330 | [ジャイロイド](physics.md) | Gyroid | physics |
+
+
 
 
 

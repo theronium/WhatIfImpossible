@@ -100,6 +100,8 @@ python tools/generate_shapes.py
 
 `tools/generate_shapes.py` を編集して形状を追加・修正し、再実行すると上書き更新される。
 
+新しい形状を追加する場合は `gen_XXX()` 関数を定義し、末尾の `GENERATORS` リストの適切なカテゴリに追加してから実行する。
+
 ### 画像パスの規則
 
 参照元によってパスが異なる：
