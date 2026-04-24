@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **329**
+用語数: **335**
 
 ---
 
@@ -45,16 +45,18 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g335 | [カテノイド](physics.md) | Catenoid | physics |
+| g334 | [ルーネベルクレンズ](physics.md) | Luneburg Lens | physics |
+| g333 | [フラクタル分岐](physics.md) | Fractal Branching | physics |
+| g332 | [ジオデシック構造](physics.md) | Geodesic Structure | physics |
+| g331 | [テンセグリティ](physics.md) | Tensegrity | physics |
+| g330 | [ジャイロイド](physics.md) | Gyroid | physics |
 | g329 | [星震学](astronomy.md) | Asteroseismology | astronomy |
 | g328 | [アリスタルコス](astronomy.md) | Aristarchus of Samos | astronomy |
 | g327 | [エラトステネス](astronomy.md) | Eratosthenes | astronomy |
 | g326 | [ケプラーの法則](astronomy.md) | Kepler's Laws | astronomy |
-| g325 | [ラニアケア超銀河団](astronomy.md) | Laniakea Supercluster | astronomy |
-| g324 | [パラドックス解消公理](wiim-concepts.md) | Paradox Resolution Axiom | wiim-concepts |
-| g323 | [量子イモムシ](physics.md) | Quantum Caterpillar | physics |
-| g322 | [ER=EPR予想](physics.md) | ER=EPR Conjecture | physics |
-| g321 | [ギャラクシードライブ](wiim-concepts.md) | Galaxy Drive | wiim-concepts |
-| g320 | [バーディーン・ペッターソン効果](astronomy.md) | Bardeen-Petterson Effect | astronomy |
+
+
 
 
 

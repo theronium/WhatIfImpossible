@@ -201,7 +201,8 @@
   #term-popup.visible { display: block; }
   #term-popup .tp-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
   #term-popup .tp-en { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
-  #term-popup .tp-body { font-size: 13px; line-height: 1.7; color: #ccc; max-height: 200px; overflow-y: auto; }
+  #term-popup .tp-body { font-size: 13px; line-height: 1.7; color: #ccc; max-height: 260px; overflow-y: auto; }
+  #term-popup .tp-body img { max-width: 100%; max-height: 140px; display: block; margin: 6px auto 0; border-radius: 4px; }
   #term-popup .tp-body p { margin: 0 0 8px; }
   #term-popup .tp-body p:last-child { margin-bottom: 0; }
   #term-popup .tp-body strong { color: #e2e8f0; }
@@ -866,6 +867,17 @@ function renderToPane(body, pane, fm = null) {
     return `<div class="mermaid-placeholder" data-idx="${i}"></div>`;
   }));
   pane.innerHTML = (fm ? buildFmCard(fm) : '') + rendered;
+
+  // 相対パスの <img src> をエディタプレビュー用に /repo/docs/... へ書き換え
+  if (typeof currentPath === 'string') {
+    const dir = 'http://x/docs/' + currentPath.replace(/[^/]+$/, '');
+    pane.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && !src.startsWith('http') && !src.startsWith('//') && !src.startsWith('/')) {
+        img.src = '/repo' + new URL(src, dir).pathname;
+      }
+    });
+  }
 
   // 見出しにアンカーIDを付与（TOC用）
   pane.querySelectorAll('h1,h2,h3,h4').forEach((el, i) => {
@@ -1599,7 +1611,14 @@ document.addEventListener('click', e => {
     document.getElementById('tp-en').textContent = t.en || '';
     document.getElementById('tp-badge').innerHTML =
       `<span class="cat-badge ${t.category}">${GLOSSARY_LABELS[t.category] || t.category}</span>`;
-    document.getElementById('tp-body').innerHTML = md.render(t.body || '');
+    const _tpBody = document.getElementById('tp-body');
+    _tpBody.innerHTML = md.render(t.body || '');
+    _tpBody.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && !src.startsWith('http') && !src.startsWith('//') && !src.startsWith('/')) {
+        img.src = '/repo' + new URL(src, 'http://x/glossary/terms/').pathname;
+      }
+    });
     document.getElementById('tp-goto').onclick = () => {
       popup.classList.remove('visible');
       document.querySelector('.tab-btn[data-tab="glossary"]')?.click();
@@ -1853,6 +1872,14 @@ function viewTerm(id, { pushState = true } = {}) {
       </div>
     </div>
     <div class="tv-body">${mdBody}</div>`;
+
+  // 用語ビューア内の相対パス画像を /repo/glossary/terms/ 基準で書き換え
+  document.getElementById('preview-pane').querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src');
+    if (src && !src.startsWith('http') && !src.startsWith('//') && !src.startsWith('/')) {
+      img.src = '/repo' + new URL(src, 'http://x/glossary/terms/').pathname;
+    }
+  });
 
   // 関連フィールドのリンク
   document.getElementById('preview-pane').querySelectorAll('a.rel-link').forEach(a => {

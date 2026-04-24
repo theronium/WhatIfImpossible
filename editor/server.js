@@ -107,6 +107,14 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/elk', express.static(path.join(__dirname, 'node_modules/@mermaid-js/layout-elk/dist')));
 
+// リポジトリのファイル（画像等）をプレビューで参照できるよう /repo で配信
+app.use('/repo', (req, res, next) => {
+  if (!col.repoDir) return res.status(503).json({ error: 'No active collection' });
+  res.sendFile(path.join(col.repoDir, req.path), { dotfiles: 'deny' }, err => {
+    if (err) next();
+  });
+});
+
 const broadcast = (msg) => {
   wss.clients.forEach(client => {
     if (client.readyState === 1) client.send(JSON.stringify(msg));

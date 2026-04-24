@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-24 | 補遺 | — | [工学的幾何構造一覧](notes/engineering_shapes.md) |
 | 2026-04-21 | 用語 | g329 | [星震学（Asteroseismology）](../glossary/astronomy.md#g329) |
 | 2026-04-20 | 用語 | g328 | [アリスタルコス（Aristarchus of Samos）](../glossary/astronomy.md#g328) |
 | 2026-04-20 | 用語 | g327 | [エラトステネス（Eratosthenes）](../glossary/astronomy.md#g327) |
@@ -53,4 +54,3 @@
 | 2026-04-12 | 記事 | wiim_074 | [ワープゲート基礎理論——コーラ粒子のマヨラナ的自己対とエニオンブレイドによるトポロジー接続](physics/wiim_074.md) |
 | 2026-04-12 | 用語 | g295 | [アーベル群（Abelian Group）](../glossary/mathematics.md#g295) |
 | 2026-04-12 | 用語 | g294 | [トポロン（Topolon）](../glossary/wiim-concepts.md#g294) |
-| 2026-04-12 | 用語 | g293 | [トポロフィ（Topolophy）](../glossary/wiim-concepts.md#g293) |
