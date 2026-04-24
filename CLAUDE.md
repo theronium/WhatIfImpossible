@@ -87,6 +87,47 @@ node glossary/scripts/update-term.js
 - ノードには記事ID（`wiim_XXX`）または用語ID（`gXXX`）を記載する
 - 記事を複数追加したまとめてツリーを更新してもよい（1記事ごとのコミットは不要）
 
+## 図版の管理
+
+幾何学的構造などの図版は `docs/assets/shapes/` に PNG で保存する。
+
+### 生成スクリプト
+
+```bash
+pip install numpy matplotlib   # 初回のみ
+python tools/generate_shapes.py
+```
+
+`tools/generate_shapes.py` を編集して形状を追加・修正し、再実行すると上書き更新される。
+
+### 画像パスの規則
+
+参照元によってパスが異なる：
+
+| 参照元 | パス例 |
+|--------|--------|
+| `docs/notes/` | `../assets/shapes/gyroid.png` |
+| `glossary/terms/` | `../../docs/assets/shapes/gyroid.png` |
+
+### 用語 body への画像追加
+
+`update-term.js` は body を全文置換するため、既存 body への**追記**は Node.js で直接行う：
+
+```js
+node -e "
+const fs = require('fs');
+const lines = fs.readFileSync('glossary/data/terms.jsonl','utf-8').trim().split('\n');
+const idx = lines.findIndex(l => JSON.parse(l).id === 'gXXX');
+const t = JSON.parse(lines[idx]);
+t.body += '\n\n![名前](../../docs/assets/shapes/XXX.png)';
+lines[idx] = JSON.stringify(t);
+fs.writeFileSync('glossary/data/terms.jsonl', lines.join('\n')+'\n','utf-8');
+"
+node glossary/scripts/generate.js
+```
+
+---
+
 ## 記事の frontmatter
 
 ```yaml

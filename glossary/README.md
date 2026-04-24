@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **335**
+用語数: **339**
 
 ---
 
@@ -45,16 +45,23 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g339 | [バブルシェルマイセリウム](wiim-concepts.md) | Bubble Shell Mycelium | wiim-concepts |
+| g338 | [プラトーの法則](physics.md) | Plateau's Laws | physics |
+| g337 | [ルーローの三角形](mathematics.md) | Reuleaux Triangle | mathematics |
+| g336 | [墓場軌道](astronomy.md) | Graveyard Orbit | astronomy |
 | g335 | [カテノイド](physics.md) | Catenoid | physics |
 | g334 | [ルーネベルクレンズ](physics.md) | Luneburg Lens | physics |
 | g333 | [フラクタル分岐](physics.md) | Fractal Branching | physics |
 | g332 | [ジオデシック構造](physics.md) | Geodesic Structure | physics |
 | g331 | [テンセグリティ](physics.md) | Tensegrity | physics |
 | g330 | [ジャイロイド](physics.md) | Gyroid | physics |
-| g329 | [星震学](astronomy.md) | Asteroseismology | astronomy |
-| g328 | [アリスタルコス](astronomy.md) | Aristarchus of Samos | astronomy |
-| g327 | [エラトステネス](astronomy.md) | Eratosthenes | astronomy |
-| g326 | [ケプラーの法則](astronomy.md) | Kepler's Laws | astronomy |
+
+
+
+
+
+
+
 
 
 

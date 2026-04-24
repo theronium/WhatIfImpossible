@@ -4,6 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-24 | 記事 | wiim_084 | [バブルシェルマイセリウム——プラトーの法則が解くサイズ最適化と分散複眼集光体](biology/wiim_084.md) |
+| 2026-04-24 | 記事 | wiim_083 | [コズミックマイスの疑似ルーネベルク構造——低重力環境で球状コロニーが全方向集光体になるとき](biology/wiim_083.md) |
+| 2026-04-24 | 用語 | g339 | [バブルシェルマイセリウム（Bubble Shell Mycelium）](../glossary/wiim-concepts.md#g339) |
+| 2026-04-24 | 用語 | g338 | [プラトーの法則（Plateau's Laws）](../glossary/physics.md#g338) |
+| 2026-04-24 | 用語 | g337 | [ルーローの三角形（Reuleaux Triangle）](../glossary/mathematics.md#g337) |
+| 2026-04-24 | 用語 | g336 | [墓場軌道（Graveyard Orbit）](../glossary/astronomy.md#g336) |
 | 2026-04-24 | 補遺 | — | [工学的幾何構造一覧](notes/engineering_shapes.md) |
 | 2026-04-21 | 用語 | g329 | [星震学（Asteroseismology）](../glossary/astronomy.md#g329) |
 | 2026-04-20 | 用語 | g328 | [アリスタルコス（Aristarchus of Samos）](../glossary/astronomy.md#g328) |
@@ -48,9 +54,3 @@
 | 2026-04-14 | 補遺 | — | [コズミックマイスをめぐる信仰と社会](notes/cosmic_myce_religion.md) |
 | 2026-04-14 | 補遺 | — | [マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈](notes/mycelian_horror.md) |
 | 2026-04-13 | 記事 | wiim_075 | [コズミックマイスは歌うか——菌糸振動が音楽・通信・癒しに転化する世界](biology/wiim_075.md) |
-| 2026-04-13 | 用語 | g298 | [セルオートマトン（Cellular Automaton）](../glossary/philosophy.md#g298) |
-| 2026-04-13 | 用語 | g297 | [フェルマーの原理（Fermat's Principle）](../glossary/physics.md#g297) |
-| 2026-04-13 | 用語 | g296 | [測地線（Geodesic）](../glossary/physics.md#g296) |
-| 2026-04-12 | 記事 | wiim_074 | [ワープゲート基礎理論——コーラ粒子のマヨラナ的自己対とエニオンブレイドによるトポロジー接続](physics/wiim_074.md) |
-| 2026-04-12 | 用語 | g295 | [アーベル群（Abelian Group）](../glossary/mathematics.md#g295) |
-| 2026-04-12 | 用語 | g294 | [トポロン（Topolon）](../glossary/wiim-concepts.md#g294) |

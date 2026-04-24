@@ -116,4 +116,5 @@ flowchart TD
 - [wiim_043](../biology/wiim_043.md) — 宇宙ゴケ——地衣類とコズミックマイスの共生が生む自律型テラフォーミング艦
 - [wiim_025_gravity_zone](../notes/wiim_025_gravity_zone.md) — 補遺: シェルマイセリウムの安定立地——重力圏内外のどこに膜を張るか
 - [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
+- [wiim_084](../biology/wiim_084.md) — バブルシェルマイセリウム——プラトーの法則が解くサイズ最適化と分散複眼集光体
 
