@@ -23,6 +23,7 @@
 | [wiim_054_simulator.md](wiim_054_simulator.md) | シミュレータの内側ではカオスの創発文法は自明になる | wiim_054 | 2026-03-28 | 2026-03-28 |
 | [wiim_025_chronosphere_shell.md](wiim_025_chronosphere_shell.md) | シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件 | wiim_025, wiim_058, wiim_002 | 2026-04-04 | 2026-04-04 |
 | [wiim_022_cosmic_ring.md](wiim_022_cosmic_ring.md) | 恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー | — | 2026-04-05 | 2026-04-05 |
+| [wiim_022_traffic_patrol.md](wiim_022_traffic_patrol.md) | アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用 | wiim_022 | 2026-04-26 | 2026-04-26 |
 
 ---
 
