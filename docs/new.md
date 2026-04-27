@@ -4,6 +4,9 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-27 | 記事 | wiim_086 | [パランティ電子冷却——ディラック海転嫁を宇宙船熱管理に応用できるか](physics/wiim_086.md) |
+| 2026-04-27 | 記事 | wiim_085 | [パランティ電子と非熱的エネルギー存在様式——ディラック海への転嫁が熱創発を回避する条件](quantum/wiim_085.md) |
+| 2026-04-27 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-26 | 補遺 | — | [補遺：アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用](notes/wiim_022_traffic_patrol.md) |
 | 2026-04-24 | 記事 | wiim_084 | [バブルシェルマイセリウム——プラトーの法則が解くサイズ最適化と分散複眼集光体](biology/wiim_084.md) |
 | 2026-04-24 | 記事 | wiim_083 | [コズミックマイスの疑似ルーネベルク構造——低重力環境で球状コロニーが全方向集光体になるとき](biology/wiim_083.md) |
@@ -28,7 +31,6 @@
 | 2026-04-19 | 用語 | g321 | [ギャラクシードライブ（Galaxy Drive）](../glossary/wiim-concepts.md#g321) |
 | 2026-04-19 | 用語 | g320 | [バーディーン・ペッターソン効果（Bardeen-Petterson Effect）](../glossary/astronomy.md#g320) |
 | 2026-04-19 | 用語 | g319 | [活動銀河核（Active Galactic Nucleus）](../glossary/astronomy.md#g319) |
-| 2026-04-19 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-19 | 補遺 | — | [素粒子・複合粒子の分類階層](notes/particle_hierarchy.md) |
 | 2026-04-18 | 記事 | wiim_078 | [エクスタイドフロート——宇宙膨張の満ち引きをピエゾアンキロン素子で回収できるか](cosmology/wiim_078.md) |
 | 2026-04-18 | 記事 | wiim_077 | [架空粒子を掴む——光ピンセットから場の閉じ込めへ](physics/wiim_077.md) |
@@ -52,5 +54,3 @@
 | 2026-04-17 | 用語 | g301 | [同相（Homeomorphism）](../glossary/mathematics.md#g301) |
 | 2026-04-17 | 用語 | g300 | [三体問題（Three-body problem）](../glossary/physics.md#g300) |
 | 2026-04-14 | 用語 | g299 | [マイセリアン（Mycelian）](../glossary/wiim-concepts.md#g299) |
-| 2026-04-14 | 補遺 | — | [コズミックマイスをめぐる信仰と社会](notes/cosmic_myce_religion.md) |
-| 2026-04-14 | 補遺 | — | [マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈](notes/mycelian_horror.md) |

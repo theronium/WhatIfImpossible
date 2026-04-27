@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **340**
+用語数: **341**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g341 | [逆カシミール装置](wiim-engineering.md) | Inverse Casimir Device | wiim-engineering |
 | g340 | [極小曲面](mathematics.md) | Minimal Surface | mathematics |
 | g339 | [バブルシェルマイセリウム](wiim-concepts.md) | Bubble Shell Mycelium | wiim-concepts |
 | g338 | [プラトーの法則](physics.md) | Plateau's Laws | physics |
@@ -54,7 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g334 | [ルーネベルクレンズ](physics.md) | Luneburg Lens | physics |
 | g333 | [フラクタル分岐](physics.md) | Fractal Branching | physics |
 | g332 | [ジオデシック構造](physics.md) | Geodesic Structure | physics |
-| g331 | [テンセグリティ](physics.md) | Tensegrity | physics |
+
+
 
 
 
