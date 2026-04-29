@@ -4,6 +4,8 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-29 | 用語 | g343 | [虚数温度（Imaginary Temperature）](../glossary/wiim-concepts.md#g343) |
+| 2026-04-29 | 用語 | g342 | [ディラックサイフォン（Dirac Siphon）](../glossary/wiim-engineering.md#g342) |
 | 2026-04-27 | 記事 | wiim_086 | [パランティ電子冷却——ディラック海転嫁を宇宙船熱管理に応用できるか](physics/wiim_086.md) |
 | 2026-04-27 | 記事 | wiim_085 | [パランティ電子と非熱的エネルギー存在様式——ディラック海への転嫁が熱創発を回避する条件](quantum/wiim_085.md) |
 | 2026-04-27 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
@@ -52,5 +54,3 @@
 | 2026-04-17 | 用語 | g303 | [クラインの壺（Klein bottle）](../glossary/mathematics.md#g303) |
 | 2026-04-17 | 用語 | g302 | [メビウス環（Möbius strip）](../glossary/mathematics.md#g302) |
 | 2026-04-17 | 用語 | g301 | [同相（Homeomorphism）](../glossary/mathematics.md#g301) |
-| 2026-04-17 | 用語 | g300 | [三体問題（Three-body problem）](../glossary/physics.md#g300) |
-| 2026-04-14 | 用語 | g299 | [マイセリアン（Mycelian）](../glossary/wiim-concepts.md#g299) |

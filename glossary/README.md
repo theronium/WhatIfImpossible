@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **341**
+用語数: **344**
 
 ---
 
@@ -45,6 +45,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g344 | [ホロウゲイザー](wiim-concepts.md) | Hollow Gazer | wiim-concepts |
+| g343 | [虚数温度](wiim-concepts.md) | Imaginary Temperature | wiim-concepts |
+| g342 | [ディラックサイフォン](wiim-engineering.md) | Dirac Siphon | wiim-engineering |
 | g341 | [逆カシミール装置](wiim-engineering.md) | Inverse Casimir Device | wiim-engineering |
 | g340 | [極小曲面](mathematics.md) | Minimal Surface | mathematics |
 | g339 | [バブルシェルマイセリウム](wiim-concepts.md) | Bubble Shell Mycelium | wiim-concepts |
@@ -52,9 +55,16 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g337 | [ルーローの三角形](mathematics.md) | Reuleaux Triangle | mathematics |
 | g336 | [墓場軌道](astronomy.md) | Graveyard Orbit | astronomy |
 | g335 | [カテノイド](physics.md) | Catenoid | physics |
-| g334 | [ルーネベルクレンズ](physics.md) | Luneburg Lens | physics |
-| g333 | [フラクタル分岐](physics.md) | Fractal Branching | physics |
-| g332 | [ジオデシック構造](physics.md) | Geodesic Structure | physics |
+
+
+
+
+
+
+
+
+
+
 
 
 
