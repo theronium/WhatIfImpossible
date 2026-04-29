@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **344**
+用語数: **349**
 
 ---
 
@@ -45,16 +45,24 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g349 | [等角的循環宇宙論](astronomy.md) | Conformal Cyclic Cosmology | astronomy |
+| g348 | [カノニカルアンサンブル](physics.md) | Canonical Ensemble | physics |
+| g347 | [スクイーズド光](quantum.md) | Squeezed Light | quantum |
+| g346 | [有限温度場理論](physics.md) | Finite Temperature Field Theory | physics |
+| g345 | [場の量子論](physics.md) | Quantum Field Theory | physics |
 | g344 | [ホロウゲイザー](wiim-concepts.md) | Hollow Gazer | wiim-concepts |
 | g343 | [虚数温度](wiim-concepts.md) | Imaginary Temperature | wiim-concepts |
 | g342 | [ディラックサイフォン](wiim-engineering.md) | Dirac Siphon | wiim-engineering |
 | g341 | [逆カシミール装置](wiim-engineering.md) | Inverse Casimir Device | wiim-engineering |
 | g340 | [極小曲面](mathematics.md) | Minimal Surface | mathematics |
-| g339 | [バブルシェルマイセリウム](wiim-concepts.md) | Bubble Shell Mycelium | wiim-concepts |
-| g338 | [プラトーの法則](physics.md) | Plateau's Laws | physics |
-| g337 | [ルーローの三角形](mathematics.md) | Reuleaux Triangle | mathematics |
-| g336 | [墓場軌道](astronomy.md) | Graveyard Orbit | astronomy |
-| g335 | [カテノイド](physics.md) | Catenoid | physics |
+
+
+
+
+
+
+
+
 
 
 

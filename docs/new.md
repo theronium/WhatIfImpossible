@@ -4,6 +4,13 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-04-30 | 用語 | g349 | [等角的循環宇宙論（Conformal Cyclic Cosmology）](../glossary/astronomy.md#g349) |
+| 2026-04-30 | 用語 | g348 | [カノニカルアンサンブル（Canonical Ensemble）](../glossary/physics.md#g348) |
+| 2026-04-30 | 用語 | g347 | [スクイーズド光（Squeezed Light）](../glossary/quantum.md#g347) |
+| 2026-04-30 | 用語 | g346 | [有限温度場理論（Finite Temperature Field Theory）](../glossary/physics.md#g346) |
+| 2026-04-30 | 用語 | g345 | [場の量子論（Quantum Field Theory）](../glossary/physics.md#g345) |
+| 2026-04-29 | 記事 | wiim_088 | [負のエネルギーを制御できたなら何が変わるか](physics/wiim_088.md) |
+| 2026-04-29 | 記事 | wiim_087 | [ディラックサイフォンは負のエネルギーを抽出できるか](physics/wiim_087.md) |
 | 2026-04-29 | 用語 | g343 | [虚数温度（Imaginary Temperature）](../glossary/wiim-concepts.md#g343) |
 | 2026-04-29 | 用語 | g342 | [ディラックサイフォン（Dirac Siphon）](../glossary/wiim-engineering.md#g342) |
 | 2026-04-27 | 記事 | wiim_086 | [パランティ電子冷却——ディラック海転嫁を宇宙船熱管理に応用できるか](physics/wiim_086.md) |
@@ -47,10 +54,3 @@
 | 2026-04-18 | 用語 | g308 | [コルモゴロフの公理（Kolmogorov axioms）](../glossary/mathematics.md#g308) |
 | 2026-04-18 | 補遺 | — | [認識可能性の地平——自己言及が引き起こす原理的限界の地図](notes/ninshiki_chiheisen.md) |
 | 2026-04-17 | 記事 | wiim_076 | [投射の停止——静かな対消滅は宇宙の外側を映す影か](cosmology/wiim_076.md) |
-| 2026-04-17 | 用語 | g307 | [原則（Rule / Guiding principle）](../glossary/philosophy.md#g307) |
-| 2026-04-17 | 用語 | g306 | [原理（Principle）](../glossary/physics.md#g306) |
-| 2026-04-17 | 用語 | g305 | [公理（Axiom）](../glossary/mathematics.md#g305) |
-| 2026-04-17 | 用語 | g304 | [定理（Theorem）](../glossary/mathematics.md#g304) |
-| 2026-04-17 | 用語 | g303 | [クラインの壺（Klein bottle）](../glossary/mathematics.md#g303) |
-| 2026-04-17 | 用語 | g302 | [メビウス環（Möbius strip）](../glossary/mathematics.md#g302) |
-| 2026-04-17 | 用語 | g301 | [同相（Homeomorphism）](../glossary/mathematics.md#g301) |
