@@ -4,6 +4,9 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-01 | 補遺 | — | [エキゾチック物理学 — WIIM粒子・物質一覧](notes/exotic_physics_catalog.md) |
+| 2026-05-01 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
+| 2026-04-30 | 用語 | g350 | [エキゾチック物理学（Exotic Physics）](../glossary/wiim-concepts.md#g350) |
 | 2026-04-30 | 用語 | g349 | [等角的循環宇宙論（Conformal Cyclic Cosmology）](../glossary/astronomy.md#g349) |
 | 2026-04-30 | 用語 | g348 | [カノニカルアンサンブル（Canonical Ensemble）](../glossary/physics.md#g348) |
 | 2026-04-30 | 用語 | g347 | [スクイーズド光（Squeezed Light）](../glossary/quantum.md#g347) |
@@ -15,7 +18,6 @@
 | 2026-04-29 | 用語 | g342 | [ディラックサイフォン（Dirac Siphon）](../glossary/wiim-engineering.md#g342) |
 | 2026-04-27 | 記事 | wiim_086 | [パランティ電子冷却——ディラック海転嫁を宇宙船熱管理に応用できるか](physics/wiim_086.md) |
 | 2026-04-27 | 記事 | wiim_085 | [パランティ電子と非熱的エネルギー存在様式——ディラック海への転嫁が熱創発を回避する条件](quantum/wiim_085.md) |
-| 2026-04-27 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-04-26 | 補遺 | — | [補遺：アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用](notes/wiim_022_traffic_patrol.md) |
 | 2026-04-24 | 記事 | wiim_084 | [バブルシェルマイセリウム——プラトーの法則が解くサイズ最適化と分散複眼集光体](biology/wiim_084.md) |
 | 2026-04-24 | 記事 | wiim_083 | [コズミックマイスの疑似ルーネベルク構造——低重力環境で球状コロニーが全方向集光体になるとき](biology/wiim_083.md) |
@@ -52,5 +54,3 @@
 | 2026-04-18 | 用語 | g310 | [認識可能性の地平（Epistemological Horizon）](../glossary/philosophy.md#g310) |
 | 2026-04-18 | 用語 | g309 | [フェルマーの最終定理（Fermat's Last Theorem）](../glossary/mathematics.md#g309) |
 | 2026-04-18 | 用語 | g308 | [コルモゴロフの公理（Kolmogorov axioms）](../glossary/mathematics.md#g308) |
-| 2026-04-18 | 補遺 | — | [認識可能性の地平——自己言及が引き起こす原理的限界の地図](notes/ninshiki_chiheisen.md) |
-| 2026-04-17 | 記事 | wiim_076 | [投射の停止——静かな対消滅は宇宙の外側を映す影か](cosmology/wiim_076.md) |

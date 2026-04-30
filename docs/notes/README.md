@@ -53,6 +53,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [particle_hierarchy.md](particle_hierarchy.md) | 素粒子・複合粒子の分類階層 | 2026-04-19 | 2026-04-19 |
 | [kepler_geostationary_derivation.md](kepler_geostationary_derivation.md) | 天体質量の測定手法と静止軌道パラメータの導出 | 2026-04-20 | 2026-04-20 |
 | [engineering_shapes.md](engineering_shapes.md) | 工学的幾何構造一覧 | 2026-04-24 | 2026-04-24 |
+| [exotic_physics_catalog.md](exotic_physics_catalog.md) | エキゾチック物理学 — WIIM粒子・物質一覧 | 2026-05-01 | 2026-05-01 |
 
 ---
 
@@ -60,4 +61,4 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 
 | ファイル | タイトル | 登録 | 更新 |
 |---------|---------|------|------|
-| [tech_tree.md](tech_tree.md) | WhatIfImpossible 技術ツリー | 2026-04-27 | 2026-04-27 |
+| [tech_tree.md](tech_tree.md) | WhatIfImpossible 技術ツリー | 2026-05-01 | 2026-05-01 |
