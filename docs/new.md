@@ -4,8 +4,13 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-02 | 用語 | g352 | [モリス＝ソーン型ワームホール（Morris-Thorne Wormhole）](../glossary/physics.md#g352) |
+| 2026-05-02 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
+| 2026-05-02 | 補遺 | — | [ネグレーザーによるER橋安定化——ホロウゲイザーとの役割分担](notes/wiim_089_neglaser_er_bridge.md) |
+| 2026-05-01 | 記事 | wiim_089 | [ブラックホール潜入とワームホール開通——潮汐力シールドから因果構造の書き換えまで](cosmology/wiim_089.md) |
+| 2026-05-01 | 用語 | g351 | [スタタイト（Statite）](../glossary/astronomy.md#g351) |
 | 2026-05-01 | 補遺 | — | [エキゾチック物理学 — WIIM粒子・物質一覧](notes/exotic_physics_catalog.md) |
-| 2026-05-01 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
+| 2026-05-01 | 補遺 | — | [遠心力・コリオリ力・潮汐力の比較](notes/forces_centrifugal_tidal.md) |
 | 2026-04-30 | 用語 | g350 | [エキゾチック物理学（Exotic Physics）](../glossary/wiim-concepts.md#g350) |
 | 2026-04-30 | 用語 | g349 | [等角的循環宇宙論（Conformal Cyclic Cosmology）](../glossary/astronomy.md#g349) |
 | 2026-04-30 | 用語 | g348 | [カノニカルアンサンブル（Canonical Ensemble）](../glossary/physics.md#g348) |
@@ -49,8 +54,3 @@
 | 2026-04-18 | 用語 | g315 | [トポロフィピン（Topolophy Pin）](../glossary/wiim-engineering.md#g315) |
 | 2026-04-18 | 用語 | g314 | [アンキロンピン（Ankyron Pin）](../glossary/wiim-engineering.md#g314) |
 | 2026-04-18 | 用語 | g313 | [光ピンセット（Optical Tweezers）](../glossary/physics.md#g313) |
-| 2026-04-18 | 用語 | g312 | [ラッセルのパラドックス（Russell's Paradox）](../glossary/mathematics.md#g312) |
-| 2026-04-18 | 用語 | g311 | [不確定性原理（Uncertainty Principle）](../glossary/quantum.md#g311) |
-| 2026-04-18 | 用語 | g310 | [認識可能性の地平（Epistemological Horizon）](../glossary/philosophy.md#g310) |
-| 2026-04-18 | 用語 | g309 | [フェルマーの最終定理（Fermat's Last Theorem）](../glossary/mathematics.md#g309) |
-| 2026-04-18 | 用語 | g308 | [コルモゴロフの公理（Kolmogorov axioms）](../glossary/mathematics.md#g308) |
