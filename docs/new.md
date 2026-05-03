@@ -4,6 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-03 | 用語 | g356 | [宇宙の距離梯子（Cosmic Distance Ladder）](../glossary/astronomy.md#g356) |
+| 2026-05-03 | 用語 | g355 | [年周視差（Annual Parallax）](../glossary/astronomy.md#g355) |
+| 2026-05-03 | 用語 | g354 | [セファイド変光星（Cepheid Variable）](../glossary/astronomy.md#g354) |
+| 2026-05-03 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
+| 2026-05-03 | 補遺 | — | [天体距離測定の歴史——地球の大きさから太陽系スケールへ](notes/astronomical_distance_history.md) |
+| 2026-05-02 | 用語 | g353 | [アナレンマ（Analemma）](../glossary/astronomy.md#g353) |
 | 2026-05-02 | 用語 | g352 | [モリス＝ソーン型ワームホール（Morris-Thorne Wormhole）](../glossary/physics.md#g352) |
 | 2026-05-02 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-02 | 補遺 | — | [ネグレーザーによるER橋安定化——ホロウゲイザーとの役割分担](notes/wiim_089_neglaser_er_bridge.md) |
@@ -35,7 +41,6 @@
 | 2026-04-20 | 用語 | g328 | [アリスタルコス（Aristarchus of Samos）](../glossary/astronomy.md#g328) |
 | 2026-04-20 | 用語 | g327 | [エラトステネス（Eratosthenes）](../glossary/astronomy.md#g327) |
 | 2026-04-20 | 用語 | g326 | [ケプラーの法則（Kepler's Laws）](../glossary/astronomy.md#g326) |
-| 2026-04-20 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
 | 2026-04-19 | 記事 | wiim_082 | [パラドックス解消公理——空間歪みが因果矛盾を自動解消するとき](physics/wiim_082.md) |
 | 2026-04-19 | 記事 | wiim_081 | [コーラ粒子は事象の地平線を抜けられるか——ブラックホール内外の空間超越と因果律の衝突](physics/wiim_081.md) |
 | 2026-04-19 | 記事 | wiim_080 | [ネゴトンホワイトホールワープ——安定維持した排除地平線を推進力に転用できるか](physics/wiim_080.md) |
@@ -49,8 +54,3 @@
 | 2026-04-19 | 用語 | g319 | [活動銀河核（Active Galactic Nucleus）](../glossary/astronomy.md#g319) |
 | 2026-04-19 | 補遺 | — | [素粒子・複合粒子の分類階層](notes/particle_hierarchy.md) |
 | 2026-04-18 | 記事 | wiim_078 | [エクスタイドフロート——宇宙膨張の満ち引きをピエゾアンキロン素子で回収できるか](cosmology/wiim_078.md) |
-| 2026-04-18 | 記事 | wiim_077 | [架空粒子を掴む——光ピンセットから場の閉じ込めへ](physics/wiim_077.md) |
-| 2026-04-18 | 用語 | g316 | [ボース・ネゴトン（Bose-Negoton）](../glossary/wiim-concepts.md#g316) |
-| 2026-04-18 | 用語 | g315 | [トポロフィピン（Topolophy Pin）](../glossary/wiim-engineering.md#g315) |
-| 2026-04-18 | 用語 | g314 | [アンキロンピン（Ankyron Pin）](../glossary/wiim-engineering.md#g314) |
-| 2026-04-18 | 用語 | g313 | [光ピンセット（Optical Tweezers）](../glossary/physics.md#g313) |

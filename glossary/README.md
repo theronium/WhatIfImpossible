@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **352**
+用語数: **356**
 
 ---
 
@@ -45,16 +45,20 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g356 | [宇宙の距離梯子](astronomy.md) | Cosmic Distance Ladder | astronomy |
+| g355 | [年周視差](astronomy.md) | Annual Parallax | astronomy |
+| g354 | [セファイド変光星](astronomy.md) | Cepheid Variable | astronomy |
+| g353 | [アナレンマ](astronomy.md) | Analemma | astronomy |
 | g352 | [モリス＝ソーン型ワームホール](physics.md) | Morris-Thorne Wormhole | physics |
 | g351 | [スタタイト](astronomy.md) | Statite | astronomy |
 | g350 | [エキゾチック物理学](wiim-concepts.md) | Exotic Physics | wiim-concepts |
 | g349 | [等角的循環宇宙論](astronomy.md) | Conformal Cyclic Cosmology | astronomy |
 | g348 | [カノニカルアンサンブル](physics.md) | Canonical Ensemble | physics |
 | g347 | [スクイーズド光](quantum.md) | Squeezed Light | quantum |
-| g346 | [有限温度場理論](physics.md) | Finite Temperature Field Theory | physics |
-| g345 | [場の量子論](physics.md) | Quantum Field Theory | physics |
-| g344 | [ホロウゲイザー](wiim-concepts.md) | Hollow Gazer | wiim-concepts |
-| g343 | [虚数温度](wiim-concepts.md) | Imaginary Temperature | wiim-concepts |
+
+
+
+
 
 
 
