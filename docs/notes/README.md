@@ -57,6 +57,8 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_089_neglaser_er_bridge.md](wiim_089_neglaser_er_bridge.md) | ネグレーザーによるER橋安定化——ホロウゲイザーとの役割分担 | 2026-05-02 | 2026-05-02 |
 | [kepler_geostationary_derivation.md](kepler_geostationary_derivation.md) | 天体質量の測定手法と静止軌道パラメータの導出 | 2026-05-03 | 2026-05-03 |
 | [astronomical_distance_history.md](astronomical_distance_history.md) | 天体距離測定の歴史——地球の大きさから太陽系スケールへ | 2026-05-03 | 2026-05-03 |
+| [astronomical_units.md](astronomical_units.md) | 天文学の単位一覧——距離・質量・角度・明るさ | 2026-05-03 | 2026-05-03 |
+| [satellite_orbits.md](satellite_orbits.md) | 人工衛星の特殊軌道——太陽同期・モルニア・ハロー軌道と軌道選択の論理 | 2026-05-05 | 2026-05-05 |
 
 ---
 

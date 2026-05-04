@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **356**
+用語数: **358**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g358 | [太陽同期軌道](astronomy.md) | Sun-Synchronous Orbit | astronomy |
+| g357 | [モルニア軌道](astronomy.md) | Molniya Orbit | astronomy |
 | g356 | [宇宙の距離梯子](astronomy.md) | Cosmic Distance Ladder | astronomy |
 | g355 | [年周視差](astronomy.md) | Annual Parallax | astronomy |
 | g354 | [セファイド変光星](astronomy.md) | Cepheid Variable | astronomy |
@@ -53,8 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g351 | [スタタイト](astronomy.md) | Statite | astronomy |
 | g350 | [エキゾチック物理学](wiim-concepts.md) | Exotic Physics | wiim-concepts |
 | g349 | [等角的循環宇宙論](astronomy.md) | Conformal Cyclic Cosmology | astronomy |
-| g348 | [カノニカルアンサンブル](physics.md) | Canonical Ensemble | physics |
-| g347 | [スクイーズド光](quantum.md) | Squeezed Light | quantum |
+
+
 
 
 

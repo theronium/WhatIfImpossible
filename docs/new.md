@@ -4,11 +4,15 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-05 | 用語 | g358 | [太陽同期軌道（Sun-Synchronous Orbit）](../glossary/astronomy.md#g358) |
+| 2026-05-05 | 用語 | g357 | [モルニア軌道（Molniya Orbit）](../glossary/astronomy.md#g357) |
+| 2026-05-05 | 補遺 | — | [人工衛星の特殊軌道——太陽同期・モルニア・ハロー軌道と軌道選択の論理](notes/satellite_orbits.md) |
 | 2026-05-03 | 用語 | g356 | [宇宙の距離梯子（Cosmic Distance Ladder）](../glossary/astronomy.md#g356) |
 | 2026-05-03 | 用語 | g355 | [年周視差（Annual Parallax）](../glossary/astronomy.md#g355) |
 | 2026-05-03 | 用語 | g354 | [セファイド変光星（Cepheid Variable）](../glossary/astronomy.md#g354) |
 | 2026-05-03 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
 | 2026-05-03 | 補遺 | — | [天体距離測定の歴史——地球の大きさから太陽系スケールへ](notes/astronomical_distance_history.md) |
+| 2026-05-03 | 補遺 | — | [天文学の単位一覧——距離・質量・角度・明るさ](notes/astronomical_units.md) |
 | 2026-05-02 | 用語 | g353 | [アナレンマ（Analemma）](../glossary/astronomy.md#g353) |
 | 2026-05-02 | 用語 | g352 | [モリス＝ソーン型ワームホール（Morris-Thorne Wormhole）](../glossary/physics.md#g352) |
 | 2026-05-02 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
@@ -50,7 +54,3 @@
 | 2026-04-19 | 用語 | g323 | [量子イモムシ（Quantum Caterpillar）](../glossary/physics.md#g323) |
 | 2026-04-19 | 用語 | g322 | [ER=EPR予想（ER=EPR Conjecture）](../glossary/physics.md#g322) |
 | 2026-04-19 | 用語 | g321 | [ギャラクシードライブ（Galaxy Drive）](../glossary/wiim-concepts.md#g321) |
-| 2026-04-19 | 用語 | g320 | [バーディーン・ペッターソン効果（Bardeen-Petterson Effect）](../glossary/astronomy.md#g320) |
-| 2026-04-19 | 用語 | g319 | [活動銀河核（Active Galactic Nucleus）](../glossary/astronomy.md#g319) |
-| 2026-04-19 | 補遺 | — | [素粒子・複合粒子の分類階層](notes/particle_hierarchy.md) |
-| 2026-04-18 | 記事 | wiim_078 | [エクスタイドフロート——宇宙膨張の満ち引きをピエゾアンキロン素子で回収できるか](cosmology/wiim_078.md) |
