@@ -98,4 +98,5 @@ flowchart TD
 - [wiim_054_simulator](../notes/wiim_054_simulator.md) — 補遺: シミュレータの内側ではカオスの創発文法は自明になる
 - [wiim_055](../philosophy/wiim_055.md) — シミュレーション世界検証方程式——現実なら破れるはずの限界が破れないとき
 - [wiim_056](../philosophy/wiim_056.md) — ベッケンシュタイン限界の突破——局所情報密度が時空を書き換えるとき
+- [chaos_demon_foundation](../notes/chaos_demon_foundation.md) — 補遺: カオスの悪魔と創発文法——ラプラスの悪魔の論理的継承と無謬性への経路
 

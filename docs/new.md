@@ -4,6 +4,10 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-06 | 用語 | g361 | [ゆえに記号（therefore sign）](../glossary/mathematics.md#g361) |
+| 2026-05-06 | 用語 | g360 | [ハルモス記号（Halmos symbol）](../glossary/mathematics.md#g360) |
+| 2026-05-06 | 用語 | g359 | [ヘンペルのカラス（Hempel's Raven）](../glossary/philosophy.md#g359) |
+| 2026-05-06 | 補遺 | — | [補遺：カオスの悪魔と創発文法——ラプラスの悪魔の論理的継承と無謬性への経路](notes/chaos_demon_foundation.md) |
 | 2026-05-05 | 用語 | g358 | [太陽同期軌道（Sun-Synchronous Orbit）](../glossary/astronomy.md#g358) |
 | 2026-05-05 | 用語 | g357 | [モルニア軌道（Molniya Orbit）](../glossary/astronomy.md#g357) |
 | 2026-05-05 | 補遺 | — | [人工衛星の特殊軌道——太陽同期・モルニア・ハロー軌道と軌道選択の論理](notes/satellite_orbits.md) |
@@ -50,7 +54,3 @@
 | 2026-04-19 | 記事 | wiim_080 | [ネゴトンホワイトホールワープ——安定維持した排除地平線を推進力に転用できるか](physics/wiim_080.md) |
 | 2026-04-19 | 記事 | wiim_079 | [ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか](cosmology/wiim_079.md) |
 | 2026-04-19 | 用語 | g325 | [ラニアケア超銀河団（Laniakea Supercluster）](../glossary/astronomy.md#g325) |
-| 2026-04-19 | 用語 | g324 | [パラドックス解消公理（Paradox Resolution Axiom）](../glossary/wiim-concepts.md#g324) |
-| 2026-04-19 | 用語 | g323 | [量子イモムシ（Quantum Caterpillar）](../glossary/physics.md#g323) |
-| 2026-04-19 | 用語 | g322 | [ER=EPR予想（ER=EPR Conjecture）](../glossary/physics.md#g322) |
-| 2026-04-19 | 用語 | g321 | [ギャラクシードライブ（Galaxy Drive）](../glossary/wiim-concepts.md#g321) |

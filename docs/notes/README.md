@@ -24,6 +24,7 @@
 | [wiim_025_chronosphere_shell.md](wiim_025_chronosphere_shell.md) | シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件 | wiim_025, wiim_058, wiim_002 | 2026-04-04 | 2026-04-04 |
 | [wiim_022_cosmic_ring.md](wiim_022_cosmic_ring.md) | 恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー | — | 2026-04-05 | 2026-04-05 |
 | [wiim_022_traffic_patrol.md](wiim_022_traffic_patrol.md) | アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用 | wiim_022 | 2026-04-26 | 2026-04-26 |
+| [chaos_demon_foundation.md](chaos_demon_foundation.md) | カオスの悪魔と創発文法——ラプラスの悪魔の論理的継承と無謬性への経路 | — | 2026-05-06 | 2026-05-06 |
 
 ---
 
