@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **361**
+用語数: **365**
 
 ---
 
@@ -45,16 +45,22 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g365 | [フォノン](quantum.md) | Phonon | quantum |
+| g364 | [紫外破綻](physics.md) | Ultraviolet Catastrophe | physics |
+| g363 | [プランクの法則](physics.md) | Planck's Law | physics |
+| g362 | [シュテファン＝ボルツマンの法則](physics.md) | Stefan-Boltzmann Law | physics |
 | g361 | [ゆえに記号](mathematics.md) | therefore sign | mathematics |
 | g360 | [ハルモス記号](mathematics.md) | Halmos symbol | mathematics |
 | g359 | [ヘンペルのカラス](philosophy.md) | Hempel's Raven | philosophy |
 | g358 | [太陽同期軌道](astronomy.md) | Sun-Synchronous Orbit | astronomy |
 | g357 | [モルニア軌道](astronomy.md) | Molniya Orbit | astronomy |
 | g356 | [宇宙の距離梯子](astronomy.md) | Cosmic Distance Ladder | astronomy |
-| g355 | [年周視差](astronomy.md) | Annual Parallax | astronomy |
-| g354 | [セファイド変光星](astronomy.md) | Cepheid Variable | astronomy |
-| g353 | [アナレンマ](astronomy.md) | Analemma | astronomy |
-| g352 | [モリス＝ソーン型ワームホール](physics.md) | Morris-Thorne Wormhole | physics |
+
+
+
+
+
+
 
 
 

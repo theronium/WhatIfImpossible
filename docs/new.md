@@ -4,6 +4,10 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-08 | 用語 | g365 | [フォノン（Phonon）](../glossary/quantum.md#g365) |
+| 2026-05-08 | 用語 | g364 | [紫外破綻（Ultraviolet Catastrophe）](../glossary/physics.md#g364) |
+| 2026-05-08 | 用語 | g363 | [プランクの法則（Planck's Law）](../glossary/physics.md#g363) |
+| 2026-05-08 | 用語 | g362 | [シュテファン＝ボルツマンの法則（Stefan-Boltzmann Law）](../glossary/physics.md#g362) |
 | 2026-05-06 | 用語 | g361 | [ゆえに記号（therefore sign）](../glossary/mathematics.md#g361) |
 | 2026-05-06 | 用語 | g360 | [ハルモス記号（Halmos symbol）](../glossary/mathematics.md#g360) |
 | 2026-05-06 | 用語 | g359 | [ヘンペルのカラス（Hempel's Raven）](../glossary/philosophy.md#g359) |
@@ -50,7 +54,3 @@
 | 2026-04-20 | 用語 | g327 | [エラトステネス（Eratosthenes）](../glossary/astronomy.md#g327) |
 | 2026-04-20 | 用語 | g326 | [ケプラーの法則（Kepler's Laws）](../glossary/astronomy.md#g326) |
 | 2026-04-19 | 記事 | wiim_082 | [パラドックス解消公理——空間歪みが因果矛盾を自動解消するとき](physics/wiim_082.md) |
-| 2026-04-19 | 記事 | wiim_081 | [コーラ粒子は事象の地平線を抜けられるか——ブラックホール内外の空間超越と因果律の衝突](physics/wiim_081.md) |
-| 2026-04-19 | 記事 | wiim_080 | [ネゴトンホワイトホールワープ——安定維持した排除地平線を推進力に転用できるか](physics/wiim_080.md) |
-| 2026-04-19 | 記事 | wiim_079 | [ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか](cosmology/wiim_079.md) |
-| 2026-04-19 | 用語 | g325 | [ラニアケア超銀河団（Laniakea Supercluster）](../glossary/astronomy.md#g325) |
