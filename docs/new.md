@@ -4,6 +4,10 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-09 | 用語 | g367 | [エンタルピー（Enthalpy）](../glossary/physics.md#g367) |
+| 2026-05-09 | 用語 | g366 | [角速度（Angular Velocity）](../glossary/physics.md#g366) |
+| 2026-05-09 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
+| 2026-05-09 | 補遺 | — | [宇宙空間・真空における放熱技術](notes/space_thermal_radiation.md) |
 | 2026-05-08 | 用語 | g365 | [フォノン（Phonon）](../glossary/quantum.md#g365) |
 | 2026-05-08 | 用語 | g364 | [紫外破綻（Ultraviolet Catastrophe）](../glossary/physics.md#g364) |
 | 2026-05-08 | 用語 | g363 | [プランクの法則（Planck's Law）](../glossary/physics.md#g363) |
@@ -18,7 +22,6 @@
 | 2026-05-03 | 用語 | g356 | [宇宙の距離梯子（Cosmic Distance Ladder）](../glossary/astronomy.md#g356) |
 | 2026-05-03 | 用語 | g355 | [年周視差（Annual Parallax）](../glossary/astronomy.md#g355) |
 | 2026-05-03 | 用語 | g354 | [セファイド変光星（Cepheid Variable）](../glossary/astronomy.md#g354) |
-| 2026-05-03 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
 | 2026-05-03 | 補遺 | — | [天体距離測定の歴史——地球の大きさから太陽系スケールへ](notes/astronomical_distance_history.md) |
 | 2026-05-03 | 補遺 | — | [天文学の単位一覧——距離・質量・角度・明るさ](notes/astronomical_units.md) |
 | 2026-05-02 | 用語 | g353 | [アナレンマ（Analemma）](../glossary/astronomy.md#g353) |
@@ -51,6 +54,3 @@
 | 2026-04-24 | 補遺 | — | [工学的幾何構造一覧](notes/engineering_shapes.md) |
 | 2026-04-21 | 用語 | g329 | [星震学（Asteroseismology）](../glossary/astronomy.md#g329) |
 | 2026-04-20 | 用語 | g328 | [アリスタルコス（Aristarchus of Samos）](../glossary/astronomy.md#g328) |
-| 2026-04-20 | 用語 | g327 | [エラトステネス（Eratosthenes）](../glossary/astronomy.md#g327) |
-| 2026-04-20 | 用語 | g326 | [ケプラーの法則（Kepler's Laws）](../glossary/astronomy.md#g326) |
-| 2026-04-19 | 記事 | wiim_082 | [パラドックス解消公理——空間歪みが因果矛盾を自動解消するとき](physics/wiim_082.md) |
