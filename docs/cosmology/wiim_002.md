@@ -106,4 +106,5 @@ flowchart TD
 - [wiim_022_cosmic_ring](../notes/wiim_022_cosmic_ring.md) — 補遺: 恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー
 - [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
 - [wiim_076](wiim_076.md) — 投射の停止——静かな対消滅は宇宙の外側を映す影か
+- [wiim_090](wiim_090.md) — クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド
 

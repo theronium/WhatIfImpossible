@@ -4,6 +4,8 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-11 | 記事 | wiim_090 | [クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド](cosmology/wiim_090.md) |
+| 2026-05-11 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-09 | 用語 | g367 | [エンタルピー（Enthalpy）](../glossary/physics.md#g367) |
 | 2026-05-09 | 用語 | g366 | [角速度（Angular Velocity）](../glossary/physics.md#g366) |
 | 2026-05-09 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
@@ -26,7 +28,6 @@
 | 2026-05-03 | 補遺 | — | [天文学の単位一覧——距離・質量・角度・明るさ](notes/astronomical_units.md) |
 | 2026-05-02 | 用語 | g353 | [アナレンマ（Analemma）](../glossary/astronomy.md#g353) |
 | 2026-05-02 | 用語 | g352 | [モリス＝ソーン型ワームホール（Morris-Thorne Wormhole）](../glossary/physics.md#g352) |
-| 2026-05-02 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-02 | 補遺 | — | [ネグレーザーによるER橋安定化——ホロウゲイザーとの役割分担](notes/wiim_089_neglaser_er_bridge.md) |
 | 2026-05-01 | 記事 | wiim_089 | [ブラックホール潜入とワームホール開通——潮汐力シールドから因果構造の書き換えまで](cosmology/wiim_089.md) |
 | 2026-05-01 | 用語 | g351 | [スタタイト（Statite）](../glossary/astronomy.md#g351) |
@@ -53,4 +54,3 @@
 | 2026-04-24 | 用語 | g336 | [墓場軌道（Graveyard Orbit）](../glossary/astronomy.md#g336) |
 | 2026-04-24 | 補遺 | — | [工学的幾何構造一覧](notes/engineering_shapes.md) |
 | 2026-04-21 | 用語 | g329 | [星震学（Asteroseismology）](../glossary/astronomy.md#g329) |
-| 2026-04-20 | 用語 | g328 | [アリスタルコス（Aristarchus of Samos）](../glossary/astronomy.md#g328) |

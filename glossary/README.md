@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **367**
+用語数: **368**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g368 | [時空メタマテリアル](wiim-concepts.md) | Spacetime Metamaterial | wiim-concepts |
 | g367 | [エンタルピー](physics.md) | Enthalpy | physics |
 | g366 | [角速度](physics.md) | Angular Velocity | physics |
 | g365 | [フォノン](quantum.md) | Phonon | quantum |
@@ -54,7 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g361 | [ゆえに記号](mathematics.md) | therefore sign | mathematics |
 | g360 | [ハルモス記号](mathematics.md) | Halmos symbol | mathematics |
 | g359 | [ヘンペルのカラス](philosophy.md) | Hempel's Raven | philosophy |
-| g358 | [太陽同期軌道](astronomy.md) | Sun-Synchronous Orbit | astronomy |
+
+
 
 
 
