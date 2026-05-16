@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **368**
+用語数: **377**
 
 ---
 
@@ -45,16 +45,26 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g377 | [アーンショーの定理](physics.md) | Earnshaw's Theorem | physics |
+| g376 | [スピンアイス結晶](quantum.md) | Spin Ice | quantum |
+| g375 | [ディラックの弦](particle.md) | Dirac String | particle |
+| g374 | [GOCE重力観測衛星](astronomy.md) | GOCE (Gravity field and steady-state Ocean Circulation Explorer) | astronomy |
+| g373 | [テザー衛星](physics.md) | Tethered Satellite | physics |
+| g372 | [スカイフック](physics.md) | Skyhook | physics |
+| g371 | [弾道係数](physics.md) | Ballistic Coefficient | physics |
+| g370 | [マグナス効果](physics.md) | Magnus Effect | physics |
+| g369 | [光格子](quantum.md) | Optical Lattice | quantum |
 | g368 | [時空メタマテリアル](wiim-concepts.md) | Spacetime Metamaterial | wiim-concepts |
-| g367 | [エンタルピー](physics.md) | Enthalpy | physics |
-| g366 | [角速度](physics.md) | Angular Velocity | physics |
-| g365 | [フォノン](quantum.md) | Phonon | quantum |
-| g364 | [紫外破綻](physics.md) | Ultraviolet Catastrophe | physics |
-| g363 | [プランクの法則](physics.md) | Planck's Law | physics |
-| g362 | [シュテファン＝ボルツマンの法則](physics.md) | Stefan-Boltzmann Law | physics |
-| g361 | [ゆえに記号](mathematics.md) | therefore sign | mathematics |
-| g360 | [ハルモス記号](mathematics.md) | Halmos symbol | mathematics |
-| g359 | [ヘンペルのカラス](philosophy.md) | Hempel's Raven | philosophy |
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -4,6 +4,16 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-16 | 記事 | wiim_091 | [大気境界衛星——安定軌道の三方式と使い捨て群探査への問いの転換](physics/wiim_091.md) |
+| 2026-05-16 | 用語 | g377 | [アーンショーの定理（Earnshaw's Theorem）](../glossary/physics.md#g377) |
+| 2026-05-16 | 用語 | g376 | [スピンアイス結晶（Spin Ice）](../glossary/quantum.md#g376) |
+| 2026-05-16 | 用語 | g375 | [ディラックの弦（Dirac String）](../glossary/particle.md#g375) |
+| 2026-05-16 | 用語 | g374 | [GOCE重力観測衛星（GOCE (Gravity field and steady-state Ocean Circulation Explorer)）](../glossary/astronomy.md#g374) |
+| 2026-05-16 | 用語 | g373 | [テザー衛星（Tethered Satellite）](../glossary/physics.md#g373) |
+| 2026-05-16 | 用語 | g372 | [スカイフック（Skyhook）](../glossary/physics.md#g372) |
+| 2026-05-16 | 用語 | g371 | [弾道係数（Ballistic Coefficient）](../glossary/physics.md#g371) |
+| 2026-05-16 | 用語 | g370 | [マグナス効果（Magnus Effect）](../glossary/physics.md#g370) |
+| 2026-05-15 | 用語 | g369 | [光格子（Optical Lattice）](../glossary/quantum.md#g369) |
 | 2026-05-11 | 記事 | wiim_090 | [クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド](cosmology/wiim_090.md) |
 | 2026-05-11 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-09 | 用語 | g367 | [エンタルピー（Enthalpy）](../glossary/physics.md#g367) |
@@ -44,13 +54,3 @@
 | 2026-04-29 | 用語 | g343 | [虚数温度（Imaginary Temperature）](../glossary/wiim-concepts.md#g343) |
 | 2026-04-29 | 用語 | g342 | [ディラックサイフォン（Dirac Siphon）](../glossary/wiim-engineering.md#g342) |
 | 2026-04-27 | 記事 | wiim_086 | [パランティ電子冷却——ディラック海転嫁を宇宙船熱管理に応用できるか](physics/wiim_086.md) |
-| 2026-04-27 | 記事 | wiim_085 | [パランティ電子と非熱的エネルギー存在様式——ディラック海への転嫁が熱創発を回避する条件](quantum/wiim_085.md) |
-| 2026-04-26 | 補遺 | — | [補遺：アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用](notes/wiim_022_traffic_patrol.md) |
-| 2026-04-24 | 記事 | wiim_084 | [バブルシェルマイセリウム——プラトーの法則が解くサイズ最適化と分散複眼集光体](biology/wiim_084.md) |
-| 2026-04-24 | 記事 | wiim_083 | [コズミックマイスの疑似ルーネベルク構造——低重力環境で球状コロニーが全方向集光体になるとき](biology/wiim_083.md) |
-| 2026-04-24 | 用語 | g339 | [バブルシェルマイセリウム（Bubble Shell Mycelium）](../glossary/wiim-concepts.md#g339) |
-| 2026-04-24 | 用語 | g338 | [プラトーの法則（Plateau's Laws）](../glossary/physics.md#g338) |
-| 2026-04-24 | 用語 | g337 | [ルーローの三角形（Reuleaux Triangle）](../glossary/mathematics.md#g337) |
-| 2026-04-24 | 用語 | g336 | [墓場軌道（Graveyard Orbit）](../glossary/astronomy.md#g336) |
-| 2026-04-24 | 補遺 | — | [工学的幾何構造一覧](notes/engineering_shapes.md) |
-| 2026-04-21 | 用語 | g329 | [星震学（Asteroseismology）](../glossary/astronomy.md#g329) |
