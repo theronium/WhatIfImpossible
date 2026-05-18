@@ -4,6 +4,14 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-19 | 記事 | wiim_093 | [複合推進で回遊するヘリオスフィア生命体——軌道域ごとに推進機構を切り替える統合生態](biology/wiim_093.md) |
+| 2026-05-17 | 記事 | wiim_092 | [太陽光子圧で回遊する磁気帆生命体——コスモシェルが帆になるとき](biology/wiim_092.md) |
+| 2026-05-17 | 用語 | g383 | [ヘリオスフィア（Heliosphere）](../glossary/astronomy.md#g383) |
+| 2026-05-17 | 用語 | g382 | [ソレノイド（Solenoid）](../glossary/physics.md#g382) |
+| 2026-05-17 | 用語 | g381 | [電磁流体力学（Magnetohydrodynamics）](../glossary/physics.md#g381) |
+| 2026-05-17 | 用語 | g380 | [マグネトソーム（Magnetosome）](../glossary/biology.md#g380) |
+| 2026-05-17 | 用語 | g379 | [パーカースパイラル（Parker Spiral）](../glossary/astronomy.md#g379) |
+| 2026-05-17 | 用語 | g378 | [アルヴェーン翼（Alfvén Wing）](../glossary/physics.md#g378) |
 | 2026-05-16 | 記事 | wiim_091 | [大気境界衛星——安定軌道の三方式と使い捨て群探査への問いの転換](physics/wiim_091.md) |
 | 2026-05-16 | 用語 | g377 | [アーンショーの定理（Earnshaw's Theorem）](../glossary/physics.md#g377) |
 | 2026-05-16 | 用語 | g376 | [スピンアイス結晶（Spin Ice）](../glossary/quantum.md#g376) |
@@ -46,11 +54,3 @@
 | 2026-04-30 | 用語 | g350 | [エキゾチック物理学（Exotic Physics）](../glossary/wiim-concepts.md#g350) |
 | 2026-04-30 | 用語 | g349 | [等角的循環宇宙論（Conformal Cyclic Cosmology）](../glossary/astronomy.md#g349) |
 | 2026-04-30 | 用語 | g348 | [カノニカルアンサンブル（Canonical Ensemble）](../glossary/physics.md#g348) |
-| 2026-04-30 | 用語 | g347 | [スクイーズド光（Squeezed Light）](../glossary/quantum.md#g347) |
-| 2026-04-30 | 用語 | g346 | [有限温度場理論（Finite Temperature Field Theory）](../glossary/physics.md#g346) |
-| 2026-04-30 | 用語 | g345 | [場の量子論（Quantum Field Theory）](../glossary/physics.md#g345) |
-| 2026-04-29 | 記事 | wiim_088 | [負のエネルギーを制御できたなら何が変わるか](physics/wiim_088.md) |
-| 2026-04-29 | 記事 | wiim_087 | [ディラックサイフォンは負のエネルギーを抽出できるか](physics/wiim_087.md) |
-| 2026-04-29 | 用語 | g343 | [虚数温度（Imaginary Temperature）](../glossary/wiim-concepts.md#g343) |
-| 2026-04-29 | 用語 | g342 | [ディラックサイフォン（Dirac Siphon）](../glossary/wiim-engineering.md#g342) |
-| 2026-04-27 | 記事 | wiim_086 | [パランティ電子冷却——ディラック海転嫁を宇宙船熱管理に応用できるか](physics/wiim_086.md) |

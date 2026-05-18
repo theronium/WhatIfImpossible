@@ -539,6 +539,153 @@ def gen_airfoil():
 
 
 # ─────────────────────────────────────────────
+# 宇宙磁気系
+# ─────────────────────────────────────────────
+
+def gen_parker_spiral():
+    fig, ax = plt.subplots(figsize=FIG_SQ)
+    ax.set_facecolor("#f0f4ff")
+    ax.set_title("Parker Spiral（パーカースパイラル）", fontsize=9, pad=4)
+
+    # r_AU ≈ 0.92φ → 接線が太陽半径方向から45°傾く at r=1 AU
+    scale = 0.92
+    phi = np.linspace(0.05, 6.0, 1200)
+    r = scale * phi
+
+    for phase, color in [(0, "#cc3311"), (np.pi, "#1144cc"),
+                         (np.pi / 2, "#cc3311"), (3 * np.pi / 2, "#1144cc")]:
+        ax.plot(r * np.cos(phi + phase), r * np.sin(phi + phase),
+                color=color, lw=1.8, alpha=0.82)
+
+    theta = np.linspace(0, 2 * np.pi, 200)
+    ax.plot(np.cos(theta), np.sin(theta), "--", color="dimgray", lw=0.7, alpha=0.55)
+    ax.text(0.72, 0.72, "1 AU", fontsize=6, color="#333333")
+    ax.plot(5.2 * np.cos(theta), 5.2 * np.sin(theta), ":", color="#aaaaaa", lw=0.5, alpha=0.4)
+    ax.text(3.8, 3.8, "5 AU", fontsize=6, color="#777777")
+
+    ax.add_patch(Circle((0, 0), 0.22, color="gold", alpha=0.25, zorder=8))
+    ax.add_patch(Circle((0, 0), 0.09, color="#ffcc00", zorder=9))
+    ax.text(0.14, 0.18, "太陽", fontsize=7, color="#aa7700", zorder=10)
+
+    # 1 AU crossing annotation: tangent ≈ 45° from radial
+    phi_1au = 1.0 / scale
+    x1, y1 = np.cos(phi_1au), np.sin(phi_1au)
+    ax.plot(x1, y1, "o", color="#cc3311", ms=5, zorder=11)
+    ax.annotate("接線≈45°\n(@1 AU)", xy=(x1, y1), xytext=(x1 + 0.7, y1 - 0.8),
+                fontsize=6, color="#555555",
+                arrowprops=dict(arrowstyle="->", color="#888888", lw=0.7),
+                bbox=dict(boxstyle="round,pad=0.25", facecolor="white", alpha=0.85))
+
+    ax.plot([], [], color="#cc3311", lw=2, label="+極性")
+    ax.plot([], [], color="#1144cc", lw=2, label="−極性")
+    ax.legend(fontsize=6, loc="lower right", framealpha=0.9, edgecolor="#bbbbbb")
+
+    ax.set_xlim(-5.9, 5.9)
+    ax.set_ylim(-5.9, 5.9)
+    ax.set_aspect("equal")
+    ax.axis("off")
+    save(fig, "parker_spiral")
+
+
+def gen_heliosphere():
+    fig, ax = plt.subplots(figsize=FIG_WIDE)
+    ax.set_facecolor("#edf1fa")
+    ax.set_title("ヘリオスフィア断面（太陽圏）", fontsize=9, pad=4)
+
+    theta = np.linspace(-np.pi, np.pi, 600)
+    cos_t = np.cos(theta)
+    sin_t = np.sin(theta)
+
+    def boundary(r_nose, r_tail, r_perp):
+        r = np.empty_like(theta)
+        nm = cos_t >= 0
+        r[nm] = 1.0 / np.sqrt(cos_t[nm] ** 2 / r_nose ** 2 + sin_t[nm] ** 2 / r_perp ** 2)
+        r[~nm] = 1.0 / np.sqrt(cos_t[~nm] ** 2 / r_tail ** 2 + sin_t[~nm] ** 2 / r_perp ** 2)
+        return r * cos_t, r * sin_t
+
+    # ヘリオポーズ（外境界）
+    xhp, yhp = boundary(2.4, 5.0, 2.2)
+    ax.fill(xhp, yhp, color="#b4caec", alpha=0.5)
+    ax.plot(xhp, yhp, color="#1e4488", lw=2.0)
+
+    # 終端衝撃波（内境界）: 内部を上塗りして境界だけ表示
+    xts, yts = boundary(1.7, 2.8, 1.6)
+    ax.fill(xts, yts, color="#f0f4ff", alpha=1.0)
+    ax.plot(xts, yts, color="#cc5500", lw=1.8, ls="--")
+
+    # 惑星系（太陽付近）
+    ax.add_patch(Circle((0, 0), 0.22, color="#fffae0", alpha=0.9, zorder=5))
+    ax.add_patch(Circle((0, 0), 0.07, color="#ffcc00", zorder=6))
+    ax.text(0.10, 0.16, "太陽", fontsize=6, color="#aa7700", zorder=7)
+
+    # 星間風（LISM）矢印：ノーズ方向（右）から吹き込む
+    for ya in [-1.3, -0.65, 0.0, 0.65, 1.3]:
+        ax.annotate("", xy=(2.55, ya), xytext=(3.35, ya),
+                    arrowprops=dict(arrowstyle="->", color="#336688", lw=0.9, alpha=0.65))
+    ax.text(3.15, 1.65, "星間風\n(LISM)", fontsize=6, color="#336688", ha="center")
+
+    ax.text(2.3, 0.14, "ノーズ", fontsize=7, color="#334466", ha="center")
+    ax.text(-4.3, 0.14, "テイル", fontsize=7, color="#334466", ha="center")
+    ax.text(0, 2.35, "ヘリオポーズ〜120 AU", fontsize=6, color="#1e4488", ha="center",
+            bbox=dict(boxstyle="round,pad=0.2", facecolor="white", alpha=0.85))
+    ax.text(0, -1.72, "終端衝撃波〜85 AU", fontsize=6, color="#cc5500", ha="center",
+            bbox=dict(boxstyle="round,pad=0.2", facecolor="white", alpha=0.85))
+
+    ax.set_xlim(-5.6, 4.1)
+    ax.set_ylim(-2.6, 2.6)
+    ax.set_aspect("equal")
+    ax.axis("off")
+    save(fig, "heliosphere")
+
+
+def gen_solenoid():
+    fig, ax = plt.subplots(figsize=FIG_WIDE)
+    ax.set_title("Solenoid（ソレノイド）— 側面図", fontsize=9, pad=4)
+
+    L = 4.5
+    R = 0.75
+    n = 10
+    xs = (np.arange(n) + 0.5) * L / n - L / 2
+
+    # 背面アーク（破線）
+    for xc in xs:
+        t = np.linspace(np.pi, 2 * np.pi, 60)
+        ax.plot(xc + 0.12 * np.cos(t), R * np.sin(t),
+                color="#2255bb", lw=1.3, ls="--", alpha=0.38, zorder=2)
+
+    # 上下の接続線
+    ax.plot([-L / 2, L / 2], [-R, -R], color="#2255bb", lw=2.2, zorder=3)
+    ax.plot([-L / 2, L / 2], [R, R], color="#2255bb", lw=2.2, zorder=3)
+
+    # 前面アーク（実線）
+    for xc in xs:
+        t = np.linspace(0, np.pi, 60)
+        ax.plot(xc + 0.12 * np.cos(t), R * np.sin(t),
+                color="#2255bb", lw=2.5, zorder=5)
+
+    # リード線
+    ax.plot([-L / 2 - 0.55, -L / 2], [-R, -R], color="#2255bb", lw=2.2, zorder=4)
+    ax.plot([L / 2, L / 2 + 0.55], [-R, -R], color="#2255bb", lw=2.2, zorder=4)
+    ax.text(-L / 2 - 0.62, -R - 0.18, "I→", fontsize=7, color="#2255bb")
+    ax.text(L / 2 + 0.32, -R - 0.18, "→I", fontsize=7, color="#2255bb")
+
+    # 内部磁場矢印（均一・左→右）
+    for yb in [-0.28, 0.0, 0.28]:
+        ax.annotate("", xy=(L / 2 - 0.15, yb), xytext=(-L / 2 + 0.15, yb),
+                    arrowprops=dict(arrowstyle="->", color="#bb2222", lw=1.4), zorder=6)
+
+    ax.text(0, 0.55, "B（均一磁場）", fontsize=7, color="#bb2222", ha="center",
+            bbox=dict(boxstyle="round,pad=0.25", facecolor="white", alpha=0.9), zorder=7)
+    ax.text(0, -1.2, "螺旋状コイル（導線）", fontsize=7, color="#2255bb", ha="center")
+
+    ax.set_xlim(-3.1, 3.1)
+    ax.set_ylim(-1.6, 1.5)
+    ax.set_aspect("equal")
+    ax.axis("off")
+    save(fig, "solenoid")
+
+
+# ─────────────────────────────────────────────
 # メイン
 # ─────────────────────────────────────────────
 
@@ -554,6 +701,7 @@ GENERATORS = [
     ("断面最適化・曲線",   [gen_catenary, gen_cycloid, gen_reuleaux]),
     ("格子・多面体",       [gen_honeycomb, gen_geodesic, gen_tensegrity]),
     ("翼型",               [gen_airfoil]),
+    ("宇宙磁気系",         [gen_parker_spiral, gen_heliosphere, gen_solenoid]),
 ]
 
 if __name__ == "__main__":

@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **377**
+用語数: **383**
 
 ---
 
@@ -45,16 +45,26 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g383 | [ヘリオスフィア](astronomy.md) | Heliosphere | astronomy |
+| g382 | [ソレノイド](physics.md) | Solenoid | physics |
+| g381 | [電磁流体力学](physics.md) | Magnetohydrodynamics | physics |
+| g380 | [マグネトソーム](biology.md) | Magnetosome | biology |
+| g379 | [パーカースパイラル](astronomy.md) | Parker Spiral | astronomy |
+| g378 | [アルヴェーン翼](physics.md) | Alfvén Wing | physics |
 | g377 | [アーンショーの定理](physics.md) | Earnshaw's Theorem | physics |
 | g376 | [スピンアイス結晶](quantum.md) | Spin Ice | quantum |
 | g375 | [ディラックの弦](particle.md) | Dirac String | particle |
 | g374 | [GOCE重力観測衛星](astronomy.md) | GOCE (Gravity field and steady-state Ocean Circulation Explorer) | astronomy |
-| g373 | [テザー衛星](physics.md) | Tethered Satellite | physics |
-| g372 | [スカイフック](physics.md) | Skyhook | physics |
-| g371 | [弾道係数](physics.md) | Ballistic Coefficient | physics |
-| g370 | [マグナス効果](physics.md) | Magnus Effect | physics |
-| g369 | [光格子](quantum.md) | Optical Lattice | quantum |
-| g368 | [時空メタマテリアル](wiim-concepts.md) | Spacetime Metamaterial | wiim-concepts |
+
+
+
+
+
+
+
+
+
+
 
 
 
