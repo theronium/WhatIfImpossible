@@ -4,7 +4,15 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-19 | 記事 | wiim_094 | [チェシャ磁場格子——量子チェシャ猫のアレイ化が拓く電磁場の分離制御と反作用分散型推進力](quantum/wiim_094.md) |
 | 2026-05-19 | 記事 | wiim_093 | [複合推進で回遊するヘリオスフィア生命体——軌道域ごとに推進機構を切り替える統合生態](biology/wiim_093.md) |
+| 2026-05-19 | 用語 | g389 | [ハルバッハ配列（Halbach Array）](../glossary/physics.md#g389) |
+| 2026-05-19 | 用語 | g388 | [アハラノフ＝カシャー効果（Aharonov-Casher Effect）](../glossary/physics.md#g388) |
+| 2026-05-19 | 用語 | g387 | [メスバウアー効果（Mössbauer Effect）](../glossary/physics.md#g387) |
+| 2026-05-19 | 用語 | g386 | [アハラノフ＝カシャー力束（Aharonov-Casher Force Beam）](../glossary/wiim-engineering.md#g386) |
+| 2026-05-19 | 用語 | g385 | [チェシャ磁場格子（Cheshire Magnetic Lattice）](../glossary/wiim-engineering.md#g385) |
+| 2026-05-19 | 用語 | g384 | [チェシャ猫のウィンク（Cheshire Cat's Wink）](../glossary/wiim-concepts.md#g384) |
+| 2026-05-19 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-17 | 記事 | wiim_092 | [太陽光子圧で回遊する磁気帆生命体——コスモシェルが帆になるとき](biology/wiim_092.md) |
 | 2026-05-17 | 用語 | g383 | [ヘリオスフィア（Heliosphere）](../glossary/astronomy.md#g383) |
 | 2026-05-17 | 用語 | g382 | [ソレノイド（Solenoid）](../glossary/physics.md#g382) |
@@ -23,7 +31,6 @@
 | 2026-05-16 | 用語 | g370 | [マグナス効果（Magnus Effect）](../glossary/physics.md#g370) |
 | 2026-05-15 | 用語 | g369 | [光格子（Optical Lattice）](../glossary/quantum.md#g369) |
 | 2026-05-11 | 記事 | wiim_090 | [クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド](cosmology/wiim_090.md) |
-| 2026-05-11 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-09 | 用語 | g367 | [エンタルピー（Enthalpy）](../glossary/physics.md#g367) |
 | 2026-05-09 | 用語 | g366 | [角速度（Angular Velocity）](../glossary/physics.md#g366) |
 | 2026-05-09 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
@@ -47,10 +54,3 @@
 | 2026-05-02 | 用語 | g353 | [アナレンマ（Analemma）](../glossary/astronomy.md#g353) |
 | 2026-05-02 | 用語 | g352 | [モリス＝ソーン型ワームホール（Morris-Thorne Wormhole）](../glossary/physics.md#g352) |
 | 2026-05-02 | 補遺 | — | [ネグレーザーによるER橋安定化——ホロウゲイザーとの役割分担](notes/wiim_089_neglaser_er_bridge.md) |
-| 2026-05-01 | 記事 | wiim_089 | [ブラックホール潜入とワームホール開通——潮汐力シールドから因果構造の書き換えまで](cosmology/wiim_089.md) |
-| 2026-05-01 | 用語 | g351 | [スタタイト（Statite）](../glossary/astronomy.md#g351) |
-| 2026-05-01 | 補遺 | — | [エキゾチック物理学 — WIIM粒子・物質一覧](notes/exotic_physics_catalog.md) |
-| 2026-05-01 | 補遺 | — | [遠心力・コリオリ力・潮汐力の比較](notes/forces_centrifugal_tidal.md) |
-| 2026-04-30 | 用語 | g350 | [エキゾチック物理学（Exotic Physics）](../glossary/wiim-concepts.md#g350) |
-| 2026-04-30 | 用語 | g349 | [等角的循環宇宙論（Conformal Cyclic Cosmology）](../glossary/astronomy.md#g349) |
-| 2026-04-30 | 用語 | g348 | [カノニカルアンサンブル（Canonical Ensemble）](../glossary/physics.md#g348) |

@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **383**
+用語数: **389**
 
 ---
 
@@ -45,16 +45,23 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g389 | [ハルバッハ配列](physics.md) | Halbach Array | physics |
+| g388 | [アハラノフ＝カシャー効果](physics.md) | Aharonov-Casher Effect | physics |
+| g387 | [メスバウアー効果](physics.md) | Mössbauer Effect | physics |
+| g386 | [アハラノフ＝カシャー力束](wiim-engineering.md) | Aharonov-Casher Force Beam | wiim-engineering |
+| g385 | [チェシャ磁場格子](wiim-engineering.md) | Cheshire Magnetic Lattice | wiim-engineering |
+| g384 | [チェシャ猫のウィンク](wiim-concepts.md) | Cheshire Cat's Wink | wiim-concepts |
 | g383 | [ヘリオスフィア](astronomy.md) | Heliosphere | astronomy |
 | g382 | [ソレノイド](physics.md) | Solenoid | physics |
 | g381 | [電磁流体力学](physics.md) | Magnetohydrodynamics | physics |
 | g380 | [マグネトソーム](biology.md) | Magnetosome | biology |
-| g379 | [パーカースパイラル](astronomy.md) | Parker Spiral | astronomy |
-| g378 | [アルヴェーン翼](physics.md) | Alfvén Wing | physics |
-| g377 | [アーンショーの定理](physics.md) | Earnshaw's Theorem | physics |
-| g376 | [スピンアイス結晶](quantum.md) | Spin Ice | quantum |
-| g375 | [ディラックの弦](particle.md) | Dirac String | particle |
-| g374 | [GOCE重力観測衛星](astronomy.md) | GOCE (Gravity field and steady-state Ocean Circulation Explorer) | astronomy |
+
+
+
+
+
+
+
 
 
 
