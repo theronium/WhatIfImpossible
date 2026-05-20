@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **389**
+用語数: **391**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g391 | [チェルン数](quantum.md) | Chern Number | quantum |
+| g390 | [マグノニクス](physics.md) | Magnonics | physics |
 | g389 | [ハルバッハ配列](physics.md) | Halbach Array | physics |
 | g388 | [アハラノフ＝カシャー効果](physics.md) | Aharonov-Casher Effect | physics |
 | g387 | [メスバウアー効果](physics.md) | Mössbauer Effect | physics |
@@ -53,8 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g384 | [チェシャ猫のウィンク](wiim-concepts.md) | Cheshire Cat's Wink | wiim-concepts |
 | g383 | [ヘリオスフィア](astronomy.md) | Heliosphere | astronomy |
 | g382 | [ソレノイド](physics.md) | Solenoid | physics |
-| g381 | [電磁流体力学](physics.md) | Magnetohydrodynamics | physics |
-| g380 | [マグネトソーム](biology.md) | Magnetosome | biology |
+
+
 
 
 

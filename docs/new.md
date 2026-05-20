@@ -4,6 +4,8 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-20 | 用語 | g391 | [チェルン数（Chern Number）](../glossary/quantum.md#g391) |
+| 2026-05-20 | 用語 | g390 | [マグノニクス（Magnonics）](../glossary/physics.md#g390) |
 | 2026-05-19 | 記事 | wiim_094 | [チェシャ磁場格子——量子チェシャ猫のアレイ化が拓く電磁場の分離制御と反作用分散型推進力](quantum/wiim_094.md) |
 | 2026-05-19 | 記事 | wiim_093 | [複合推進で回遊するヘリオスフィア生命体——軌道域ごとに推進機構を切り替える統合生態](biology/wiim_093.md) |
 | 2026-05-19 | 用語 | g389 | [ハルバッハ配列（Halbach Array）](../glossary/physics.md#g389) |
@@ -52,5 +54,3 @@
 | 2026-05-03 | 補遺 | — | [天体距離測定の歴史——地球の大きさから太陽系スケールへ](notes/astronomical_distance_history.md) |
 | 2026-05-03 | 補遺 | — | [天文学の単位一覧——距離・質量・角度・明るさ](notes/astronomical_units.md) |
 | 2026-05-02 | 用語 | g353 | [アナレンマ（Analemma）](../glossary/astronomy.md#g353) |
-| 2026-05-02 | 用語 | g352 | [モリス＝ソーン型ワームホール（Morris-Thorne Wormhole）](../glossary/physics.md#g352) |
-| 2026-05-02 | 補遺 | — | [ネグレーザーによるER橋安定化——ホロウゲイザーとの役割分担](notes/wiim_089_neglaser_er_bridge.md) |
