@@ -9,6 +9,7 @@
 | 2026-05-22 | 用語 | g396 | [ヴェルリンデのエントロピー重力（Verlinde's Entropic Gravity）](../glossary/speculative.md#g396) |
 | 2026-05-22 | 用語 | g395 | [ゼーベック効果・ペルティエ効果（Seebeck Effect / Peltier Effect）](../glossary/physics.md#g395) |
 | 2026-05-22 | 用語 | g394 | [エクトロン（Ektron）](../glossary/wiim-concepts.md#g394) |
+| 2026-05-22 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-21 | 用語 | g393 | [ポラリトン（Polariton）](../glossary/physics.md#g393) |
 | 2026-05-20 | 記事 | wiim_097 | [トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか](physics/wiim_097.md) |
 | 2026-05-20 | 記事 | wiim_096 | [卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか](physics/wiim_096.md) |
@@ -24,7 +25,6 @@
 | 2026-05-19 | 用語 | g386 | [アハラノフ＝カシャー力束（Aharonov-Casher Force Beam）](../glossary/wiim-engineering.md#g386) |
 | 2026-05-19 | 用語 | g385 | [チェシャ磁場格子（Cheshire Magnetic Lattice）](../glossary/wiim-engineering.md#g385) |
 | 2026-05-19 | 用語 | g384 | [チェシャ猫のウィンク（Cheshire Cat's Wink）](../glossary/wiim-concepts.md#g384) |
-| 2026-05-19 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-17 | 記事 | wiim_092 | [太陽光子圧で回遊する磁気帆生命体——コスモシェルが帆になるとき](biology/wiim_092.md) |
 | 2026-05-17 | 用語 | g383 | [ヘリオスフィア（Heliosphere）](../glossary/astronomy.md#g383) |
 | 2026-05-17 | 用語 | g382 | [ソレノイド（Solenoid）](../glossary/physics.md#g382) |
