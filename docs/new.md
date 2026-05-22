@@ -4,6 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-22 | 記事 | wiim_098 | [半永久的なレトロン場が生成できたら](physics/wiim_098.md) |
+| 2026-05-22 | 用語 | g397 | [キュリー温度（Curie Temperature）](../glossary/physics.md#g397) |
+| 2026-05-22 | 用語 | g396 | [ヴェルリンデのエントロピー重力（Verlinde's Entropic Gravity）](../glossary/speculative.md#g396) |
+| 2026-05-22 | 用語 | g395 | [ゼーベック効果・ペルティエ効果（Seebeck Effect / Peltier Effect）](../glossary/physics.md#g395) |
+| 2026-05-22 | 用語 | g394 | [エクトロン（Ektron）](../glossary/wiim-concepts.md#g394) |
 | 2026-05-21 | 用語 | g393 | [ポラリトン（Polariton）](../glossary/physics.md#g393) |
 | 2026-05-20 | 記事 | wiim_097 | [トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか](physics/wiim_097.md) |
 | 2026-05-20 | 記事 | wiim_096 | [卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか](physics/wiim_096.md) |
@@ -49,8 +54,3 @@
 | 2026-05-06 | 用語 | g361 | [ゆえに記号（therefore sign）](../glossary/mathematics.md#g361) |
 | 2026-05-06 | 用語 | g360 | [ハルモス記号（Halmos symbol）](../glossary/mathematics.md#g360) |
 | 2026-05-06 | 用語 | g359 | [ヘンペルのカラス（Hempel's Raven）](../glossary/philosophy.md#g359) |
-| 2026-05-06 | 補遺 | — | [補遺：カオスの悪魔と創発文法——ラプラスの悪魔の論理的継承と無謬性への経路](notes/chaos_demon_foundation.md) |
-| 2026-05-05 | 用語 | g358 | [太陽同期軌道（Sun-Synchronous Orbit）](../glossary/astronomy.md#g358) |
-| 2026-05-05 | 用語 | g357 | [モルニア軌道（Molniya Orbit）](../glossary/astronomy.md#g357) |
-| 2026-05-05 | 補遺 | — | [人工衛星の特殊軌道——太陽同期・モルニア・ハロー軌道と軌道選択の論理](notes/satellite_orbits.md) |
-| 2026-05-03 | 用語 | g356 | [宇宙の距離梯子（Cosmic Distance Ladder）](../glossary/astronomy.md#g356) |
