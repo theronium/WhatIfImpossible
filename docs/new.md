@@ -4,6 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-21 | 用語 | g393 | [ポラリトン（Polariton）](../glossary/physics.md#g393) |
+| 2026-05-20 | 記事 | wiim_097 | [トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか](physics/wiim_097.md) |
+| 2026-05-20 | 記事 | wiim_096 | [卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか](physics/wiim_096.md) |
+| 2026-05-20 | 記事 | wiim_095 | [重力を空間から削れたら——メタグラビトン格子による時空曲率の彫刻](physics/wiim_095.md) |
+| 2026-05-20 | 用語 | g392 | [メタグラビトン（Meta-graviton）](../glossary/wiim-concepts.md#g392) |
 | 2026-05-20 | 用語 | g391 | [チェルン数（Chern Number）](../glossary/quantum.md#g391) |
 | 2026-05-20 | 用語 | g390 | [マグノニクス（Magnonics）](../glossary/physics.md#g390) |
 | 2026-05-19 | 記事 | wiim_094 | [チェシャ磁場格子——量子チェシャ猫のアレイ化が拓く電磁場の分離制御と反作用分散型推進力](quantum/wiim_094.md) |
@@ -49,8 +54,3 @@
 | 2026-05-05 | 用語 | g357 | [モルニア軌道（Molniya Orbit）](../glossary/astronomy.md#g357) |
 | 2026-05-05 | 補遺 | — | [人工衛星の特殊軌道——太陽同期・モルニア・ハロー軌道と軌道選択の論理](notes/satellite_orbits.md) |
 | 2026-05-03 | 用語 | g356 | [宇宙の距離梯子（Cosmic Distance Ladder）](../glossary/astronomy.md#g356) |
-| 2026-05-03 | 用語 | g355 | [年周視差（Annual Parallax）](../glossary/astronomy.md#g355) |
-| 2026-05-03 | 用語 | g354 | [セファイド変光星（Cepheid Variable）](../glossary/astronomy.md#g354) |
-| 2026-05-03 | 補遺 | — | [天体距離測定の歴史——地球の大きさから太陽系スケールへ](notes/astronomical_distance_history.md) |
-| 2026-05-03 | 補遺 | — | [天文学の単位一覧——距離・質量・角度・明るさ](notes/astronomical_units.md) |
-| 2026-05-02 | 用語 | g353 | [アナレンマ（Analemma）](../glossary/astronomy.md#g353) |

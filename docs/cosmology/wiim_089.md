@@ -124,4 +124,7 @@ flowchart TD
 - [wiim_042](../philosophy/wiim_042.md) — クローン意識コピー（通過者の同一性問題）
 - [wiim_088](../physics/wiim_088.md) — 負のエネルギーを制御できたなら
 - [wiim_089_neglaser_er_bridge](../notes/wiim_089_neglaser_er_bridge.md) — ネグレーザーによるER橋安定化——ホロウゲイザーとの役割分担
+- [wiim_095](../physics/wiim_095.md) — 重力を空間から削れたら——メタグラビトン格子による時空曲率の彫刻
+- [wiim_096](../physics/wiim_096.md) — 卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか
+- [wiim_097](../physics/wiim_097.md) — トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか
 

@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **391**
+用語数: **393**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g393 | [ポラリトン](physics.md) | Polariton | physics |
+| g392 | [メタグラビトン](wiim-concepts.md) | Meta-graviton | wiim-concepts |
 | g391 | [チェルン数](quantum.md) | Chern Number | quantum |
 | g390 | [マグノニクス](physics.md) | Magnonics | physics |
 | g389 | [ハルバッハ配列](physics.md) | Halbach Array | physics |
@@ -53,8 +55,12 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g386 | [アハラノフ＝カシャー力束](wiim-engineering.md) | Aharonov-Casher Force Beam | wiim-engineering |
 | g385 | [チェシャ磁場格子](wiim-engineering.md) | Cheshire Magnetic Lattice | wiim-engineering |
 | g384 | [チェシャ猫のウィンク](wiim-concepts.md) | Cheshire Cat's Wink | wiim-concepts |
-| g383 | [ヘリオスフィア](astronomy.md) | Heliosphere | astronomy |
-| g382 | [ソレノイド](physics.md) | Solenoid | physics |
+
+
+
+
+
+
 
 
 
