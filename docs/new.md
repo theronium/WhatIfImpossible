@@ -4,12 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-23 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-22 | 記事 | wiim_098 | [半永久的なレトロン場が生成できたら](physics/wiim_098.md) |
 | 2026-05-22 | 用語 | g397 | [キュリー温度（Curie Temperature）](../glossary/physics.md#g397) |
 | 2026-05-22 | 用語 | g396 | [ヴェルリンデのエントロピー重力（Verlinde's Entropic Gravity）](../glossary/speculative.md#g396) |
 | 2026-05-22 | 用語 | g395 | [ゼーベック効果・ペルティエ効果（Seebeck Effect / Peltier Effect）](../glossary/physics.md#g395) |
 | 2026-05-22 | 用語 | g394 | [エクトロン（Ektron）](../glossary/wiim-concepts.md#g394) |
-| 2026-05-22 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-21 | 用語 | g393 | [ポラリトン（Polariton）](../glossary/physics.md#g393) |
 | 2026-05-20 | 記事 | wiim_097 | [トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか](physics/wiim_097.md) |
 | 2026-05-20 | 記事 | wiim_096 | [卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか](physics/wiim_096.md) |
