@@ -5,24 +5,24 @@
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
 | 2026-05-23 | 記事 | wiim_099 | [宇宙を振動させただけ——痕跡なし振動と粒子の起源](quantum/wiim_099.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — クロノスフィア系ブランチ](notes/_tech_tree_chronosphere.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — ディラックサイフォン系ブランチ](notes/_tech_tree_dirac.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — メタグラビトン・重力場彫刻系ブランチ](notes/_tech_tree_metagraviton.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 意識工学ブランチ](notes/_tech_tree_consciousness.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 防御・シールド系ブランチ](notes/_tech_tree_defense.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 核変換・常温核融合系ブランチ](notes/_tech_tree_nuclear.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 架空粒子操作ブランチ](notes/_tech_tree_particle_ops.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — マクロ量子状態ブランチ](notes/_tech_tree_quantum.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 生命系ブランチ](notes/_tech_tree_biology.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 熱管理・恒温系ブランチ](notes/_tech_tree_thermal.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 宇宙膨張エネルギー回収系ブランチ](notes/_tech_tree_expansion.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 銀河規模推進・ハッブル地平線突破系ブランチ](notes/_tech_tree_galactic.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — メインツリー](notes/_tech_tree_main.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ](notes/_tech_tree_blackhole.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 宇宙輸送応用（複合粒子干渉ブランチ）](notes/_tech_tree_transport.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — エントロピー・パランティ粒子系ブランチ](notes/_tech_tree_entropy.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 計量測量・暦ブランチ](notes/_tech_tree_surveying.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 反重力天体・ネグレーザー系ブランチ](notes/_tech_tree_antigravity.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — クロノスフィア系ブランチ](notes/tech_tree_chronosphere.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — ディラックサイフォン系ブランチ](notes/tech_tree_dirac.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — メタグラビトン・重力場彫刻系ブランチ](notes/tech_tree_metagraviton.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 意識工学ブランチ](notes/tech_tree_consciousness.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 防御・シールド系ブランチ](notes/tech_tree_defense.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 核変換・常温核融合系ブランチ](notes/tech_tree_nuclear.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 架空粒子操作ブランチ](notes/tech_tree_particle_ops.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — マクロ量子状態ブランチ](notes/tech_tree_quantum.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 生命系ブランチ](notes/tech_tree_biology.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 熱管理・恒温系ブランチ](notes/tech_tree_thermal.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 宇宙膨張エネルギー回収系ブランチ](notes/tech_tree_expansion.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 銀河規模推進・ハッブル地平線突破系ブランチ](notes/tech_tree_galactic.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — メインツリー](notes/tech_tree_main.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ](notes/tech_tree_blackhole.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 宇宙輸送応用（複合粒子干渉ブランチ）](notes/tech_tree_transport.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — エントロピー・パランティ粒子系ブランチ](notes/tech_tree_entropy.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 計量測量・暦ブランチ](notes/tech_tree_surveying.md) |
+| 2026-05-23 | 補遺 | — | [技術ツリー — 反重力天体・ネグレーザー系ブランチ](notes/tech_tree_antigravity.md) |
 | 2026-05-23 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-22 | 記事 | wiim_098 | [半永久的なレトロン場が生成できたら](physics/wiim_098.md) |
 | 2026-05-22 | 用語 | g397 | [キュリー温度（Curie Temperature）](../glossary/physics.md#g397) |
