@@ -140,4 +140,8 @@ flowchart TD
 - [mycelian_horror](../notes/mycelian_horror.md) — マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈
 - [wiim_083](wiim_083.md) — コズミックマイスの疑似ルーネベルク構造——低重力環境で球状コロニーが全方向集光体になるとき
 - [wiim_084](wiim_084.md) — バブルシェルマイセリウム——プラトーの法則が解くサイズ最適化と分散複眼集光体
+- [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
+- [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+- [_tech_tree_nuclear](../notes/_tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
 

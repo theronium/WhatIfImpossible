@@ -112,4 +112,6 @@ flowchart TD
 - [wiim_021](wiim_021.md) — 切れないエネルギー紐——完全剛体なしに不変距離を定義する
 - [wiim_063](wiim_063.md) — 架空粒子による大気圏突入緩和——ネゴトン・カシミールフォージ・レトロンは再突入熱と重力を制御できるか
 - [wiim_086](wiim_086.md) — パランティ電子冷却——ディラック海転嫁を宇宙船熱管理に応用できるか
+- [_tech_tree_thermal](../notes/_tech_tree_thermal.md) — 技術ツリー — 熱管理・恒温系ブランチ
+- [_tech_tree_transport](../notes/_tech_tree_transport.md) — 技術ツリー — 宇宙輸送応用（複合粒子干渉ブランチ）
 

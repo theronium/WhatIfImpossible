@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_031, wiim_064, wiim_065, wiim_066, wiim_067, wiim_080]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## 反重力天体・ネグレーザー系ブランチ
 

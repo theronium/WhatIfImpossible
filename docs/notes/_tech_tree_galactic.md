@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_023, wiim_079, wiim_080]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## 銀河規模推進・ハッブル地平線突破系ブランチ
 

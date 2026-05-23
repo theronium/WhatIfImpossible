@@ -155,4 +155,6 @@ flowchart LR
 - [wiim_052](wiim_052.md) — カオスを制御するカオスの悪魔の方程式——確率的粒子誘導と対消滅工学の限界
 - [wiim_050](../quantum/wiim_050.md) — 目に見えるほど大きな粒子を生成できるか——量子デコヒーレンスとマクロ量子状態の限界
 - [wiim_053](../quantum/wiim_053.md) — 粒子に個性を持たせることができるか——量子的同一性とトポロジカル粒子の標識問題
+- [_tech_tree_consciousness](../notes/_tech_tree_consciousness.md) — 技術ツリー — 意識工学ブランチ
+- [_tech_tree_entropy](../notes/_tech_tree_entropy.md) — 技術ツリー — エントロピー・パランティ粒子系ブランチ
 

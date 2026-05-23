@@ -131,4 +131,6 @@ flowchart TD
 - [wiim_078](wiim_078.md) エクスタイドフロート——宇宙膨張の満ち引きをピエゾアンキロン素子で回収できるか
 - [wiim_080](../physics/wiim_080.md) — ネゴトンホワイトホールワープ——安定維持した排除地平線を推進力に転用できるか
 - [wiim_081](../physics/wiim_081.md) — コーラ粒子は事象の地平線を抜けられるか——ブラックホール内外の空間超越と因果律の衝突
+- [_tech_tree_dirac](../notes/_tech_tree_dirac.md) — 技術ツリー — ディラックサイフォン系ブランチ
+- [_tech_tree_galactic](../notes/_tech_tree_galactic.md) — 技術ツリー — 銀河規模推進・ハッブル地平線突破系ブランチ
 

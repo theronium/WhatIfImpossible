@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_008, wiim_013, wiim_022, wiim_024, wiim_043, wiim_068, wiim_069, wiim_070, wiim_071]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## 核変換・常温核融合系ブランチ
 

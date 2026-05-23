@@ -101,4 +101,5 @@ flowchart TD
 - [カシミールフォージ（wiim_023）](../physics/wiim_023.md) — 真空エネルギーを装置として取り出す架空技術との比較
 - [アンキロンと重力波（wiim_021）](../physics/wiim_021.md) — アンキロンが計量変化に抵抗する性質の原点
 - [wiim_079](wiim_079.md) — ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか
+- [_tech_tree_expansion](../notes/_tech_tree_expansion.md) — 技術ツリー — 宇宙膨張エネルギー回収系ブランチ
 

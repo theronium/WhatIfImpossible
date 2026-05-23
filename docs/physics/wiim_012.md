@@ -129,4 +129,6 @@ flowchart TD
 - [wiim_021](wiim_021.md) — 切れないエネルギー紐——完全剛体なしに不変距離を定義する
 - [wiim_022](wiim_022.md) — アンキロン——時空の計量に錨を打つ架空粒子
 - [wiim_002_rotation_principle](../notes/wiim_002_rotation_principle.md) — クロノスフィアの回転原理——粒子・光子シェルによる時間差生成
+- [_tech_tree_defense](../notes/_tech_tree_defense.md) — 技術ツリー — 防御・シールド系ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
 

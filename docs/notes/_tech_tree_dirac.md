@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_023, wiim_027, wiim_087, wiim_088, wiim_089, wiim_099]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## ディラックサイフォン系ブランチ
 

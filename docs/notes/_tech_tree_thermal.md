@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_037, wiim_044, wiim_045, wiim_085, wiim_086]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## 熱管理・恒温系ブランチ
 

@@ -172,4 +172,10 @@ flowchart TD
 - [wiim_081](wiim_081.md) — コーラ粒子は事象の地平線を抜けられるか——ブラックホール内外の空間超越と因果律の衝突
 - [wiim_089](../cosmology/wiim_089.md) — ブラックホール潜入とワームホール開通——潮汐力シールドから因果構造の書き換えまで
 - [wiim_098](wiim_098.md) — 半永久的なレトロン場が生成できたら
+- [_tech_tree_blackhole](../notes/_tech_tree_blackhole.md) — 技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ
+- [_tech_tree_consciousness](../notes/_tech_tree_consciousness.md) — 技術ツリー — 意識工学ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+- [_tech_tree_nuclear](../notes/_tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
+- [_tech_tree_particle_ops](../notes/_tech_tree_particle_ops.md) — 技術ツリー — 架空粒子操作ブランチ
+- [_tech_tree_thermal](../notes/_tech_tree_thermal.md) — 技術ツリー — 熱管理・恒温系ブランチ
 

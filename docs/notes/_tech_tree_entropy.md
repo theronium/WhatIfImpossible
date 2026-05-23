@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_037, wiim_038, wiim_039, wiim_049, wiim_051, wiim_052, wiim_054, wiim_085, wiim_086, wiim_098]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## エントロピー・パランティ粒子系ブランチ
 

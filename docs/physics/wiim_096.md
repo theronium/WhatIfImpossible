@@ -72,4 +72,5 @@ flowchart LR
 - [wiim_089](../cosmology/wiim_089.md)：ブラックホール潜入とワームホール開通——プランクスケール近傍の物理
 - [wiim_010](wiim_010.md)：グラビトーペイク——格子技術の起源
 - [wiim_097](wiim_097.md) — トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか
+- [_tech_tree_metagraviton](../notes/_tech_tree_metagraviton.md) — 技術ツリー — メタグラビトン・重力場彫刻系ブランチ
 

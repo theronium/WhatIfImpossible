@@ -237,4 +237,12 @@ flowchart TD
 - [wiim_078](../cosmology/wiim_078.md) — エクスタイドフロート——宇宙膨張の満ち引きをピエゾアンキロン素子で回収できるか
 - [wiim_022_traffic_patrol](../notes/wiim_022_traffic_patrol.md) — 補遺: アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用
 - [wiim_090](../cosmology/wiim_090.md) — クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド
+- [_tech_tree_blackhole](../notes/_tech_tree_blackhole.md) — 技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ
+- [_tech_tree_expansion](../notes/_tech_tree_expansion.md) — 技術ツリー — 宇宙膨張エネルギー回収系ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+- [_tech_tree_metagraviton](../notes/_tech_tree_metagraviton.md) — 技術ツリー — メタグラビトン・重力場彫刻系ブランチ
+- [_tech_tree_nuclear](../notes/_tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
+- [_tech_tree_particle_ops](../notes/_tech_tree_particle_ops.md) — 技術ツリー — 架空粒子操作ブランチ
+- [_tech_tree_quantum](../notes/_tech_tree_quantum.md) — 技術ツリー — マクロ量子状態ブランチ
+- [_tech_tree_surveying](../notes/_tech_tree_surveying.md) — 技術ツリー — 計量測量・暦ブランチ
 

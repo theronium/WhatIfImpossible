@@ -117,4 +117,7 @@ flowchart TD
 - [wiim_025_gravity_zone](../notes/wiim_025_gravity_zone.md) — 補遺: シェルマイセリウムの安定立地——重力圏内外のどこに膜を張るか
 - [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
 - [wiim_084](../biology/wiim_084.md) — バブルシェルマイセリウム——プラトーの法則が解くサイズ最適化と分散複眼集光体
+- [_tech_tree_antigravity](../notes/_tech_tree_antigravity.md) — 技術ツリー — 反重力天体・ネグレーザー系ブランチ
+- [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
 

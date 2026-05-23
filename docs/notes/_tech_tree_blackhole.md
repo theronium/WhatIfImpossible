@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_013, wiim_022, wiim_023, wiim_027, wiim_087, wiim_089]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## ブラックホール潜入・ワームホール開通系ブランチ
 

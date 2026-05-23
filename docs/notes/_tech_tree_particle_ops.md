@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_022, wiim_013, wiim_037, wiim_074, wiim_077]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## 架空粒子操作ブランチ
 

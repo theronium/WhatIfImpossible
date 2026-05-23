@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_037, wiim_044, wiim_063]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## 宇宙輸送応用：複合粒子干渉ブランチ
 

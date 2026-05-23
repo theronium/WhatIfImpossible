@@ -97,4 +97,5 @@ flowchart TD
 - [wiim_057](../physics/wiim_057.md) — クロノスフィア内部の光量問題——時間倍率が上がるほど「光が届かない」
 - [wiim_059](wiim_059.md) — 菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由
 - [wiim_060](../physics/wiim_060.md) — 逆クロノスフィア——内部時間を極端に遅くして生命・文明を保存できるか
+- [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
 

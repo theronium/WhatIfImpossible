@@ -115,3 +115,5 @@ flowchart TD
 - [wiim_001](../cosmology/wiim_001.md) 光速を超えた場合の因果律
 - [wiim_028](../cosmology/wiim_028.md) 重力子と光子の二重搬送FTL通信——エキゾチック物質チャネルによる宇宙際通信
 - [wiim_079](../cosmology/wiim_079.md) ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+

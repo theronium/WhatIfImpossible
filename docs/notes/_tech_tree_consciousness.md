@@ -5,7 +5,7 @@ date: 2026-04-09
 related: [wiim_042, wiim_046, wiim_048, wiim_051, wiim_073]
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## 意識工学ブランチ
 

@@ -106,4 +106,7 @@ flowchart LR
 - [wiim_065](wiim_065.md) — 反重力天体——エキゾチック物質とカシミールフォージで斥力場を生成できるか
 - [wiim_074](wiim_074.md) — ワープゲート基礎理論——コーラ粒子のマヨラナ的自己対とエニオンブレイドによるトポロジー接続
 - [wiim_089](../cosmology/wiim_089.md) — ブラックホール潜入とワームホール開通——潮汐力シールドから因果構造の書き換えまで
+- [_tech_tree_blackhole](../notes/_tech_tree_blackhole.md) — 技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ
+- [_tech_tree_dirac](../notes/_tech_tree_dirac.md) — 技術ツリー — ディラックサイフォン系ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
 

@@ -102,3 +102,6 @@ flowchart TD
 - [wiim_067](wiim_067.md) ネゴトンホワイトホール——排除地平線が閉じるとき、反重力天体はビッグバンを起こすか
 - [wiim_079](../cosmology/wiim_079.md) ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか
 - [wiim_003](wiim_003.md) 負の質量を持つ粒子による局所的時間加速
+- [_tech_tree_antigravity](../notes/_tech_tree_antigravity.md) — 技術ツリー — 反重力天体・ネグレーザー系ブランチ
+- [_tech_tree_galactic](../notes/_tech_tree_galactic.md) — 技術ツリー — 銀河規模推進・ハッブル地平線突破系ブランチ
+

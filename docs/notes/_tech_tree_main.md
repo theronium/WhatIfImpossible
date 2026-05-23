@@ -5,7 +5,7 @@ date: 2026-04-09
 related: []
 ---
 
-← [技術ツリー一覧](../tech_tree.md)
+← [技術ツリー一覧](#notes/tech_tree.md)
 
 ## 技術ツリー
 

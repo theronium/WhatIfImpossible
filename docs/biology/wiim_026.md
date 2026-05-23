@@ -161,4 +161,6 @@ flowchart TD
 - [wiim_027](../physics/wiim_027.md) — ストレンジスター・ワープゲート——重力チューニングによる固定式時空歪曲点
 - [wiim_061](wiim_061.md) — 菌類ダイソン網——コズミックマイスが恒星系全体を覆うとき
 - [wiim_068](wiim_068.md) — マイコプラズマギカと宇宙菌糸知性の共生——深宇宙で「何でも作れる」生態系は成立するか
+- [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
 

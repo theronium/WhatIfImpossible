@@ -128,4 +128,5 @@ flowchart TD
 - [wiim_059](wiim_059.md) — 菌類ハイヴマインドの幾何学（コズミックマイスの群知性と意図の問い）
 - [wiim_034](../physics/wiim_034.md) — エキゾチック物質音響実験（音を信号として扱う比較対象）
 - [mycelian_horror](../notes/mycelian_horror.md) — マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈
+- [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
 

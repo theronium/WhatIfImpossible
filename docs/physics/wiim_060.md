@@ -135,3 +135,5 @@ flowchart TD
 - [wiim_057](wiim_057.md) — クロノスフィア内部の光量問題——エネルギー収支の非対称性
 - [wiim_058](../biology/wiim_058.md) — クロノスフィア内在化——逆方向との比較
 - [chronosphere_timeline](../notes/chronosphere_timeline.md) — クロノスフィア年表——時系列での位置づけ
+- [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
+

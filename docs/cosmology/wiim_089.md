@@ -127,4 +127,7 @@ flowchart TD
 - [wiim_095](../physics/wiim_095.md) — 重力を空間から削れたら——メタグラビトン格子による時空曲率の彫刻
 - [wiim_096](../physics/wiim_096.md) — 卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか
 - [wiim_097](../physics/wiim_097.md) — トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか
+- [_tech_tree_blackhole](../notes/_tech_tree_blackhole.md) — 技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ
+- [_tech_tree_dirac](../notes/_tech_tree_dirac.md) — 技術ツリー — ディラックサイフォン系ブランチ
+- [_tech_tree_metagraviton](../notes/_tech_tree_metagraviton.md) — 技術ツリー — メタグラビトン・重力場彫刻系ブランチ
 

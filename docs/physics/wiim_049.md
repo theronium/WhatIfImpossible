@@ -151,4 +151,5 @@ flowchart LR
 - [wiim_082](wiim_082.md) — パラドックス解消公理——空間歪みが因果矛盾を自動解消するとき
 - [wiim_098](wiim_098.md) — 半永久的なレトロン場が生成できたら
 - [wiim_099](../quantum/wiim_099.md) — 宇宙を振動させただけ——痕跡なし振動と粒子の起源
+- [_tech_tree_entropy](../notes/_tech_tree_entropy.md) — 技術ツリー — エントロピー・パランティ粒子系ブランチ
 

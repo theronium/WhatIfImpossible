@@ -88,4 +88,5 @@ flowchart TD
 - [wiim_039](../quantum/wiim_039.md) — 量子永久機関：内部完結型エネルギー源の候補
 - wiim_058 — クロノスフィア内部の核融合光源設計（未執筆）
 - [wiim_060](wiim_060.md) — 逆クロノスフィア——内部時間を極端に遅くして生命・文明を保存できるか
+- [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
 

@@ -103,4 +103,13 @@ flowchart TD
 - [wiim_089](../cosmology/wiim_089.md) — ブラックホール潜入とワームホール開通——潮汐力シールドから因果構造の書き換えまで
 - [wiim_095](wiim_095.md) — 重力を空間から削れたら——メタグラビトン格子による時空曲率の彫刻
 - [wiim_099](../quantum/wiim_099.md) — 宇宙を振動させただけ——痕跡なし振動と粒子の起源
+- [_tech_tree_antigravity](../notes/_tech_tree_antigravity.md) — 技術ツリー — 反重力天体・ネグレーザー系ブランチ
+- [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
+- [_tech_tree_blackhole](../notes/_tech_tree_blackhole.md) — 技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ
+- [_tech_tree_dirac](../notes/_tech_tree_dirac.md) — 技術ツリー — ディラックサイフォン系ブランチ
+- [_tech_tree_entropy](../notes/_tech_tree_entropy.md) — 技術ツリー — エントロピー・パランティ粒子系ブランチ
+- [_tech_tree_galactic](../notes/_tech_tree_galactic.md) — 技術ツリー — 銀河規模推進・ハッブル地平線突破系ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+- [_tech_tree_nuclear](../notes/_tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
+- [_tech_tree_surveying](../notes/_tech_tree_surveying.md) — 技術ツリー — 計量測量・暦ブランチ
 

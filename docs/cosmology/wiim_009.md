@@ -117,4 +117,5 @@ flowchart TD
 - [wiim_035](../physics/wiim_035.md) — グラビトーペイクの逆説——遮断した重力波エネルギーはどこへ行くのか
 - [wiim_072](../quantum/wiim_072.md) — エイソンによる非崩壊量子マッピング — 電子の分布を壊さずに読めるか
 - [wiim_097](../physics/wiim_097.md) — トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか
+- [_tech_tree_defense](../notes/_tech_tree_defense.md) — 技術ツリー — 防御・シールド系ブランチ
 

@@ -123,4 +123,7 @@ flowchart TD
 - [wiim_084](wiim_084.md) — バブルシェルマイセリウム——プラトーの法則が解くサイズ最適化と分散複眼集光体
 - [wiim_092](wiim_092.md) — 太陽光子圧で回遊する磁気帆生命体——コスモシェルが帆になるとき
 - [wiim_093](wiim_093.md) — 複合推進で回遊するヘリオスフィア生命体——軌道域ごとに推進機構を切り替える統合生態
+- [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
+- [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
+- [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
 

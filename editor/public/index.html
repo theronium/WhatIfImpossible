@@ -916,7 +916,21 @@ function renderToPane(body, pane, fm = null) {
   // .md リンクをインターセプトして記事間・補遺間ナビゲーションに変換
   pane.querySelectorAll('a[href]').forEach(a => {
     const href = a.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http')) return;
+    if (!href || href.startsWith('http')) return;
+
+    // #notes/path.md や #docs/path.md 形式のハッシュリンクをインターセプト
+    // （ページ内アンカー "#heading" は / を含まないので区別できる）
+    if (href.startsWith('#')) {
+      const hashPath = href.slice(1);
+      if (hashPath.includes('/') && hashPath.endsWith('.md')) {
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          openArticle(hashPath);
+        });
+      }
+      return;
+    }
+
     const mdMatch = href.match(/^(.*\.md)(#(.*))?$/);
     if (!mdMatch) return;
     a.addEventListener('click', e => {

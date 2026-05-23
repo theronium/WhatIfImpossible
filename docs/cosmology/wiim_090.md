@@ -110,3 +110,6 @@ graph LR
 
 - [クロノスフィア——相対的に時間を進められる空間](wiim_002.md)（wiim_002）— 本記事の基盤概念
 - [アンキロン——時空の計量に錨を打つ粒子](../physics/wiim_022.md)（wiim_022）— 計量固定と計量パターン化の対比
+- [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
+- [_tech_tree_defense](../notes/_tech_tree_defense.md) — 技術ツリー — 防御・シールド系ブランチ
+

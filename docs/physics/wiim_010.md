@@ -129,4 +129,6 @@ flowchart TD
 - [wiim_095](wiim_095.md) — 重力を空間から削れたら——メタグラビトン格子による時空曲率の彫刻
 - [wiim_096](wiim_096.md) — 卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか
 - [wiim_098](wiim_098.md) — 半永久的なレトロン場が生成できたら
+- [_tech_tree_defense](../notes/_tech_tree_defense.md) — 技術ツリー — 防御・シールド系ブランチ
+- [_tech_tree_metagraviton](../notes/_tech_tree_metagraviton.md) — 技術ツリー — メタグラビトン・重力場彫刻系ブランチ
 
