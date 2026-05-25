@@ -1136,6 +1136,7 @@ async function loadTechtree() {
     const res = await fetch('/api/articles/notes/tech_tree.md');
     if (!res.ok) throw new Error('tech_tree.md not found');
     const { content } = await res.json();
+    currentPath = 'notes/tech_tree.md';
     empty.style.display = 'none';
     document.getElementById('editor-panes').style.display = 'flex';
     document.getElementById('monaco-container').style.display = 'none';
