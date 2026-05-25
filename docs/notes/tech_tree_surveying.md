@@ -1,11 +1,11 @@
----
+﻿---
 title: 技術ツリー — 計量測量・暦ブランチ
 type: note
 date: 2026-04-09
 related: [wiim_022, wiim_033]
 ---
 
-← [技術ツリー一覧](#notes/tech_tree.md)
+← [技術ツリー一覧](tech_tree.md)
 
 ## 計量測量・暦ブランチ
 

@@ -1,11 +1,11 @@
----
+﻿---
 title: 技術ツリー — クロノスフィア系ブランチ
 type: note
 date: 2026-04-09
 related: [wiim_002, wiim_008, wiim_025, wiim_057, wiim_058, wiim_060, wiim_090]
 ---
 
-← [技術ツリー一覧](#notes/tech_tree.md)
+← [技術ツリー一覧](tech_tree.md)
 
 ## クロノスフィア系ブランチ
 

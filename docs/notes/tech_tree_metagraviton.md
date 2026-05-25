@@ -1,11 +1,11 @@
----
+﻿---
 title: 技術ツリー — メタグラビトン・重力場彫刻系ブランチ
 type: note
 date: 2026-04-09
 related: [wiim_010, wiim_022, wiim_089, wiim_095, wiim_096, wiim_097]
 ---
 
-← [技術ツリー一覧](#notes/tech_tree.md)
+← [技術ツリー一覧](tech_tree.md)
 
 ## メタグラビトン・重力場彫刻系ブランチ
 

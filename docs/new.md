@@ -5,25 +5,6 @@
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
 | 2026-05-23 | 記事 | wiim_099 | [宇宙を振動させただけ——痕跡なし振動と粒子の起源](quantum/wiim_099.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — クロノスフィア系ブランチ](notes/tech_tree_chronosphere.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — ディラックサイフォン系ブランチ](notes/tech_tree_dirac.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — メタグラビトン・重力場彫刻系ブランチ](notes/tech_tree_metagraviton.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 意識工学ブランチ](notes/tech_tree_consciousness.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 防御・シールド系ブランチ](notes/tech_tree_defense.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 核変換・常温核融合系ブランチ](notes/tech_tree_nuclear.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 架空粒子操作ブランチ](notes/tech_tree_particle_ops.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — マクロ量子状態ブランチ](notes/tech_tree_quantum.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 生命系ブランチ](notes/tech_tree_biology.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 熱管理・恒温系ブランチ](notes/tech_tree_thermal.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 宇宙膨張エネルギー回収系ブランチ](notes/tech_tree_expansion.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 銀河規模推進・ハッブル地平線突破系ブランチ](notes/tech_tree_galactic.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — メインツリー](notes/tech_tree_main.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ](notes/tech_tree_blackhole.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 宇宙輸送応用（複合粒子干渉ブランチ）](notes/tech_tree_transport.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — エントロピー・パランティ粒子系ブランチ](notes/tech_tree_entropy.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 計量測量・暦ブランチ](notes/tech_tree_surveying.md) |
-| 2026-05-23 | 補遺 | — | [技術ツリー — 反重力天体・ネグレーザー系ブランチ](notes/tech_tree_antigravity.md) |
-| 2026-05-23 | 補遺 | — | [WhatIfImpossible 技術ツリー](notes/tech_tree.md) |
 | 2026-05-22 | 記事 | wiim_098 | [半永久的なレトロン場が生成できたら](physics/wiim_098.md) |
 | 2026-05-22 | 用語 | g397 | [キュリー温度（Curie Temperature）](../glossary/physics.md#g397) |
 | 2026-05-22 | 用語 | g396 | [ヴェルリンデのエントロピー重力（Verlinde's Entropic Gravity）](../glossary/speculative.md#g396) |
@@ -54,3 +35,22 @@
 | 2026-05-16 | 記事 | wiim_091 | [大気境界衛星——安定軌道の三方式と使い捨て群探査への問いの転換](physics/wiim_091.md) |
 | 2026-05-16 | 用語 | g377 | [アーンショーの定理（Earnshaw's Theorem）](../glossary/physics.md#g377) |
 | 2026-05-16 | 用語 | g376 | [スピンアイス結晶（Spin Ice）](../glossary/quantum.md#g376) |
+| 2026-05-16 | 用語 | g375 | [ディラックの弦（Dirac String）](../glossary/particle.md#g375) |
+| 2026-05-16 | 用語 | g374 | [GOCE重力観測衛星（GOCE (Gravity field and steady-state Ocean Circulation Explorer)）](../glossary/astronomy.md#g374) |
+| 2026-05-16 | 用語 | g373 | [テザー衛星（Tethered Satellite）](../glossary/physics.md#g373) |
+| 2026-05-16 | 用語 | g372 | [スカイフック（Skyhook）](../glossary/physics.md#g372) |
+| 2026-05-16 | 用語 | g371 | [弾道係数（Ballistic Coefficient）](../glossary/physics.md#g371) |
+| 2026-05-16 | 用語 | g370 | [マグナス効果（Magnus Effect）](../glossary/physics.md#g370) |
+| 2026-05-15 | 用語 | g369 | [光格子（Optical Lattice）](../glossary/quantum.md#g369) |
+| 2026-05-11 | 記事 | wiim_090 | [クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド](cosmology/wiim_090.md) |
+| 2026-05-09 | 用語 | g367 | [エンタルピー（Enthalpy）](../glossary/physics.md#g367) |
+| 2026-05-09 | 用語 | g366 | [角速度（Angular Velocity）](../glossary/physics.md#g366) |
+| 2026-05-09 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
+| 2026-05-09 | 補遺 | — | [宇宙空間・真空における放熱技術](notes/space_thermal_radiation.md) |
+| 2026-05-08 | 用語 | g365 | [フォノン（Phonon）](../glossary/quantum.md#g365) |
+| 2026-05-08 | 用語 | g364 | [紫外破綻（Ultraviolet Catastrophe）](../glossary/physics.md#g364) |
+| 2026-05-08 | 用語 | g363 | [プランクの法則（Planck's Law）](../glossary/physics.md#g363) |
+| 2026-05-08 | 用語 | g362 | [シュテファン＝ボルツマンの法則（Stefan-Boltzmann Law）](../glossary/physics.md#g362) |
+| 2026-05-06 | 用語 | g361 | [ゆえに記号（therefore sign）](../glossary/mathematics.md#g361) |
+| 2026-05-06 | 用語 | g360 | [ハルモス記号（Halmos symbol）](../glossary/mathematics.md#g360) |
+| 2026-05-06 | 用語 | g359 | [ヘンペルのカラス（Hempel's Raven）](../glossary/philosophy.md#g359) |

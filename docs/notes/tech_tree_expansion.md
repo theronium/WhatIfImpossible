@@ -1,11 +1,11 @@
----
+﻿---
 title: 技術ツリー — 宇宙膨張エネルギー回収系ブランチ
 type: note
 date: 2026-04-09
 related: [wiim_022, wiim_078]
 ---
 
-← [技術ツリー一覧](#notes/tech_tree.md)
+← [技術ツリー一覧](tech_tree.md)
 
 ## 宇宙膨張エネルギー回収系ブランチ
 

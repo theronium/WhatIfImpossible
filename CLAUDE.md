@@ -98,8 +98,8 @@ node glossary/scripts/update-term.js
 - **新ブランチの作成**:
   1. `docs/notes/tech_tree_<name>.md` を新規作成する
   2. frontmatter に `title`・`type: note`・`date`・`related` を記述する
-  3. 先頭行に `← [技術ツリー一覧](#notes/tech_tree.md)` を追加する
-  4. インデックス `docs/notes/tech_tree.md` のブランチ一覧テーブルに行を追加する（リンクは `#notes/tech_tree_<name>.md` 形式）
+  3. 先頭行に `← [技術ツリー一覧](tech_tree.md)` を追加する
+  4. インデックス `docs/notes/tech_tree.md` のブランチ一覧テーブルに行を追加する（リンクは `tech_tree_<name>.md` 形式）
 - ノードには記事ID（`wiim_XXX`）または用語ID（`gXXX`）を記載する
 - 記事を複数追加したあとまとめてツリーを更新してもよい（1記事ごとのコミットは不要）
 

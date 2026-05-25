@@ -1,11 +1,11 @@
----
+﻿---
 title: 技術ツリー — 生命系ブランチ
 type: note
 date: 2026-04-09
 related: [wiim_008, wiim_011, wiim_025, wiim_026, wiim_033, wiim_043, wiim_059, wiim_061, wiim_062, wiim_068, wiim_075]
 ---
 
-← [技術ツリー一覧](#notes/tech_tree.md)
+← [技術ツリー一覧](tech_tree.md)
 
 ## 生命系ブランチ
 

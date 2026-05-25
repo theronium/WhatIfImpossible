@@ -1,11 +1,11 @@
----
+﻿---
 title: 技術ツリー — マクロ量子状態ブランチ
 type: note
 date: 2026-04-09
 related: [wiim_022, wiim_050, wiim_094]
 ---
 
-← [技術ツリー一覧](#notes/tech_tree.md)
+← [技術ツリー一覧](tech_tree.md)
 
 ## マクロ量子状態ブランチ
 

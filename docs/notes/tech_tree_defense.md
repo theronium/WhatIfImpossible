@@ -1,11 +1,11 @@
----
+﻿---
 title: 技術ツリー — 防御・シールド系ブランチ
 type: note
 date: 2026-04-09
 related: [wiim_009, wiim_010, wiim_012, wiim_037, wiim_038, wiim_090]
 ---
 
-← [技術ツリー一覧](#notes/tech_tree.md)
+← [技術ツリー一覧](tech_tree.md)
 
 ## 防御・シールド系ブランチ
 
