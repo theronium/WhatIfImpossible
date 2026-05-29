@@ -10,6 +10,34 @@ const ROOT      = __dirname;
 const DOCS_DIR  = path.join(ROOT, 'docs');
 const NOTES_DIR = path.join(ROOT, 'docs', 'notes');
 const TERMS_FILE = path.join(ROOT, 'glossary', 'data', 'terms.jsonl');
+const ARTICLE_CACHE = path.join(ROOT, '.article-index.json');
+
+// ── staged ファイル種別判定 ───────────────────────────────────────────
+function getStagedFileTypes() {
+  try {
+    const { execSync } = require('child_process');
+    const out = execSync('git diff --staged --name-only', { cwd: ROOT, encoding: 'utf-8' });
+    const files = out.split('\n').map(f => f.trim()).filter(Boolean);
+    return {
+      articles: files.some(f => /^docs\/(?!notes\/)[^/]+\/[^/]+\.md$/.test(f)),
+      notes:    files.some(f => /^docs\/notes\/[^/]+\.md$/.test(f)),
+      terms:    files.some(f => f.startsWith('glossary/data/terms')),
+    };
+  } catch {
+    return { articles: true, notes: true, terms: true };
+  }
+}
+
+// ── 記事インデックスキャッシュ読み込み ────────────────────────────────
+function loadArticlesFromCache() {
+  if (!fs.existsSync(ARTICLE_CACHE)) return null;
+  try {
+    const raw = JSON.parse(fs.readFileSync(ARTICLE_CACHE, 'utf-8'));
+    return Object.values(raw)
+      .map(a => ({ ...a, file: path.basename(a.file) }))
+      .sort((a, b) => a.id.localeCompare(b.id));
+  } catch { return null; }
+}
 
 // ── 日付フォーマット ──────────────────────────────────────────────────
 function fmtDate(d) {
@@ -320,47 +348,59 @@ function updateRootReadme(articleCount, termCount, noteCount) {
 function main() {
   console.log('generate-readme: 生成開始');
 
-  const articles = collectArticles();
-  const notes    = collectNotes();
-  const termCount = countTerms();
+  const staged = getStagedFileTypes();
 
-  // 用語データ（changelog用）
+  // 記事: staged なら全件読み込み、そうでなければキャッシュ利用
+  const articles = staged.articles
+    ? collectArticles()
+    : (loadArticlesFromCache() || collectArticles());
+
+  const notes = collectNotes();
+
+  // 用語データ（カウント + changelog）を1回だけ読む
   const terms = fs.existsSync(TERMS_FILE)
     ? fs.readFileSync(TERMS_FILE, 'utf-8').trim().split('\n').filter(Boolean).map(l => JSON.parse(l))
     : [];
+  const termCount = terms.length;
 
-  // docs/README.md
-  const docsReadme = generateDocsReadme(articles);
-  fs.writeFileSync(path.join(DOCS_DIR, 'README.md'), docsReadme, 'utf-8');
-  console.log(`  docs/README.md: 記事 ${articles.length} 件`);
+  // docs/README.md: 記事追加時のみ再生成
+  if (staged.articles) {
+    fs.writeFileSync(path.join(DOCS_DIR, 'README.md'), generateDocsReadme(articles), 'utf-8');
+    console.log(`  docs/README.md: 記事 ${articles.length} 件`);
+  } else {
+    console.log(`  docs/README.md: スキップ（記事変更なし、キャッシュ利用）`);
+  }
 
-  // docs/notes/README.md
-  const notesReadme = generateNotesReadme(notes);
-  fs.writeFileSync(path.join(NOTES_DIR, 'README.md'), notesReadme, 'utf-8');
-  console.log(`  docs/notes/README.md: ノート ${notes.length} 件`);
+  // docs/notes/README.md: ノート追加時のみ再生成
+  if (staged.notes) {
+    fs.writeFileSync(path.join(NOTES_DIR, 'README.md'), generateNotesReadme(notes), 'utf-8');
+    console.log(`  docs/notes/README.md: ノート ${notes.length} 件`);
+  } else {
+    console.log(`  docs/notes/README.md: スキップ（ノート変更なし）`);
+  }
 
-  // docs/new.md（新着一覧）
-  const changelog = generateChangelog(articles, notes, terms);
-  fs.writeFileSync(path.join(DOCS_DIR, 'new.md'), changelog, 'utf-8');
+  // docs/new.md: 常に再生成（記事・用語・ノート何れかが変わった）
+  fs.writeFileSync(path.join(DOCS_DIR, 'new.md'), generateChangelog(articles, notes, terms), 'utf-8');
   console.log(`  docs/new.md: 新着一覧を生成`);
 
-  // README.md（ルート）
+  // README.md（ルート）: 常に更新
   updateRootReadme(articles.length, termCount, notes.length);
 
-  // 記事インデックスキャッシュ（scan-related.js が読み込んで全件スキャンを回避）
-  const indexCache = {};
-  for (const a of articles) {
-    indexCache[a.id] = {
-      title: a.title,
-      file: `docs/${a.category}/${a.file}`,
-      category: a.category,
-    };
+  // 記事インデックスキャッシュ: 記事追加時のみ更新
+  if (staged.articles) {
+    const indexCache = {};
+    for (const a of articles) {
+      indexCache[a.id] = {
+        id: a.id,
+        title: a.title,
+        file: `docs/${a.category}/${a.file}`,
+        category: a.category,
+        date: a.date || '',
+        tags: Array.isArray(a.tags) ? a.tags : [],
+      };
+    }
+    fs.writeFileSync(ARTICLE_CACHE, JSON.stringify(indexCache), 'utf-8');
   }
-  fs.writeFileSync(
-    path.join(ROOT, '.article-index.json'),
-    JSON.stringify(indexCache),
-    'utf-8'
-  );
 
   console.log('generate-readme: 完了');
 }
