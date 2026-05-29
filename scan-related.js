@@ -34,23 +34,60 @@ function parseFrontmatter(content) {
   return result;
 }
 
-// ── Step 1: インデックス構築 ───────────────────────────────────────────
+// ── Step 1: インデックス構築＋ソース収集（1パスで統合）──────────────
 
-function buildArticleIndex() {
-  // { 'wiim_054': { title, file, category } }
-  const index = {};
+function buildIndexAndSources() {
+  const articleIndex = {};
+  const sources = [];
+
   for (const cat of ARTICLE_CATS) {
     const dir = path.join(DOCS_DIR, cat);
     if (!fs.existsSync(dir)) continue;
     for (const f of fs.readdirSync(dir)) {
       if (!f.endsWith('.md')) continue;
       const file = path.join(dir, f);
-      const fm = parseFrontmatter(fs.readFileSync(file, 'utf-8'));
+      const content = fs.readFileSync(file, 'utf-8'); // 1回のみ読む
+      const fm = parseFrontmatter(content);
       if (!fm.id || !fm.id.startsWith('wiim_')) continue;
-      index[fm.id] = { title: fm.title || f, file, category: cat };
+      articleIndex[fm.id] = { title: fm.title || f, file, category: cat };
+      const { wiimIds, gIds } = extractRefs(content);
+      sources.push({
+        id: fm.id,
+        title: fm.title || f,
+        file,
+        category: cat,
+        wiimRefs: wiimIds.filter(x => x !== fm.id),
+        gRefs: gIds,
+        type: 'article',
+      });
     }
   }
-  return index;
+
+  if (fs.existsSync(NOTES_DIR)) {
+    for (const f of fs.readdirSync(NOTES_DIR)) {
+      if (!f.endsWith('.md') || f === 'README.md' || f === 'tech_tree.md') continue;
+      const file = path.join(NOTES_DIR, f);
+      const content = fs.readFileSync(file, 'utf-8');
+      const fm = parseFrontmatter(content);
+      const { wiimIds, gIds } = extractRefs(content);
+      const filenameWiim = (f.match(/^(wiim_\d+)/) || [])[1];
+      const allWiimRefs = [...new Set([
+        ...wiimIds,
+        ...(filenameWiim ? [filenameWiim] : []),
+      ])];
+      sources.push({
+        id:    f.replace('.md', ''),
+        title: fm.title || f,
+        file,
+        category: 'notes',
+        wiimRefs: allWiimRefs,
+        gRefs: gIds,
+        type: 'note',
+      });
+    }
+  }
+
+  return { articleIndex, sources };
 }
 
 function buildTermIndex() {
@@ -73,55 +110,9 @@ function extractRefs(content) {
   return { wiimIds, gIds };
 }
 
-function collectSources(articleIndex) {
-  const sources = [];
-
-  // 記事
-  for (const [id, info] of Object.entries(articleIndex)) {
-    const content = fs.readFileSync(info.file, 'utf-8');
-    const { wiimIds, gIds } = extractRefs(content);
-    sources.push({
-      id,
-      title: info.title,
-      file:  info.file,
-      category: info.category,
-      wiimRefs: wiimIds.filter(x => x !== id), // 自己参照除外
-      gRefs: gIds,
-      type: 'article',
-    });
-  }
-
-  // 補遺ノート
-  if (fs.existsSync(NOTES_DIR)) {
-    for (const f of fs.readdirSync(NOTES_DIR)) {
-      if (!f.endsWith('.md') || f === 'README.md' || f === 'tech_tree.md') continue;
-      const file = path.join(NOTES_DIR, f);
-      const content = fs.readFileSync(file, 'utf-8');
-      const fm = parseFrontmatter(content);
-      const { wiimIds, gIds } = extractRefs(content);
-      // ファイル名に wiim_XXX が含まれる場合（例: wiim_002_rotation_principle.md）
-      // → そのベース記事にもバックリンクを追加するため wiimRefs に含める
-      const filenameWiim = (f.match(/^(wiim_\d+)/) || [])[1];
-      const allWiimRefs = [...new Set([
-        ...wiimIds,
-        ...(filenameWiim ? [filenameWiim] : []),
-      ])];
-      sources.push({
-        id:    f.replace('.md', ''),
-        title: fm.title || f,
-        file,
-        category: 'notes',
-        wiimRefs: allWiimRefs,
-        gRefs: gIds,
-        type: 'note',
-      });
-    }
-  }
-  return sources;
-}
-
 // ── Step 3A: 用語 related 更新 ────────────────────────────────────────
 // 記事が gXXX に言及 → その用語の related に wiim_ID を追加
+// 戻り値: 変更された用語IDの Set（変更なしなら null）
 
 function updateTermsRelated(sources, termIndex) {
   // toAdd: { gId: Set<wiim_id> }
@@ -134,7 +125,7 @@ function updateTermsRelated(sources, termIndex) {
     }
   }
 
-  let changed = false;
+  const changedIds = new Set();
   const lines = fs.readFileSync(TERMS_FILE, 'utf-8').split('\n');
 
   const newLines = lines.map(line => {
@@ -151,17 +142,17 @@ function updateTermsRelated(sources, termIndex) {
     if (!added.length) return line;
 
     t.related = [...existing].sort();
-    changed = true;
+    changedIds.add(t.id);
     console.log(`  [用語] ${t.id} ${t.name} ← ${added.join(', ')}`);
     return JSON.stringify(t);
   });
 
-  if (!changed) {
+  if (!changedIds.size) {
     console.log('  [用語] 更新なし');
-    return false;
+    return null;
   }
   if (!DRY_RUN) fs.writeFileSync(TERMS_FILE, newLines.join('\n'), 'utf-8');
-  return true;
+  return changedIds;
 }
 
 // ── Step 3B: 記事 関連記事 セクション更新 ────────────────────────────
@@ -240,23 +231,22 @@ function updateArticleRelated(sources, articleIndex) {
 function main() {
   console.log(`scan-related: 開始${DRY_RUN ? ' [dry-run]' : ''}`);
 
-  const articleIndex = buildArticleIndex();
-  const termIndex    = buildTermIndex();
-  const sources      = collectSources(articleIndex);
+  const { articleIndex, sources } = buildIndexAndSources();
+  const termIndex = buildTermIndex();
 
   console.log(`  記事 ${Object.keys(articleIndex).length} 件 / 用語 ${Object.keys(termIndex).length} 件`);
 
-  const termsUpdated    = updateTermsRelated(sources, termIndex);
+  const changedTermIds = updateTermsRelated(sources, termIndex);
   const articlesUpdated = updateArticleRelated(sources, articleIndex);
 
-  if (!DRY_RUN && termsUpdated) {
-    // 用語 .md ファイルを再生成
+  if (!DRY_RUN && changedTermIds) {
+    // 変更された用語のみ選択的に再生成（全件再生成を回避）
+    process.env.GENERATE_IDS = [...changedTermIds].join(',');
     require('./glossary/scripts/generate.js');
+    delete process.env.GENERATE_IDS;
   }
 
-  if (!DRY_RUN && (termsUpdated || articlesUpdated)) {
-    require('./generate-readme.js');
-  }
+  // generate-readme はフックが事前に実行済み。再呼び出し不要。
 
   console.log('scan-related: 完了');
 }

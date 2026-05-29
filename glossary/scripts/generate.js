@@ -226,6 +226,12 @@ function termToMarkdown(term, termIndex, termMap) {
   ].join('\n');
 }
 
+// GENERATE_IDS が指定されている場合は選択的再生成モード
+// （scan-related.js から関連付け更新後に呼ばれる際に使用）
+const ONLY_IDS = process.env.GENERATE_IDS
+  ? new Set(process.env.GENERATE_IDS.split(','))
+  : null;
+
 // JSONL 読み込み
 if (!fs.existsSync(DATA_FILE)) {
   console.error('data/terms.jsonl が見つかりません。先に migrate.js を実行してください。');
@@ -249,6 +255,9 @@ for (const cat of categories) {
     .filter(t => t.category === cat.id)
     .sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
 
+  // 選択モード: このカテゴリに変更用語がなければスキップ
+  if (ONLY_IDS && !catTerms.some(t => ONLY_IDS.has(t.id))) continue;
+
   totalCount += catTerms.length;
 
   const body = catTerms.map(t => termToMarkdown(t, termIndex, termMap)).join('\n\n');
@@ -258,53 +267,59 @@ for (const cat of categories) {
   console.log(`  ✓ ${cat.file} (${catTerms.length} 件)`);
 }
 
-// README の用語数・最近追加を更新
-const readmePath = path.join(GLOSSARY_DIR, 'README.md');
-let readme = '';
-try { readme = fs.readFileSync(readmePath, 'utf8'); } catch {}
+// README 更新: 選択モードではスキップ（用語数・最近追加は変わらないため）
+if (!ONLY_IDS) {
+  const readmePath = path.join(GLOSSARY_DIR, 'README.md');
+  let readme = '';
+  try { readme = fs.readFileSync(readmePath, 'utf8'); } catch {}
 
-if (readme) {
-  // ファイル一覧テーブルを更新
-  const fileListRows = categories
-    .map(c => `| [${c.file}](${c.file}) | ${rawCats.find(r => r.id === c.id).label}用語 |`)
-    .join('\n');
-  const fileListSection = `## ファイル一覧\n\n| ファイル | 内容 |\n|---------|------|\n${fileListRows}\n`;
-  readme = readme.replace(/## ファイル一覧[\s\S]*?(?=\n---|\n## )/, fileListSection);
+  if (readme) {
+    const fileListRows = categories
+      .map(c => `| [${c.file}](${c.file}) | ${rawCats.find(r => r.id === c.id).label}用語 |`)
+      .join('\n');
+    const fileListSection = `## ファイル一覧\n\n| ファイル | 内容 |\n|---------|------|\n${fileListRows}\n`;
+    readme = readme.replace(/## ファイル一覧[\s\S]*?(?=\n---|\n## )/, fileListSection);
 
-  // 用語数
-  readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${totalCount}**`);
+    readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${totalCount}**`);
 
-  // 最近追加した用語（ID順で直近10件）
-  const RECENT_COUNT = 10;
-  const recentLines = [...terms]
-    .slice(-RECENT_COUNT)
-    .reverse()
-    .map(t => `| ${t.id} | [${t.name}](${t.category}.md) | ${t.en || '—'} | ${t.category} |`)
-    .join('\n');
-  const recentSection =
-    `## 最近追加した用語\n\n` +
-    `| ID | 用語 | English | カテゴリ |\n` +
-    `|----|------|---------|----------|\n` +
-    recentLines + '\n';
+    const RECENT_COUNT = 10;
+    const recentLines = [...terms]
+      .slice(-RECENT_COUNT)
+      .reverse()
+      .map(t => `| ${t.id} | [${t.name}](${t.category}.md) | ${t.en || '—'} | ${t.category} |`)
+      .join('\n');
+    const recentSection =
+      `## 最近追加した用語\n\n` +
+      `| ID | 用語 | English | カテゴリ |\n` +
+      `|----|------|---------|----------|\n` +
+      recentLines + '\n';
 
-  // セクションを置換（なければ末尾に追加）
-  if (readme.includes('## 最近追加した用語')) {
-    readme = readme.replace(/## 最近追加した用語[\s\S]*?(?=\n## |\n---|\s*$)/, recentSection);
-  } else {
-    readme = readme.trimEnd() + '\n\n---\n\n' + recentSection;
+    if (readme.includes('## 最近追加した用語')) {
+      readme = readme.replace(/## 最近追加した用語[\s\S]*?(?=\n## |\n---|\s*$)/, recentSection);
+    } else {
+      readme = readme.trimEnd() + '\n\n---\n\n' + recentSection;
+    }
+
+    fs.writeFileSync(readmePath, readme);
   }
-
-  fs.writeFileSync(readmePath, readme);
 }
 
 // ── 個別用語ファイル terms/gXXX.md を生成 ──────────────────────────
 const TERMS_DIR = path.join(GLOSSARY_DIR, 'terms');
 if (!fs.existsSync(TERMS_DIR)) fs.mkdirSync(TERMS_DIR);
 
-for (const term of terms) {
+// 選択モード: 変更された用語のみ再生成。全件モード: 全用語を生成。
+const termsToGenerate = ONLY_IDS ? terms.filter(t => ONLY_IDS.has(t.id)) : terms;
+for (const term of termsToGenerate) {
   const content = termToIndividualMarkdown(term, termIndex, termMap);
   fs.writeFileSync(path.join(TERMS_DIR, `${term.id}.md`), content + '\n');
 }
-console.log(`✓ terms/ に ${terms.length} 件の個別ファイルを生成しました。`);
+
+if (ONLY_IDS) {
+  console.log(`✓ terms/ の ${termsToGenerate.length} 件を更新しました。`);
+} else {
+  console.log(`✓ terms/ に ${terms.length} 件の個別ファイルを生成しました。`);
+  console.log(`\n✓ 合計 ${totalCount} 件。README.md を更新しました。`);
+}
 
 console.log(`\n✓ 合計 ${totalCount} 件。README.md を更新しました。`);
