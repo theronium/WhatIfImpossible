@@ -347,6 +347,21 @@ function main() {
   // README.md（ルート）
   updateRootReadme(articles.length, termCount, notes.length);
 
+  // 記事インデックスキャッシュ（scan-related.js が読み込んで全件スキャンを回避）
+  const indexCache = {};
+  for (const a of articles) {
+    indexCache[a.id] = {
+      title: a.title,
+      file: `docs/${a.category}/${a.file}`,
+      category: a.category,
+    };
+  }
+  fs.writeFileSync(
+    path.join(ROOT, '.article-index.json'),
+    JSON.stringify(indexCache),
+    'utf-8'
+  );
+
   console.log('generate-readme: 完了');
 }
 

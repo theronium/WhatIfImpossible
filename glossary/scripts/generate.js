@@ -250,38 +250,75 @@ for (const t of terms) termMap[t.id] = { name: t.name, category: t.category };
 
 let totalCount = 0;
 
-for (const cat of categories) {
-  const catTerms = terms
-    .filter(t => t.category === cat.id)
-    .sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
+// ── 個別用語ファイル terms/gXXX.md ──────────────────────────────────
+const TERMS_DIR = path.join(GLOSSARY_DIR, 'terms');
+if (!fs.existsSync(TERMS_DIR)) fs.mkdirSync(TERMS_DIR);
 
-  // 選択モード: このカテゴリに変更用語がなければスキップ
-  if (ONLY_IDS && !catTerms.some(t => ONLY_IDS.has(t.id))) continue;
+if (ONLY_IDS) {
+  // ── 選択モード: related 行のみ外科的置換（autoLink・全件書き出し不要）──
 
-  totalCount += catTerms.length;
+  // カテゴリファイル: 変更用語の **関連記事**: 行だけ置換
+  for (const cat of categories) {
+    const changedInCat = terms.filter(t => ONLY_IDS.has(t.id) && t.category === cat.id);
+    if (!changedInCat.length) continue;
+    const catFile = path.join(GLOSSARY_DIR, cat.file);
+    let content = fs.readFileSync(catFile, 'utf-8');
+    for (const term of changedInCat) {
+      const newRelStr = buildRelatedStr(term.related, termMap);
+      content = content.replace(
+        new RegExp(`(<a id="${term.id}"></a>[\\s\\S]*?\\*\\*関連記事\\*\\*: )[^\\n]*`),
+        `$1${newRelStr}`
+      );
+    }
+    fs.writeFileSync(catFile, content, 'utf-8');
+    console.log(`  ✓ ${cat.file} (${changedInCat.length} 件を更新)`);
+  }
 
-  const body = catTerms.map(t => termToMarkdown(t, termIndex, termMap)).join('\n\n');
-  const content = cat.title + '\n\n' + body + '\n';
+  // 個別ファイル: frontmatter related + 読み行の「関連:」部分だけ置換
+  const termsToUpdate = terms.filter(t => ONLY_IDS.has(t.id));
+  for (const term of termsToUpdate) {
+    const termFile = path.join(TERMS_DIR, `${term.id}.md`);
+    if (!fs.existsSync(termFile)) {
+      // 新規用語（通常はここには来ないが念のためフル生成）
+      fs.writeFileSync(termFile, termToIndividualMarkdown(term, termIndex, termMap) + '\n');
+    } else {
+      let content = fs.readFileSync(termFile, 'utf-8');
+      const relArr = (term.related || []).map(r => `"${r}"`).join(', ');
+      content = content.replace(/^related: \[.*\]$/m, `related: [${relArr}]`);
+      const newRelStr = buildRelatedStrForIndividual(term.related, termMap);
+      content = content.replace(/　関連: [^\n]+/, `　関連: ${newRelStr}`);
+      fs.writeFileSync(termFile, content, 'utf-8');
+    }
+  }
+  console.log(`✓ terms/ の ${termsToUpdate.length} 件を更新しました。`);
 
-  fs.writeFileSync(path.join(GLOSSARY_DIR, cat.file), content);
-  console.log(`  ✓ ${cat.file} (${catTerms.length} 件)`);
-}
+} else {
+  // ── 全件モード: 全カテゴリファイル＋全個別ファイルを再生成 ──────────
 
-// README 更新: 選択モードではスキップ（用語数・最近追加は変わらないため）
-if (!ONLY_IDS) {
+  for (const cat of categories) {
+    const catTerms = terms
+      .filter(t => t.category === cat.id)
+      .sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
+
+    totalCount += catTerms.length;
+
+    const body = catTerms.map(t => termToMarkdown(t, termIndex, termMap)).join('\n\n');
+    const content = cat.title + '\n\n' + body + '\n';
+    fs.writeFileSync(path.join(GLOSSARY_DIR, cat.file), content);
+    console.log(`  ✓ ${cat.file} (${catTerms.length} 件)`);
+  }
+
+  // README 更新
   const readmePath = path.join(GLOSSARY_DIR, 'README.md');
   let readme = '';
   try { readme = fs.readFileSync(readmePath, 'utf8'); } catch {}
-
   if (readme) {
     const fileListRows = categories
       .map(c => `| [${c.file}](${c.file}) | ${rawCats.find(r => r.id === c.id).label}用語 |`)
       .join('\n');
     const fileListSection = `## ファイル一覧\n\n| ファイル | 内容 |\n|---------|------|\n${fileListRows}\n`;
     readme = readme.replace(/## ファイル一覧[\s\S]*?(?=\n---|\n## )/, fileListSection);
-
     readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${totalCount}**`);
-
     const RECENT_COUNT = 10;
     const recentLines = [...terms]
       .slice(-RECENT_COUNT)
@@ -293,33 +330,20 @@ if (!ONLY_IDS) {
       `| ID | 用語 | English | カテゴリ |\n` +
       `|----|------|---------|----------|\n` +
       recentLines + '\n';
-
     if (readme.includes('## 最近追加した用語')) {
       readme = readme.replace(/## 最近追加した用語[\s\S]*?(?=\n## |\n---|\s*$)/, recentSection);
     } else {
       readme = readme.trimEnd() + '\n\n---\n\n' + recentSection;
     }
-
     fs.writeFileSync(readmePath, readme);
   }
-}
 
-// ── 個別用語ファイル terms/gXXX.md を生成 ──────────────────────────
-const TERMS_DIR = path.join(GLOSSARY_DIR, 'terms');
-if (!fs.existsSync(TERMS_DIR)) fs.mkdirSync(TERMS_DIR);
-
-// 選択モード: 変更された用語のみ再生成。全件モード: 全用語を生成。
-const termsToGenerate = ONLY_IDS ? terms.filter(t => ONLY_IDS.has(t.id)) : terms;
-for (const term of termsToGenerate) {
-  const content = termToIndividualMarkdown(term, termIndex, termMap);
-  fs.writeFileSync(path.join(TERMS_DIR, `${term.id}.md`), content + '\n');
-}
-
-if (ONLY_IDS) {
-  console.log(`✓ terms/ の ${termsToGenerate.length} 件を更新しました。`);
-} else {
+  for (const term of terms) {
+    fs.writeFileSync(
+      path.join(TERMS_DIR, `${term.id}.md`),
+      termToIndividualMarkdown(term, termIndex, termMap) + '\n'
+    );
+  }
   console.log(`✓ terms/ に ${terms.length} 件の個別ファイルを生成しました。`);
-  console.log(`\n✓ 合計 ${totalCount} 件。README.md を更新しました。`);
+  console.log(`✓ 合計 ${totalCount} 件。README.md を更新しました。`);
 }
-
-console.log(`\n✓ 合計 ${totalCount} 件。README.md を更新しました。`);

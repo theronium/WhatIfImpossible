@@ -14,3 +14,5 @@ editor/data/garbage/
 editor/public/checker/model.onnx
 editor/public/checker/tokenizer/
 editor/public/checker/model/
+
+.article-index.json

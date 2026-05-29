@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // scan-related.js — 記事・補遺内の参照を収集し、用語 related と記事 関連記事 を更新する
 // 使い方:
-//   node scan-related.js             ← 実際に更新
+//   node scan-related.js             ← staged ファイルのみ解析（高速）
+//   node scan-related.js --all       ← 全記事を強制スキャン
 //   node scan-related.js --dry-run   ← 変更内容の確認のみ（ファイルを書き換えない）
 'use strict';
 
@@ -12,8 +13,10 @@ const ROOT       = __dirname;
 const DOCS_DIR   = path.join(ROOT, 'docs');
 const NOTES_DIR  = path.join(ROOT, 'docs', 'notes');
 const TERMS_FILE = path.join(ROOT, 'glossary', 'data', 'terms.jsonl');
+const INDEX_CACHE = path.join(ROOT, '.article-index.json');
 
 const DRY_RUN = process.argv.includes('--dry-run');
+const FORCE_ALL = process.argv.includes('--all');
 
 const ARTICLE_CATS = ['cosmology', 'physics', 'quantum', 'logic', 'philosophy', 'biology'];
 
@@ -34,10 +37,63 @@ function parseFrontmatter(content) {
   return result;
 }
 
-// ── Step 1: インデックス構築＋ソース収集（1パスで統合）──────────────
+// ── 参照 ID 抽出 ─────────────────────────────────────────────────────
 
-function buildIndexAndSources() {
-  const articleIndex = {};
+function extractRefs(content) {
+  const wiimIds = [...new Set((content.match(/wiim_\d{3,}/g) || []))];
+  const gIds    = [...new Set((content.match(/\bg(\d{3,})\b/g) || []))];
+  return { wiimIds, gIds };
+}
+
+// ── staged ファイル取得（git diff --staged）──────────────────────────
+
+function getStagedFiles() {
+  try {
+    const { execSync } = require('child_process');
+    const out = execSync('git diff --staged --name-only', { cwd: ROOT, encoding: 'utf-8' });
+    return new Set(
+      out.split('\n')
+        .map(f => f.trim())
+        .filter(Boolean)
+        .map(f => path.join(ROOT, f.replace(/\//g, path.sep)))
+    );
+  } catch {
+    return null;
+  }
+}
+
+// ── Step 1: 記事インデックス読み込み（キャッシュ優先）────────────────
+
+function loadArticleIndex() {
+  if (fs.existsSync(INDEX_CACHE)) {
+    const raw = JSON.parse(fs.readFileSync(INDEX_CACHE, 'utf-8'));
+    // file フィールドを絶対パスに変換
+    const index = {};
+    for (const [id, info] of Object.entries(raw)) {
+      index[id] = { ...info, file: path.join(ROOT, info.file) };
+    }
+    return index;
+  }
+  // キャッシュなし: フォールバックとして全件スキャン
+  console.log('  (キャッシュなし: 全記事をスキャン)');
+  const index = {};
+  for (const cat of ARTICLE_CATS) {
+    const dir = path.join(DOCS_DIR, cat);
+    if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir)) {
+      if (!f.endsWith('.md')) continue;
+      const file = path.join(dir, f);
+      const fm = parseFrontmatter(fs.readFileSync(file, 'utf-8'));
+      if (!fm.id || !fm.id.startsWith('wiim_')) continue;
+      index[fm.id] = { title: fm.title || f, file, category: cat };
+    }
+  }
+  return index;
+}
+
+// ── Step 2: ソース収集（staged ファイルのみ or 全件）────────────────
+
+function collectSources(articleIndex, stagedFiles) {
   const sources = [];
 
   for (const cat of ARTICLE_CATS) {
@@ -46,10 +102,11 @@ function buildIndexAndSources() {
     for (const f of fs.readdirSync(dir)) {
       if (!f.endsWith('.md')) continue;
       const file = path.join(dir, f);
-      const content = fs.readFileSync(file, 'utf-8'); // 1回のみ読む
+      // staged モード: 対象外ファイルはスキップ
+      if (stagedFiles && !stagedFiles.has(file)) continue;
+      const content = fs.readFileSync(file, 'utf-8');
       const fm = parseFrontmatter(content);
       if (!fm.id || !fm.id.startsWith('wiim_')) continue;
-      articleIndex[fm.id] = { title: fm.title || f, file, category: cat };
       const { wiimIds, gIds } = extractRefs(content);
       sources.push({
         id: fm.id,
@@ -67,6 +124,7 @@ function buildIndexAndSources() {
     for (const f of fs.readdirSync(NOTES_DIR)) {
       if (!f.endsWith('.md') || f === 'README.md' || f === 'tech_tree.md') continue;
       const file = path.join(NOTES_DIR, f);
+      if (stagedFiles && !stagedFiles.has(file)) continue;
       const content = fs.readFileSync(file, 'utf-8');
       const fm = parseFrontmatter(content);
       const { wiimIds, gIds } = extractRefs(content);
@@ -87,11 +145,12 @@ function buildIndexAndSources() {
     }
   }
 
-  return { articleIndex, sources };
+  return sources;
 }
 
+// ── Step 3A: 用語 related 更新 ────────────────────────────────────────
+
 function buildTermIndex() {
-  // { 'g019': { ...term } }
   const index = {};
   if (!fs.existsSync(TERMS_FILE)) return index;
   for (const line of fs.readFileSync(TERMS_FILE, 'utf-8').split('\n')) {
@@ -101,24 +160,10 @@ function buildTermIndex() {
   return index;
 }
 
-// ── Step 2: 参照 ID 抽出 ──────────────────────────────────────────────
-
-function extractRefs(content) {
-  const wiimIds = [...new Set((content.match(/wiim_\d{3,}/g) || []))];
-  // gXXX: 3桁以上の数字（誤マッチを減らすため直後が英字でないこと）
-  const gIds    = [...new Set((content.match(/\bg(\d{3,})\b/g) || []))];
-  return { wiimIds, gIds };
-}
-
-// ── Step 3A: 用語 related 更新 ────────────────────────────────────────
-// 記事が gXXX に言及 → その用語の related に wiim_ID を追加
-// 戻り値: 変更された用語IDの Set（変更なしなら null）
-
 function updateTermsRelated(sources, termIndex) {
-  // toAdd: { gId: Set<wiim_id> }
   const toAdd = {};
   for (const src of sources) {
-    if (src.type !== 'article') continue; // 補遺は wiim_ID を持たないのでスキップ
+    if (src.type !== 'article') continue;
     for (const gId of src.gRefs) {
       if (!termIndex[gId]) continue;
       (toAdd[gId] = toAdd[gId] || new Set()).add(src.id);
@@ -156,22 +201,18 @@ function updateTermsRelated(sources, termIndex) {
 }
 
 // ── Step 3B: 記事 関連記事 セクション更新 ────────────────────────────
-// A が B に言及 → B の 関連記事 セクションに A へのバックリンクを追加
 
 function relPath(fromFile, toFile) {
   return path.relative(path.dirname(fromFile), toFile).replace(/\\/g, '/');
 }
 
 function appendToRelatedSection(content, entry) {
-  // ## 関連記事 セクションの末尾（次の ## or EOF）に追記
   const headerRe = /^## 関連記事[^\n]*\r?\n/m;
   const hMatch = headerRe.exec(content);
-  if (!hMatch) return null; // セクションなし
+  if (!hMatch) return null;
 
   const afterHeader = hMatch.index + hMatch[0].length;
   const rest = content.slice(afterHeader);
-
-  // 次のセクション見出し（## で始まる行）を探す
   const nextSecRe = /^## /m;
   const nMatch = nextSecRe.exec(rest);
   const sectionEnd = nMatch ? afterHeader + nMatch.index : content.length;
@@ -182,11 +223,10 @@ function appendToRelatedSection(content, entry) {
 }
 
 function updateArticleRelated(sources, articleIndex) {
-  // backlinks: { target_wiim_id: [{ id, title, file }] }
   const backlinks = {};
   for (const src of sources) {
     for (const targetId of src.wiimRefs) {
-      if (!articleIndex[targetId]) continue; // 存在しない記事（プレースホルダ）はスキップ
+      if (!articleIndex[targetId]) continue;
       (backlinks[targetId] = backlinks[targetId] || []).push(
         { id: src.id, title: src.title, file: src.file, type: src.type }
       );
@@ -200,18 +240,16 @@ function updateArticleRelated(sources, articleIndex) {
     let fileChanged = false;
 
     for (const src of srcs) {
-      // 既にターゲット記事内に src.id の記載があればスキップ
       if (content.includes(src.id)) continue;
 
       const link  = relPath(info.file, src.file);
-      // 補遺の場合はタイトル冒頭の「補遺：」を省いてシンプルに
       const label = src.type === 'note'
         ? src.title.replace(/^補遺[：:]\s*/, '補遺: ')
         : src.title;
       const entry = `- [${src.id}](${link}) — ${label}`;
 
       const updated = appendToRelatedSection(content, entry);
-      if (!updated) continue; // 関連記事セクションなし
+      if (!updated) continue;
 
       console.log(`  [記事] ${targetId} ← ${src.id}`);
       content = updated;
@@ -231,16 +269,34 @@ function updateArticleRelated(sources, articleIndex) {
 function main() {
   console.log(`scan-related: 開始${DRY_RUN ? ' [dry-run]' : ''}`);
 
-  const { articleIndex, sources } = buildIndexAndSources();
+  const articleIndex = loadArticleIndex();
+
+  // staged ファイルのみ解析（--all または dry-run では全件）
+  const stagedFiles = (DRY_RUN || FORCE_ALL) ? null : getStagedFiles();
+  if (stagedFiles) {
+    const targets = [...stagedFiles]
+      .map(f => path.relative(ROOT, f).replace(/\\/g, '/'))
+      .filter(f => f.startsWith('docs/'));
+    if (targets.length) {
+      console.log(`  対象: ${targets.join(', ')}`);
+    } else {
+      // staged に docs/ ファイルがない（notes以外）→ 何もしない
+      console.log('  対象ファイルなし。スキップ。');
+      console.log('scan-related: 完了');
+      return;
+    }
+  }
+
+  const sources = collectSources(articleIndex, stagedFiles);
   const termIndex = buildTermIndex();
 
-  console.log(`  記事 ${Object.keys(articleIndex).length} 件 / 用語 ${Object.keys(termIndex).length} 件`);
+  console.log(`  記事インデックス ${Object.keys(articleIndex).length} 件 / 用語 ${Object.keys(termIndex).length} 件 / ソース ${sources.length} 件`);
 
   const changedTermIds = updateTermsRelated(sources, termIndex);
   const articlesUpdated = updateArticleRelated(sources, articleIndex);
 
   if (!DRY_RUN && changedTermIds) {
-    // 変更された用語のみ選択的に再生成（全件再生成を回避）
+    // 変更された用語のみ選択的に再生成（外科的置換で autoLink をスキップ）
     process.env.GENERATE_IDS = [...changedTermIds].join(',');
     require('./glossary/scripts/generate.js');
     delete process.env.GENERATE_IDS;
