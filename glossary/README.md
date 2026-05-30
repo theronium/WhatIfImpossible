@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **397**
+用語数: **398**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g398 | [生体マグノニクス](wiim-concepts.md) | Bio-Magnonics | wiim-concepts |
 | g397 | [キュリー温度](physics.md) | Curie Temperature | physics |
 | g396 | [ヴェルリンデのエントロピー重力](speculative.md) | Verlinde's Entropic Gravity | speculative |
 | g395 | [ゼーベック効果・ペルティエ効果](physics.md) | Seebeck Effect / Peltier Effect | physics |
@@ -54,7 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g391 | [チェルン数](quantum.md) | Chern Number | quantum |
 | g390 | [マグノニクス](physics.md) | Magnonics | physics |
 | g389 | [ハルバッハ配列](physics.md) | Halbach Array | physics |
-| g388 | [アハラノフ＝カシャー効果](physics.md) | Aharonov-Casher Effect | physics |
+
+
 
 
 

@@ -914,7 +914,7 @@ WIIMにおける[レトロン](wiim-concepts.md)（[wiim_037](../docs/physics/wi
 
 **読み**: まぐのにくす
 **分野**: 凝縮系物理学・スピントロニクス
-**関連記事**: [wiim_094](../docs/quantum/wiim_094.md)
+**関連記事**: [wiim_094](../docs/quantum/wiim_094.md), [wiim_100](../docs/biology/wiim_100.md)
 
 磁性体中の集団的なスピン振動（スピン波）の量子であるマグノンを生成・制御・検出する技術・学問分野。フォトニクス（[光子](quantum.md)）やフォノニクス（[フォノン](quantum.md)）と並ぶ「準粒子工学」の一角を担う。
 

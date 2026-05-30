@@ -4,6 +4,8 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-05-30 | 記事 | wiim_100 | [コズミックマイスの生体マグノニクス——菌糸細胞壁のマグネタイト鎖がスピン波の導波路になるとき](biology/wiim_100.md) |
+| 2026-05-30 | 用語 | g398 | [生体マグノニクス（Bio-Magnonics）](../glossary/wiim-concepts.md#g398) |
 | 2026-05-23 | 記事 | wiim_099 | [宇宙を振動させただけ——痕跡なし振動と粒子の起源](quantum/wiim_099.md) |
 | 2026-05-22 | 記事 | wiim_098 | [半永久的なレトロン場が生成できたら](physics/wiim_098.md) |
 | 2026-05-22 | 用語 | g397 | [キュリー温度（Curie Temperature）](../glossary/physics.md#g397) |
@@ -52,5 +54,3 @@
 | 2026-05-08 | 用語 | g363 | [プランクの法則（Planck's Law）](../glossary/physics.md#g363) |
 | 2026-05-08 | 用語 | g362 | [シュテファン＝ボルツマンの法則（Stefan-Boltzmann Law）](../glossary/physics.md#g362) |
 | 2026-05-06 | 用語 | g361 | [ゆえに記号（therefore sign）](../glossary/mathematics.md#g361) |
-| 2026-05-06 | 用語 | g360 | [ハルモス記号（Halmos symbol）](../glossary/mathematics.md#g360) |
-| 2026-05-06 | 用語 | g359 | [ヘンペルのカラス（Hempel's Raven）](../glossary/philosophy.md#g359) |

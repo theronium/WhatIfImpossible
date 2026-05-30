@@ -144,4 +144,5 @@ flowchart TD
 - [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
 - [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
 - [_tech_tree_nuclear](../notes/_tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
+- [wiim_100](wiim_100.md) — コズミックマイスの生体マグノニクス——菌糸細胞壁のマグネタイト鎖がスピン波の導波路になるとき
 
