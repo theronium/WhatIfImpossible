@@ -29,6 +29,15 @@ WhatIfImpossible/
 {"id":"g001","name":"用語名","en":"English Name","reading":"よみがな","category":"astronomy","field":"分野名","related":["wiim_XXX"],"body":"説明文（\n\n で段落区切り）"}
 ```
 
+- `group`: wiim-concepts / wiim-engineering のみ使用する任意フィールド。エディタの用語一覧でサブ分類表示に使う。
+  - `particles` — 粒子（コーラ粒子・アンキロン・パラドックス粒子など）
+  - `fungi-bio` — 菌類・生命（コズミックマイス・マイセリアンなど）
+  - `qualia` — 意識・クオリア（クオリア波動関数・ヌルクオリアなど）
+  - `metric` — 時空計量（クロノスフィア・トポロフィ・計量暦システムなど）
+  - `casimir` — カシミール・真空エネルギー（カシミールフォージ・逆カシミール装置など）
+  - `communication` — 通信（ノーファペン・パラドックス粒子通信など）
+  - `concept` — 理論・概念（カオスの悪魔・エキゾチック物理学など）
+
 - `category`: `astronomy` / `physics` / `quantum` / `particle` / `mathematics` / `speculative` / `philosophy` / `biology` / `sf-concepts` / `wiim-concepts` / `wiim-engineering`
   - `quantum`          — 量子力学・量子場理論・量子統計・量子情報・量子重力など量子系全般
   - `particle`         — 素粒子物理学・核物理学・標準模型・弦理論など

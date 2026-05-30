@@ -167,7 +167,9 @@
   .gcat-header.collapsed .arrow { transform: rotate(-90deg); }
   .gcat-header .gcat-count { font-size: 11px; font-weight: 400; opacity: 0.7; }
   .gcat-terms { padding: 0 0 4px 0; }
+  .ggroup-header { font-size: 11px; font-weight: 600; color: var(--text-muted); padding: 4px 10px 2px 14px; margin-top: 4px; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.8; }
   .gterm-row { display: flex; align-items: center; padding: 4px 10px 4px 18px; margin: 1px 4px; border-radius: 4px; gap: 6px; }
+  .gterm-row.grouped { padding-left: 26px; }
   .gterm-row:hover { background: var(--surface2); }
   .gterm-row.active { background: var(--surface2); }
   .gterm-name { flex: 1; font-size: 13px; cursor: pointer; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -1805,6 +1807,12 @@ function renderGlossaryList(query = '') {
   }
 
   // カテゴリ順にグループ化
+  const WIIM_GROUP_LABELS = {
+    particles: '粒子', 'fungi-bio': '菌類・生命', qualia: 'クオリア',
+    metric: '時空計量', casimir: 'カシミール', communication: '通信', concept: '概念',
+  };
+  const WIIM_CATS = new Set(['wiim-concepts', 'wiim-engineering']);
+
   for (const cat of GLOSSARY_CATS) {
     const terms = filtered.filter(t => t.category === cat.id);
     if (terms.length === 0) continue;
@@ -1824,22 +1832,53 @@ function renderGlossaryList(query = '') {
 
     if (collapsed) continue;
 
-    // 用語一覧（読み順）
-    const group = document.createElement('div');
-    group.className = 'gcat-terms';
-    const sorted = [...terms].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
-    sorted.forEach(t => {
-      const row = document.createElement('div');
-      const isActive = t.id === viewingTermId || t.id === currentTermId;
-      row.className = 'gterm-row' + (isActive ? ' active' : '');
-      row.innerHTML = `
-        <span class="gterm-name" title="${t.en || ''}">${t.name}</span>
-        <button class="btn-edit-sm">編集</button>`;
-      row.querySelector('.gterm-name').onclick = () => viewTerm(t.id);
-      row.querySelector('.btn-edit-sm').onclick = (e) => { e.stopPropagation(); editTerm(t.id); };
-      group.appendChild(row);
-    });
-    el.appendChild(group);
+    const container = document.createElement('div');
+    container.className = 'gcat-terms';
+
+    if (WIIM_CATS.has(cat.id) && !q) {
+      // wiim系はgroupでサブ分割（groupなしは末尾にまとめる）
+      const groupOrder = ['particles', 'fungi-bio', 'qualia', 'metric', 'casimir', 'communication', 'concept'];
+      const byGroup = {};
+      for (const t of terms) {
+        const g = t.group || '__other__';
+        (byGroup[g] = byGroup[g] || []).push(t);
+      }
+      const keys = [...groupOrder.filter(k => byGroup[k]), ...(byGroup['__other__'] ? ['__other__'] : [])];
+      for (const key of keys) {
+        const label = WIIM_GROUP_LABELS[key] || key;
+        const subHeader = document.createElement('div');
+        subHeader.className = 'ggroup-header';
+        subHeader.textContent = label;
+        container.appendChild(subHeader);
+        const sorted = [...byGroup[key]].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
+        sorted.forEach(t => {
+          const row = document.createElement('div');
+          const isActive = t.id === viewingTermId || t.id === currentTermId;
+          row.className = 'gterm-row grouped' + (isActive ? ' active' : '');
+          row.innerHTML = `
+            <span class="gterm-name" title="${t.en || ''}">${t.name}</span>
+            <button class="btn-edit-sm">編集</button>`;
+          row.querySelector('.gterm-name').onclick = () => viewTerm(t.id);
+          row.querySelector('.btn-edit-sm').onclick = (e) => { e.stopPropagation(); editTerm(t.id); };
+          container.appendChild(row);
+        });
+      }
+    } else {
+      // 通常カテゴリは読み順フラット表示
+      const sorted = [...terms].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
+      sorted.forEach(t => {
+        const row = document.createElement('div');
+        const isActive = t.id === viewingTermId || t.id === currentTermId;
+        row.className = 'gterm-row' + (isActive ? ' active' : '');
+        row.innerHTML = `
+          <span class="gterm-name" title="${t.en || ''}">${t.name}</span>
+          <button class="btn-edit-sm">編集</button>`;
+        row.querySelector('.gterm-name').onclick = () => viewTerm(t.id);
+        row.querySelector('.btn-edit-sm').onclick = (e) => { e.stopPropagation(); editTerm(t.id); };
+        container.appendChild(row);
+      });
+    }
+    el.appendChild(container);
   }
 }
 
