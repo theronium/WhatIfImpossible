@@ -16,3 +16,6 @@ editor/public/checker/tokenizer/
 editor/public/checker/model/
 
 .article-index.json
+
+# パフォーマンス計測DB（ローカル専用・gitignore済み）
+glossary/data/perf.db

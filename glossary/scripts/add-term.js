@@ -6,6 +6,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const perf = require('./perf-log');
 
 const GLOSSARY_DIR = path.join(__dirname, '..');
 const DATA_FILE    = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
@@ -18,11 +19,13 @@ if (!fs.existsSync(NEW_TERM_FILE)) {
 }
 
 const newTerm = JSON.parse(fs.readFileSync(NEW_TERM_FILE, 'utf-8'));
+const _run = perf.start('add-term.js', { name: newTerm.name, category: newTerm.category });
 
 // 必須フィールドチェック
 const required = ['name', 'en', 'reading', 'category', 'field', 'body'];
 for (const key of required) {
   if (!newTerm[key]) {
+    _run.end('error', { reason: `missing field: ${key}` });
     console.error(`ERROR: "${key}" フィールドが空です。`);
     process.exit(1);
   }
@@ -37,6 +40,7 @@ const nextId = `g${String(nextNum).padStart(3, '0')}`;
 // 重複チェック
 const duplicate = lines.find(l => JSON.parse(l).name === newTerm.name);
 if (duplicate) {
+  _run.end('error', { reason: 'duplicate' });
   console.error(`ERROR: "${newTerm.name}" はすでに登録されています（${JSON.parse(duplicate).id}）。`);
   process.exit(1);
 }
@@ -57,8 +61,16 @@ const term = {
   body: newTerm.body,
 };
 
+const _pAppend = _run.phase('append-jsonl');
 fs.appendFileSync(DATA_FILE, JSON.stringify(term) + '\n', 'utf-8');
+_pAppend.end();
 console.log(`✓ 追加: ${term.id} ${term.name} [${term.category}]`);
 
 // generate.js を実行
-execSync(`node ${path.join(__dirname, 'generate.js')}`, { stdio: 'inherit' });
+const _pGen = _run.phase('generate');
+execSync(`node ${path.join(__dirname, 'generate.js')}`, {
+  stdio: 'inherit',
+  env: { ...process.env, PERF_TRIGGER: 'add-term.js' },
+});
+_pGen.end();
+_run.end('ok', { id: term.id });

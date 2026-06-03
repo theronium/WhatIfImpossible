@@ -191,6 +191,28 @@ flowchart LR
 
 ---
 
+## スクリプトのパフォーマンス監視
+
+用語集スクリプトは実行時間を `glossary/data/perf.db`（SQLite）に記録する。Node.js 22 以上が必要。
+
+```bash
+# 直近の実行一覧
+node glossary/scripts/perf-report.js
+
+# フェーズ内訳（バーグラフ付き）
+node glossary/scripts/perf-report.js --run <ID>
+
+# スクリプト別集計
+node glossary/scripts/perf-report.js summary
+
+# AI によるボトルネック分析
+/perf-review
+```
+
+`perf.db` はローカル専用（`.gitignore` 済み）。詳細は [CLAUDE.md](CLAUDE.md) の「スクリプトのパフォーマンス監視」を参照。
+
+---
+
 ## ポートについて
 
 このプロジェクトはポート **3030** を使用します（デフォルト3000 + プロジェクト番号×10）。

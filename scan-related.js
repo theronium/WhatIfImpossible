@@ -8,6 +8,7 @@
 
 const fs   = require('fs');
 const path = require('path');
+const perf = require('./glossary/scripts/perf-log');
 
 const ROOT       = __dirname;
 const DOCS_DIR   = path.join(ROOT, 'docs');
@@ -267,9 +268,13 @@ function updateArticleRelated(sources, articleIndex) {
 // ── メイン ────────────────────────────────────────────────────────────
 
 function main() {
+  const mode = DRY_RUN ? 'dry-run' : FORCE_ALL ? 'all' : 'staged';
+  const _run = perf.start('scan-related.js', { mode });
   console.log(`scan-related: 開始${DRY_RUN ? ' [dry-run]' : ''}`);
 
+  const _pIdx = _run.phase('load-index');
   const articleIndex = loadArticleIndex();
+  _pIdx.end({ articles: Object.keys(articleIndex).length });
 
   // staged ファイルのみ解析（--all または dry-run では全件）
   const stagedFiles = (DRY_RUN || FORCE_ALL) ? null : getStagedFiles();
@@ -283,28 +288,41 @@ function main() {
       // staged に docs/ ファイルがない（notes以外）→ 何もしない
       console.log('  対象ファイルなし。スキップ。');
       console.log('scan-related: 完了');
+      _run.end('skipped');
       return;
     }
   }
 
+  const _pCollect = _run.phase('collect-sources');
   const sources = collectSources(articleIndex, stagedFiles);
   const termIndex = buildTermIndex();
+  _pCollect.end({ sources: sources.length, terms: Object.keys(termIndex).length });
 
   console.log(`  記事インデックス ${Object.keys(articleIndex).length} 件 / 用語 ${Object.keys(termIndex).length} 件 / ソース ${sources.length} 件`);
 
+  const _pTerms = _run.phase('update-terms');
   const changedTermIds = updateTermsRelated(sources, termIndex);
+  _pTerms.end({ changed: changedTermIds ? changedTermIds.size : 0 });
+
+  const _pArticles = _run.phase('update-articles');
   const articlesUpdated = updateArticleRelated(sources, articleIndex);
+  _pArticles.end({ changed: articlesUpdated ? 1 : 0 });
 
   if (!DRY_RUN && changedTermIds) {
     // 変更された用語のみ選択的に再生成（外科的置換で autoLink をスキップ）
-    process.env.GENERATE_IDS = [...changedTermIds].join(',');
+    const _pGen = _run.phase('selective-generate');
+    process.env.GENERATE_IDS  = [...changedTermIds].join(',');
+    process.env.PERF_TRIGGER  = 'scan-related.js';
     require('./glossary/scripts/generate.js');
     delete process.env.GENERATE_IDS;
+    delete process.env.PERF_TRIGGER;
+    _pGen.end({ ids: changedTermIds.size });
   }
 
   // generate-readme はフックが事前に実行済み。再呼び出し不要。
 
   console.log('scan-related: 完了');
+  _run.end('ok', { sources: sources.length });
 }
 
 main();

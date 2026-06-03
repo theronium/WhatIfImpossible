@@ -3,8 +3,9 @@
 // 使い方: node glossary/scripts/generate.js
 'use strict';
 
-const fs = require('fs');
+const fs   = require('fs');
 const path = require('path');
+const perf = require('./perf-log');
 
 const GLOSSARY_DIR    = process.env.GLOSSARY_DIR || path.join(__dirname, '..');
 const DATA_FILE       = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
@@ -250,6 +251,13 @@ for (const t of terms) termMap[t.id] = { name: t.name, category: t.category };
 
 let totalCount = 0;
 
+// ── パフォーマンス計測 ───────────────────────────────────────────────
+const _run = perf.start('generate.js', {
+  trigger: process.env.PERF_TRIGGER || 'cli',
+  mode:    ONLY_IDS ? 'selective' : 'full',
+  terms:   terms.length,
+});
+
 // ── 個別用語ファイル terms/gXXX.md ──────────────────────────────────
 const TERMS_DIR = path.join(GLOSSARY_DIR, 'terms');
 if (!fs.existsSync(TERMS_DIR)) fs.mkdirSync(TERMS_DIR);
@@ -257,7 +265,9 @@ if (!fs.existsSync(TERMS_DIR)) fs.mkdirSync(TERMS_DIR);
 if (ONLY_IDS) {
   // ── 選択モード: related 行のみ外科的置換（autoLink・全件書き出し不要）──
 
+  const _pCat = _run.phase('patch-categories');
   // カテゴリファイル: 変更用語の **関連記事**: 行だけ置換
+  let patchedCatCount = 0;
   for (const cat of categories) {
     const changedInCat = terms.filter(t => ONLY_IDS.has(t.id) && t.category === cat.id);
     if (!changedInCat.length) continue;
@@ -272,8 +282,11 @@ if (ONLY_IDS) {
     }
     fs.writeFileSync(catFile, content, 'utf-8');
     console.log(`  ✓ ${cat.file} (${changedInCat.length} 件を更新)`);
+    patchedCatCount += changedInCat.length;
   }
+  _pCat.end({ count: patchedCatCount });
 
+  const _pTerms = _run.phase('patch-terms');
   // 個別ファイル: frontmatter related + 読み行の「関連:」部分だけ置換
   const termsToUpdate = terms.filter(t => ONLY_IDS.has(t.id));
   for (const term of termsToUpdate) {
@@ -290,11 +303,14 @@ if (ONLY_IDS) {
       fs.writeFileSync(termFile, content, 'utf-8');
     }
   }
+  _pTerms.end({ count: termsToUpdate.length });
   console.log(`✓ terms/ の ${termsToUpdate.length} 件を更新しました。`);
+  _run.end('ok', { updated: termsToUpdate.length });
 
 } else {
   // ── 全件モード: 全カテゴリファイル＋全個別ファイルを再生成 ──────────
 
+  const _pCats = _run.phase('render-categories');
   for (const cat of categories) {
     const catTerms = terms
       .filter(t => t.category === cat.id)
@@ -307,7 +323,9 @@ if (ONLY_IDS) {
     fs.writeFileSync(path.join(GLOSSARY_DIR, cat.file), content);
     console.log(`  ✓ ${cat.file} (${catTerms.length} 件)`);
   }
+  _pCats.end({ catCount: categories.length, termCount: totalCount });
 
+  const _pReadme = _run.phase('update-readme');
   // README 更新
   const readmePath = path.join(GLOSSARY_DIR, 'README.md');
   let readme = '';
@@ -337,13 +355,18 @@ if (ONLY_IDS) {
     }
     fs.writeFileSync(readmePath, readme);
   }
+  _pReadme.end();
 
+  const _pTermFiles = _run.phase('render-terms');
   for (const term of terms) {
     fs.writeFileSync(
       path.join(TERMS_DIR, `${term.id}.md`),
       termToIndividualMarkdown(term, termIndex, termMap) + '\n'
     );
   }
+  _pTermFiles.end({ count: terms.length });
+
   console.log(`✓ terms/ に ${terms.length} 件の個別ファイルを生成しました。`);
   console.log(`✓ 合計 ${totalCount} 件。README.md を更新しました。`);
+  _run.end('ok', { termCount: terms.length, totalCount });
 }

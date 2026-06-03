@@ -273,3 +273,50 @@ date: YYYY-MM-DD
 - **出口記事**: 「実現したとして何が変わるか」を入り口を前提として受け取り、帰結を論じる
 - 入り口記事が出口記事の前提となるため、出口記事の概要（Abstract）で入り口記事を明示的に参照する
 - 例: wiim_070（核融合生成物の即時中性化＝入り口）→ wiim_071（中性生成物の世界＝出口）
+
+---
+
+## スクリプトのパフォーマンス監視
+
+用語集スクリプト（generate.js・add-term.js・update-term.js・scan-related.js）は実行時間をフェーズ別に `glossary/data/perf.db`（SQLite、ローカル専用・git除外）に記録する。
+
+### 計測フェーズ
+
+| スクリプト | フェーズ |
+|-----------|---------|
+| `generate.js` (全件モード) | `render-categories` / `update-readme` / `render-terms` |
+| `generate.js` (選択モード) | `patch-categories` / `patch-terms` |
+| `add-term.js` | `append-jsonl` / `generate` |
+| `update-term.js` | `patch-jsonl` / `generate` |
+| `scan-related.js` | `load-index` / `collect-sources` / `update-terms` / `update-articles` / `selective-generate` |
+
+### レポートコマンド
+
+```bash
+node glossary/scripts/perf-report.js              # 直近 20 件
+node glossary/scripts/perf-report.js slow         # 最も遅い 10 件
+node glossary/scripts/perf-report.js summary      # スクリプト別集計（平均・最小・最大）
+node glossary/scripts/perf-report.js --run <ID>   # 特定実行のフェーズ内訳（バーグラフ付き）
+node glossary/scripts/perf-report.js help         # ヘルプ
+```
+
+### AI分析
+
+`/perf-review` スキルでレポートを取得し、ボトルネックの特定・改善提案を AI が行う。
+統計的検証・傾向分析はスクリプト単体では難しいためスキルを使う。
+
+### meta フィールドの主なキー
+
+| キー | 意味 |
+|------|------|
+| `trigger` | 呼び出し元（`cli` / `add-term.js` / `update-term.js` / `scan-related.js` / `browser`） |
+| `mode` | 実行モード（`full` / `selective` / `staged` / `all` / `dry-run`） |
+| `terms` | 処理時点の用語総数 |
+| `termCount` | 出力した用語数 |
+| `count` | フェーズで処理したアイテム数 |
+
+### 注意
+
+- `perf.db` はローカル専用。git にコミットしない（`.gitignore` 済み）
+- Node.js 22 以上が必要（`node:sqlite` 組み込みモジュール使用）
+- スクリプトの計測失敗は無視されるため、`perf.db` が壊れても他スクリプトは正常動作する

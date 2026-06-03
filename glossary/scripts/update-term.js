@@ -8,6 +8,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const perf = require('./perf-log');
 
 const GLOSSARY_DIR  = path.join(__dirname, '..');
 const DATA_FILE     = path.join(GLOSSARY_DIR, 'data', 'terms.jsonl');
@@ -20,8 +21,10 @@ if (!fs.existsSync(NEW_TERM_FILE)) {
 }
 
 const patch = JSON.parse(fs.readFileSync(NEW_TERM_FILE, 'utf-8'));
+const _run = perf.start('update-term.js', { id: patch.id, fields: Object.keys(patch).filter(k => k !== 'id').join(',') });
 
 if (!patch.id) {
+  _run.end('error', { reason: 'missing id' });
   console.error('ERROR: "id" フィールドが必要です（例: "g114"）。');
   process.exit(1);
 }
@@ -30,6 +33,7 @@ const lines = fs.readFileSync(DATA_FILE, 'utf-8').trimEnd().split('\n').filter(B
 const idx = lines.findIndex(l => JSON.parse(l).id === patch.id);
 
 if (idx === -1) {
+  _run.end('error', { reason: 'not found' });
   console.error(`ERROR: "${patch.id}" が見つかりません。`);
   process.exit(1);
 }
@@ -46,8 +50,10 @@ if (fields.aliases && patch.merge) {
 
 const updated = { ...existing, ...fields };
 
+const _pPatch = _run.phase('patch-jsonl');
 lines[idx] = JSON.stringify(updated);
 fs.writeFileSync(DATA_FILE, lines.join('\n') + '\n', 'utf-8');
+_pPatch.end();
 console.log(`✓ 更新: ${updated.id} ${updated.name} [${updated.category}]`);
 
 // 変更フィールドを表示
@@ -55,4 +61,10 @@ const changedKeys = Object.keys(fields);
 console.log(`  更新フィールド: ${changedKeys.join(', ')}`);
 
 // generate.js を実行
-execSync(`node ${path.join(__dirname, 'generate.js')}`, { stdio: 'inherit' });
+const _pGen = _run.phase('generate');
+execSync(`node ${path.join(__dirname, 'generate.js')}`, {
+  stdio: 'inherit',
+  env: { ...process.env, PERF_TRIGGER: 'update-term.js' },
+});
+_pGen.end();
+_run.end('ok', { id: updated.id, fields: changedKeys.join(',') });
