@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **398**
+用語数: **405**
 
 ---
 
@@ -45,16 +45,28 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g405 | [音響ブラックホール](physics.md) | Acoustic Black Hole / Dumb Hole | physics |
+| g404 | [インフラサウンド](physics.md) | Infrasound | physics |
+| g403 | [音響浮揚](physics.md) | Acoustic Levitation | physics |
+| g402 | [日震学](astronomy.md) | Helioseismology | astronomy |
+| g401 | [ソノルミネッセンス](physics.md) | Sonoluminescence | physics |
+| g400 | [SASER](physics.md) | Sound Amplification by Stimulated Emission of Radiation | physics |
+| g399 | [バリオン音響振動](astronomy.md) | Baryon Acoustic Oscillations | astronomy |
 | g398 | [生体マグノニクス](wiim-concepts.md) | Bio-Magnonics | wiim-concepts |
 | g397 | [キュリー温度](physics.md) | Curie Temperature | physics |
 | g396 | [ヴェルリンデのエントロピー重力](speculative.md) | Verlinde's Entropic Gravity | speculative |
-| g395 | [ゼーベック効果・ペルティエ効果](physics.md) | Seebeck Effect / Peltier Effect | physics |
-| g394 | [エクトロン](wiim-concepts.md) | Ektron | wiim-concepts |
-| g393 | [ポラリトン](physics.md) | Polariton | physics |
-| g392 | [メタグラビトン](wiim-concepts.md) | Meta-graviton | wiim-concepts |
-| g391 | [チェルン数](quantum.md) | Chern Number | quantum |
-| g390 | [マグノニクス](physics.md) | Magnonics | physics |
-| g389 | [ハルバッハ配列](physics.md) | Halbach Array | physics |
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

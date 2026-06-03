@@ -4,6 +4,13 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-04 | 用語 | g405 | [音響ブラックホール（Acoustic Black Hole / Dumb Hole）](../glossary/physics.md#g405) |
+| 2026-06-04 | 用語 | g404 | [インフラサウンド（Infrasound）](../glossary/physics.md#g404) |
+| 2026-06-04 | 用語 | g403 | [音響浮揚（Acoustic Levitation）](../glossary/physics.md#g403) |
+| 2026-06-04 | 用語 | g402 | [日震学（Helioseismology）](../glossary/astronomy.md#g402) |
+| 2026-06-04 | 用語 | g401 | [ソノルミネッセンス（Sonoluminescence）](../glossary/physics.md#g401) |
+| 2026-06-04 | 用語 | g400 | [SASER（Sound Amplification by Stimulated Emission of Radiation）](../glossary/physics.md#g400) |
+| 2026-06-04 | 用語 | g399 | [バリオン音響振動（Baryon Acoustic Oscillations）](../glossary/astronomy.md#g399) |
 | 2026-05-30 | 記事 | wiim_100 | [コズミックマイスの生体マグノニクス——菌糸細胞壁のマグネタイト鎖がスピン波の導波路になるとき](biology/wiim_100.md) |
 | 2026-05-30 | 用語 | g398 | [生体マグノニクス（Bio-Magnonics）](../glossary/wiim-concepts.md#g398) |
 | 2026-05-23 | 記事 | wiim_099 | [宇宙を振動させただけ——痕跡なし振動と粒子の起源](quantum/wiim_099.md) |
@@ -47,10 +54,3 @@
 | 2026-05-11 | 記事 | wiim_090 | [クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド](cosmology/wiim_090.md) |
 | 2026-05-09 | 用語 | g367 | [エンタルピー（Enthalpy）](../glossary/physics.md#g367) |
 | 2026-05-09 | 用語 | g366 | [角速度（Angular Velocity）](../glossary/physics.md#g366) |
-| 2026-05-09 | 補遺 | — | [天体質量の測定手法と静止軌道パラメータの導出](notes/kepler_geostationary_derivation.md) |
-| 2026-05-09 | 補遺 | — | [宇宙空間・真空における放熱技術](notes/space_thermal_radiation.md) |
-| 2026-05-08 | 用語 | g365 | [フォノン（Phonon）](../glossary/quantum.md#g365) |
-| 2026-05-08 | 用語 | g364 | [紫外破綻（Ultraviolet Catastrophe）](../glossary/physics.md#g364) |
-| 2026-05-08 | 用語 | g363 | [プランクの法則（Planck's Law）](../glossary/physics.md#g363) |
-| 2026-05-08 | 用語 | g362 | [シュテファン＝ボルツマンの法則（Stefan-Boltzmann Law）](../glossary/physics.md#g362) |
-| 2026-05-06 | 用語 | g361 | [ゆえに記号（therefore sign）](../glossary/mathematics.md#g361) |
