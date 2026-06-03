@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **405**
+用語数: **410**
 
 ---
 
@@ -45,16 +45,23 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g410 | [磁歪効果](physics.md) | Magnetostriction | physics |
+| g409 | [アルフベン波](physics.md) | Alfvén Wave | physics |
+| g408 | [磁気音響波](physics.md) | Magnetoacoustic Wave | physics |
+| g407 | [可逆計算](physics.md) | Reversible Computing | physics |
+| g406 | [ブラックホール情報パラドックス](physics.md) | Black Hole Information Paradox | physics |
 | g405 | [音響ブラックホール](physics.md) | Acoustic Black Hole / Dumb Hole | physics |
 | g404 | [インフラサウンド](physics.md) | Infrasound | physics |
 | g403 | [音響浮揚](physics.md) | Acoustic Levitation | physics |
 | g402 | [日震学](astronomy.md) | Helioseismology | astronomy |
 | g401 | [ソノルミネッセンス](physics.md) | Sonoluminescence | physics |
-| g400 | [SASER](physics.md) | Sound Amplification by Stimulated Emission of Radiation | physics |
-| g399 | [バリオン音響振動](astronomy.md) | Baryon Acoustic Oscillations | astronomy |
-| g398 | [生体マグノニクス](wiim-concepts.md) | Bio-Magnonics | wiim-concepts |
-| g397 | [キュリー温度](physics.md) | Curie Temperature | physics |
-| g396 | [ヴェルリンデのエントロピー重力](speculative.md) | Verlinde's Entropic Gravity | speculative |
+
+
+
+
+
+
+
 
 
 

@@ -4,6 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-04 | 用語 | g410 | [磁歪効果（Magnetostriction）](../glossary/physics.md#g410) |
+| 2026-06-04 | 用語 | g409 | [アルフベン波（Alfvén Wave）](../glossary/physics.md#g409) |
+| 2026-06-04 | 用語 | g408 | [磁気音響波（Magnetoacoustic Wave）](../glossary/physics.md#g408) |
+| 2026-06-04 | 用語 | g407 | [可逆計算（Reversible Computing）](../glossary/physics.md#g407) |
+| 2026-06-04 | 用語 | g406 | [ブラックホール情報パラドックス（Black Hole Information Paradox）](../glossary/physics.md#g406) |
 | 2026-06-04 | 用語 | g405 | [音響ブラックホール（Acoustic Black Hole / Dumb Hole）](../glossary/physics.md#g405) |
 | 2026-06-04 | 用語 | g404 | [インフラサウンド（Infrasound）](../glossary/physics.md#g404) |
 | 2026-06-04 | 用語 | g403 | [音響浮揚（Acoustic Levitation）](../glossary/physics.md#g403) |
@@ -49,8 +54,3 @@
 | 2026-05-16 | 用語 | g373 | [テザー衛星（Tethered Satellite）](../glossary/physics.md#g373) |
 | 2026-05-16 | 用語 | g372 | [スカイフック（Skyhook）](../glossary/physics.md#g372) |
 | 2026-05-16 | 用語 | g371 | [弾道係数（Ballistic Coefficient）](../glossary/physics.md#g371) |
-| 2026-05-16 | 用語 | g370 | [マグナス効果（Magnus Effect）](../glossary/physics.md#g370) |
-| 2026-05-15 | 用語 | g369 | [光格子（Optical Lattice）](../glossary/quantum.md#g369) |
-| 2026-05-11 | 記事 | wiim_090 | [クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド](cosmology/wiim_090.md) |
-| 2026-05-09 | 用語 | g367 | [エンタルピー（Enthalpy）](../glossary/physics.md#g367) |
-| 2026-05-09 | 用語 | g366 | [角速度（Angular Velocity）](../glossary/physics.md#g366) |
