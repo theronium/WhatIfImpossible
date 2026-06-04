@@ -233,6 +233,10 @@ const ONLY_IDS = process.env.GENERATE_IDS
   ? new Set(process.env.GENERATE_IDS.split(','))
   : null;
 
+// ADD_TERM_ID が指定されている場合は新規追加モード
+// 追加した1件の個別ファイル + そのカテゴリファイル + README のみ書き換える
+const ADD_TERM_ID = process.env.ADD_TERM_ID || null;
+
 // JSONL 読み込み
 if (!fs.existsSync(DATA_FILE)) {
   console.error('data/terms.jsonl が見つかりません。先に migrate.js を実行してください。');
@@ -254,7 +258,7 @@ let totalCount = 0;
 // ── パフォーマンス計測 ───────────────────────────────────────────────
 const _run = perf.start('generate.js', {
   trigger: process.env.PERF_TRIGGER || 'cli',
-  mode:    ONLY_IDS ? 'selective' : 'full',
+  mode:    ADD_TERM_ID ? 'add-term' : ONLY_IDS ? 'selective' : 'full',
   terms:   terms.length,
 });
 
@@ -262,7 +266,70 @@ const _run = perf.start('generate.js', {
 const TERMS_DIR = path.join(GLOSSARY_DIR, 'terms');
 if (!fs.existsSync(TERMS_DIR)) fs.mkdirSync(TERMS_DIR);
 
-if (ONLY_IDS) {
+if (ADD_TERM_ID) {
+  // ── 新規追加モード: 追加した1件 + そのカテゴリ + README のみ更新 ──
+
+  const newTerm = terms.find(t => t.id === ADD_TERM_ID);
+  if (!newTerm) {
+    console.error(`ADD_TERM_ID "${ADD_TERM_ID}" が terms.jsonl に見つかりません`);
+    process.exit(1);
+  }
+
+  // 1. 個別ファイルを生成
+  const _pNewTerm = _run.phase('render-new-term');
+  fs.writeFileSync(
+    path.join(TERMS_DIR, `${newTerm.id}.md`),
+    termToIndividualMarkdown(newTerm, termIndex, termMap) + '\n'
+  );
+  console.log(`  ✓ terms/${newTerm.id}.md`);
+  _pNewTerm.end({ count: 1 });
+
+  // 2. 該当カテゴリファイルを再生成
+  const _pCat = _run.phase('render-category');
+  const cat = categories.find(c => c.id === newTerm.category);
+  if (cat) {
+    const catTerms = terms
+      .filter(t => t.category === cat.id)
+      .sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
+    totalCount = catTerms.length;
+    const body = catTerms.map(t => termToMarkdown(t, termIndex, termMap)).join('\n\n');
+    fs.writeFileSync(path.join(GLOSSARY_DIR, cat.file), cat.title + '\n\n' + body + '\n');
+    console.log(`  ✓ ${cat.file} (${catTerms.length} 件)`);
+  }
+  _pCat.end({ count: cat ? 1 : 0 });
+
+  // 3. README 更新（全件モードと同じロジック）
+  const _pReadme = _run.phase('update-readme');
+  const readmePath = path.join(GLOSSARY_DIR, 'README.md');
+  let readme = '';
+  try { readme = fs.readFileSync(readmePath, 'utf8'); } catch {}
+  if (readme) {
+    const allCount = terms.length;
+    readme = readme.replace(/用語数: \*\*\d+\*\*/, `用語数: **${allCount}**`);
+    const RECENT_COUNT = 10;
+    const recentLines = [...terms]
+      .slice(-RECENT_COUNT)
+      .reverse()
+      .map(t => `| ${t.id} | [${t.name}](${t.category}.md) | ${t.en || '—'} | ${t.category} |`)
+      .join('\n');
+    const recentSection =
+      `## 最近追加した用語\n\n` +
+      `| ID | 用語 | English | カテゴリ |\n` +
+      `|----|------|---------|----------|\n` +
+      recentLines + '\n';
+    if (readme.includes('## 最近追加した用語')) {
+      readme = readme.replace(/## 最近追加した用語[\s\S]*?(?=\n## |\n---|\s*$)/, recentSection);
+    } else {
+      readme = readme.trimEnd() + '\n\n---\n\n' + recentSection;
+    }
+    fs.writeFileSync(readmePath, readme);
+  }
+  _pReadme.end();
+
+  console.log(`✓ ${ADD_TERM_ID} を追加しました（カテゴリ: ${newTerm.category}）`);
+  _run.end('ok', { termCount: 1 });
+
+} else if (ONLY_IDS) {
   // ── 選択モード: related 行のみ外科的置換（autoLink・全件書き出し不要）──
 
   const _pCat = _run.phase('patch-categories');

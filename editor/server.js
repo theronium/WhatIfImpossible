@@ -355,34 +355,41 @@ app.get('/api/articles', async (req, res) => {
   }
 });
 
-async function walkDocs(dir, base = '') {
+async function collectMdFiles(dir, base = '') {
   const entries = await fs.readdir(dir, { withFileTypes: true });
-  const results = [];
+  const tasks = [];
   for (const entry of entries) {
     if (entry.name.startsWith('_')) continue;
     const relPath = base ? `${base}/${entry.name}` : entry.name;
     if (entry.isDirectory()) {
-      const children = await walkDocs(path.join(dir, entry.name), relPath);
-      results.push(...children);
+      tasks.push(collectMdFiles(path.join(dir, entry.name), relPath));
     } else if (entry.name.endsWith('.md')) {
-      const fullPath = path.join(dir, entry.name);
-      const [raw, stat] = await Promise.all([
-        fs.readFile(fullPath, 'utf-8'),
-        fs.stat(fullPath),
-      ]);
-      const { data } = matter(raw);
-      results.push({
-        path: relPath,
-        title: data.title || entry.name.replace('.md', ''),
-        id: data.id || null,
-        category: data.category || (path.dirname(relPath) === '.' ? 'index' : path.dirname(relPath)),
-        tags: data.tags || [],
-        date: data.date ? (data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date).slice(0, 10)) : null,
-        birthtime: stat.birthtime.getTime(),
-        mtime: stat.mtime.getTime(),
-      });
+      tasks.push(Promise.resolve([{ entry, relPath, fullPath: path.join(dir, entry.name) }]));
     }
   }
+  const nested = await Promise.all(tasks);
+  return nested.flat();
+}
+
+async function walkDocs(dir) {
+  const files = await collectMdFiles(dir);
+  const results = await Promise.all(files.map(async ({ entry, relPath, fullPath }) => {
+    const [raw, stat] = await Promise.all([
+      fs.readFile(fullPath, 'utf-8'),
+      fs.stat(fullPath),
+    ]);
+    const { data } = matter(raw);
+    return {
+      path: relPath,
+      title: data.title || entry.name.replace('.md', ''),
+      id: data.id || null,
+      category: data.category || (path.dirname(relPath) === '.' ? 'index' : path.dirname(relPath)),
+      tags: data.tags || [],
+      date: data.date ? (data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date).slice(0, 10)) : null,
+      birthtime: stat.birthtime.getTime(),
+      mtime: stat.mtime.getTime(),
+    };
+  }));
   return results;
 }
 
@@ -511,15 +518,15 @@ async function writeTerms(terms) {
 
 const COMMON_GENERATE = path.join(__dirname, '..', 'glossary', 'scripts', 'generate.js');
 
-function runGenerate() {
+function runGenerate(extraEnv = {}) {
   return new Promise((resolve, reject) => {
     const colScript = getGenerateScript();
     const useCommon = !existsSync(colScript);
     const scriptPath = useCommon ? COMMON_GENERATE : colScript;
-    const env = useCommon
+    const baseEnv = useCommon
       ? { ...process.env, GLOSSARY_DIR: col.glossaryDir }
       : process.env;
-    const child = spawn('node', [scriptPath], { env });
+    const child = spawn('node', [scriptPath], { env: { ...baseEnv, ...extraEnv } });
     child.on('close', code =>
       code === 0 ? resolve() : reject(new Error(`generate.js exited with code ${code}`))
     );
@@ -541,7 +548,7 @@ app.post('/api/glossary/terms', async (req, res) => {
     const newTerm = { id: `g${String(lastNum + 1).padStart(3, '0')}`, ...req.body };
     terms.push(newTerm);
     await writeTerms(terms);
-    await runGenerate();
+    await runGenerate({ ADD_TERM_ID: newTerm.id, PERF_TRIGGER: 'browser' });
     await incrementConfigCounter('termCounter');
     broadcast({ type: 'reload-glossary' });
     res.json({ ok: true, term: newTerm });

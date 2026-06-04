@@ -4,6 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-05 | 用語 | g417 | [永久インフレーション（Eternal Inflation）](../glossary/speculative.md#g417) |
+| 2026-06-05 | 用語 | g416 | [粒子地平線（Particle Horizon）](../glossary/astronomy.md#g416) |
+| 2026-06-05 | 用語 | g415 | [デバイカットオフ（Debye Cutoff）](../glossary/physics.md#g415) |
+| 2026-06-05 | 用語 | g414 | [宇宙トポロジー（Cosmic Topology）](../glossary/speculative.md#g414) |
+| 2026-06-05 | 用語 | g413 | [パーシステントホモロジー（Persistent Homology）](../glossary/mathematics.md#g413) |
 | 2026-06-04 | 記事 | wiim_101 | [星は銀河の歌を聞くが、隣の星の歌は聞こえない](cosmology/wiim_101.md) |
 | 2026-06-04 | 用語 | g412 | [パワースペクトル密度（Power Spectral Density）](../glossary/physics.md#g412) |
 | 2026-06-04 | 用語 | g411 | [確率共鳴（Stochastic Resonance）](../glossary/physics.md#g411) |
@@ -49,8 +54,3 @@
 | 2026-05-17 | 用語 | g380 | [マグネトソーム（Magnetosome）](../glossary/biology.md#g380) |
 | 2026-05-17 | 用語 | g379 | [パーカースパイラル（Parker Spiral）](../glossary/astronomy.md#g379) |
 | 2026-05-17 | 用語 | g378 | [アルヴェーン翼（Alfvén Wing）](../glossary/physics.md#g378) |
-| 2026-05-16 | 記事 | wiim_091 | [大気境界衛星——安定軌道の三方式と使い捨て群探査への問いの転換](physics/wiim_091.md) |
-| 2026-05-16 | 用語 | g377 | [アーンショーの定理（Earnshaw's Theorem）](../glossary/physics.md#g377) |
-| 2026-05-16 | 用語 | g376 | [スピンアイス結晶（Spin Ice）](../glossary/quantum.md#g376) |
-| 2026-05-16 | 用語 | g375 | [ディラックの弦（Dirac String）](../glossary/particle.md#g375) |
-| 2026-05-16 | 用語 | g374 | [GOCE重力観測衛星（GOCE (Gravity field and steady-state Ocean Circulation Explorer)）](../glossary/astronomy.md#g374) |
