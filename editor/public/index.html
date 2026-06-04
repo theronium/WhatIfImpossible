@@ -1753,9 +1753,25 @@ async function loadGlossaryTerms() {
   renderGlossaryList();
 }
 
+function _esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function _termRowHtml(t, extra = '') {
+  const isActive = t.id === viewingTermId || t.id === currentTermId;
+  return `<div class="gterm-row${extra}${isActive ? ' active' : ''}">` +
+    `<span class="gterm-name" data-view="${t.id}" title="${_esc(t.en || '')}">${_esc(t.name)}</span>` +
+    `<button class="btn-edit-sm" data-edit="${t.id}">編集</button></div>`;
+}
+
+const _WIIM_GROUP_LABELS = {
+  particles: '粒子', 'fungi-bio': '菌類・生命', qualia: 'クオリア',
+  metric: '時空計量', casimir: 'カシミール', communication: '通信', concept: '概念',
+};
+const _WIIM_CATS = new Set(['wiim-concepts', 'wiim-engineering']);
+
 function renderGlossaryList(query = '') {
   const el = document.getElementById('glossary-list');
-  el.innerHTML = '';
   const q = query.toLowerCase();
   const filtered = glossaryTerms.filter(t =>
     !q ||
@@ -1770,73 +1786,38 @@ function renderGlossaryList(query = '') {
     return;
   }
 
+  const parts = [];
+
   // 最近追加（検索なしのときのみ表示）
   if (!q) {
     const RECENT_COUNT = 10;
-    const recent = [...glossaryTerms]
-      .sort((a, b) => b.id.localeCompare(a.id))
-      .slice(0, RECENT_COUNT);
-    const recentCatId = '__recent__';
-    const collapsed = collapsedCats.has(recentCatId);
-    const header = document.createElement('div');
-    header.className = `gcat-header${collapsed ? ' collapsed' : ''}`;
-    header.style.cssText = 'background:#1a2020;color:#34d399;';
-    header.innerHTML = `NEW <span class="gcat-count">(直近${RECENT_COUNT}件)</span><span class="arrow">▼</span>`;
-    header.onclick = () => {
-      if (collapsedCats.has(recentCatId)) collapsedCats.delete(recentCatId);
-      else collapsedCats.add(recentCatId);
-      renderGlossaryList(document.getElementById('glossary-search').value);
-    };
-    el.appendChild(header);
+    const recent = [...glossaryTerms].sort((a, b) => b.id.localeCompare(a.id)).slice(0, RECENT_COUNT);
+    const rid = '__recent__';
+    const collapsed = collapsedCats.has(rid);
+    parts.push(
+      `<div class="gcat-header${collapsed ? ' collapsed' : ''}" data-gcat="${rid}" style="background:#1a2020;color:#34d399;">` +
+      `NEW <span class="gcat-count">(直近${RECENT_COUNT}件)</span><span class="arrow">▼</span></div>`
+    );
     if (!collapsed) {
-      const group = document.createElement('div');
-      group.className = 'gcat-terms';
-      recent.forEach(t => {
-        const row = document.createElement('div');
-        const isActive = t.id === viewingTermId || t.id === currentTermId;
-        row.className = 'gterm-row' + (isActive ? ' active' : '');
-        row.innerHTML = `
-          <span class="gterm-name" title="${t.en || ''}">${t.name}</span>
-          <button class="btn-edit-sm">編集</button>`;
-        row.querySelector('.gterm-name').onclick = () => viewTerm(t.id);
-        row.querySelector('.btn-edit-sm').onclick = (e) => { e.stopPropagation(); editTerm(t.id); };
-        group.appendChild(row);
-      });
-      el.appendChild(group);
+      parts.push('<div class="gcat-terms">');
+      recent.forEach(t => parts.push(_termRowHtml(t)));
+      parts.push('</div>');
     }
   }
 
   // カテゴリ順にグループ化
-  const WIIM_GROUP_LABELS = {
-    particles: '粒子', 'fungi-bio': '菌類・生命', qualia: 'クオリア',
-    metric: '時空計量', casimir: 'カシミール', communication: '通信', concept: '概念',
-  };
-  const WIIM_CATS = new Set(['wiim-concepts', 'wiim-engineering']);
-
   for (const cat of GLOSSARY_CATS) {
     const terms = filtered.filter(t => t.category === cat.id);
-    if (terms.length === 0) continue;
-
+    if (!terms.length) continue;
     const collapsed = collapsedCats.has(cat.id);
-
-    // カテゴリヘッダー
-    const header = document.createElement('div');
-    header.className = `gcat-header ${cat.id}${collapsed ? ' collapsed' : ''}`;
-    header.innerHTML = `${cat.label} <span class="gcat-count">(${terms.length})</span><span class="arrow">▼</span>`;
-    header.onclick = () => {
-      if (collapsedCats.has(cat.id)) collapsedCats.delete(cat.id);
-      else collapsedCats.add(cat.id);
-      renderGlossaryList(document.getElementById('glossary-search').value);
-    };
-    el.appendChild(header);
-
+    parts.push(
+      `<div class="gcat-header ${_esc(cat.id)}${collapsed ? ' collapsed' : ''}" data-gcat="${_esc(cat.id)}">` +
+      `${_esc(cat.label)} <span class="gcat-count">(${terms.length})</span><span class="arrow">▼</span></div>`
+    );
     if (collapsed) continue;
 
-    const container = document.createElement('div');
-    container.className = 'gcat-terms';
-
-    if (WIIM_CATS.has(cat.id) && !q) {
-      // wiim系はgroupでサブ分割（groupなしは末尾にまとめる）
+    parts.push('<div class="gcat-terms">');
+    if (_WIIM_CATS.has(cat.id) && !q) {
       const groupOrder = ['particles', 'fungi-bio', 'qualia', 'metric', 'casimir', 'communication', 'concept'];
       const byGroup = {};
       for (const t of terms) {
@@ -1845,42 +1826,33 @@ function renderGlossaryList(query = '') {
       }
       const keys = [...groupOrder.filter(k => byGroup[k]), ...(byGroup['__other__'] ? ['__other__'] : [])];
       for (const key of keys) {
-        const label = WIIM_GROUP_LABELS[key] || key;
-        const subHeader = document.createElement('div');
-        subHeader.className = 'ggroup-header';
-        subHeader.textContent = label;
-        container.appendChild(subHeader);
-        const sorted = [...byGroup[key]].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
-        sorted.forEach(t => {
-          const row = document.createElement('div');
-          const isActive = t.id === viewingTermId || t.id === currentTermId;
-          row.className = 'gterm-row grouped' + (isActive ? ' active' : '');
-          row.innerHTML = `
-            <span class="gterm-name" title="${t.en || ''}">${t.name}</span>
-            <button class="btn-edit-sm">編集</button>`;
-          row.querySelector('.gterm-name').onclick = () => viewTerm(t.id);
-          row.querySelector('.btn-edit-sm').onclick = (e) => { e.stopPropagation(); editTerm(t.id); };
-          container.appendChild(row);
-        });
+        parts.push(`<div class="ggroup-header">${_WIIM_GROUP_LABELS[key] || key}</div>`);
+        [...byGroup[key]].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'))
+          .forEach(t => parts.push(_termRowHtml(t, ' grouped')));
       }
     } else {
-      // 通常カテゴリは読み順フラット表示
-      const sorted = [...terms].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
-      sorted.forEach(t => {
-        const row = document.createElement('div');
-        const isActive = t.id === viewingTermId || t.id === currentTermId;
-        row.className = 'gterm-row' + (isActive ? ' active' : '');
-        row.innerHTML = `
-          <span class="gterm-name" title="${t.en || ''}">${t.name}</span>
-          <button class="btn-edit-sm">編集</button>`;
-        row.querySelector('.gterm-name').onclick = () => viewTerm(t.id);
-        row.querySelector('.btn-edit-sm').onclick = (e) => { e.stopPropagation(); editTerm(t.id); };
-        container.appendChild(row);
-      });
+      [...terms].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'))
+        .forEach(t => parts.push(_termRowHtml(t)));
     }
-    el.appendChild(container);
+    parts.push('</div>');
   }
+
+  el.innerHTML = parts.join('');
 }
+
+// クリックをコンテナで一括委譲（per-element onclick を排除）
+document.getElementById('glossary-list').addEventListener('click', e => {
+  const viewEl = e.target.closest('[data-view]');
+  if (viewEl) { viewTerm(viewEl.dataset.view); return; }
+  const editEl = e.target.closest('[data-edit]');
+  if (editEl) { editTerm(editEl.dataset.edit); return; }
+  const catEl = e.target.closest('[data-gcat]');
+  if (catEl) {
+    const id = catEl.dataset.gcat;
+    if (collapsedCats.has(id)) collapsedCats.delete(id); else collapsedCats.add(id);
+    renderGlossaryList(document.getElementById('glossary-search').value);
+  }
+});
 
 // ── 用語閲覧（プレビュー）────────────────────────────────────────────
 function viewTerm(id, { pushState = true } = {}) {
@@ -2067,11 +2039,20 @@ async function saveTerm() {
 
   if (res.ok) {
     const data = await res.json();
-    if (!currentTermId) currentTermId = data.term.id;
+    if (!currentTermId) {
+      // 新規追加: サーバーが採番した term をローカル配列に追加
+      currentTermId = data.term.id;
+      glossaryTerms.push(data.term);
+    } else {
+      // 既存更新: ローカル配列を差分更新（フルリロード不要）
+      const idx = glossaryTerms.findIndex(t => t.id === currentTermId);
+      if (idx !== -1) glossaryTerms[idx] = { ...glossaryTerms[idx], ...payload };
+    }
     showToast('保存しました', 'ok');
-    await loadGlossaryTerms();
+    renderGlossaryList(document.getElementById('glossary-search').value);
     document.getElementById('gf-id-label').textContent = `${currentTermId} / ${name}`;
     document.getElementById('btn-delete-term').style.display = '';
+    // loadGlossaryTerms() は呼ばない。WS reload-glossary が最終的に同期する。
   } else {
     const e = await res.json();
     showToast(e.error || '保存失敗', 'err');
