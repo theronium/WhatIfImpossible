@@ -4,6 +4,9 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-04 | 記事 | wiim_101 | [星は銀河の歌を聞くが、隣の星の歌は聞こえない](cosmology/wiim_101.md) |
+| 2026-06-04 | 用語 | g412 | [パワースペクトル密度（Power Spectral Density）](../glossary/physics.md#g412) |
+| 2026-06-04 | 用語 | g411 | [確率共鳴（Stochastic Resonance）](../glossary/physics.md#g411) |
 | 2026-06-04 | 用語 | g410 | [磁歪効果（Magnetostriction）](../glossary/physics.md#g410) |
 | 2026-06-04 | 用語 | g409 | [アルフベン波（Alfvén Wave）](../glossary/physics.md#g409) |
 | 2026-06-04 | 用語 | g408 | [磁気音響波（Magnetoacoustic Wave）](../glossary/physics.md#g408) |
@@ -51,6 +54,3 @@
 | 2026-05-16 | 用語 | g376 | [スピンアイス結晶（Spin Ice）](../glossary/quantum.md#g376) |
 | 2026-05-16 | 用語 | g375 | [ディラックの弦（Dirac String）](../glossary/particle.md#g375) |
 | 2026-05-16 | 用語 | g374 | [GOCE重力観測衛星（GOCE (Gravity field and steady-state Ocean Circulation Explorer)）](../glossary/astronomy.md#g374) |
-| 2026-05-16 | 用語 | g373 | [テザー衛星（Tethered Satellite）](../glossary/physics.md#g373) |
-| 2026-05-16 | 用語 | g372 | [スカイフック（Skyhook）](../glossary/physics.md#g372) |
-| 2026-05-16 | 用語 | g371 | [弾道係数（Ballistic Coefficient）](../glossary/physics.md#g371) |

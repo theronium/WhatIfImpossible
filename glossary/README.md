@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **410**
+用語数: **412**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g412 | [パワースペクトル密度](physics.md) | Power Spectral Density | physics |
+| g411 | [確率共鳴](physics.md) | Stochastic Resonance | physics |
 | g410 | [磁歪効果](physics.md) | Magnetostriction | physics |
 | g409 | [アルフベン波](physics.md) | Alfvén Wave | physics |
 | g408 | [磁気音響波](physics.md) | Magnetoacoustic Wave | physics |
@@ -53,8 +55,10 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g405 | [音響ブラックホール](physics.md) | Acoustic Black Hole / Dumb Hole | physics |
 | g404 | [インフラサウンド](physics.md) | Infrasound | physics |
 | g403 | [音響浮揚](physics.md) | Acoustic Levitation | physics |
-| g402 | [日震学](astronomy.md) | Helioseismology | astronomy |
-| g401 | [ソノルミネッセンス](physics.md) | Sonoluminescence | physics |
+
+
+
+
 
 
 
