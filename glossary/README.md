@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **417**
+用語数: **420**
 
 ---
 
@@ -45,6 +45,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g420 | [ファスト・スクランブラー](physics.md) | Fast Scrambler | physics |
+| g419 | [ページタイム](physics.md) | Page Time | physics |
+| g418 | [量子スクランブリング](quantum.md) | Quantum Scrambling | quantum |
 | g417 | [永久インフレーション](speculative.md) | Eternal Inflation | speculative |
 | g416 | [粒子地平線](astronomy.md) | Particle Horizon | astronomy |
 | g415 | [デバイカットオフ](physics.md) | Debye Cutoff | physics |
@@ -52,9 +55,11 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g413 | [パーシステントホモロジー](mathematics.md) | Persistent Homology | mathematics |
 | g412 | [パワースペクトル密度](physics.md) | Power Spectral Density | physics |
 | g411 | [確率共鳴](physics.md) | Stochastic Resonance | physics |
-| g410 | [磁歪効果](physics.md) | Magnetostriction | physics |
-| g409 | [アルフベン波](physics.md) | Alfvén Wave | physics |
-| g408 | [磁気音響波](physics.md) | Magnetoacoustic Wave | physics |
+
+
+
+
+
 
 
 

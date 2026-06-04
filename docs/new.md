@@ -4,6 +4,9 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-05 | 用語 | g420 | [ファスト・スクランブラー（Fast Scrambler）](../glossary/physics.md#g420) |
+| 2026-06-05 | 用語 | g419 | [ページタイム（Page Time）](../glossary/physics.md#g419) |
+| 2026-06-05 | 用語 | g418 | [量子スクランブリング（Quantum Scrambling）](../glossary/quantum.md#g418) |
 | 2026-06-05 | 用語 | g417 | [永久インフレーション（Eternal Inflation）](../glossary/speculative.md#g417) |
 | 2026-06-05 | 用語 | g416 | [粒子地平線（Particle Horizon）](../glossary/astronomy.md#g416) |
 | 2026-06-05 | 用語 | g415 | [デバイカットオフ（Debye Cutoff）](../glossary/physics.md#g415) |
@@ -51,6 +54,3 @@
 | 2026-05-17 | 用語 | g383 | [ヘリオスフィア（Heliosphere）](../glossary/astronomy.md#g383) |
 | 2026-05-17 | 用語 | g382 | [ソレノイド（Solenoid）](../glossary/physics.md#g382) |
 | 2026-05-17 | 用語 | g381 | [電磁流体力学（Magnetohydrodynamics）](../glossary/physics.md#g381) |
-| 2026-05-17 | 用語 | g380 | [マグネトソーム（Magnetosome）](../glossary/biology.md#g380) |
-| 2026-05-17 | 用語 | g379 | [パーカースパイラル（Parker Spiral）](../glossary/astronomy.md#g379) |
-| 2026-05-17 | 用語 | g378 | [アルヴェーン翼（Alfvén Wing）](../glossary/physics.md#g378) |
