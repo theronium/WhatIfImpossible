@@ -693,6 +693,7 @@ const FALLBACK_CATS = [
 ];
 
 let _toastTimer = null;
+let _termRegexIndex = null;   // [{name, id, regex}] — glossaryTerms 変化時に null にリセット
 function showToast(msg, type = 'ok') {
   const el = document.getElementById('toast');
   if (!el) return;
@@ -820,7 +821,11 @@ require(['vs/editor/editor.main'], () => {
     scrollBeyondLastLine: false,
     renderLineHighlight: 'line',
   });
-  monacoEditor.onDidChangeModelContent(() => updatePreview());
+  let _previewTimer = null;
+  monacoEditor.onDidChangeModelContent(() => {
+    clearTimeout(_previewTimer);
+    _previewTimer = setTimeout(updatePreview, 350);
+  });
   window.addEventListener('resize', () => monacoEditor.layout());
   _monacoResolve();
 });
@@ -1305,8 +1310,22 @@ async function saveArticle() {
     method: 'PUT', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ raw })
   });
-  if (res.ok) { showToast('保存しました', 'ok'); loadArticles(); }
-  else showToast('保存失敗', 'err');
+  if (res.ok) {
+    showToast('保存しました', 'ok');
+    // フロントマターを差分更新してリストを再描画（全件 walkDocs を省く）
+    const { fm } = parseFrontmatter(raw);
+    const idx = articles.findIndex(a => a.path === currentPath);
+    if (idx !== -1) {
+      articles[idx] = {
+        ...articles[idx],
+        title: fm.title  || articles[idx].title,
+        tags:  fm.tags   || articles[idx].tags,
+        date:  fm.date   ? String(fm.date).slice(0, 10) : articles[idx].date,
+        mtime: Date.now(),
+      };
+      renderList(articles);
+    }
+  } else showToast('保存失敗', 'err');
 }
 
 async function applyAutoLink(raw, relPath) {
@@ -1326,12 +1345,7 @@ async function applyAutoLink(raw, relPath) {
 }
 
 function autoLinkBodyForSave(body, termPrefix) {
-  const index = [];
-  for (const t of glossaryTerms) {
-    index.push({ name: t.name, id: t.id });
-    for (const alias of (t.aliases || [])) index.push({ name: alias, id: t.id });
-  }
-  index.sort((a, b) => b.name.length - a.name.length);
+  const index = getTermRegexIndex();
 
   const placeholders = [];
   let result = body;
@@ -1350,14 +1364,13 @@ function autoLinkBodyForSave(body, termPrefix) {
     return ph;
   });
 
-  for (const t of index) {
-    if (linked.has(t.id)) continue;
-    const escaped = t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    if (!new RegExp(escaped).test(result)) continue;
+  for (const { name, id, regex } of index) {
+    if (linked.has(id)) continue;
+    if (!regex.test(result)) continue;
     const ph = `\x00${placeholders.length}\x00`;
-    placeholders.push(`[${t.name}](${termPrefix}${t.id}.md)`);
-    result = result.replace(new RegExp(escaped), ph);
-    linked.add(t.id);
+    placeholders.push(`[${name}](${termPrefix}${id}.md)`);
+    result = result.replace(regex, ph);
+    linked.add(id);
   }
   for (let i = 0; i < placeholders.length; i++) {
     result = result.replace(`\x00${i}\x00`, placeholders[i]);
@@ -1550,17 +1563,29 @@ document.getElementById('btn-push').onclick = async () => {
   else { const e = await res.json(); showToast(e.error || 'Push 失敗', 'err'); }
 };
 
+// ── 用語正規表現インデックス（全関数共用キャッシュ） ────────────────────
+function buildTermRegexIndex() {
+  const index = [];
+  for (const t of glossaryTerms) {
+    const esc = t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    index.push({ name: t.name, id: t.id, regex: new RegExp(esc) });
+    for (const alias of (t.aliases || [])) {
+      const ae = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      index.push({ name: alias, id: t.id, regex: new RegExp(ae) });
+    }
+  }
+  return index.sort((a, b) => b.name.length - a.name.length);
+}
+
+function getTermRegexIndex() {
+  if (!_termRegexIndex) _termRegexIndex = buildTermRegexIndex();
+  return _termRegexIndex;
+}
+
 // ── 記事プレビューの用語リンク化＆ポップアップ ────────────────────────
 function linkTermsInPreview(pane) {
   if (!glossaryTerms.length) return;
-  // 用語名＋エイリアスを展開して長さ順にソート
-  const index = [];
-  for (const t of glossaryTerms) {
-    index.push({ name: t.name, id: t.id });
-    for (const alias of (t.aliases || []))
-      index.push({ name: alias, id: t.id });
-  }
-  index.sort((a, b) => b.name.length - a.name.length);
+  const index = getTermRegexIndex();
 
   // テキストノードを収集（code・pre・h1-h4・.term-link は除外）
   const walker = document.createTreeWalker(pane, NodeFilter.SHOW_TEXT, {
@@ -1588,14 +1613,13 @@ function linkTermsInPreview(pane) {
       return ph;
     });
 
-    for (const t of index) {
-      if (linked.has(t.id)) continue;
-      const escaped = t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      if (!new RegExp(escaped).test(html)) continue;
+    for (const { name, id, regex } of index) {
+      if (linked.has(id)) continue;
+      if (!regex.test(html)) continue;
       const ph = `\x00${placeholders.length}\x00`;
-      placeholders.push(`<span class="term-link" data-term-id="${t.id}">${t.name}</span>`);
-      html = html.replace(new RegExp(escaped), ph);
-      linked.add(t.id);
+      placeholders.push(`<span class="term-link" data-term-id="${id}">${name}</span>`);
+      html = html.replace(regex, ph);
+      linked.add(id);
     }
     if (!placeholders.length) continue;
 
@@ -1668,14 +1692,7 @@ document.addEventListener('keydown', e => {
 
 // ── 用語本文の自動リンク化（エディタ用） ──────────────────────────────
 function autoLinkBodyEditor(body, selfId) {
-  // 用語名＋エイリアスを展開して長さ順にソート
-  const index = [];
-  for (const t of glossaryTerms) {
-    index.push({ name: t.name, id: t.id });
-    for (const alias of (t.aliases || []))
-      index.push({ name: alias, id: t.id });
-  }
-  index.sort((a, b) => b.name.length - a.name.length);
+  const index = getTermRegexIndex();
 
   const placeholders = [];
   let result = body;
@@ -1695,16 +1712,14 @@ function autoLinkBodyEditor(body, selfId) {
     return ph;
   });
 
-  for (const t of index) {
-    if (t.id === selfId) continue;
-    if (linked.has(t.id)) continue;
-    const escaped = t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const regex = new RegExp(escaped);
+  for (const { name, id, regex } of index) {
+    if (id === selfId) continue;
+    if (linked.has(id)) continue;
     if (!regex.test(result)) continue;
     const ph = `\x00${placeholders.length}\x00`;
-    placeholders.push(`[${t.name}](#${t.id})`);
+    placeholders.push(`[${name}](#${id})`);
     result = result.replace(regex, ph);
-    linked.add(t.id);
+    linked.add(id);
   }
   for (let i = 0; i < placeholders.length; i++) {
     result = result.replace(`\x00${i}\x00`, placeholders[i]);
@@ -1750,6 +1765,7 @@ document.getElementById('search').oninput = (e) => {
 async function loadGlossaryTerms() {
   const res = await fetch('/api/glossary/terms');
   glossaryTerms = await res.json();
+  _termRegexIndex = null;   // 用語が変わったのでキャッシュを無効化
   renderGlossaryList();
 }
 
@@ -2048,6 +2064,7 @@ async function saveTerm() {
       const idx = glossaryTerms.findIndex(t => t.id === currentTermId);
       if (idx !== -1) glossaryTerms[idx] = { ...glossaryTerms[idx], ...payload };
     }
+    _termRegexIndex = null;
     showToast('保存しました', 'ok');
     renderGlossaryList(document.getElementById('glossary-search').value);
     document.getElementById('gf-id-label').textContent = `${currentTermId} / ${name}`;
@@ -2795,8 +2812,7 @@ mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 (async () => {
   await loadCollections();
   await loadCategories();
-  await loadGlossaryTerms();
-  await loadArticles();
+  await Promise.all([loadGlossaryTerms(), loadArticles()]);
   // ハッシュから状態を復元（リフレッシュ時・直リンク時）
   const hash = location.hash.slice(1);
   if (hash.startsWith('tab/')) {

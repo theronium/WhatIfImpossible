@@ -4,6 +4,10 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-05 | 用語 | g424 | [ホーキング蒸発（Hawking Evaporation）](../glossary/physics.md#g424) |
+| 2026-06-05 | 用語 | g423 | [ヘイデン＝プレスキル回路（Hayden-Preskill Protocol）](../glossary/quantum.md#g423) |
+| 2026-06-05 | 用語 | g422 | [アイランド公式（Island Formula）](../glossary/physics.md#g422) |
+| 2026-06-05 | 用語 | g421 | [無毛定理（No-Hair Theorem）](../glossary/physics.md#g421) |
 | 2026-06-05 | 用語 | g420 | [ファスト・スクランブラー（Fast Scrambler）](../glossary/physics.md#g420) |
 | 2026-06-05 | 用語 | g419 | [ページタイム（Page Time）](../glossary/physics.md#g419) |
 | 2026-06-05 | 用語 | g418 | [量子スクランブリング（Quantum Scrambling）](../glossary/quantum.md#g418) |
@@ -50,7 +54,3 @@
 | 2026-05-19 | 用語 | g386 | [アハラノフ＝カシャー力束（Aharonov-Casher Force Beam）](../glossary/wiim-engineering.md#g386) |
 | 2026-05-19 | 用語 | g385 | [チェシャ磁場格子（Cheshire Magnetic Lattice）](../glossary/wiim-engineering.md#g385) |
 | 2026-05-19 | 用語 | g384 | [チェシャ猫のウィンク（Cheshire Cat's Wink）](../glossary/wiim-concepts.md#g384) |
-| 2026-05-17 | 記事 | wiim_092 | [太陽光子圧で回遊する磁気帆生命体——コスモシェルが帆になるとき](biology/wiim_092.md) |
-| 2026-05-17 | 用語 | g383 | [ヘリオスフィア（Heliosphere）](../glossary/astronomy.md#g383) |
-| 2026-05-17 | 用語 | g382 | [ソレノイド（Solenoid）](../glossary/physics.md#g382) |
-| 2026-05-17 | 用語 | g381 | [電磁流体力学（Magnetohydrodynamics）](../glossary/physics.md#g381) |

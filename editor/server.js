@@ -560,9 +560,10 @@ app.put('/api/glossary/terms/:id', async (req, res) => {
     const terms = await readTerms();
     const idx = terms.findIndex(t => t.id === req.params.id);
     if (idx === -1) return res.status(404).json({ error: 'Not found' });
-    terms[idx] = { id: req.params.id, ...req.body };
+    // 既存フィールドをベースに差分上書き（未送信フィールドを保持）
+    terms[idx] = { ...terms[idx], ...req.body, id: req.params.id };
     await writeTerms(terms);
-    await runGenerate();
+    await runGenerate({ ADD_TERM_ID: req.params.id, PERF_TRIGGER: 'browser' });
     broadcast({ type: 'reload-glossary' });
     res.json({ ok: true });
   } catch (e) { res.status(500).json({ error: e.message }); }
