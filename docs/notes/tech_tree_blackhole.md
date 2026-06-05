@@ -2,7 +2,7 @@
 title: 技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ
 type: note
 date: 2026-04-09
-related: [wiim_013, wiim_022, wiim_023, wiim_027, wiim_087, wiim_089]
+related: [wiim_013, wiim_022, wiim_023, wiim_027, wiim_087, wiim_089, wiim_102]
 ---
 
 ← [技術ツリー一覧](tech_tree.md)
@@ -45,6 +45,7 @@ flowchart LR
 
     WB5 --> WB6["ワームホールワープ路線\nwiim_089"]
     WB6 --> WB7["ワープゲート網\n固定式 wiim_027 との連携"]
+    WB6 --> WB8["音響チャネル応用\nSASER符号化→ER橋→復元\nwiim_102"]
 ```
 
 ### 実現限界

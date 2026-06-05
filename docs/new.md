@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-05 | 記事 | wiim_102 | [音をブラックホールに折り畳み、ワームホールから取り出せるか](cosmology/wiim_102.md) |
 | 2026-06-05 | 用語 | g424 | [ホーキング蒸発（Hawking Evaporation）](../glossary/physics.md#g424) |
 | 2026-06-05 | 用語 | g423 | [ヘイデン＝プレスキル回路（Hayden-Preskill Protocol）](../glossary/quantum.md#g423) |
 | 2026-06-05 | 用語 | g422 | [アイランド公式（Island Formula）](../glossary/physics.md#g422) |
@@ -53,4 +54,3 @@
 | 2026-05-19 | 用語 | g387 | [メスバウアー効果（Mössbauer Effect）](../glossary/physics.md#g387) |
 | 2026-05-19 | 用語 | g386 | [アハラノフ＝カシャー力束（Aharonov-Casher Force Beam）](../glossary/wiim-engineering.md#g386) |
 | 2026-05-19 | 用語 | g385 | [チェシャ磁場格子（Cheshire Magnetic Lattice）](../glossary/wiim-engineering.md#g385) |
-| 2026-05-19 | 用語 | g384 | [チェシャ猫のウィンク（Cheshire Cat's Wink）](../glossary/wiim-concepts.md#g384) |

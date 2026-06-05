@@ -112,4 +112,5 @@ flowchart TD
 - [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
 - [_tech_tree_nuclear](../notes/_tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
 - [_tech_tree_surveying](../notes/_tech_tree_surveying.md) — 技術ツリー — 計量測量・暦ブランチ
+- [wiim_102](../cosmology/wiim_102.md) — 音をブラックホールに折り畳み、ワームホールから取り出せるか
 
