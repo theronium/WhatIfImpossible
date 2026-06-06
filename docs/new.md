@@ -4,6 +4,10 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-06 | 用語 | g428 | [超流動（Superfluidity）](../glossary/physics.md#g428) |
+| 2026-06-06 | 用語 | g427 | [超撥水（Superhydrophobicity）](../glossary/physics.md#g427) |
+| 2026-06-06 | 用語 | g426 | [流体潤滑（Fluid Lubrication）](../glossary/physics.md#g426) |
+| 2026-06-06 | 用語 | g425 | [ライデンフロスト効果（Leidenfrost Effect）](../glossary/physics.md#g425) |
 | 2026-06-05 | 記事 | wiim_102 | [音をブラックホールに折り畳み、ワームホールから取り出せるか](cosmology/wiim_102.md) |
 | 2026-06-05 | 用語 | g424 | [ホーキング蒸発（Hawking Evaporation）](../glossary/physics.md#g424) |
 | 2026-06-05 | 用語 | g423 | [ヘイデン＝プレスキル回路（Hayden-Preskill Protocol）](../glossary/quantum.md#g423) |
@@ -50,7 +54,3 @@
 | 2026-05-19 | 記事 | wiim_094 | [チェシャ磁場格子——量子チェシャ猫のアレイ化が拓く電磁場の分離制御と反作用分散型推進力](quantum/wiim_094.md) |
 | 2026-05-19 | 記事 | wiim_093 | [複合推進で回遊するヘリオスフィア生命体——軌道域ごとに推進機構を切り替える統合生態](biology/wiim_093.md) |
 | 2026-05-19 | 用語 | g389 | [ハルバッハ配列（Halbach Array）](../glossary/physics.md#g389) |
-| 2026-05-19 | 用語 | g388 | [アハラノフ＝カシャー効果（Aharonov-Casher Effect）](../glossary/physics.md#g388) |
-| 2026-05-19 | 用語 | g387 | [メスバウアー効果（Mössbauer Effect）](../glossary/physics.md#g387) |
-| 2026-05-19 | 用語 | g386 | [アハラノフ＝カシャー力束（Aharonov-Casher Force Beam）](../glossary/wiim-engineering.md#g386) |
-| 2026-05-19 | 用語 | g385 | [チェシャ磁場格子（Cheshire Magnetic Lattice）](../glossary/wiim-engineering.md#g385) |
