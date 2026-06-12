@@ -179,11 +179,52 @@ function _termRowHtml(t, extra = '') {
     `<button class="btn-edit-sm" data-edit="${t.id}">編集</button></div>`;
 }
 
-const _WIIM_GROUP_LABELS = {
-  particles: '粒子', 'fungi-bio': '菌類・生命', qualia: 'クオリア',
-  metric: '時空計量', casimir: 'カシミール', communication: '通信', concept: '概念',
+const _GROUP_CONFIG = {
+  'wiim-concepts': {
+    order: ['particles', 'fungi-bio', 'qualia', 'metric', 'casimir', 'communication', 'concept'],
+    labels: { particles: '粒子', 'fungi-bio': '菌類・生命', qualia: 'クオリア', metric: '時空計量', casimir: 'カシミール', communication: '通信', concept: '概念' },
+  },
+  'wiim-engineering': {
+    order: ['particles', 'fungi-bio', 'qualia', 'metric', 'casimir', 'communication', 'concept'],
+    labels: { particles: '粒子', 'fungi-bio': '菌類・生命', qualia: 'クオリア', metric: '時空計量', casimir: 'カシミール', communication: '通信', concept: '概念' },
+  },
+  'physics': {
+    order: ['thermodynamics', 'relativity', 'electromagnetism', 'optics', 'mechanics', 'bh-info', 'acoustics', 'condensed-matter', 'geometry', 'information'],
+    labels: { thermodynamics: '熱力学・統計力学', relativity: '相対論・時空', electromagnetism: '電磁気学', optics: '光学', mechanics: '古典力学・流体', 'bh-info': 'ブラックホール・情報物理', acoustics: '音響・波動', 'condensed-matter': '磁性・物性', geometry: '幾何・構造', information: '情報・計算' },
+  },
+  'astronomy': {
+    order: ['black-holes', 'cosmology', 'observation', 'stellar', 'orbital'],
+    labels: { 'black-holes': 'ブラックホール・相対論天体', cosmology: '宇宙論・宇宙構造', observation: '天文観測・測定', stellar: '恒星・星雲・小天体', orbital: '軌道力学・宇宙工学' },
+  },
+  'quantum': {
+    order: ['foundations', 'quantum-info', 'quantum-gravity', 'quantum-matter'],
+    labels: { foundations: '量子力学の基礎・解釈', 'quantum-info': '量子情報・通信', 'quantum-gravity': '量子重力・ホログラフィー', 'quantum-matter': '量子物性・超低温' },
+  },
+  'mathematics': {
+    order: ['logic-foundations', 'topology', 'algebra-number', 'analysis-probability'],
+    labels: { 'logic-foundations': '論理・基礎論', topology: '位相・幾何', 'algebra-number': '代数・数論', 'analysis-probability': '解析・確率' },
+  },
+  'philosophy': {
+    order: ['consciousness', 'metaphysics', 'epistemology'],
+    labels: { consciousness: '意識・心の哲学', metaphysics: '形而上学・存在論', epistemology: '認識論・科学哲学' },
+  },
+  'particle': {
+    order: ['standard-model', 'beyond-sm', 'nuclear'],
+    labels: { 'standard-model': '標準模型・素粒子', 'beyond-sm': '統一理論・超弦', nuclear: '核物理・核融合' },
+  },
+  'biology': {
+    order: ['evolution', 'ecology-microbio'],
+    labels: { evolution: '進化・遺伝学', 'ecology-microbio': '生態・微生物・菌類' },
+  },
+  'sf-concepts': {
+    order: ['megastructures', 'paradox-civilization', 'mythology-legend'],
+    labels: { megastructures: '巨大構造物・宇宙探査', 'paradox-civilization': 'パラドックス・文明', 'mythology-legend': '神話・伝説・古代技術' },
+  },
+  'speculative': {
+    order: ['dark-cosmos', 'exotic-matter'],
+    labels: { 'dark-cosmos': 'ダーク宇宙論', 'exotic-matter': 'エキゾチック物質・仮説粒子' },
+  },
 };
-const _WIIM_CATS = new Set(['wiim-concepts', 'wiim-engineering']);
 
 function renderGlossaryList(query = '') {
   const el = document.getElementById('glossary-list');
@@ -230,16 +271,16 @@ function renderGlossaryList(query = '') {
     if (collapsed) continue;
 
     parts.push('<div class="gcat-terms">');
-    if (_WIIM_CATS.has(cat.id) && !q) {
-      const groupOrder = ['particles', 'fungi-bio', 'qualia', 'metric', 'casimir', 'communication', 'concept'];
+    const cfg = !q && _GROUP_CONFIG[cat.id];
+    if (cfg) {
       const byGroup = {};
       for (const t of terms) {
         const g = t.group || '__other__';
         (byGroup[g] = byGroup[g] || []).push(t);
       }
-      const keys = [...groupOrder.filter(k => byGroup[k]), ...(byGroup['__other__'] ? ['__other__'] : [])];
+      const keys = [...cfg.order.filter(k => byGroup[k]), ...(byGroup['__other__'] ? ['__other__'] : [])];
       for (const key of keys) {
-        parts.push(`<div class="ggroup-header">${_WIIM_GROUP_LABELS[key] || key}</div>`);
+        parts.push(`<div class="ggroup-header">${cfg.labels[key] || key}</div>`);
         [...byGroup[key]].sort((a, b) => a.reading.localeCompare(b.reading, 'ja'))
           .forEach(t => parts.push(_termRowHtml(t, ' grouped')));
       }

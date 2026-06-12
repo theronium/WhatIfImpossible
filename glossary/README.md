@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **428**
+用語数: **432**
 
 ---
 
@@ -45,16 +45,29 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g432 | [回転ドメインウォール膜](wiim-engineering.md) | Rotating Domain Wall Membrane | wiim-engineering |
+| g431 | [偽真空浸潤圧](physics.md) | False Vacuum Infiltration Pressure | physics |
+| g430 | [量子後選択](physics.md) | Quantum Post-selection | physics |
+| g429 | [動的カシミール効果](physics.md) | Dynamical Casimir Effect | physics |
 | g428 | [超流動](physics.md) | Superfluidity | physics |
 | g427 | [超撥水](physics.md) | Superhydrophobicity | physics |
 | g426 | [流体潤滑](physics.md) | Fluid Lubrication | physics |
 | g425 | [ライデンフロスト効果](physics.md) | Leidenfrost Effect | physics |
 | g424 | [ホーキング蒸発](physics.md) | Hawking Evaporation | physics |
 | g423 | [ヘイデン＝プレスキル回路](quantum.md) | Hayden-Preskill Protocol | quantum |
-| g422 | [アイランド公式](physics.md) | Island Formula | physics |
-| g421 | [無毛定理](physics.md) | No-Hair Theorem | physics |
-| g420 | [ファスト・スクランブラー](physics.md) | Fast Scrambler | physics |
-| g419 | [ページタイム](physics.md) | Page Time | physics |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

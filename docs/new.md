@@ -4,6 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-13 | 記事 | wiim_104 | [成形真空爆発——エキゾチック物質の音速の壁を突破してエネルギーを取り出せるか](physics/wiim_104.md) |
+| 2026-06-13 | 用語 | g432 | [回転ドメインウォール膜（Rotating Domain Wall Membrane）](../glossary/wiim-engineering.md#g432) |
+| 2026-06-13 | 用語 | g431 | [偽真空浸潤圧（False Vacuum Infiltration Pressure）](../glossary/physics.md#g431) |
+| 2026-06-13 | 用語 | g430 | [量子後選択（Quantum Post-selection）](../glossary/physics.md#g430) |
+| 2026-06-13 | 用語 | g429 | [動的カシミール効果（Dynamical Casimir Effect）](../glossary/physics.md#g429) |
+| 2026-06-12 | 記事 | wiim_103 | [場の圧力差機関——量子真空の勾配からエネルギーを取り出せるか](physics/wiim_103.md) |
 | 2026-06-06 | 用語 | g428 | [超流動（Superfluidity）](../glossary/physics.md#g428) |
 | 2026-06-06 | 用語 | g427 | [超撥水（Superhydrophobicity）](../glossary/physics.md#g427) |
 | 2026-06-06 | 用語 | g426 | [流体潤滑（Fluid Lubrication）](../glossary/physics.md#g426) |
@@ -48,9 +54,3 @@
 | 2026-05-20 | 記事 | wiim_097 | [トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか](physics/wiim_097.md) |
 | 2026-05-20 | 記事 | wiim_096 | [卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか](physics/wiim_096.md) |
 | 2026-05-20 | 記事 | wiim_095 | [重力を空間から削れたら——メタグラビトン格子による時空曲率の彫刻](physics/wiim_095.md) |
-| 2026-05-20 | 用語 | g392 | [メタグラビトン（Meta-graviton）](../glossary/wiim-concepts.md#g392) |
-| 2026-05-20 | 用語 | g391 | [チェルン数（Chern Number）](../glossary/quantum.md#g391) |
-| 2026-05-20 | 用語 | g390 | [マグノニクス（Magnonics）](../glossary/physics.md#g390) |
-| 2026-05-19 | 記事 | wiim_094 | [チェシャ磁場格子——量子チェシャ猫のアレイ化が拓く電磁場の分離制御と反作用分散型推進力](quantum/wiim_094.md) |
-| 2026-05-19 | 記事 | wiim_093 | [複合推進で回遊するヘリオスフィア生命体——軌道域ごとに推進機構を切り替える統合生態](biology/wiim_093.md) |
-| 2026-05-19 | 用語 | g389 | [ハルバッハ配列（Halbach Array）](../glossary/physics.md#g389) |

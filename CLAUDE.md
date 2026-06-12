@@ -26,10 +26,13 @@ WhatIfImpossible/
 ### JSONL フォーマット
 
 ```json
-{"id":"g001","name":"用語名","en":"English Name","reading":"よみがな","category":"astronomy","field":"分野名","related":["wiim_XXX"],"body":"説明文（\n\n で段落区切り）"}
+{"id":"g001","name":"用語名","en":"English Name","reading":"よみがな","category":"astronomy","group":"グループ名","field":"分野名","related":["wiim_XXX"],"body":"説明文（\n\n で段落区切り）"}
 ```
 
-- `group`: wiim-concepts / wiim-engineering のみ使用する任意フィールド。エディタの用語一覧でサブ分類表示に使う。
+- `group`: カテゴリ内のサブ分類を示す任意フィールド。**用語追加時は原則として設定する**（省略時は「その他」として末尾に表示）。エディタの用語一覧でグループヘッダー付きの小分け表示になる。
+  対応カテゴリと有効なグループ値は以下の通り（未設定の用語は「その他」として末尾に表示）。
+
+  **wiim-concepts / wiim-engineering**:
   - `particles` — 粒子（コーラ粒子・アンキロン・パラドックス粒子など）
   - `fungi-bio` — 菌類・生命（コズミックマイス・マイセリアンなど）
   - `qualia` — 意識・クオリア（クオリア波動関数・ヌルクオリアなど）
@@ -37,6 +40,62 @@ WhatIfImpossible/
   - `casimir` — カシミール・真空エネルギー（カシミールフォージ・逆カシミール装置など）
   - `communication` — 通信（ノーファペン・パラドックス粒子通信など）
   - `concept` — 理論・概念（カオスの悪魔・エキゾチック物理学など）
+
+  **physics**:
+  - `thermodynamics` — 熱力学・統計力学
+  - `relativity` — 相対論・時空
+  - `electromagnetism` — 電磁気学
+  - `optics` — 光学
+  - `mechanics` — 古典力学・流体
+  - `bh-info` — ブラックホール・情報物理
+  - `acoustics` — 音響・波動
+  - `condensed-matter` — 磁性・物性
+  - `geometry` — 幾何・構造
+  - `information` — 情報・計算
+
+  **astronomy**:
+  - `black-holes` — ブラックホール・相対論天体
+  - `cosmology` — 宇宙論・宇宙構造
+  - `observation` — 天文観測・測定
+  - `stellar` — 恒星・星雲・小天体
+  - `orbital` — 軌道力学・宇宙工学
+
+  **quantum**:
+  - `foundations` — 量子力学の基礎・解釈
+  - `quantum-info` — 量子情報・通信
+  - `quantum-gravity` — 量子重力・ホログラフィー
+  - `quantum-matter` — 量子物性・超低温
+
+  **mathematics**:
+  - `logic-foundations` — 論理・基礎論
+  - `topology` — 位相・幾何
+  - `algebra-number` — 代数・数論
+  - `analysis-probability` — 解析・確率
+
+  **philosophy**:
+  - `consciousness` — 意識・心の哲学
+  - `metaphysics` — 形而上学・存在論
+  - `epistemology` — 認識論・科学哲学
+
+  **particle**:
+  - `standard-model` — 標準模型・素粒子
+  - `beyond-sm` — 統一理論・超弦
+  - `nuclear` — 核物理・核融合
+
+  **biology**:
+  - `evolution` — 進化・遺伝学
+  - `ecology-microbio` — 生態・微生物・菌類
+
+  **sf-concepts**:
+  - `megastructures` — 巨大構造物・宇宙探査
+  - `paradox-civilization` — パラドックス・文明
+  - `mythology-legend` — 神話・伝説・古代技術
+
+  **speculative**:
+  - `dark-cosmos` — ダーク宇宙論
+  - `exotic-matter` — エキゾチック物質・仮説粒子
+
+  新カテゴリへグループ機能を追加する場合は `editor/public/js/glossary.js` の `_GROUP_CONFIG` に定義を追記する。
 
 - `category`: `astronomy` / `physics` / `quantum` / `particle` / `mathematics` / `speculative` / `philosophy` / `biology` / `sf-concepts` / `wiim-concepts` / `wiim-engineering`
   - `quantum`          — 量子力学・量子場理論・量子統計・量子情報・量子重力など量子系全般
