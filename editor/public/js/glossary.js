@@ -340,6 +340,7 @@ function viewTerm(id, { pushState = true } = {}) {
       ${term.en ? `<div class="tv-en">${term.en}</div>` : ''}
       <div class="tv-meta">
         <span class="cat-badge ${term.category}">${GLOSSARY_LABELS[term.category] || term.category}</span>
+        ${term.group ? `<span class="tv-group">${_GROUP_CONFIG[term.category]?.labels[term.group] || term.group}</span>` : ''}
         <span>${term.field || ''}</span>
         <span style="margin-left:auto;font-family:monospace">${term.id}</span>
       </div>

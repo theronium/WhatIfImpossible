@@ -163,6 +163,7 @@ main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 .tv-title { font-size: 22px; font-weight: 700; }
 .tv-en { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
 .tv-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 12px; color: var(--text-muted); align-items: center; }
+.tv-group { background: var(--border); color: var(--text-muted); border-radius: 4px; padding: 1px 7px; font-size: 11px; }
 .tv-body { line-height: 1.8; margin-top: 4px; }
 .tv-body a { color: #7dd3fc; text-decoration: none; border-bottom: 1px solid #3b82f680; }
 .tv-body a:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
