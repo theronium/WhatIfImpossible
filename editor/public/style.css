@@ -251,6 +251,9 @@ a.article-inline-link:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
 .sr-kw-badge:hover { border-color: var(--accent2); }
 .sr-kw-name { color: var(--accent2); }
 .sr-kw-id { font-size: 10px; color: var(--text-muted); font-family: monospace; }
+.search-mode-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.search-mode-btn.active:hover { background: #6857e6; }
+mark { background: rgba(124, 106, 247, 0.25); color: var(--text); border-radius: 2px; padding: 0 1px; }
 
 /* ── Prev/Next nav ── */
 .article-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }

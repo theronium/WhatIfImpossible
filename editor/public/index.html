@@ -61,9 +61,13 @@
     <!-- 検索パネル -->
     <div id="search-panel" style="display:none; flex:1; flex-direction:column; overflow:hidden;">
       <div class="sidebar-header" style="flex-direction:column; align-items:stretch; gap:5px;">
-        <input id="semantic-search" type="search" placeholder="記事・用語を意味検索…" autocomplete="off" disabled>
-        <div id="search-status" style="font-size:11px; color:var(--text-muted); min-height:1.2em;">モデルをロード中…</div>
-        <div id="search-progress-wrap" style="height:3px; background:var(--border); border-radius:2px; overflow:hidden;">
+        <div style="display:flex; gap:4px;">
+          <button class="btn search-mode-btn active" data-mode="exact" style="flex:1;font-size:11px;padding:3px 0;">完全一致</button>
+          <button class="btn search-mode-btn" data-mode="semantic" style="flex:1;font-size:11px;padding:3px 0;">意味検索</button>
+        </div>
+        <input id="semantic-search" type="search" placeholder="キーワードで検索…" autocomplete="off">
+        <div id="search-status" style="font-size:11px; color:var(--text-muted); min-height:1.2em;"></div>
+        <div id="search-progress-wrap" style="display:none; height:3px; background:var(--border); border-radius:2px; overflow:hidden;">
           <div id="search-progress-bar" style="height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px; transition:width 0.2s;"></div>
         </div>
       </div>

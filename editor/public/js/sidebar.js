@@ -145,24 +145,58 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
   tab.onclick = () => switchToPanel(tab.dataset.panel);
 });
 
-// ── セマンティック検索 ────────────────────────────────────────────────
+// ── 検索（完全一致 / 意味検索） ──────────────────────────────────────
 (function () {
   const input     = document.getElementById('semantic-search');
   const statusEl  = document.getElementById('search-status');
   const resultsEl = document.getElementById('search-results');
-  let debounceTimer = null;
-
   const progressBar  = document.getElementById('search-progress-bar');
   const progressWrap = document.getElementById('search-progress-wrap');
+  let debounceTimer = null;
+  let _mode  = 'exact';
   let _ready = false;
   let _pollTimer = null;
 
+  // ── モード切替 ───────────────────────────────────────────────────────
+  document.querySelectorAll('.search-mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (_mode === btn.dataset.mode) return;
+      _mode = btn.dataset.mode;
+      document.querySelectorAll('.search-mode-btn').forEach(b =>
+        b.classList.toggle('active', b === btn)
+      );
+      resultsEl.innerHTML = '';
+      clearTimeout(debounceTimer);
+      if (_mode === 'exact') {
+        input.disabled = false;
+        input.placeholder = 'キーワードで検索…';
+        progressWrap.style.display = 'none';
+        const q = input.value.trim();
+        if (q) doExactSearch(q); else statusEl.textContent = '';
+      } else {
+        input.placeholder = '記事・用語を意味検索…';
+        if (!_ready) {
+          input.disabled = true;
+          statusEl.textContent = 'モデルをロード中…';
+          pollReady();
+          if (!_pollTimer) _pollTimer = setInterval(pollReady, 1500);
+        } else {
+          statusEl.textContent = '';
+          const q = input.value.trim();
+          if (q) doSemanticSearch(q);
+        }
+      }
+    });
+  });
+
+  // ── 意味検索: モデル準備 ──────────────────────────────────────────────
   function setReady(entries) {
     _ready = true;
     clearInterval(_pollTimer);
+    _pollTimer = null;
     progressWrap.style.display = 'none';
-    statusEl.textContent = `${entries} エントリ`;
     input.disabled = false;
+    if (_mode === 'semantic') statusEl.textContent = `${entries} エントリ`;
   }
 
   async function pollReady() {
@@ -175,28 +209,141 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
   }
 
   window._searchPanelActivated = () => {
-    if (_ready) { input.focus(); return; }
-    pollReady();
-    if (!_pollTimer) _pollTimer = setInterval(pollReady, 1500);
+    input.focus();
+    if (_mode === 'semantic' && !_ready) {
+      pollReady();
+      if (!_pollTimer) _pollTimer = setInterval(pollReady, 1500);
+    }
   };
 
   window.addEventListener('checker-progress', (ev) => {
     const msg = ev.detail;
     if (msg.status === 'downloading') {
-      statusEl.textContent = `モデルDL中… ${msg.pct}% (${msg.mb} / ${msg.tot} MB)`;
-      progressBar.style.width = `${msg.pct}%`;
-      progressWrap.style.display = '';
+      if (_mode === 'semantic') {
+        statusEl.textContent = `モデルDL中… ${msg.pct}% (${msg.mb} / ${msg.tot} MB)`;
+        progressBar.style.width = `${msg.pct}%`;
+        progressWrap.style.display = '';
+      }
     } else if (msg.status === 'loading') {
-      statusEl.textContent = `モデルロード中…`;
-      progressBar.style.transition = 'none';
-      progressBar.style.width = '100%';
-      progressBar.style.opacity = '0.5';
-      progressWrap.style.display = '';
+      if (_mode === 'semantic') {
+        statusEl.textContent = `モデルロード中…`;
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '100%';
+        progressBar.style.opacity = '0.5';
+        progressWrap.style.display = '';
+      }
     } else if (msg.status === 'ready') {
       pollReady();
     }
   });
 
+  // ── 完全一致検索 ──────────────────────────────────────────────────────
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function highlight(text, q) {
+    const safe = esc(String(text));
+    const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return safe.replace(new RegExp(escaped, 'gi'), m => `<mark>${m}</mark>`);
+  }
+
+  function doExactSearch(q) {
+    if (!q.trim()) { resultsEl.innerHTML = ''; statusEl.textContent = ''; return; }
+    const lq = q.toLowerCase();
+    const FIELD_PRIORITY = { name: 5, en: 4, reading: 3, alias: 2, body: 1 };
+    const termResults = [];
+    const articleResults = [];
+
+    for (const t of glossaryTerms) {
+      let matchField = null;
+      if (t.name.toLowerCase().includes(lq))                              matchField = 'name';
+      else if ((t.en || '').toLowerCase().includes(lq))                   matchField = 'en';
+      else if (t.reading.includes(lq))                                    matchField = 'reading';
+      else if ((t.aliases || []).some(a => a.toLowerCase().includes(lq))) matchField = 'alias';
+      else if ((t.body || '').toLowerCase().includes(lq))                 matchField = 'body';
+      if (matchField) termResults.push({ term: t, matchField, _pri: FIELD_PRIORITY[matchField] });
+    }
+    termResults.sort((a, b) => b._pri - a._pri);
+
+    for (const a of articles) {
+      let matchField = null;
+      if (a.title.toLowerCase().includes(lq))                               matchField = 'title';
+      else if ((a.id || '').toLowerCase().includes(lq))                     matchField = 'id';
+      else if ((a.tags || []).some(tag => tag.toLowerCase().includes(lq)))  matchField = 'tag';
+      if (matchField) articleResults.push({ article: a, matchField });
+    }
+
+    const total = termResults.length + articleResults.length;
+    statusEl.textContent = total ? `${total} 件` : '';
+    if (!total) {
+      resultsEl.innerHTML = `<div style="padding:16px;font-size:12px;color:var(--text-muted);">結果なし</div>`;
+      return;
+    }
+
+    let html = '';
+
+    if (termResults.length) {
+      html += `<div class="sr-section">用語 (${termResults.length})</div>`;
+      html += termResults.map(({ term: t, matchField }) => {
+        let excerpt = '';
+        if (matchField === 'body') {
+          const body = t.body || '';
+          const idx = body.toLowerCase().indexOf(lq);
+          const start = Math.max(0, idx - 20);
+          const end = Math.min(body.length, idx + lq.length + 50);
+          excerpt = `…${highlight(body.slice(start, end), q)}…`;
+        } else if (matchField === 'alias') {
+          const hit = (t.aliases || []).find(a => a.toLowerCase().includes(lq)) || '';
+          excerpt = `別名: ${highlight(hit, q)}`;
+        }
+        return `<div class="sr-card" data-id="${t.id}" data-type="term">
+          <div class="sr-header">
+            <span class="sr-name">${highlight(t.name, q)}</span>
+            <span class="sr-id">${t.id}</span>
+          </div>
+          <div class="sr-meta">
+            <span class="sr-source">用語</span>
+            ${t.en ? `<span>${highlight(t.en, q)}</span>` : ''}
+            <span>${highlight(t.reading, q)}</span>
+          </div>
+          ${excerpt ? `<div class="sr-excerpt">${excerpt}</div>` : ''}
+        </div>`;
+      }).join('');
+    }
+
+    if (articleResults.length) {
+      html += `<div class="sr-section">記事 (${articleResults.length})</div>`;
+      html += articleResults.map(({ article: a, matchField }) => {
+        let excerpt = '';
+        if (matchField === 'tag') {
+          const hit = (a.tags || []).find(t => t.toLowerCase().includes(lq)) || '';
+          excerpt = `タグ: ${highlight(hit, q)}`;
+        }
+        return `<div class="sr-card" data-path="${esc(a.path)}" data-type="article">
+          <div class="sr-header">
+            <span class="sr-name">${highlight(a.title, q)}</span>
+          </div>
+          <div class="sr-meta">
+            <span class="sr-source">記事</span>
+            <span class="sr-id">${esc(a.id || '')}</span>
+            <span>${esc(a.category)}</span>
+          </div>
+          ${excerpt ? `<div class="sr-excerpt">${excerpt}</div>` : ''}
+        </div>`;
+      }).join('');
+    }
+
+    resultsEl.innerHTML = html;
+    resultsEl.querySelectorAll('.sr-card[data-type="term"]').forEach(el =>
+      el.addEventListener('click', () => viewTerm(el.dataset.id))
+    );
+    resultsEl.querySelectorAll('.sr-card[data-type="article"]').forEach(el =>
+      el.addEventListener('click', () => openArticle(el.dataset.path))
+    );
+  }
+
+  // ── 意味検索 ─────────────────────────────────────────────────────────
   function srcLabel(source) {
     if (source === 'doc')  return '記事';
     if (source === 'wiim') return '用語';
@@ -214,9 +361,8 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
     }
   }
 
-  function renderResults({ terms, similar }) {
+  function renderSemanticResults({ terms, similar }) {
     let html = '';
-
     if (terms.length) {
       html += `<div class="sr-section">用語ヒット</div>`;
       html += terms.map(t => `
@@ -225,7 +371,6 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
           <span class="sr-kw-id">${t.id}</span>
         </div>`).join('');
     }
-
     if (similar.length) {
       html += `<div class="sr-section">類似エントリ</div>`;
       html += similar.map(e => {
@@ -245,16 +390,14 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
           </div>`;
       }).join('');
     }
-
     if (!html) html = `<div style="padding:16px;font-size:12px;color:var(--text-muted);">結果なし</div>`;
     resultsEl.innerHTML = html;
-
-    resultsEl.querySelectorAll('.sr-card, .sr-kw-badge').forEach(el => {
-      el.onclick = () => openResult({ id: el.dataset.id, source: el.dataset.source });
-    });
+    resultsEl.querySelectorAll('.sr-card, .sr-kw-badge').forEach(el =>
+      el.addEventListener('click', () => openResult({ id: el.dataset.id, source: el.dataset.source }))
+    );
   }
 
-  async function doSearch(q) {
+  async function doSemanticSearch(q) {
     if (!q.trim()) { resultsEl.innerHTML = ''; statusEl.textContent = ''; return; }
     statusEl.textContent = '照合中…';
     try {
@@ -266,19 +409,27 @@ document.querySelectorAll('.sidebar-tab').forEach(tab => {
       const text = await res.text();
       if (!res.ok) throw new Error(res.status === 404 ? 'サーバーを再起動してください' : text);
       const data = JSON.parse(text);
-      renderResults(data);
+      renderSemanticResults(data);
       statusEl.textContent = `${data.terms.length + data.similar.length} 件`;
     } catch (e) {
       statusEl.textContent = `エラー: ${e.message}`;
     }
   }
 
+  // ── 共通入力ハンドラ ─────────────────────────────────────────────────
   input.addEventListener('input', () => {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => doSearch(input.value), 600);
+    const delay = _mode === 'exact' ? 150 : 600;
+    debounceTimer = setTimeout(() => {
+      if (_mode === 'exact') doExactSearch(input.value);
+      else doSemanticSearch(input.value);
+    }, delay);
   });
   input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') { clearTimeout(debounceTimer); doSearch(input.value); }
+    if (e.key !== 'Enter') return;
+    clearTimeout(debounceTimer);
+    if (_mode === 'exact') doExactSearch(input.value);
+    else doSemanticSearch(input.value);
   });
 })();
 
