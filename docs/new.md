@@ -4,7 +4,18 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-14 | 記事 | wiim_106 | [切れない紐と砕けない壁——ディムスパイラルと音響複層体は軌道ケーブルの素材限界を突破できるか](physics/wiim_106.md) |
+| 2026-06-14 | 記事 | wiim_105 | [GEOネックレス——カテナリー・ラジアル静止軌道帯は宇宙アクセスインフラとして成立するか](physics/wiim_105.md) |
+| 2026-06-14 | 用語 | g440 | [ソニックブラック（Sonic Black）](../glossary/wiim-engineering.md#g440) |
+| 2026-06-14 | 用語 | g439 | [ソニックホワイト（Sonic White）](../glossary/wiim-engineering.md#g439) |
+| 2026-06-14 | 用語 | g438 | [音響複層体（Acoustic Gradient Composite）](../glossary/wiim-engineering.md#g438) |
+| 2026-06-14 | 用語 | g437 | [余剰次元可塑体（Extra-dimensional Plastoid）](../glossary/wiim-engineering.md#g437) |
+| 2026-06-14 | 用語 | g436 | [カテナリー・ラジアル静止軌道帯（Catenary-Radial Geostationary Zone）](../glossary/wiim-engineering.md#g436) |
+| 2026-06-14 | 補遺 | — | [技術ツリー — メガストラクチャー・宇宙インフラ系](notes/tech_tree_megastructure.md) |
 | 2026-06-13 | 記事 | wiim_104 | [成形真空爆発——エキゾチック物質の音速の壁を突破してエネルギーを取り出せるか](physics/wiim_104.md) |
+| 2026-06-13 | 用語 | g435 | [オニール・シリンダー（O'Neill Cylinder）](../glossary/sf-concepts.md#g435) |
+| 2026-06-13 | 用語 | g434 | [バンクス軌道（Banks Orbital）](../glossary/sf-concepts.md#g434) |
+| 2026-06-13 | 用語 | g433 | [軌道エレベーター（Space Elevator）](../glossary/sf-concepts.md#g433) |
 | 2026-06-13 | 用語 | g432 | [回転ドメインウォール膜（Rotating Domain Wall Membrane）](../glossary/wiim-engineering.md#g432) |
 | 2026-06-13 | 用語 | g431 | [偽真空浸潤圧（False Vacuum Infiltration Pressure）](../glossary/physics.md#g431) |
 | 2026-06-13 | 用語 | g430 | [量子後選択（Quantum Post-selection）](../glossary/physics.md#g430) |
@@ -43,14 +54,3 @@
 | 2026-06-04 | 用語 | g400 | [SASER（Sound Amplification by Stimulated Emission of Radiation）](../glossary/physics.md#g400) |
 | 2026-06-04 | 用語 | g399 | [バリオン音響振動（Baryon Acoustic Oscillations）](../glossary/astronomy.md#g399) |
 | 2026-05-30 | 記事 | wiim_100 | [コズミックマイスの生体マグノニクス——菌糸細胞壁のマグネタイト鎖がスピン波の導波路になるとき](biology/wiim_100.md) |
-| 2026-05-30 | 用語 | g398 | [生体マグノニクス（Bio-Magnonics）](../glossary/wiim-concepts.md#g398) |
-| 2026-05-23 | 記事 | wiim_099 | [宇宙を振動させただけ——痕跡なし振動と粒子の起源](quantum/wiim_099.md) |
-| 2026-05-22 | 記事 | wiim_098 | [半永久的なレトロン場が生成できたら](physics/wiim_098.md) |
-| 2026-05-22 | 用語 | g397 | [キュリー温度（Curie Temperature）](../glossary/physics.md#g397) |
-| 2026-05-22 | 用語 | g396 | [ヴェルリンデのエントロピー重力（Verlinde's Entropic Gravity）](../glossary/speculative.md#g396) |
-| 2026-05-22 | 用語 | g395 | [ゼーベック効果・ペルティエ効果（Seebeck Effect / Peltier Effect）](../glossary/physics.md#g395) |
-| 2026-05-22 | 用語 | g394 | [エクトロン（Ektron）](../glossary/wiim-concepts.md#g394) |
-| 2026-05-21 | 用語 | g393 | [ポラリトン（Polariton）](../glossary/physics.md#g393) |
-| 2026-05-20 | 記事 | wiim_097 | [トポロジカル置換ワープ——重力偏向で進行方向を別地点へ接続できるか](physics/wiim_097.md) |
-| 2026-05-20 | 記事 | wiim_096 | [卓上重力子コライダー——メタグラビトン素子で量子重力を手の届く場所に引き寄せられるか](physics/wiim_096.md) |
-| 2026-05-20 | 記事 | wiim_095 | [重力を空間から削れたら——メタグラビトン格子による時空曲率の彫刻](physics/wiim_095.md) |

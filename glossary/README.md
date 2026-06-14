@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **432**
+用語数: **440**
 
 ---
 
@@ -45,16 +45,36 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g440 | [ソニックブラック](wiim-engineering.md) | Sonic Black | wiim-engineering |
+| g439 | [ソニックホワイト](wiim-engineering.md) | Sonic White | wiim-engineering |
+| g438 | [音響複層体](wiim-engineering.md) | Acoustic Gradient Composite | wiim-engineering |
+| g437 | [余剰次元可塑体](wiim-engineering.md) | Extra-dimensional Plastoid | wiim-engineering |
+| g436 | [カテナリー・ラジアル静止軌道帯](wiim-engineering.md) | Catenary-Radial Geostationary Zone | wiim-engineering |
+| g435 | [オニール・シリンダー](sf-concepts.md) | O'Neill Cylinder | sf-concepts |
+| g434 | [バンクス軌道](sf-concepts.md) | Banks Orbital | sf-concepts |
+| g433 | [軌道エレベーター](sf-concepts.md) | Space Elevator | sf-concepts |
 | g432 | [回転ドメインウォール膜](wiim-engineering.md) | Rotating Domain Wall Membrane | wiim-engineering |
 | g431 | [偽真空浸潤圧](physics.md) | False Vacuum Infiltration Pressure | physics |
-| g430 | [量子後選択](physics.md) | Quantum Post-selection | physics |
-| g429 | [動的カシミール効果](physics.md) | Dynamical Casimir Effect | physics |
-| g428 | [超流動](physics.md) | Superfluidity | physics |
-| g427 | [超撥水](physics.md) | Superhydrophobicity | physics |
-| g426 | [流体潤滑](physics.md) | Fluid Lubrication | physics |
-| g425 | [ライデンフロスト効果](physics.md) | Leidenfrost Effect | physics |
-| g424 | [ホーキング蒸発](physics.md) | Hawking Evaporation | physics |
-| g423 | [ヘイデン＝プレスキル回路](quantum.md) | Hayden-Preskill Protocol | quantum |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

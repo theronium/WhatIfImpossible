@@ -152,4 +152,6 @@ flowchart TD
 - （未作成）宇宙は誰のものか——惑星改造の倫理と所有権
 - [wiim_026](../biology/wiim_026.md) — コズミックマイスのテラフォーミング——シェルマイセリウムの大気圏降下と惑星統合
 - [wiim_023_strange_matter_warp](../notes/wiim_023_strange_matter_warp.md) — 補遺: ストレンジ物質とワープドライブ——生成・採取・遠隔利用の可能性
+- [wiim_105](wiim_105.md) — GEOネックレス——カテナリー・ラジアル静止軌道帯は宇宙アクセスインフラとして成立するか
+- [tech_tree_megastructure](../notes/tech_tree_megastructure.md) — 技術ツリー — メガストラクチャー・宇宙インフラ系
 
