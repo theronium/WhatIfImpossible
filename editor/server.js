@@ -55,7 +55,7 @@ function startWatchers() {
       broadcast({ type: 'reload', event, file: path.relative(col.docsDir, filePath) });
     });
   col.glossaryWatcher = chokidar.watch(col.glossaryDir, { ignoreInitial: true })
-    .on('all', () => broadcast({ type: 'reload-glossary' }));
+    .on('all', () => { if (!_generatingGlossary) broadcast({ type: 'reload-glossary' }); });
 }
 
 async function activateCollection(key) {
@@ -120,6 +120,9 @@ const broadcast = (msg) => {
     if (client.readyState === 1) client.send(JSON.stringify(msg));
   });
 };
+
+// generate.js 実行中に chokidar からの reload-glossary broadcast を抑制するフラグ
+let _generatingGlossary = false;
 
 // デフォルトカテゴリ（新規コレクション用）
 const DEFAULT_CATEGORIES = [
@@ -533,6 +536,19 @@ function runGenerate(extraEnv = {}) {
   });
 }
 
+// chokidar を抑制しつつ generate を実行し、完了後に1回だけ broadcast する。
+// terms.jsonl の書き込みも含む場合は termsToWrite を渡す。
+async function generateAndBroadcast(termsToWrite, extraEnv = {}) {
+  _generatingGlossary = true;
+  try {
+    if (termsToWrite !== null) await writeTerms(termsToWrite);
+    await runGenerate(extraEnv);
+  } finally {
+    _generatingGlossary = false;
+    broadcast({ type: 'reload-glossary' });
+  }
+}
+
 // ── API: 用語集 CRUD ─────────────────────────────────────────────────
 app.get('/api/glossary/terms', async (req, res) => {
   try { res.json(await readTerms()); }
@@ -547,10 +563,8 @@ app.post('/api/glossary/terms', async (req, res) => {
       : 0;
     const newTerm = { id: `g${String(lastNum + 1).padStart(3, '0')}`, ...req.body };
     terms.push(newTerm);
-    await writeTerms(terms);
-    await runGenerate({ ADD_TERM_ID: newTerm.id, PERF_TRIGGER: 'browser' });
+    await generateAndBroadcast(terms, { ADD_TERM_ID: newTerm.id, PERF_TRIGGER: 'browser' });
     await incrementConfigCounter('termCounter');
-    broadcast({ type: 'reload-glossary' });
     res.json({ ok: true, term: newTerm });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
@@ -562,9 +576,7 @@ app.put('/api/glossary/terms/:id', async (req, res) => {
     if (idx === -1) return res.status(404).json({ error: 'Not found' });
     // 既存フィールドをベースに差分上書き（未送信フィールドを保持）
     terms[idx] = { ...terms[idx], ...req.body, id: req.params.id };
-    await writeTerms(terms);
-    await runGenerate({ ADD_TERM_ID: req.params.id, PERF_TRIGGER: 'browser' });
-    broadcast({ type: 'reload-glossary' });
+    await generateAndBroadcast(terms, { ADD_TERM_ID: req.params.id, PERF_TRIGGER: 'browser' });
     res.json({ ok: true });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
@@ -573,9 +585,7 @@ app.delete('/api/glossary/terms/:id', async (req, res) => {
   try {
     let terms = await readTerms();
     terms = terms.filter(t => t.id !== req.params.id);
-    await writeTerms(terms);
-    await runGenerate();
-    broadcast({ type: 'reload-glossary' });
+    await generateAndBroadcast(terms);
     res.json({ ok: true });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
@@ -634,8 +644,7 @@ app.delete('/api/glossary/categories/:id', async (req, res) => {
 
 app.post('/api/glossary/generate', async (req, res) => {
   try {
-    await runGenerate();
-    broadcast({ type: 'reload-glossary' });
+    await generateAndBroadcast(null);
     res.json({ ok: true });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });

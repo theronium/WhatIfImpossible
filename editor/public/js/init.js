@@ -119,8 +119,8 @@ ws.onmessage = (e) => {
   try { d = JSON.parse(e.data); } catch { return; }
   if (d.type === 'reload') loadArticles();
   if (d.type === 'reload-glossary') {
-    loadCategories();
-    loadGlossaryTerms();
+    clearTimeout(_reloadGlossaryTimer);
+    _reloadGlossaryTimer = setTimeout(() => { loadCategories(); loadGlossaryTerms(); }, 300);
   }
   if (d.type === 'collection-switched') {
     loadCollections();

@@ -31,6 +31,7 @@ const FALLBACK_CATS = [
 
 let _toastTimer = null;
 let _termRegexIndex = null;
+let _reloadGlossaryTimer = null;
 
 function showToast(msg, type = 'ok') {
   const el = document.getElementById('toast');
