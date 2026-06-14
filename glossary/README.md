@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **441**
+用語数: **442**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g445 | [哲学的ゾンビコスト問題](wiim-concepts.md) | Philosophical Zombie Cost Problem | wiim-concepts |
 | g444 | [マテリオマイス](wiim-concepts.md) | Materio Myce | wiim-concepts |
 | g443 | [電気素材生物](wiim-engineering.md) | Electro-mineral Organism | wiim-engineering |
 | g441 | [素材遺伝子](wiim-engineering.md) | Material Gene | wiim-engineering |
@@ -54,7 +55,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g435 | [オニール・シリンダー](sf-concepts.md) | O'Neill Cylinder | sf-concepts |
 | g434 | [バンクス軌道](sf-concepts.md) | Banks Orbital | sf-concepts |
 | g433 | [軌道エレベーター](sf-concepts.md) | Space Elevator | sf-concepts |
-| g432 | [回転ドメインウォール膜](wiim-engineering.md) | Rotating Domain Wall Membrane | wiim-engineering |
+
+
+
 
 
 

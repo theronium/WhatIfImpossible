@@ -110,4 +110,5 @@ flowchart TD
 - [wiim_048](wiim_048.md) — ゴーレムにクオリアを宿せるか——「生命を吹き込む」行為と主観的経験の創造限界
 - [wiim_059](../biology/wiim_059.md) — 菌類ハイヴマインドの幾何学——クオラム発火が群知性になるために構造が必要な理由
 - [_tech_tree_consciousness](../notes/_tech_tree_consciousness.md) — 技術ツリー — 意識工学ブランチ
+- [wiim_107](wiim_107.md) — 哲学的ゾンビが自然発生する確率と、それが意味しないこと
 
