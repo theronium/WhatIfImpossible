@@ -6,9 +6,8 @@
 |------|------|-----|-----------------|
 | 2026-06-14 | 記事 | wiim_106 | [切れない紐と砕けない壁——ディムスパイラルと音響複層体は軌道ケーブルの素材限界を突破できるか](physics/wiim_106.md) |
 | 2026-06-14 | 記事 | wiim_105 | [GEOネックレス——カテナリー・ラジアル静止軌道帯は宇宙アクセスインフラとして成立するか](physics/wiim_105.md) |
+| 2026-06-14 | 用語 | g443 | [電気素材生物（Electro-mineral Organism）](../glossary/wiim-engineering.md#g443) |
 | 2026-06-14 | 用語 | g441 | [素材遺伝子（Material Gene）](../glossary/wiim-engineering.md#g441) |
-| 2026-06-14 | 用語 | g440 | [ソニックブラック（Sonic Black）](../glossary/wiim-engineering.md#g440) |
-| 2026-06-14 | 用語 | g439 | [ソニックホワイト（Sonic White）](../glossary/wiim-engineering.md#g439) |
 | 2026-06-14 | 用語 | g438 | [音響複層体（Acoustic Gradient Composite）](../glossary/wiim-engineering.md#g438) |
 | 2026-06-14 | 用語 | g437 | [余剰次元可塑体（Extra-dimensional Plastoid）](../glossary/wiim-engineering.md#g437) |
 | 2026-06-14 | 用語 | g436 | [カテナリー・ラジアル静止軌道帯（Catenary-Radial Geostationary Zone）](../glossary/wiim-engineering.md#g436) |
@@ -54,3 +53,4 @@
 | 2026-06-04 | 用語 | g401 | [ソノルミネッセンス（Sonoluminescence）](../glossary/physics.md#g401) |
 | 2026-06-04 | 用語 | g400 | [SASER（Sound Amplification by Stimulated Emission of Radiation）](../glossary/physics.md#g400) |
 | 2026-06-04 | 用語 | g399 | [バリオン音響振動（Baryon Acoustic Oscillations）](../glossary/astronomy.md#g399) |
+| 2026-05-30 | 記事 | wiim_100 | [コズミックマイスの生体マグノニクス——菌糸細胞壁のマグネタイト鎖がスピン波の導波路になるとき](biology/wiim_100.md) |

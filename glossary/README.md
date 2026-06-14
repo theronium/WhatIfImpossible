@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **441**
+用語数: **440**
 
 ---
 
@@ -45,9 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g443 | [電気素材生物](wiim-engineering.md) | Electro-mineral Organism | wiim-engineering |
 | g441 | [素材遺伝子](wiim-engineering.md) | Material Gene | wiim-engineering |
-| g440 | [ソニックブラック](wiim-engineering.md) | Sonic Black | wiim-engineering |
-| g439 | [ソニックホワイト](wiim-engineering.md) | Sonic White | wiim-engineering |
 | g438 | [音響複層体](wiim-engineering.md) | Acoustic Gradient Composite | wiim-engineering |
 | g437 | [余剰次元可塑体](wiim-engineering.md) | Extra-dimensional Plastoid | wiim-engineering |
 | g436 | [カテナリー・ラジアル静止軌道帯](wiim-engineering.md) | Catenary-Radial Geostationary Zone | wiim-engineering |
@@ -55,6 +54,14 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g434 | [バンクス軌道](sf-concepts.md) | Banks Orbital | sf-concepts |
 | g433 | [軌道エレベーター](sf-concepts.md) | Space Elevator | sf-concepts |
 | g432 | [回転ドメインウォール膜](wiim-engineering.md) | Rotating Domain Wall Membrane | wiim-engineering |
+| g431 | [偽真空浸潤圧](physics.md) | False Vacuum Infiltration Pressure | physics |
+
+
+
+
+
+
+
 
 
 
