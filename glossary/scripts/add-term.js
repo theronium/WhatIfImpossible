@@ -54,6 +54,7 @@ const term = {
   en: newTerm.en || null,
   reading: newTerm.reading,
   category: newTerm.category,
+  ...(newTerm.group ? { group: newTerm.group } : {}),
   field: newTerm.field,
   date: dateStr,
   related: newTerm.related || [],

@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **442**
+用語数: **443**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g446 | [シュレーディンガーの哲学的ゾンビ](wiim-concepts.md) | Schrödinger's Philosophical Zombie | wiim-concepts |
 | g445 | [哲学的ゾンビコスト問題](wiim-concepts.md) | Philosophical Zombie Cost Problem | wiim-concepts |
 | g444 | [マテリオマイス](wiim-concepts.md) | Materio Myce | wiim-concepts |
 | g443 | [電気素材生物](wiim-engineering.md) | Electro-mineral Organism | wiim-engineering |
@@ -54,7 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g436 | [カテナリー・ラジアル静止軌道帯](wiim-engineering.md) | Catenary-Radial Geostationary Zone | wiim-engineering |
 | g435 | [オニール・シリンダー](sf-concepts.md) | O'Neill Cylinder | sf-concepts |
 | g434 | [バンクス軌道](sf-concepts.md) | Banks Orbital | sf-concepts |
-| g433 | [軌道エレベーター](sf-concepts.md) | Space Elevator | sf-concepts |
+
+
 
 
 

@@ -7,6 +7,7 @@
 | 2026-06-14 | 記事 | wiim_107 | [哲学的ゾンビが自然発生する確率と、それが意味しないこと](philosophy/wiim_107.md) |
 | 2026-06-14 | 記事 | wiim_106 | [切れない紐と砕けない壁——ディムスパイラルと音響複層体は軌道ケーブルの素材限界を突破できるか](physics/wiim_106.md) |
 | 2026-06-14 | 記事 | wiim_105 | [GEOネックレス——カテナリー・ラジアル静止軌道帯は宇宙アクセスインフラとして成立するか](physics/wiim_105.md) |
+| 2026-06-14 | 用語 | g446 | [シュレーディンガーの哲学的ゾンビ（Schrödinger's Philosophical Zombie）](../glossary/wiim-concepts.md#g446) |
 | 2026-06-14 | 用語 | g445 | [哲学的ゾンビコスト問題（Philosophical Zombie Cost Problem）](../glossary/wiim-concepts.md#g445) |
 | 2026-06-14 | 用語 | g444 | [マテリオマイス（Materio Myce）](../glossary/wiim-concepts.md#g444) |
 | 2026-06-14 | 用語 | g443 | [電気素材生物（Electro-mineral Organism）](../glossary/wiim-engineering.md#g443) |
@@ -53,4 +54,3 @@
 | 2026-06-04 | 用語 | g404 | [インフラサウンド（Infrasound）](../glossary/physics.md#g404) |
 | 2026-06-04 | 用語 | g403 | [音響浮揚（Acoustic Levitation）](../glossary/physics.md#g403) |
 | 2026-06-04 | 用語 | g402 | [日震学（Helioseismology）](../glossary/astronomy.md#g402) |
-| 2026-06-04 | 用語 | g401 | [ソノルミネッセンス（Sonoluminescence）](../glossary/physics.md#g401) |
