@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **445**
+用語数: **447**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g450 | [離散した知性](wiim-concepts.md) | Detached-Discrete Intelligence | wiim-concepts |
+| g449 | [アニーリング](physics.md) | Annealing | physics |
 | g448 | [恒星赤道時計](wiim-concepts.md) | Stellar Equatorial Clock | wiim-concepts |
 | g447 | [マイコスフィア](wiim-concepts.md) | Mycosphere | wiim-concepts |
 | g446 | [シュレーディンガーの哲学的ゾンビ](wiim-concepts.md) | Schrödinger's Philosophical Zombie | wiim-concepts |
@@ -53,8 +55,11 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g443 | [電気素材生物](wiim-engineering.md) | Electro-mineral Organism | wiim-engineering |
 | g441 | [素材遺伝子](wiim-engineering.md) | Material Gene | wiim-engineering |
 | g438 | [音響複層体](wiim-engineering.md) | Acoustic Gradient Composite | wiim-engineering |
-| g437 | [余剰次元可塑体](wiim-engineering.md) | Extra-dimensional Plastoid | wiim-engineering |
-| g436 | [カテナリー・ラジアル静止軌道帯](wiim-engineering.md) | Catenary-Radial Geostationary Zone | wiim-engineering |
+
+
+
+
+
 
 
 

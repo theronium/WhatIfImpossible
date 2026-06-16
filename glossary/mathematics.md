@@ -344,7 +344,7 @@ e の最大の特徴は「e^x を微分しても e^x のまま変わらない」
 **読み**: ばたふらいえふぇくと
 **別名**: 初期値鋭敏性
 **分野**: カオス理論・非線形力学
-**関連記事**: [wiim_041](../docs/logic/wiim_041.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_053](../docs/quantum/wiim_053.md)
+**関連記事**: [wiim_041](../docs/logic/wiim_041.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_053](../docs/quantum/wiim_053.md), [wiim_108](../docs/physics/wiim_108.md)
 
 [カオス系](mathematics.md)において、初期条件のわずかな差異が時間とともに指数関数的に増大し、全く異なる結果をもたらす現象。気象学者エドワード・ローレンツが「ブラジルの蝶の羽ばたきがテキサスで竜巻を引き起こすか」という比喩で広めた。
 

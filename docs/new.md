@@ -4,6 +4,9 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-17 | 用語 | g450 | [離散した知性（Detached-Discrete Intelligence）](../glossary/wiim-concepts.md#g450) |
+| 2026-06-16 | 記事 | wiim_108 | [カオスの悪魔を出し抜く五つの抜け道——ランダウアー原理はどこまで先送りできるか](physics/wiim_108.md) |
+| 2026-06-16 | 用語 | g449 | [アニーリング（Annealing）](../glossary/physics.md#g449) |
 | 2026-06-14 | 記事 | wiim_107 | [哲学的ゾンビが自然発生する確率と、それが意味しないこと](philosophy/wiim_107.md) |
 | 2026-06-14 | 記事 | wiim_106 | [切れない紐と砕けない壁——ディムスパイラルと音響複層体は軌道ケーブルの素材限界を突破できるか](physics/wiim_106.md) |
 | 2026-06-14 | 記事 | wiim_105 | [GEOネックレス——カテナリー・ラジアル静止軌道帯は宇宙アクセスインフラとして成立するか](physics/wiim_105.md) |
@@ -51,6 +54,3 @@
 | 2026-06-04 | 用語 | g409 | [アルフベン波（Alfvén Wave）](../glossary/physics.md#g409) |
 | 2026-06-04 | 用語 | g408 | [磁気音響波（Magnetoacoustic Wave）](../glossary/physics.md#g408) |
 | 2026-06-04 | 用語 | g407 | [可逆計算（Reversible Computing）](../glossary/physics.md#g407) |
-| 2026-06-04 | 用語 | g406 | [ブラックホール情報パラドックス（Black Hole Information Paradox）](../glossary/physics.md#g406) |
-| 2026-06-04 | 用語 | g405 | [音響ブラックホール（Acoustic Black Hole / Dumb Hole）](../glossary/physics.md#g405) |
-| 2026-06-04 | 用語 | g404 | [インフラサウンド（Infrasound）](../glossary/physics.md#g404) |
