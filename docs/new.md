@@ -4,6 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-18 | 用語 | g454 | [キラリティ（Chirality）](../glossary/biology.md#g454) |
+| 2026-06-18 | 用語 | g453 | [コペンハーゲン解釈（Copenhagen Interpretation）](../glossary/quantum.md#g453) |
+| 2026-06-18 | 用語 | g452 | [散逸構造（Dissipative Structure）](../glossary/physics.md#g452) |
+| 2026-06-18 | 補遺 | — | [散逸構造・フラクタル均衡・永続する波——wiim_109補遺](notes/wiim_109_dissipative_wave.md) |
+| 2026-06-17 | 記事 | wiim_109 | [完全な対称性が存在したら創発は起きるか](philosophy/wiim_109.md) |
+| 2026-06-17 | 用語 | g451 | [マトリョーシカ脳（Matrioshka Brain）](../glossary/sf-concepts.md#g451) |
 | 2026-06-17 | 用語 | g450 | [離散した知性（Detached-Discrete Intelligence）](../glossary/wiim-concepts.md#g450) |
 | 2026-06-16 | 記事 | wiim_108 | [カオスの悪魔を出し抜く五つの抜け道——ランダウアー原理はどこまで先送りできるか](physics/wiim_108.md) |
 | 2026-06-16 | 用語 | g449 | [アニーリング（Annealing）](../glossary/physics.md#g449) |
@@ -48,9 +54,3 @@
 | 2026-06-05 | 用語 | g414 | [宇宙トポロジー（Cosmic Topology）](../glossary/speculative.md#g414) |
 | 2026-06-05 | 用語 | g413 | [パーシステントホモロジー（Persistent Homology）](../glossary/mathematics.md#g413) |
 | 2026-06-04 | 記事 | wiim_101 | [星は銀河の歌を聞くが、隣の星の歌は聞こえない](cosmology/wiim_101.md) |
-| 2026-06-04 | 用語 | g412 | [パワースペクトル密度（Power Spectral Density）](../glossary/physics.md#g412) |
-| 2026-06-04 | 用語 | g411 | [確率共鳴（Stochastic Resonance）](../glossary/physics.md#g411) |
-| 2026-06-04 | 用語 | g410 | [磁歪効果（Magnetostriction）](../glossary/physics.md#g410) |
-| 2026-06-04 | 用語 | g409 | [アルフベン波（Alfvén Wave）](../glossary/physics.md#g409) |
-| 2026-06-04 | 用語 | g408 | [磁気音響波（Magnetoacoustic Wave）](../glossary/physics.md#g408) |
-| 2026-06-04 | 用語 | g407 | [可逆計算（Reversible Computing）](../glossary/physics.md#g407) |

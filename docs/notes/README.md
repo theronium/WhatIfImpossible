@@ -61,6 +61,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [satellite_orbits.md](satellite_orbits.md) | 人工衛星の特殊軌道——太陽同期・モルニア・ハロー軌道と軌道選択の論理 | 2026-05-05 | 2026-05-05 |
 | [kepler_geostationary_derivation.md](kepler_geostationary_derivation.md) | 天体質量の測定手法と静止軌道パラメータの導出 | 2026-05-09 | 2026-05-09 |
 | [space_thermal_radiation.md](space_thermal_radiation.md) | 宇宙空間・真空における放熱技術 | 2026-05-09 | 2026-05-09 |
+| [wiim_109_dissipative_wave.md](wiim_109_dissipative_wave.md) | 散逸構造・フラクタル均衡・永続する波——wiim_109補遺 | 2026-06-18 | 2026-06-18 |
 
 ---
 
