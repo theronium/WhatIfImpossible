@@ -148,4 +148,5 @@ flowchart LR
 - [ninshiki_chiheisen](../notes/ninshiki_chiheisen.md) — 認識可能性の地平——自己言及が引き起こす原理的限界の地図
 - [_tech_tree_entropy](../notes/_tech_tree_entropy.md) — 技術ツリー — エントロピー・パランティ粒子系ブランチ
 - [wiim_104](wiim_104.md) — 成形真空爆発——エキゾチック物質の音速の壁を突破してエネルギーを取り出せるか
+- [wiim_110](wiim_110.md) — カオスの悪魔を出し抜く別の四路線——軌道を捨てる数学的アプローチ
 

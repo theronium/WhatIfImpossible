@@ -101,4 +101,5 @@ flowchart TD
 - [chaos_demon_foundation](../notes/chaos_demon_foundation.md) — 補遺: カオスの悪魔と創発文法——ラプラスの悪魔の論理的継承と無謬性への経路
 - [_tech_tree_entropy](../notes/_tech_tree_entropy.md) — 技術ツリー — エントロピー・パランティ粒子系ブランチ
 - [wiim_109](../philosophy/wiim_109.md) — 完全な対称性が存在したら創発は起きるか
+- [wiim_110](wiim_110.md) — カオスの悪魔を出し抜く別の四路線——軌道を捨てる数学的アプローチ
 

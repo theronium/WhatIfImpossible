@@ -68,7 +68,7 @@ WIIMの文脈では、[エニオン](quantum.md)のブレイドがなぜ[位相]
 **読み**: かおすりろん
 **別名**: カオス / カオス系 / 決定論的カオス
 **分野**: 非線形力学・複雑系
-**関連記事**: [コルモゴロフ複雑性](mathematics.md#g177), [バタフライ効果](mathematics.md#g178), [wiim_041](../docs/logic/wiim_041.md), [wiim_052](../docs/physics/wiim_052.md)
+**関連記事**: [コルモゴロフ複雑性](mathematics.md#g177), [バタフライ効果](mathematics.md#g178), [wiim_041](../docs/logic/wiim_041.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_110](../docs/physics/wiim_110.md)
 
 [決定論](philosophy.md)的な方程式に従いながらも、長期的な挙動の予測が実際上不可能になる系を研究する数学・物理学の分野。「カオス」とはこのような系の振る舞いそのものを指す。ランダムに見えるが本質的には決定論的——これがカオスの核心だ。
 
@@ -344,7 +344,7 @@ e の最大の特徴は「e^x を微分しても e^x のまま変わらない」
 **読み**: ばたふらいえふぇくと
 **別名**: 初期値鋭敏性
 **分野**: カオス理論・非線形力学
-**関連記事**: [wiim_041](../docs/logic/wiim_041.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_053](../docs/quantum/wiim_053.md), [wiim_108](../docs/physics/wiim_108.md)
+**関連記事**: [wiim_041](../docs/logic/wiim_041.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_053](../docs/quantum/wiim_053.md), [wiim_108](../docs/physics/wiim_108.md), [wiim_110](../docs/physics/wiim_110.md)
 
 [カオス系](mathematics.md)において、初期条件のわずかな差異が時間とともに指数関数的に増大し、全く異なる結果をもたらす現象。気象学者エドワード・ローレンツが「ブラジルの蝶の羽ばたきがテキサスで竜巻を引き起こすか」という比喩で広めた。
 

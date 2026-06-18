@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-18 | 記事 | wiim_110 | [カオスの悪魔を出し抜く別の四路線——軌道を捨てる数学的アプローチ](physics/wiim_110.md) |
 | 2026-06-18 | 用語 | g454 | [キラリティ（Chirality）](../glossary/biology.md#g454) |
 | 2026-06-18 | 用語 | g453 | [コペンハーゲン解釈（Copenhagen Interpretation）](../glossary/quantum.md#g453) |
 | 2026-06-18 | 用語 | g452 | [散逸構造（Dissipative Structure）](../glossary/physics.md#g452) |
@@ -53,4 +54,3 @@
 | 2026-06-05 | 用語 | g415 | [デバイカットオフ（Debye Cutoff）](../glossary/physics.md#g415) |
 | 2026-06-05 | 用語 | g414 | [宇宙トポロジー（Cosmic Topology）](../glossary/speculative.md#g414) |
 | 2026-06-05 | 用語 | g413 | [パーシステントホモロジー（Persistent Homology）](../glossary/mathematics.md#g413) |
-| 2026-06-04 | 記事 | wiim_101 | [星は銀河の歌を聞くが、隣の星の歌は聞こえない](cosmology/wiim_101.md) |
