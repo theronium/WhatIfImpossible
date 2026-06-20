@@ -146,4 +146,5 @@ flowchart TD
 - [_tech_tree_nuclear](../notes/_tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
 - [wiim_100](wiim_100.md) — コズミックマイスの生体マグノニクス——菌糸細胞壁のマグネタイト鎖がスピン波の導波路になるとき
 - [wiim_111](../quantum/wiim_111.md) — コズミックマイスの量子アニーリング——宇宙環境で散逸構造・カオスの縁・ENAQTは維持されるか
+- [wiim_008_silent_guardian](../notes/wiim_008_silent_guardian.md) — コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造
 

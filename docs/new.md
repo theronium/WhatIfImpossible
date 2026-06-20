@@ -4,8 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-20 | 記事 | wiim_112 | [エバネッセント波の超光速——ハートマン効果はFTL通信の足がかりになるか](cosmology/wiim_112.md) |
+| 2026-06-20 | 用語 | g459 | [力場検知器官（Force Field Receptor Organ）](../glossary/wiim-engineering.md#g459) |
 | 2026-06-20 | 用語 | g458 | [トロヤトランスファー（Trojan Transfer）](../glossary/wiim-engineering.md#g458) |
 | 2026-06-20 | 補遺 | — | [菌糸量子コヒーレンスの理論的背景——散逸構造・カオスの縁・ENAQT](notes/wiim_111_theory.md) |
+| 2026-06-20 | 補遺 | — | [コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造](notes/wiim_008_silent_guardian.md) |
 | 2026-06-19 | 記事 | wiim_111 | [コズミックマイスの量子アニーリング——宇宙環境で散逸構造・カオスの縁・ENAQTは維持されるか](quantum/wiim_111.md) |
 | 2026-06-19 | 用語 | g457 | [ラジカル対（Radical Pair）](../glossary/physics.md#g457) |
 | 2026-06-19 | 用語 | g456 | [スピントロニクス（Spintronics）](../glossary/physics.md#g456) |
@@ -51,6 +54,3 @@
 | 2026-06-05 | 用語 | g424 | [ホーキング蒸発（Hawking Evaporation）](../glossary/physics.md#g424) |
 | 2026-06-05 | 用語 | g423 | [ヘイデン＝プレスキル回路（Hayden-Preskill Protocol）](../glossary/quantum.md#g423) |
 | 2026-06-05 | 用語 | g422 | [アイランド公式（Island Formula）](../glossary/physics.md#g422) |
-| 2026-06-05 | 用語 | g421 | [無毛定理（No-Hair Theorem）](../glossary/physics.md#g421) |
-| 2026-06-05 | 用語 | g420 | [ファスト・スクランブラー（Fast Scrambler）](../glossary/physics.md#g420) |
-| 2026-06-05 | 用語 | g419 | [ページタイム（Page Time）](../glossary/physics.md#g419) |

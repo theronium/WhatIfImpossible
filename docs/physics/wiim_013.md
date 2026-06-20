@@ -178,4 +178,5 @@ flowchart TD
 - [_tech_tree_nuclear](../notes/_tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
 - [_tech_tree_particle_ops](../notes/_tech_tree_particle_ops.md) — 技術ツリー — 架空粒子操作ブランチ
 - [_tech_tree_thermal](../notes/_tech_tree_thermal.md) — 技術ツリー — 熱管理・恒温系ブランチ
+- [wiim_112](../cosmology/wiim_112.md) — エバネッセント波の超光速——ハートマン効果はFTL通信の足がかりになるか
 

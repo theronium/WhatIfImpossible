@@ -109,4 +109,5 @@ flowchart LR
 - [_tech_tree_blackhole](../notes/_tech_tree_blackhole.md) — 技術ツリー — ブラックホール潜入・ワームホール開通系ブランチ
 - [_tech_tree_dirac](../notes/_tech_tree_dirac.md) — 技術ツリー — ディラックサイフォン系ブランチ
 - [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+- [wiim_112](../cosmology/wiim_112.md) — エバネッセント波の超光速——ハートマン効果はFTL通信の足がかりになるか
 
