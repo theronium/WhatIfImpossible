@@ -117,4 +117,5 @@ flowchart TD
 - 用語: アニーリング g449 / クロノスフィア g125 / ノビコフ自己整合性条件 g205 / 量子後選択 g430 / 量子ゼノン効果 g098 / ランダウアー原理 g172 / カオスの悪魔 g210 / ワームホール g036 / 因果律 g017
 - [tech_tree_entropy](../notes/tech_tree_entropy.md) — tech_tree_entropy.md
 - [wiim_110](wiim_110.md) — カオスの悪魔を出し抜く別の四路線——軌道を捨てる数学的アプローチ
+- [wiim_111](../quantum/wiim_111.md) — コズミックマイスの量子アニーリング——宇宙環境で散逸構造・カオスの縁・ENAQTは維持されるか
 

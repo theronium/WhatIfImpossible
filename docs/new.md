@@ -4,6 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-20 | 用語 | g458 | [トロヤトランスファー（Trojan Transfer）](../glossary/wiim-engineering.md#g458) |
+| 2026-06-19 | 記事 | wiim_111 | [コズミックマイスの量子アニーリング——宇宙環境で散逸構造・カオスの縁・ENAQTは維持されるか](quantum/wiim_111.md) |
+| 2026-06-19 | 用語 | g457 | [ラジカル対（Radical Pair）](../glossary/physics.md#g457) |
+| 2026-06-19 | 用語 | g456 | [スピントロニクス（Spintronics）](../glossary/physics.md#g456) |
+| 2026-06-19 | 用語 | g455 | [菌類量子コヒーレンス（Fungal Quantum Coherence）](../glossary/biology.md#g455) |
+| 2026-06-19 | 補遺 | — | [菌糸量子コヒーレンスの理論的背景——散逸構造・カオスの縁・ENAQT](notes/wiim_111_theory.md) |
 | 2026-06-18 | 記事 | wiim_110 | [カオスの悪魔を出し抜く別の四路線——軌道を捨てる数学的アプローチ](physics/wiim_110.md) |
 | 2026-06-18 | 用語 | g454 | [キラリティ（Chirality）](../glossary/biology.md#g454) |
 | 2026-06-18 | 用語 | g453 | [コペンハーゲン解釈（Copenhagen Interpretation）](../glossary/quantum.md#g453) |
@@ -48,9 +54,3 @@
 | 2026-06-05 | 用語 | g421 | [無毛定理（No-Hair Theorem）](../glossary/physics.md#g421) |
 | 2026-06-05 | 用語 | g420 | [ファスト・スクランブラー（Fast Scrambler）](../glossary/physics.md#g420) |
 | 2026-06-05 | 用語 | g419 | [ページタイム（Page Time）](../glossary/physics.md#g419) |
-| 2026-06-05 | 用語 | g418 | [量子スクランブリング（Quantum Scrambling）](../glossary/quantum.md#g418) |
-| 2026-06-05 | 用語 | g417 | [永久インフレーション（Eternal Inflation）](../glossary/speculative.md#g417) |
-| 2026-06-05 | 用語 | g416 | [粒子地平線（Particle Horizon）](../glossary/astronomy.md#g416) |
-| 2026-06-05 | 用語 | g415 | [デバイカットオフ（Debye Cutoff）](../glossary/physics.md#g415) |
-| 2026-06-05 | 用語 | g414 | [宇宙トポロジー（Cosmic Topology）](../glossary/speculative.md#g414) |
-| 2026-06-05 | 用語 | g413 | [パーシステントホモロジー（Persistent Homology）](../glossary/mathematics.md#g413) |
