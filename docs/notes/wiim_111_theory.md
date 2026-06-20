@@ -74,8 +74,8 @@ flowchart TD
     E --> F[量子コヒーレンスが\n散逸環境で維持される]
     F --> H[量子アニーリング\n生物学的時間スケールで実行]
     G --> H
-    style D fill:#f9f,stroke:#333
-    style H fill:#bbf,stroke:#333
+    style D fill:#f9f,stroke:#333,color:#000
+    style H fill:#bbf,stroke:#333,color:#000
 ```
 
 三つの概念は独立した理論ではなく、「散逸構造がカオスの縁を生み出し、カオスの縁がENAQTの成立条件を整え、ENAQTが量子アニーリングを可能にする」という連鎖を形成する可能性がある。

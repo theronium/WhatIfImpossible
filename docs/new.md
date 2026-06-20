@@ -5,11 +5,11 @@
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
 | 2026-06-20 | 用語 | g458 | [トロヤトランスファー（Trojan Transfer）](../glossary/wiim-engineering.md#g458) |
+| 2026-06-20 | 補遺 | — | [菌糸量子コヒーレンスの理論的背景——散逸構造・カオスの縁・ENAQT](notes/wiim_111_theory.md) |
 | 2026-06-19 | 記事 | wiim_111 | [コズミックマイスの量子アニーリング——宇宙環境で散逸構造・カオスの縁・ENAQTは維持されるか](quantum/wiim_111.md) |
 | 2026-06-19 | 用語 | g457 | [ラジカル対（Radical Pair）](../glossary/physics.md#g457) |
 | 2026-06-19 | 用語 | g456 | [スピントロニクス（Spintronics）](../glossary/physics.md#g456) |
 | 2026-06-19 | 用語 | g455 | [菌類量子コヒーレンス（Fungal Quantum Coherence）](../glossary/biology.md#g455) |
-| 2026-06-19 | 補遺 | — | [菌糸量子コヒーレンスの理論的背景——散逸構造・カオスの縁・ENAQT](notes/wiim_111_theory.md) |
 | 2026-06-18 | 記事 | wiim_110 | [カオスの悪魔を出し抜く別の四路線——軌道を捨てる数学的アプローチ](physics/wiim_110.md) |
 | 2026-06-18 | 用語 | g454 | [キラリティ（Chirality）](../glossary/biology.md#g454) |
 | 2026-06-18 | 用語 | g453 | [コペンハーゲン解釈（Copenhagen Interpretation）](../glossary/quantum.md#g453) |

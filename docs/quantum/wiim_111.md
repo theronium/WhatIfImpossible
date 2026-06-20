@@ -87,10 +87,10 @@ flowchart LR
     earth -.->|前提| space
     space -.->|逆転| adapt
 
-    style E5 fill:#bfb,stroke:#333
-    style S2 fill:#fbb,stroke:#333
-    style S4 fill:#fbb,stroke:#333
-    style A5 fill:#bbf,stroke:#333
+    style E5 fill:#bfb,stroke:#333,color:#000
+    style S2 fill:#fbb,stroke:#333,color:#000
+    style S4 fill:#fbb,stroke:#333,color:#000
+    style A5 fill:#bbf,stroke:#333,color:#000
 ```
 
 ## 関連記事 (Related)
