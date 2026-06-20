@@ -1,17 +1,22 @@
-// ── 記事プレビューの用語リンク化＆ポップアップ ────────────────────────
-function linkTermsInPreview(pane) {
-  if (!glossaryTerms.length) return;
-  const index = getTermRegexIndex();
-
+// ── 記事プレビューのテキストノード収集（共通ヘルパー） ──────────────────
+function _walkTextNodes(pane) {
   const walker = document.createTreeWalker(pane, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
-      if (node.parentElement?.closest('code, pre, a, .term-link, h1, h2, h3, h4, .mermaid'))
+      if (node.parentElement?.closest('code, pre, a, .term-link, .symbol-link, h1, h2, h3, h4, .mermaid'))
         return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     }
   });
   const textNodes = [];
   while (walker.nextNode()) textNodes.push(walker.currentNode);
+  return textNodes;
+}
+
+// ── 記事プレビューの用語リンク化 ─────────────────────────────────────
+function linkTermsInPreview(pane) {
+  if (!glossaryTerms.length) return;
+  const index = getTermRegexIndex();
+  const textNodes = _walkTextNodes(pane);
 
   for (const node of textNodes) {
     let html = node.textContent
@@ -53,6 +58,68 @@ document.addEventListener('click', e => {
   openArticle(link.dataset.artPath);
 });
 
+// ── 記事プレビューの記号リンク化 ─────────────────────────────────────
+function linkSymbolsInPreview(pane) {
+  if (!symbolTerms.length) return;
+  const { regex, map } = getSymbolData();
+  const textNodes = _walkTextNodes(pane);
+
+  for (const node of textNodes) {
+    const text = node.textContent;
+    regex.lastIndex = 0;
+    if (!regex.test(text)) continue;
+
+    regex.lastIndex = 0;
+    const html = text
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(regex, match => {
+        const id = map[match];
+        return id ? `<span class="symbol-link" data-symbol-id="${id}">${match}</span>` : match;
+      });
+
+    const wrap = document.createElement('span');
+    wrap.innerHTML = html;
+    node.parentNode.replaceChild(wrap, node);
+  }
+}
+
+// ── 記号ポップアップの表示 ────────────────────────────────────────────
+function _positionPopup(popup, anchorRect) {
+  popup.style.top  = '-9999px';
+  popup.style.left = '-9999px';
+  popup.classList.add('visible');
+  const ph = popup.offsetHeight;
+  const pw = popup.offsetWidth;
+  const spaceBelow = window.innerHeight - anchorRect.bottom - 8;
+  const top = spaceBelow >= ph
+    ? anchorRect.bottom + 6
+    : Math.max(8, anchorRect.top - ph - 6);
+  const left = Math.min(anchorRect.left, window.innerWidth - pw - 8);
+  popup.style.top  = `${top}px`;
+  popup.style.left = `${Math.max(8, left)}px`;
+}
+
+document.addEventListener('click', e => {
+  const link = e.target.closest('.symbol-link');
+  const popup = document.getElementById('symbol-popup');
+  if (link) {
+    const s = symbolTerms.find(s => s.id === link.dataset.symbolId);
+    if (!s) return;
+    document.getElementById('sp-symbol').textContent = s.symbol;
+    document.getElementById('sp-name').textContent = s.name + (s.en ? `（${s.en}）` : '');
+    document.getElementById('sp-latex').textContent = s.latex || '';
+    document.getElementById('sp-body').innerHTML = md.render(s.body || '');
+    _positionPopup(popup, link.getBoundingClientRect());
+    e.stopPropagation();
+    return;
+  }
+  if (!e.target.closest('#symbol-popup')) popup?.classList.remove('visible');
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('symbol-popup')?.classList.remove('visible');
+});
+
 // ── 用語ポップアップの表示 ────────────────────────────────────────────
 function getTermPopup() { return document.getElementById('term-popup'); }
 
@@ -79,19 +146,7 @@ document.addEventListener('click', e => {
       document.querySelector('.tab-btn[data-tab="glossary"]')?.click();
       setTimeout(() => viewTerm(t.id), 100);
     };
-    const rect = link.getBoundingClientRect();
-    popup.style.top  = '-9999px';
-    popup.style.left = '-9999px';
-    popup.classList.add('visible');
-    const ph = popup.offsetHeight;
-    const pw = popup.offsetWidth;
-    const spaceBelow = window.innerHeight - rect.bottom - 8;
-    const top = spaceBelow >= ph
-      ? rect.bottom + 6
-      : Math.max(8, rect.top - ph - 6);
-    const left = Math.min(rect.left, window.innerWidth - pw - 8);
-    popup.style.top  = `${top}px`;
-    popup.style.left = `${Math.max(8, left)}px`;
+    _positionPopup(popup, link.getBoundingClientRect());
     e.stopPropagation();
     return;
   }
@@ -179,6 +234,13 @@ function _termRowHtml(t, extra = '') {
     `<button class="btn-edit-sm" data-edit="${t.id}">編集</button></div>`;
 }
 
+function _symbolRowHtml(s) {
+  const isActive = s.id === viewingSymbolId;
+  return `<div class="gterm-row${isActive ? ' active' : ''}">` +
+    `<span class="gterm-name symbol-row-name" data-view-symbol="${s.id}" title="${_esc(s.en || '')}">` +
+    `<span class="symbol-row-char">${_esc(s.symbol)}</span> ${_esc(s.name)}</span></div>`;
+}
+
 const _GROUP_CONFIG = {
   'wiim-concepts': {
     order: ['particles', 'fungi-bio', 'qualia', 'metric', 'casimir', 'communication', 'concept'],
@@ -237,7 +299,17 @@ function renderGlossaryList(query = '') {
     (t.aliases || []).some(a => a.toLowerCase().includes(q))
   );
 
-  if (filtered.length === 0) {
+  const filteredSymbols = symbolTerms.filter(s =>
+    !q ||
+    s.symbol.includes(q) ||
+    s.name.toLowerCase().includes(q) ||
+    (s.en || '').toLowerCase().includes(q) ||
+    (s.latex || '').toLowerCase().includes(q) ||
+    (s.reading || '').includes(q) ||
+    (s.aliases || []).some(a => a.toLowerCase().includes(q))
+  );
+
+  if (filtered.length === 0 && filteredSymbols.length === 0) {
     el.innerHTML = `<div style="padding:12px 16px;font-size:12px;color:var(--text-muted);">該当なし</div>`;
     return;
   }
@@ -291,10 +363,27 @@ function renderGlossaryList(query = '') {
     parts.push('</div>');
   }
 
+  // ── 記号セクション ──────────────────────────────────────────────────
+  if (filteredSymbols.length > 0) {
+    const sid = '__symbols__';
+    const collapsed = collapsedCats.has(sid);
+    parts.push(
+      `<div class="gcat-header${collapsed ? ' collapsed' : ''}" data-gcat="${sid}" style="background:#1a1a10;color:#fcd34d;">` +
+      `記号 <span class="gcat-count">(${filteredSymbols.length})</span><span class="arrow">▼</span></div>`
+    );
+    if (!collapsed) {
+      parts.push('<div class="gcat-terms">');
+      filteredSymbols.forEach(s => parts.push(_symbolRowHtml(s)));
+      parts.push('</div>');
+    }
+  }
+
   el.innerHTML = parts.join('');
 }
 
 document.getElementById('glossary-list').addEventListener('click', e => {
+  const symEl = e.target.closest('[data-view-symbol]');
+  if (symEl) { viewSymbol(symEl.dataset.viewSymbol); return; }
   const viewEl = e.target.closest('[data-view]');
   if (viewEl) { viewTerm(viewEl.dataset.view); return; }
   const editEl = e.target.closest('[data-edit]');
@@ -313,6 +402,7 @@ function viewTerm(id, { pushState = true } = {}) {
   const term = glossaryTerms.find(t => t.id === id);
   if (!term) return;
   viewingTermId = id;
+  viewingSymbolId = null;
   if (pushState) history.pushState({ termId: id }, '', `#glossary/${id}`);
   currentTermId = null;
 
@@ -379,6 +469,49 @@ function viewTerm(id, { pushState = true } = {}) {
       }
     };
   });
+
+  linkSymbolsInPreview(document.querySelector('.tv-body'));
+
+  document.getElementById('monaco-container').style.display = 'none';
+  document.getElementById('preview-pane').style.display = 'block';
+  monacoEditor?.layout();
+  renderGlossaryList(document.getElementById('glossary-search').value);
+}
+
+// ── 記号閲覧（プレビュー）──────────────────────────────────────────────
+function viewSymbol(id) {
+  const s = symbolTerms.find(s => s.id === id);
+  if (!s) return;
+  viewingSymbolId = id;
+  viewingTermId = null;
+  currentTermId = null;
+
+  document.getElementById('glossary-form-area').classList.remove('active');
+  document.getElementById('editor-panes').style.display = 'flex';
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('toc-aside').style.display = 'none';
+
+  const _sb = document.getElementById('status-bar');
+  if (_sb) { _sb.textContent = `symbols/${s.id}`; _sb.style.display = ''; }
+  document.getElementById('toolbar').style.display = 'flex';
+  document.querySelector('.mode-tabs').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'none';
+  document.getElementById('btn-delete').style.display = 'none';
+  document.getElementById('btn-edit-viewing').style.display = 'none';
+  document.getElementById('file-path').textContent = `${s.id}  ${s.symbol}  ${s.name}`;
+
+  document.getElementById('preview-pane').innerHTML = `
+    <div class="tv-card">
+      <div class="tv-title" style="font-size:48px;text-align:center;line-height:1.2;margin-bottom:12px">${_esc(s.symbol)}</div>
+      <div class="tv-title" style="font-size:18px">${_esc(s.name)}${s.en ? `（${s.en}）` : ''}</div>
+      <div class="tv-meta">
+        <span class="cat-badge ${s.category}">${GLOSSARY_LABELS[s.category] || s.category}</span>
+        ${s.latex ? `<code style="background:#2d2a18;color:#fcd34d;padding:2px 8px;border-radius:4px;font-size:13px">${_esc(s.latex)}</code>` : ''}
+        ${(s.aliases||[]).length ? `<span style="color:var(--text-muted);font-size:12px">別称: ${s.aliases.join(' / ')}</span>` : ''}
+        <span style="margin-left:auto;font-family:monospace">${s.id}</span>
+      </div>
+    </div>
+    <div class="tv-body">${md.render(s.body || '')}</div>`;
 
   document.getElementById('monaco-container').style.display = 'none';
   document.getElementById('preview-pane').style.display = 'block';

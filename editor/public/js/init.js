@@ -130,6 +130,13 @@ ws.onmessage = (e) => {
   }
 };
 
+async function loadSymbols() {
+  try {
+    const res = await fetch('/api/symbols');
+    if (res.ok) { symbolTerms = await res.json(); _symbolRegexIndex = null; /* キャッシュ破棄 */ }
+  } catch { /* symbols.jsonl が存在しない場合は空のまま */ }
+}
+
 // ── Init ─────────────────────────────────────────────────────────────
 import('/elk/mermaid-layout-elk.esm.min.mjs').then(m => {
   mermaid.registerLayoutLoaders(m.default);
@@ -138,7 +145,7 @@ mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 (async () => {
   await loadCollections();
   await loadCategories();
-  await Promise.all([loadGlossaryTerms(), loadArticles()]);
+  await Promise.all([loadGlossaryTerms(), loadArticles(), loadSymbols()]);
   const hash = location.hash.slice(1);
   if (hash.startsWith('tab/')) {
     switchToPanel(hash.slice(4), { pushState: false });

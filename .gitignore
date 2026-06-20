@@ -1,6 +1,7 @@
 editor/node_modules/
 editor/.server.pid
 glossary/data/new-term.json
+glossary/data/new-symbol.json
 .DS_Store
 .vscode/
 Thumbs.db

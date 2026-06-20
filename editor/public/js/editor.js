@@ -118,6 +118,7 @@ function renderToPane(body, pane, fm = null) {
 
   // 用語リンク化
   linkTermsInPreview(pane);
+  linkSymbolsInPreview(pane);
 
   // .md リンクをインターセプトして記事間・補遺間ナビゲーションに変換
   pane.querySelectorAll('a[href]').forEach(a => {

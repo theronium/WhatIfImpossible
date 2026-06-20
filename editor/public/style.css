@@ -175,6 +175,24 @@ a.article-inline-link:hover { color: #bae6fd; border-bottom-color: #60a5fa; }
 /* ── Article term links & popup ── */
 .term-link { border-bottom: 1px dashed #7dd3fc88; cursor: pointer; color: #93c5fd; }
 .term-link:hover { background: rgba(125,211,252,0.12); border-bottom-color: #7dd3fc; color: #bae6fd; }
+
+/* ── Article symbol links & popup ── */
+.symbol-link { border-bottom: 1px dashed #fcd34d88; cursor: pointer; color: #fde68a; }
+.symbol-link:hover { background: rgba(252,211,77,0.12); border-bottom-color: #fcd34d; color: #fef3c7; }
+#symbol-popup { position: fixed; z-index: 2001; background: #1a1d27; border: 1px solid #555;
+  border-radius: 10px; padding: 14px 18px; max-width: 300px; min-width: 180px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6); display: none; }
+#symbol-popup.visible { display: block; }
+#symbol-popup .sp-symbol { font-size: 40px; text-align: center; margin-bottom: 6px; line-height: 1; }
+#symbol-popup .sp-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #e2e8f0; }
+#symbol-popup .sp-latex { font-family: monospace; font-size: 12px; color: #fcd34d;
+  background: #2d2a18; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+#symbol-popup .sp-body { font-size: 13px; line-height: 1.7; color: #ccc; max-height: 200px; overflow-y: auto; }
+#symbol-popup .sp-body p { margin: 0 0 8px; }
+#symbol-popup .sp-body p:last-child { margin-bottom: 0; }
+
+/* ── Glossary symbol rows ── */
+.symbol-row-char { display: inline-block; min-width: 1.4em; font-size: 16px; color: #fde68a; text-align: center; }
 #term-popup { position: fixed; z-index: 2000; background: #1a1d27; border: 1px solid #444;
   border-radius: 10px; padding: 14px 18px; max-width: 340px; min-width: 220px;
   max-height: calc(100vh - 24px); overflow-y: auto;

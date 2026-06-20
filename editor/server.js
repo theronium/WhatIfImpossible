@@ -508,6 +508,7 @@ app.delete('/api/articles/*', async (req, res) => {
 const getTermsFile     = () => path.join(col.glossaryDir, 'data', 'terms.jsonl');
 const getCategoriesFile = () => path.join(col.glossaryDir, 'categories.json');
 const getGenerateScript = () => path.join(col.glossaryDir, 'scripts', 'generate.js');
+const getSymbolsFile   = () => path.join(col.glossaryDir, 'data', 'symbols.jsonl');
 
 async function readTerms() {
   const raw = await fs.readFile(getTermsFile(), 'utf-8');
@@ -517,6 +518,13 @@ async function readTerms() {
 async function writeTerms(terms) {
   const jsonl = terms.map(t => JSON.stringify(t)).join('\n') + '\n';
   await fs.writeFile(getTermsFile(), jsonl, 'utf-8');
+}
+
+async function readSymbols() {
+  try {
+    const raw = await fs.readFile(getSymbolsFile(), 'utf-8');
+    return raw.trim().split('\n').filter(Boolean).map(l => JSON.parse(l));
+  } catch { return []; }
 }
 
 const COMMON_GENERATE = path.join(__dirname, '..', 'glossary', 'scripts', 'generate.js');
@@ -599,6 +607,12 @@ async function readCategories() {
 async function writeCategories(cats) {
   await fs.writeFile(getCategoriesFile(), JSON.stringify(cats, null, 2) + '\n', 'utf-8');
 }
+
+// ── API: 記号インデックス ─────────────────────────────────────────────
+app.get('/api/symbols', async (req, res) => {
+  try { res.json(await readSymbols()); }
+  catch (e) { res.status(500).json({ error: e.message }); }
+});
 
 app.get('/api/glossary/categories', async (req, res) => {
   try { res.json(await readCategories()); }

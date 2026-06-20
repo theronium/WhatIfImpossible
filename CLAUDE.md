@@ -183,6 +183,74 @@ node glossary/scripts/update-term.js
 
 ---
 
+## 記号集の管理
+
+記号集は `glossary/data/symbols.jsonl`（JSONL形式）をソースとし、`glossary/scripts/generate-symbols.js` で各 `.md` ファイルを生成する。
+用語集（terms.jsonl）とは別ファイルで管理する（スキーマが異なる・性質が違う・量が増大するため）。
+
+### JSONL フォーマット
+
+```json
+{"id":"s001","symbol":"ℏ","latex":"\\hbar","name":"ディラック定数","en":"reduced Planck constant","reading":"えいちばー","aliases":["エイチバー","h-bar","hbar"],"category":"quantum","body":"説明文（\\n\\n で段落区切り）"}
+```
+
+| フィールド | 内容 |
+|-----------|------|
+| `id` | 自動採番（s001〜）。手動変更不要 |
+| `symbol` | 記号文字（1〜数文字。ユニコード可） |
+| `latex` | LaTeXコマンド（例: `\\hbar`）。不要なら省略可 |
+| `name` | 日本語名 |
+| `en` | 英語名（不要なら省略可） |
+| `reading` | よみがな（ひらがな） |
+| `aliases` | 別称・読み方の配列（例: `["round d","curly d"]`）。なければ省略可 |
+| `category` | 下記の有効値から選択 |
+| `body` | 説明文。`\n\n` で段落区切り。**ダブルクォートは必ず `\"` にエスケープする** |
+
+- `group` フィールドは不要（記号はカテゴリ単位でフラットに管理）
+- `related` フィールドは不要（記事との関連付けは行わない）
+
+### 有効なカテゴリ値
+
+`physics` / `quantum` / `mathematics` / `astronomy` / `particle` / `speculative` / `wiim-concepts`
+
+### 記号の追加手順
+
+1. `glossary/data/new-symbol.json` を以下の形式で作成（`new-symbol.sample.json` を参考に）：
+
+```json
+{
+  "symbol": "∮",
+  "latex": "\\oint",
+  "name": "周回積分",
+  "en": "contour integral",
+  "reading": "しゅうかいせきぶん",
+  "aliases": ["線積分", "ループ積分"],
+  "category": "mathematics",
+  "body": "閉じた経路に沿った線積分を表す記号。"
+}
+```
+
+2. スクリプトを実行（ID自動採番・重複チェック・.md 生成まで自動）：
+
+```bash
+node glossary/scripts/add-symbol.js
+```
+
+### 全件再生成
+
+```bash
+node glossary/scripts/generate-symbols.js
+```
+
+### 注意事項
+
+- **body 内のダブルクォートは `\"` にエスケープすること。**
+  エスケープ漏れがあると `readSymbols()` が全件読み込みに失敗し、エディタ上でリンクが一切表示されなくなる（エラーは無音で飲み込まれる）。
+- `new-symbol.json` は `.gitignore` 済みでコミットされない。
+- 生成先: `glossary/symbols/sXXX.md`（自動生成のため直接編集不要）
+
+---
+
 ## インデックスの更新ルール
 
 新しい記事を追加したときは必ず `docs/README.md` を更新する。

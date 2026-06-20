@@ -9,6 +9,7 @@ let sidebarMode = 'articles'; // 'articles' | 'glossary'
 let glossaryTerms = [];
 let currentTermId = null;   // null = 新規
 let viewingTermId = null;   // 閲覧中の用語ID
+let viewingSymbolId = null; // 閲覧中の記号ID
 let collapsedCats = new Set(JSON.parse(localStorage.getItem('collapsedCats') || '[]'));
 
 let GLOSSARY_CATS = [];
@@ -31,7 +32,10 @@ const FALLBACK_CATS = [
 
 let _toastTimer = null;
 let _termRegexIndex = null;
+let _symbolRegexIndex = null;
 let _reloadGlossaryTimer = null;
+
+let symbolTerms = [];
 
 function showToast(msg, type = 'ok') {
   const el = document.getElementById('toast');
@@ -59,4 +63,19 @@ function buildTermRegexIndex() {
 function getTermRegexIndex() {
   if (!_termRegexIndex) _termRegexIndex = buildTermRegexIndex();
   return _termRegexIndex;
+}
+
+// 52個の個別正規表現ではなく、単一の結合正規表現で1パス処理する
+function buildSymbolData() {
+  const sorted = [...symbolTerms].sort((a, b) => b.symbol.length - a.symbol.length);
+  const alts = sorted.map(s => s.symbol.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  return {
+    regex: new RegExp(alts.join('|'), 'g'),
+    map: Object.fromEntries(sorted.map(s => [s.symbol, s.id])),
+  };
+}
+
+function getSymbolData() {
+  if (!_symbolRegexIndex) _symbolRegexIndex = buildSymbolData();
+  return _symbolRegexIndex;
 }

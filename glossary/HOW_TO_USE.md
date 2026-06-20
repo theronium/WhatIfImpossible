@@ -159,3 +159,75 @@ node glossary/scripts/generate.js
 | `field` | 分野名（表示用） |
 | `related` | 関連記事IDの配列（なければ `[]`）|
 | `body` | 説明文。`\n` で改行、`\n\n` で段落区切り |
+
+---
+
+## 記号を追加する
+
+記号集は用語集とは独立した別ファイル `glossary/data/symbols.jsonl` で管理します。
+
+### ファイル構成（記号集）
+
+```
+glossary/
+├── data/
+│   ├── symbols.jsonl        ← 全記号のソースデータ（JSONL形式）
+│   └── new-symbol.json      ← 新規記号追加時の一時ファイル（git除外）
+├── scripts/
+│   ├── generate-symbols.js  ← symbols.jsonl → .md ファイルを再生成
+│   └── add-symbol.js        ← 新規記号を1件追加するスクリプト
+└── symbols/                 ← 個別記号ファイル（自動生成）
+    └── sXXX.md
+```
+
+### 記号を追加する
+
+1. `glossary/data/new-symbol.json` を作成（`new-symbol.sample.json` を参考に）：
+
+```json
+{
+  "symbol": "∮",
+  "latex": "\\oint",
+  "name": "周回積分",
+  "en": "contour integral",
+  "reading": "しゅうかいせきぶん",
+  "aliases": ["線積分", "ループ積分"],
+  "category": "mathematics",
+  "body": "閉じた経路に沿った線積分を表す記号。"
+}
+```
+
+2. スクリプトを実行：
+
+```bash
+node glossary/scripts/add-symbol.js
+```
+
+ID（sXXX）の自動採番・重複チェック・.md 生成まで自動で行います。
+
+### 記号 JSONL フォーマット
+
+```json
+{"id":"s001","symbol":"ℏ","latex":"\\hbar","name":"ディラック定数","en":"reduced Planck constant","reading":"えいちばー","aliases":["エイチバー","h-bar"],"category":"quantum","body":"説明文"}
+```
+
+| フィールド | 内容 |
+|-----------|------|
+| `id` | 自動採番（s001〜）。手動変更不要 |
+| `symbol` | 記号文字（ユニコード可） |
+| `latex` | LaTeXコマンド（例: `\\hbar`）。不要なら省略可 |
+| `name` | 日本語名 |
+| `en` | 英語名。不要なら省略可 |
+| `reading` | よみがな（ひらがな） |
+| `aliases` | 別称・読み方の配列。なければ省略可 |
+| `category` | `physics` / `quantum` / `mathematics` / `astronomy` などから選択 |
+| `body` | 説明文。**ダブルクォートは `\"` にエスケープ必須** |
+
+> **注意**: body 内にダブルクォート（`"`）をそのまま書くと JSON が壊れ、エディタで全記号のリンクが表示されなくなります。
+> `\"All\"` のようにエスケープしてください。
+
+### 全件再生成
+
+```bash
+node glossary/scripts/generate-symbols.js
+```

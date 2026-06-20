@@ -1,0 +1,10 @@
+{
+  "symbol": "∮",
+  "latex": "\\oint",
+  "name": "周回積分",
+  "en": "contour integral",
+  "reading": "しゅうかいせきぶん",
+  "aliases": ["線積分", "ループ積分"],
+  "category": "mathematics",
+  "body": "閉じた経路に沿った線積分を表す記号。電磁気学のアンペールの法則（∮B·dl = μ₀I）や複素解析の留数定理で多用される。"
+}
