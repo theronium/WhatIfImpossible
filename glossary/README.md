@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **456**
+用語数: **457**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g460 | [ナイン数](physics.md) | number of nines | physics |
 | g459 | [力場検知器官](wiim-engineering.md) | Force Field Receptor Organ | wiim-engineering |
 | g458 | [トロヤトランスファー](wiim-engineering.md) | Trojan Transfer | wiim-engineering |
 | g457 | [ラジカル対](physics.md) | Radical Pair | physics |
@@ -54,7 +55,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g453 | [コペンハーゲン解釈](quantum.md) | Copenhagen Interpretation | quantum |
 | g452 | [散逸構造](physics.md) | Dissipative Structure | physics |
 | g451 | [マトリョーシカ脳](sf-concepts.md) | Matrioshka Brain | sf-concepts |
-| g450 | [離散した知性](wiim-concepts.md) | Detached-Discrete Intelligence | wiim-concepts |
+
 
 
 

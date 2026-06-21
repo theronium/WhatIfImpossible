@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-06-21 | 用語 | g460 | [ナイン数（number of nines）](../glossary/physics.md#g460) |
 | 2026-06-20 | 記事 | wiim_112 | [エバネッセント波の超光速——ハートマン効果はFTL通信の足がかりになるか](cosmology/wiim_112.md) |
 | 2026-06-20 | 用語 | g459 | [力場検知器官（Force Field Receptor Organ）](../glossary/wiim-engineering.md#g459) |
 | 2026-06-20 | 用語 | g458 | [トロヤトランスファー（Trojan Transfer）](../glossary/wiim-engineering.md#g458) |
@@ -53,4 +54,3 @@
 | 2026-06-05 | 記事 | wiim_102 | [音をブラックホールに折り畳み、ワームホールから取り出せるか](cosmology/wiim_102.md) |
 | 2026-06-05 | 用語 | g424 | [ホーキング蒸発（Hawking Evaporation）](../glossary/physics.md#g424) |
 | 2026-06-05 | 用語 | g423 | [ヘイデン＝プレスキル回路（Hayden-Preskill Protocol）](../glossary/quantum.md#g423) |
-| 2026-06-05 | 用語 | g422 | [アイランド公式（Island Formula）](../glossary/physics.md#g422) |
