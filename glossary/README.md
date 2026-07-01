@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **457**
+用語数: **461**
 
 ---
 
@@ -45,16 +45,24 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g464 | [ヤルコフスキー効果](astronomy.md) | Yarkovsky Effect | astronomy |
+| g463 | [オウムアムア](astronomy.md) | 'Oumuamua | astronomy |
+| g462 | [タビーの星](astronomy.md) | Tabby's Star | astronomy |
+| g461 | [パレイドリア仮説](wiim-concepts.md) | Pareidolia Hypothesis | wiim-concepts |
 | g460 | [ナイン数](physics.md) | number of nines | physics |
 | g459 | [力場検知器官](wiim-engineering.md) | Force Field Receptor Organ | wiim-engineering |
 | g458 | [トロヤトランスファー](wiim-engineering.md) | Trojan Transfer | wiim-engineering |
 | g457 | [ラジカル対](physics.md) | Radical Pair | physics |
 | g456 | [スピントロニクス](physics.md) | Spintronics | physics |
 | g455 | [菌類量子コヒーレンス](biology.md) | Fungal Quantum Coherence | biology |
-| g454 | [キラリティ](biology.md) | Chirality | biology |
-| g453 | [コペンハーゲン解釈](quantum.md) | Copenhagen Interpretation | quantum |
-| g452 | [散逸構造](physics.md) | Dissipative Structure | physics |
-| g451 | [マトリョーシカ脳](sf-concepts.md) | Matrioshka Brain | sf-concepts |
+
+
+
+
+
+
+
+
 
 
 

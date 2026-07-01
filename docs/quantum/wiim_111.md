@@ -104,4 +104,5 @@ flowchart LR
 - [tech_tree_biology](../notes/tech_tree_biology.md) — tech_tree_biology.md
 - [tech_tree_entropy](../notes/tech_tree_entropy.md) — tech_tree_entropy.md
 - [wiim_008_silent_guardian](../notes/wiim_008_silent_guardian.md) — コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造
+- [wiim_113](../biology/wiim_113.md) — コズミックマイスが太陽系規模のQSコアとなり人工天体として誤認されたら
 

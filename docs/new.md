@@ -4,6 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-07-01 | 記事 | wiim_113 | [コズミックマイスが太陽系規模のQSコアとなり人工天体として誤認されたら](biology/wiim_113.md) |
+| 2026-07-01 | 用語 | g464 | [ヤルコフスキー効果（Yarkovsky Effect）](../glossary/astronomy.md#g464) |
+| 2026-07-01 | 用語 | g463 | [オウムアムア（'Oumuamua）](../glossary/astronomy.md#g463) |
+| 2026-07-01 | 用語 | g462 | [タビーの星（Tabby's Star）](../glossary/astronomy.md#g462) |
+| 2026-07-01 | 用語 | g461 | [パレイドリア仮説（Pareidolia Hypothesis）](../glossary/wiim-concepts.md#g461) |
 | 2026-06-21 | 用語 | g460 | [ナイン数（number of nines）](../glossary/physics.md#g460) |
 | 2026-06-20 | 記事 | wiim_112 | [エバネッセント波の超光速——ハートマン効果はFTL通信の足がかりになるか](cosmology/wiim_112.md) |
 | 2026-06-20 | 用語 | g459 | [力場検知器官（Force Field Receptor Organ）](../glossary/wiim-engineering.md#g459) |
@@ -49,8 +54,3 @@
 | 2026-06-12 | 記事 | wiim_103 | [場の圧力差機関——量子真空の勾配からエネルギーを取り出せるか](physics/wiim_103.md) |
 | 2026-06-06 | 用語 | g428 | [超流動（Superfluidity）](../glossary/physics.md#g428) |
 | 2026-06-06 | 用語 | g427 | [超撥水（Superhydrophobicity）](../glossary/physics.md#g427) |
-| 2026-06-06 | 用語 | g426 | [流体潤滑（Fluid Lubrication）](../glossary/physics.md#g426) |
-| 2026-06-06 | 用語 | g425 | [ライデンフロスト効果（Leidenfrost Effect）](../glossary/physics.md#g425) |
-| 2026-06-05 | 記事 | wiim_102 | [音をブラックホールに折り畳み、ワームホールから取り出せるか](cosmology/wiim_102.md) |
-| 2026-06-05 | 用語 | g424 | [ホーキング蒸発（Hawking Evaporation）](../glossary/physics.md#g424) |
-| 2026-06-05 | 用語 | g423 | [ヘイデン＝プレスキル回路（Hayden-Preskill Protocol）](../glossary/quantum.md#g423) |
