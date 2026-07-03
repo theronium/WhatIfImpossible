@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>衛星軌道計算機 — WhatIfImpossible</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { overflow: auto; flex-direction: column; }
+
+  .oc-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .oc-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .oc-header h1 { font-size: 20px; color: var(--accent); font-weight: 700; flex: 1; }
+  .oc-back { font-size: 12px; color: var(--text-muted); text-decoration: none; border: 1px solid var(--border); border-radius: 5px; padding: 4px 10px; background: var(--surface2); }
+  .oc-back:hover { color: var(--text); background: var(--border); }
+
+  /* ── Input Card ── */
+  .oc-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .oc-card h2 { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--text-muted); text-transform: uppercase; }
+
+  .oc-mode-tabs { display: flex; gap: 4px; }
+  .oc-tab {
+    padding: 5px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text-muted);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .oc-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .oc-input-row { display: flex; align-items: center; gap: 12px; }
+  .oc-input-row label { font-size: 12px; color: var(--text-muted); white-space: nowrap; width: 80px; }
+  .oc-slider { flex: 1; accent-color: var(--accent); cursor: pointer; height: 4px; }
+  .oc-num {
+    width: 90px;
+    padding: 5px 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: monospace;
+    text-align: right;
+    outline: none;
+  }
+  .oc-num:focus { border-color: var(--accent); }
+  .oc-unit { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+
+  .oc-quick-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+  .oc-qbtn {
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--accent2);
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .oc-qbtn:hover { background: var(--border); }
+
+  /* ── Results ── */
+  .oc-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 540px) { .oc-results { grid-template-columns: 1fr; } }
+
+  .oc-result-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .oc-result-item.span2 { grid-column: span 2; }
+  @media (max-width: 540px) { .oc-result-item.span2 { grid-column: span 1; } }
+
+  .oc-result-label { font-size: 11px; color: var(--text-muted); }
+  .oc-result-value {
+    font-size: 22px;
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .oc-result-sub { font-size: 11px; color: var(--text-muted); }
+
+  .oc-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .badge-leo  { color: #34d399; border-color: #34d39940; background: #0d2a1f; }
+  .badge-meo  { color: #60a5fa; border-color: #60a5fa40; background: #0d1a2f; }
+  .badge-geo  { color: #f59e0b; border-color: #f59e0b40; background: #2a1d00; }
+  .badge-heo  { color: #c084fc; border-color: #c084fc40; background: #1a0d2a; }
+  .badge-warn { color: var(--danger); font-size: 10px; }
+
+  .oc-continuous { color: #f59e0b; font-size: 18px; }
+
+  /* ── Reference Table ── */
+  .oc-section-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: .06em;
+  }
+  .oc-section-toggle:hover { color: var(--text); }
+  .oc-arrow { font-size: 10px; transition: transform .15s; }
+  .oc-arrow.open { transform: rotate(90deg); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  th, td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border);
+    text-align: right;
+    white-space: nowrap;
+  }
+  th { color: var(--text-muted); font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; background: var(--surface2); }
+  td:first-child, th:first-child { text-align: center; }
+  td:nth-child(3) { text-align: left; color: var(--text-muted); font-size: 11px; }
+  tr:hover td { background: var(--surface2); }
+  tr.highlight td { background: #1a1a3a; color: var(--accent2); }
+  .van-warn { color: var(--danger); font-size: 10px; }
+
+  .oc-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border-left: 3px solid var(--border);
+    border-radius: 0 6px 6px 0;
+  }
+  .oc-note a { color: var(--accent); text-decoration: none; }
+  .oc-note a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="oc-wrap">
+
+  <!-- Header -->
+  <div class="oc-header">
+    <h1>衛星軌道計算機</h1>
+    <a class="oc-back" href="/">← エディタ</a>
+  </div>
+
+  <!-- Input -->
+  <div class="oc-card">
+    <h2>入力</h2>
+    <div class="oc-mode-tabs">
+      <button class="oc-tab active" id="tab-period" onclick="setMode('period')">公転周期 → 高度</button>
+      <button class="oc-tab"        id="tab-alt"    onclick="setMode('alt')">高度 → 公転周期</button>
+    </div>
+
+    <!-- Period input -->
+    <div id="input-period">
+      <div class="oc-input-row">
+        <label>公転周期</label>
+        <input type="range" class="oc-slider" id="sl-period" min="0" max="100" step="0.1" value="20" oninput="onSliderPeriod()">
+        <input type="number" class="oc-num" id="in-period" value="90" min="60" max="60000" oninput="onNumPeriod()">
+        <span class="oc-unit">分</span>
+      </div>
+      <div class="oc-quick-btns">
+        <button class="oc-qbtn" onclick="setPeriod(88)">88分（最低高度）</button>
+        <button class="oc-qbtn" onclick="setPeriod(92)">92分（ISS）</button>
+        <button class="oc-qbtn" onclick="setPeriod(100)">100分（LEO上限）</button>
+        <button class="oc-qbtn" onclick="setPeriod(720)">12時間（GPS）</button>
+        <button class="oc-qbtn" onclick="setPeriod(1436)">23時間56分（GEO）</button>
+        <button class="oc-qbtn" onclick="setPeriod(2880)">48時間</button>
+      </div>
+    </div>
+
+    <!-- Altitude input -->
+    <div id="input-alt" style="display:none;">
+      <div class="oc-input-row">
+        <label>軌道高度</label>
+        <input type="range" class="oc-slider" id="sl-alt" min="0" max="100" step="0.1" value="10" oninput="onSliderAlt()">
+        <input type="number" class="oc-num" id="in-alt" value="400" min="100" max="500000" oninput="onNumAlt()">
+        <span class="oc-unit">km</span>
+      </div>
+      <div class="oc-quick-btns">
+        <button class="oc-qbtn" onclick="setAlt(183)">183km（最低限界）</button>
+        <button class="oc-qbtn" onclick="setAlt(400)">400km（ISS）</button>
+        <button class="oc-qbtn" onclick="setAlt(20200)">20,200km（GPS）</button>
+        <button class="oc-qbtn" onclick="setAlt(35786)">35,786km（GEO）</button>
+        <button class="oc-qbtn" onclick="setAlt(378029)">378,029km（月）</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="oc-card">
+    <h2>計算結果</h2>
+    <div class="oc-results">
+      <div class="oc-result-item">
+        <div class="oc-result-label">軌道高度</div>
+        <div class="oc-result-value" id="res-alt">—</div>
+        <div class="oc-result-sub" id="res-band">—</div>
+      </div>
+      <div class="oc-result-item">
+        <div class="oc-result-label">公転周期</div>
+        <div class="oc-result-value" id="res-period">—</div>
+        <div class="oc-result-sub" id="res-speed">—</div>
+      </div>
+      <div class="oc-result-item">
+        <div class="oc-result-label">可視半頂角 ρ</div>
+        <div class="oc-result-value" id="res-rho">—</div>
+        <div class="oc-result-sub">地球中心基準・仰角0°</div>
+      </div>
+      <div class="oc-result-item">
+        <div class="oc-result-label">見かけ角速度（対地上）</div>
+        <div class="oc-result-value" id="res-omega">—</div>
+        <div class="oc-result-sub" id="res-omega-sub">赤道軌道・赤道観測点基準</div>
+      </div>
+      <div class="oc-result-item">
+        <div class="oc-result-label">直上通過の最大可視時間</div>
+        <div class="oc-result-value" id="res-vis">—</div>
+        <div class="oc-result-sub" id="res-vis-sub">—</div>
+      </div>
+      <div class="oc-result-item">
+        <div class="oc-result-label">通過後の不可視インターバル</div>
+        <div class="oc-result-value" id="res-inv">—</div>
+        <div class="oc-result-sub" id="res-inv-sub">—</div>
+      </div>
+      <div class="oc-result-item span2">
+        <div class="oc-result-label">地上から見た1サイクル（見える＋見えない）</div>
+        <div class="oc-result-value" id="res-cycle">—</div>
+        <div class="oc-result-sub" id="res-cycle-sub">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reference table (collapsible) -->
+  <div class="oc-card">
+    <div class="oc-section-toggle" onclick="toggleTable()">
+      <span class="oc-arrow" id="tbl-arrow">▶</span>
+      参考：周期別一覧表
+    </div>
+    <div id="ref-table" style="display:none; margin-top:12px; overflow-x:auto;">
+      <table id="ref-tbl">
+        <thead>
+          <tr>
+            <th>公転周期</th>
+            <th>軌道高度</th>
+            <th>軌道帯</th>
+            <th>最大可視時間</th>
+            <th>不可視インターバル</th>
+            <th>代表例</th>
+          </tr>
+        </thead>
+        <tbody id="ref-tbody"></tbody>
+      </table>
+      <div style="margin-top:8px; font-size:11px; color:var(--text-muted);">
+        ※ 赤道円軌道・赤道上観測点の理論値。傾斜軌道では異なる。
+      </div>
+    </div>
+  </div>
+
+  <!-- Note -->
+  <div class="oc-note">
+    前提条件：赤道円軌道、軌道傾角0°、観測点は赤道上（仰角0°以上を可視とする）。
+    ISS（傾角51.6°）など傾斜軌道では可視時間・間隔が異なる。
+    詳細は補遺ノート
+    <a href="/" onclick="window.opener=null; return true;">衛星軌道高度・周期・可視時間リファレンス</a>
+    を参照。
+  </div>
+
+</div>
+
+<script>
+// ── 定数 ──────────────────────────────────────────────────────────────
+const R   = 6371;          // km 地球半径
+const GM  = 3.986e5;       // km³/s² (= 3.986e14 m³/s²)
+const T_E = 1436.1;        // min 恒星日（地球の慣性系での自転周期）
+
+// ── モード管理 ────────────────────────────────────────────────────────
+let mode = 'period'; // 'period' | 'alt'
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('tab-period').classList.toggle('active', m === 'period');
+  document.getElementById('tab-alt').classList.toggle('active', m === 'alt');
+  document.getElementById('input-period').style.display = m === 'period' ? '' : 'none';
+  document.getElementById('input-alt').style.display    = m === 'alt'    ? '' : 'none';
+  if (m === 'period') onNumPeriod(); else onNumAlt();
+}
+
+// ── スライダー（対数スケール） ────────────────────────────────────────
+const MIN_T = 60,  MAX_T = 60000;   // min（最大 ≈ 41.7日、月軌道域をカバー）
+const MIN_H = 150, MAX_H = 500000; // km（最大 ≈ 500,000 km、月より遠くまで）
+
+function tToSlider(t) { return 100 * Math.log(t / MIN_T) / Math.log(MAX_T / MIN_T); }
+function sliderToT(s) { return MIN_T * Math.pow(MAX_T / MIN_T, s / 100); }
+function hToSlider(h) { return 100 * Math.log(h / MIN_H) / Math.log(MAX_H / MIN_H); }
+function sliderToH(s) { return MIN_H * Math.pow(MAX_H / MIN_H, s / 100); }
+
+function onSliderPeriod() {
+  const s = +document.getElementById('sl-period').value;
+  const t = Math.round(sliderToT(s));
+  document.getElementById('in-period').value = t;
+  compute(t, null);
+}
+function onNumPeriod() {
+  const t = +document.getElementById('in-period').value;
+  document.getElementById('sl-period').value = tToSlider(t);
+  compute(t, null);
+}
+function setPeriod(t) {
+  document.getElementById('in-period').value = t;
+  document.getElementById('sl-period').value = tToSlider(t);
+  if (mode !== 'period') setMode('period'); else compute(t, null);
+}
+
+function onSliderAlt() {
+  const s = +document.getElementById('sl-alt').value;
+  const h = Math.round(sliderToH(s));
+  document.getElementById('in-alt').value = h;
+  compute(null, h);
+}
+function onNumAlt() {
+  const h = +document.getElementById('in-alt').value;
+  document.getElementById('sl-alt').value = hToSlider(h);
+  compute(null, h);
+}
+function setAlt(h) {
+  document.getElementById('in-alt').value = h;
+  document.getElementById('sl-alt').value = hToSlider(h);
+  if (mode !== 'alt') setMode('alt'); else compute(null, h);
+}
+
+// ── 計算コア ────────────────────────────────────────────────────────
+function periodFromAlt(h) {
+  const a = R + h;
+  return 2 * Math.PI * Math.sqrt(a * a * a / GM) / 60; // min
+}
+function altFromPeriod(T_min) {
+  const T_s = T_min * 60;
+  const a = Math.cbrt(GM * T_s * T_s / (4 * Math.PI * Math.PI));
+  return a - R;
+}
+
+function fmtMin(m) {
+  if (!isFinite(m)) return '∞';
+  if (m < 0) m = -m;
+  if (m < 60) return Math.round(m) + '分';
+  if (m < 1440) {
+    const h = Math.floor(m / 60), mn = Math.round(m % 60);
+    if (mn === 60) return (h + 1) + '時間';
+    return mn > 0 ? h + '時間' + mn + '分' : h + '時間';
+  }
+  const d = Math.floor(m / 1440), rem = m % 1440;
+  const h = Math.floor(rem / 60), mn = Math.round(rem % 60);
+  if (h === 0 && mn === 0) return d + '日';
+  if (h === 0) return d + '日' + mn + '分';
+  if (mn === 0) return d + '日' + h + '時間';
+  return d + '日' + h + '時間' + mn + '分';
+}
+function fmtKm(k) {
+  return k >= 1000
+    ? (k / 1000).toFixed(k >= 10000 ? 0 : 1) + ',000 km'.replace(/(\d),000/, '$1,000')
+    : Math.round(k) + ' km';
+}
+
+function getBand(h) {
+  if (h < 2000)    return { label: 'LEO', cls: 'badge-leo', warn: h > 1000 ? '内部放射帯' : '' };
+  if (h < 35786)   return { label: 'MEO', cls: 'badge-meo', warn: (h > 13500 && h < 60000) ? '外部放射帯' : '' };
+  if (h < 36500)   return { label: 'GEO', cls: 'badge-geo', warn: '' };
+  if (h < 320000)  return { label: 'HEO', cls: 'badge-heo', warn: h < 60000 ? '外部放射帯' : '' };
+  return               { label: '月軌道域', cls: 'badge-heo', warn: '' };
+}
+
+function compute(T_min, h_km) {
+  if (T_min !== null) {
+    T_min = Math.max(60, Math.min(MAX_T, T_min));
+    h_km = altFromPeriod(T_min);
+  } else {
+    h_km = Math.max(100, Math.min(MAX_H, h_km));
+    T_min = periodFromAlt(h_km);
+  }
+
+  const a        = R + h_km;
+  const rho_rad  = Math.acos(R / a);
+  const rho_deg  = rho_rad * 180 / Math.PI;
+  const v_km_s   = Math.sqrt(GM / a);          // orbital speed km/s
+  const isGEO    = Math.abs(T_min - T_E) < 2;  // within 2 min of GEO
+  const omega_rel = Math.abs(360 / T_min - 360 / T_E); // °/min
+
+  let vis, inv, cycle;
+  if (isGEO || omega_rel < 1e-4) {
+    vis = Infinity; inv = 0; cycle = Infinity;
+  } else {
+    vis   = 2 * rho_deg / omega_rel;
+    cycle = 360 / omega_rel;
+    inv   = cycle - vis;
+  }
+
+  // h表示
+  const hStr = h_km >= 1000
+    ? (h_km >= 10000 ? Math.round(h_km).toLocaleString() : h_km.toFixed(0)) + ' km'
+    : Math.round(h_km) + ' km';
+
+  // T表示
+  const tStr = fmtMin(T_min);
+
+  const band = getBand(h_km);
+
+  set('res-alt', hStr);
+  set('res-period', tStr);
+  set('res-rho', rho_deg.toFixed(1) + '°');
+  set('res-speed', '軌道速度 ' + v_km_s.toFixed(2) + ' km/s');
+
+  // 帯ラベル
+  let bandHtml = `<span class="oc-badge ${band.cls}">${band.label}</span>`;
+  if (band.warn) bandHtml += ` <span class="badge-warn">⚠ ${band.warn}</span>`;
+  document.getElementById('res-band').innerHTML = bandHtml;
+
+  if (isGEO || !isFinite(vis)) {
+    set('res-omega', '≈ 0 °/min');
+    setHtml('res-omega-sub', '地上から静止して見える');
+    setHtml('res-vis', '<span class="oc-continuous">連続可視</span>');
+    set('res-vis-sub', '緯度 ±81.3° 以内から常時可視');
+    set('res-inv', '0分');
+    set('res-inv-sub', '不可視区間なし');
+    set('res-cycle', '連続');
+    set('res-cycle-sub', 'GEO衛星は地上固定点から動かない');
+  } else {
+    set('res-omega', omega_rel.toFixed(4) + ' °/min');
+    const dir = T_min < T_E ? '東向き' : '西向き（地球より遅い）';
+    set('res-omega-sub', dir);
+    set('res-vis', fmtMin(vis));
+    set('res-vis-sub', '直上通過の場合の最大値');
+    set('res-inv', fmtMin(inv));
+    set('res-inv-sub', '次の直上通過開始まで');
+    set('res-cycle', fmtMin(cycle));
+    set('res-cycle-sub', '可視 + 不可視の1セット');
+  }
+}
+
+function set(id, v)     { document.getElementById(id).textContent = v; }
+function setHtml(id, v) { document.getElementById(id).innerHTML = v; }
+
+// ── 参考一覧表 ─────────────────────────────────────────────────────
+const TABLE_DATA = [
+  {T: 88,   label:'88分',       example:'—（大気抵抗限界）'},
+  {T: 90,   label:'90分',       example:'—'},
+  {T: 92,   label:'92分',       example:'ISS'},
+  {T: 100,  label:'100分',      example:'地球観測衛星'},
+  {T: 120,  label:'2時間',      example:'—'},
+  {T: 180,  label:'3時間',      example:'—（内部放射帯）'},
+  {T: 360,  label:'6時間',      example:'—'},
+  {T: 480,  label:'8時間',      example:'—（外部放射帯）'},
+  {T: 720,  label:'12時間',     example:'GPS・GLONASS'},
+  {T: 1436, label:'23時間56分', example:'通信・気象衛星'},
+  {T: 2880, label:'48時間',     example:'—'},
+];
+
+function buildTable() {
+  const tbody = document.getElementById('ref-tbody');
+  tbody.innerHTML = '';
+  TABLE_DATA.forEach(({T, label, example}) => {
+    const h   = altFromPeriod(T);
+    const a   = R + h;
+    const rho = Math.acos(R / a) * 180 / Math.PI;
+    const wr  = Math.abs(360/T - 360/T_E);
+    const isG = Math.abs(T - T_E) < 2;
+    const vis = isG ? '連続' : fmtMin(2 * rho / wr);
+    const inv = isG ? 'なし' : fmtMin((360 - 2*rho) / wr);
+    const b   = getBand(h);
+    const bandCell = `<span class="oc-badge ${b.cls}">${b.label}</span>` + (b.warn ? `<br><span class="van-warn">⚠${b.warn}</span>` : '');
+    const hStr = h >= 1000 ? Math.round(h).toLocaleString() + ' km' : Math.round(h) + ' km';
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${label}</td>
+      <td>${hStr}</td>
+      <td>${bandCell}</td>
+      <td>${vis}</td>
+      <td>${inv}</td>
+      <td style="color:var(--text-muted)">${example}</td>
+    `;
+    tr.style.cursor = 'pointer';
+    tr.addEventListener('click', () => setPeriod(T));
+    tbody.appendChild(tr);
+  });
+}
+
+function toggleTable() {
+  const tbl   = document.getElementById('ref-table');
+  const arrow = document.getElementById('tbl-arrow');
+  const open  = tbl.style.display === 'none';
+  tbl.style.display = open ? '' : 'none';
+  arrow.classList.toggle('open', open);
+  if (open && !document.getElementById('ref-tbody').children.length) buildTable();
+}
+
+// ── 初期化 ─────────────────────────────────────────────────────────
+setPeriod(92);
+</script>
+</body>
+</html>

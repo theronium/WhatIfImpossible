@@ -115,6 +115,14 @@ app.use('/repo', (req, res, next) => {
   });
 });
 
+// docs/tools/ 以下の静的ツール（orbit.html 等）を /tools/ で配信
+app.use('/tools', (req, res, next) => {
+  if (!col.repoDir) return res.status(503).json({ error: 'No active collection' });
+  res.sendFile(path.join(col.repoDir, 'docs/tools', req.path), { dotfiles: 'deny' }, err => {
+    if (err) next();
+  });
+});
+
 const broadcast = (msg) => {
   wss.clients.forEach(client => {
     if (client.readyState === 1) client.send(JSON.stringify(msg));

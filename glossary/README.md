@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **461**
+用語数: **468**
 
 ---
 
@@ -45,16 +45,25 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g471 | [クレンペラーロゼット](astronomy.md) | Klemperer Rosette | astronomy |
+| g470 | [カーボンナノチューブ熱輻射体](physics.md) | carbon nanotube thermal emitter | physics |
+| g469 | [誘電体ミラー](physics.md) | dielectric mirror | physics |
+| g468 | [スーパーミラー](physics.md) | supermirror | physics |
+| g467 | [カーマンライン](astronomy.md) | Kármán line | astronomy |
+| g466 | [フレア（衛星の現象）](astronomy.md) | satellite flare | astronomy |
+| g465 | [ギョベクリテペ](sf-concepts.md) | Göbekli Tepe | sf-concepts |
 | g464 | [ヤルコフスキー効果](astronomy.md) | Yarkovsky Effect | astronomy |
 | g463 | [オウムアムア](astronomy.md) | 'Oumuamua | astronomy |
 | g462 | [タビーの星](astronomy.md) | Tabby's Star | astronomy |
-| g461 | [パレイドリア仮説](wiim-concepts.md) | Pareidolia Hypothesis | wiim-concepts |
-| g460 | [ナイン数](physics.md) | number of nines | physics |
-| g459 | [力場検知器官](wiim-engineering.md) | Force Field Receptor Organ | wiim-engineering |
-| g458 | [トロヤトランスファー](wiim-engineering.md) | Trojan Transfer | wiim-engineering |
-| g457 | [ラジカル対](physics.md) | Radical Pair | physics |
-| g456 | [スピントロニクス](physics.md) | Spintronics | physics |
-| g455 | [菌類量子コヒーレンス](biology.md) | Fungal Quantum Coherence | biology |
+
+
+
+
+
+
+
+
+
 
 
 

@@ -4,7 +4,15 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-07-04 | 用語 | g471 | [クレンペラーロゼット（Klemperer Rosette）](../glossary/astronomy.md#g471) |
+| 2026-07-04 | 用語 | g470 | [カーボンナノチューブ熱輻射体（carbon nanotube thermal emitter）](../glossary/physics.md#g470) |
+| 2026-07-04 | 用語 | g469 | [誘電体ミラー（dielectric mirror）](../glossary/physics.md#g469) |
+| 2026-07-04 | 用語 | g468 | [スーパーミラー（supermirror）](../glossary/physics.md#g468) |
+| 2026-07-04 | 用語 | g467 | [カーマンライン（Kármán line）](../glossary/astronomy.md#g467) |
+| 2026-07-04 | 用語 | g466 | [フレア（衛星の現象）（satellite flare）](../glossary/astronomy.md#g466) |
+| 2026-07-04 | 補遺 | — | [衛星軌道高度・周期・可視時間リファレンス](notes/satellite_orbit_visibility.md) |
 | 2026-07-01 | 記事 | wiim_113 | [コズミックマイスが太陽系規模のQSコアとなり人工天体として誤認されたら](biology/wiim_113.md) |
+| 2026-07-01 | 用語 | g465 | [ギョベクリテペ（Göbekli Tepe）](../glossary/sf-concepts.md#g465) |
 | 2026-07-01 | 用語 | g464 | [ヤルコフスキー効果（Yarkovsky Effect）](../glossary/astronomy.md#g464) |
 | 2026-07-01 | 用語 | g463 | [オウムアムア（'Oumuamua）](../glossary/astronomy.md#g463) |
 | 2026-07-01 | 用語 | g462 | [タビーの星（Tabby's Star）](../glossary/astronomy.md#g462) |
@@ -46,11 +54,3 @@
 | 2026-06-13 | 記事 | wiim_104 | [成形真空爆発——エキゾチック物質の音速の壁を突破してエネルギーを取り出せるか](physics/wiim_104.md) |
 | 2026-06-13 | 用語 | g435 | [オニール・シリンダー（O'Neill Cylinder）](../glossary/sf-concepts.md#g435) |
 | 2026-06-13 | 用語 | g434 | [バンクス軌道（Banks Orbital）](../glossary/sf-concepts.md#g434) |
-| 2026-06-13 | 用語 | g433 | [軌道エレベーター（Space Elevator）](../glossary/sf-concepts.md#g433) |
-| 2026-06-13 | 用語 | g432 | [回転ドメインウォール膜（Rotating Domain Wall Membrane）](../glossary/wiim-engineering.md#g432) |
-| 2026-06-13 | 用語 | g431 | [偽真空浸潤圧（False Vacuum Infiltration Pressure）](../glossary/physics.md#g431) |
-| 2026-06-13 | 用語 | g430 | [量子後選択（Quantum Post-selection）](../glossary/physics.md#g430) |
-| 2026-06-13 | 用語 | g429 | [動的カシミール効果（Dynamical Casimir Effect）](../glossary/physics.md#g429) |
-| 2026-06-12 | 記事 | wiim_103 | [場の圧力差機関——量子真空の勾配からエネルギーを取り出せるか](physics/wiim_103.md) |
-| 2026-06-06 | 用語 | g428 | [超流動（Superfluidity）](../glossary/physics.md#g428) |
-| 2026-06-06 | 用語 | g427 | [超撥水（Superhydrophobicity）](../glossary/physics.md#g427) |

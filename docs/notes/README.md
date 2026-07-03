@@ -64,6 +64,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_109_dissipative_wave.md](wiim_109_dissipative_wave.md) | 散逸構造・フラクタル均衡・永続する波——wiim_109補遺 | 2026-06-18 | 2026-06-18 |
 | [wiim_111_theory.md](wiim_111_theory.md) | 菌糸量子コヒーレンスの理論的背景——散逸構造・カオスの縁・ENAQT | 2026-06-20 | 2026-06-20 |
 | [wiim_008_silent_guardian.md](wiim_008_silent_guardian.md) | コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造 | 2026-06-20 | 2026-06-20 |
+| [satellite_orbit_visibility.md](satellite_orbit_visibility.md) | 衛星軌道高度・周期・可視時間リファレンス | 2026-07-04 | 2026-07-04 |
 
 ---
 
