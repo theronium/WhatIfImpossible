@@ -4,6 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-07-04 | 記事 | wiim_114 | [馬蹄型軌道文明——惑星を並べ直した文明はダイソン球より現実的か](cosmology/wiim_114.md) |
+| 2026-07-04 | 用語 | g475 | [マイススウォーム（Mice Swarm）](../glossary/wiim-concepts.md#g475) |
+| 2026-07-04 | 用語 | g474 | [馬蹄型軌道（horseshoe orbit）](../glossary/astronomy.md#g474) |
+| 2026-07-04 | 用語 | g473 | [シェパード衛星（shepherd moon）](../glossary/astronomy.md#g473) |
+| 2026-07-04 | 用語 | g472 | [ムーンムーン（moonmoon）](../glossary/astronomy.md#g472) |
 | 2026-07-04 | 用語 | g471 | [クレンペラーロゼット（Klemperer Rosette）](../glossary/astronomy.md#g471) |
 | 2026-07-04 | 用語 | g470 | [カーボンナノチューブ熱輻射体（carbon nanotube thermal emitter）](../glossary/physics.md#g470) |
 | 2026-07-04 | 用語 | g469 | [誘電体ミラー（dielectric mirror）](../glossary/physics.md#g469) |
@@ -11,6 +16,7 @@
 | 2026-07-04 | 用語 | g467 | [カーマンライン（Kármán line）](../glossary/astronomy.md#g467) |
 | 2026-07-04 | 用語 | g466 | [フレア（衛星の現象）（satellite flare）](../glossary/astronomy.md#g466) |
 | 2026-07-04 | 補遺 | — | [衛星軌道高度・周期・可視時間リファレンス](notes/satellite_orbit_visibility.md) |
+| 2026-07-04 | 補遺 | — | [補遺：マイススウォームとスノーライン内熱収支逆転](notes/mice_swarm_thermal.md) |
 | 2026-07-01 | 記事 | wiim_113 | [コズミックマイスが太陽系規模のQSコアとなり人工天体として誤認されたら](biology/wiim_113.md) |
 | 2026-07-01 | 用語 | g465 | [ギョベクリテペ（Göbekli Tepe）](../glossary/sf-concepts.md#g465) |
 | 2026-07-01 | 用語 | g464 | [ヤルコフスキー効果（Yarkovsky Effect）](../glossary/astronomy.md#g464) |
@@ -48,9 +54,3 @@
 | 2026-06-14 | 用語 | g443 | [電気素材生物（Electro-mineral Organism）](../glossary/wiim-engineering.md#g443) |
 | 2026-06-14 | 用語 | g441 | [素材遺伝子（Material Gene）](../glossary/wiim-engineering.md#g441) |
 | 2026-06-14 | 用語 | g438 | [音響複層体（Acoustic Gradient Composite）](../glossary/wiim-engineering.md#g438) |
-| 2026-06-14 | 用語 | g437 | [余剰次元可塑体（Extra-dimensional Plastoid）](../glossary/wiim-engineering.md#g437) |
-| 2026-06-14 | 用語 | g436 | [カテナリー・ラジアル静止軌道帯（Catenary-Radial Geostationary Zone）](../glossary/wiim-engineering.md#g436) |
-| 2026-06-14 | 補遺 | — | [技術ツリー — メガストラクチャー・宇宙インフラ系](notes/tech_tree_megastructure.md) |
-| 2026-06-13 | 記事 | wiim_104 | [成形真空爆発——エキゾチック物質の音速の壁を突破してエネルギーを取り出せるか](physics/wiim_104.md) |
-| 2026-06-13 | 用語 | g435 | [オニール・シリンダー（O'Neill Cylinder）](../glossary/sf-concepts.md#g435) |
-| 2026-06-13 | 用語 | g434 | [バンクス軌道（Banks Orbital）](../glossary/sf-concepts.md#g434) |

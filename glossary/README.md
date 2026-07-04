@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **468**
+用語数: **472**
 
 ---
 
@@ -45,16 +45,22 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g475 | [マイススウォーム](wiim-concepts.md) | Mice Swarm | wiim-concepts |
+| g474 | [馬蹄型軌道](astronomy.md) | horseshoe orbit | astronomy |
+| g473 | [シェパード衛星](astronomy.md) | shepherd moon | astronomy |
+| g472 | [ムーンムーン](astronomy.md) | moonmoon | astronomy |
 | g471 | [クレンペラーロゼット](astronomy.md) | Klemperer Rosette | astronomy |
 | g470 | [カーボンナノチューブ熱輻射体](physics.md) | carbon nanotube thermal emitter | physics |
 | g469 | [誘電体ミラー](physics.md) | dielectric mirror | physics |
 | g468 | [スーパーミラー](physics.md) | supermirror | physics |
 | g467 | [カーマンライン](astronomy.md) | Kármán line | astronomy |
 | g466 | [フレア（衛星の現象）](astronomy.md) | satellite flare | astronomy |
-| g465 | [ギョベクリテペ](sf-concepts.md) | Göbekli Tepe | sf-concepts |
-| g464 | [ヤルコフスキー効果](astronomy.md) | Yarkovsky Effect | astronomy |
-| g463 | [オウムアムア](astronomy.md) | 'Oumuamua | astronomy |
-| g462 | [タビーの星](astronomy.md) | Tabby's Star | astronomy |
+
+
+
+
+
+
 
 
 
