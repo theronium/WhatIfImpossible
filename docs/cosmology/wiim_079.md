@@ -134,4 +134,5 @@ flowchart TD
 - [_tech_tree_dirac](../notes/_tech_tree_dirac.md) — 技術ツリー — ディラックサイフォン系ブランチ
 - [_tech_tree_galactic](../notes/_tech_tree_galactic.md) — 技術ツリー — 銀河規模推進・ハッブル地平線突破系ブランチ
 - [wiim_112](wiim_112.md) — エバネッセント波の超光速——ハートマン効果はFTL通信の足がかりになるか
+- [wiim_115](wiim_115.md) — 銀河間重力インフラ——人工ブラックホールで航路上に休憩点とスイングバイ点を設計できるか
 
