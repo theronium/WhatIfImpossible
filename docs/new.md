@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-07-04 | 記事 | wiim_116 | [ハッブル地平線の縫い留め——事象の地平線を越える前に重力インフラを打てるか](cosmology/wiim_116.md) |
 | 2026-07-04 | 記事 | wiim_115 | [銀河間重力インフラ——人工ブラックホールで航路上に休憩点とスイングバイ点を設計できるか](cosmology/wiim_115.md) |
 | 2026-07-04 | 記事 | wiim_114 | [馬蹄型軌道文明——惑星を並べ直した文明はダイソン球より現実的か](cosmology/wiim_114.md) |
 | 2026-07-04 | 用語 | g475 | [マイススウォーム（Mice Swarm）](../glossary/wiim-concepts.md#g475) |
@@ -53,4 +54,3 @@
 | 2026-06-14 | 用語 | g445 | [哲学的ゾンビコスト問題（Philosophical Zombie Cost Problem）](../glossary/wiim-concepts.md#g445) |
 | 2026-06-14 | 用語 | g444 | [マテリオマイス（Materio Myce）](../glossary/wiim-concepts.md#g444) |
 | 2026-06-14 | 用語 | g443 | [電気素材生物（Electro-mineral Organism）](../glossary/wiim-engineering.md#g443) |
-| 2026-06-14 | 用語 | g441 | [素材遺伝子（Material Gene）](../glossary/wiim-engineering.md#g441) |
