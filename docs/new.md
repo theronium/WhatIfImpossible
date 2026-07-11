@@ -4,6 +4,14 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-07-09 | 用語 | g482 | [コンクリーション（Concretion）](../glossary/physics.md#g482) |
+| 2026-07-08 | 補遺 | — | [三角関数・逆三角関数の使用場面——sin・cos・tanとarcの使い分け](notes/trig_functions_usage.md) |
+| 2026-07-07 | 用語 | g481 | [ムラーのラチェット（Muller's Ratchet）](../glossary/biology.md#g481) |
+| 2026-07-07 | 用語 | g480 | [性の二倍のコスト（Twofold Cost of Sex）](../glossary/biology.md#g480) |
+| 2026-07-07 | 用語 | g479 | [進化的軍拡競争（Evolutionary Arms Race）](../glossary/biology.md#g479) |
+| 2026-07-07 | 用語 | g478 | [赤の王効果（Red King Effect）](../glossary/biology.md#g478) |
+| 2026-07-07 | 用語 | g477 | [黒の女王仮説（Black Queen Hypothesis）](../glossary/biology.md#g477) |
+| 2026-07-07 | 用語 | g476 | [赤の女王仮説（Red Queen Hypothesis）](../glossary/biology.md#g476) |
 | 2026-07-04 | 記事 | wiim_116 | [ハッブル地平線の縫い留め——事象の地平線を越える前に重力インフラを打てるか](cosmology/wiim_116.md) |
 | 2026-07-04 | 記事 | wiim_115 | [銀河間重力インフラ——人工ブラックホールで航路上に休憩点とスイングバイ点を設計できるか](cosmology/wiim_115.md) |
 | 2026-07-04 | 記事 | wiim_114 | [馬蹄型軌道文明——惑星を並べ直した文明はダイソン球より現実的か](cosmology/wiim_114.md) |
@@ -46,11 +54,3 @@
 | 2026-06-16 | 記事 | wiim_108 | [カオスの悪魔を出し抜く五つの抜け道——ランダウアー原理はどこまで先送りできるか](physics/wiim_108.md) |
 | 2026-06-16 | 用語 | g449 | [アニーリング（Annealing）](../glossary/physics.md#g449) |
 | 2026-06-14 | 記事 | wiim_107 | [哲学的ゾンビが自然発生する確率と、それが意味しないこと](philosophy/wiim_107.md) |
-| 2026-06-14 | 記事 | wiim_106 | [切れない紐と砕けない壁——ディムスパイラルと音響複層体は軌道ケーブルの素材限界を突破できるか](physics/wiim_106.md) |
-| 2026-06-14 | 記事 | wiim_105 | [GEOネックレス——カテナリー・ラジアル静止軌道帯は宇宙アクセスインフラとして成立するか](physics/wiim_105.md) |
-| 2026-06-14 | 用語 | g448 | [恒星赤道時計（Stellar Equatorial Clock）](../glossary/wiim-concepts.md#g448) |
-| 2026-06-14 | 用語 | g447 | [マイコスフィア（Mycosphere）](../glossary/wiim-concepts.md#g447) |
-| 2026-06-14 | 用語 | g446 | [シュレーディンガーの哲学的ゾンビ（Schrödinger's Philosophical Zombie）](../glossary/wiim-concepts.md#g446) |
-| 2026-06-14 | 用語 | g445 | [哲学的ゾンビコスト問題（Philosophical Zombie Cost Problem）](../glossary/wiim-concepts.md#g445) |
-| 2026-06-14 | 用語 | g444 | [マテリオマイス（Materio Myce）](../glossary/wiim-concepts.md#g444) |
-| 2026-06-14 | 用語 | g443 | [電気素材生物（Electro-mineral Organism）](../glossary/wiim-engineering.md#g443) |

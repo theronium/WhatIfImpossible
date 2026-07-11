@@ -25,6 +25,7 @@
 | [wiim_022_cosmic_ring.md](wiim_022_cosmic_ring.md) | 恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー | — | 2026-04-05 | 2026-04-05 |
 | [wiim_022_traffic_patrol.md](wiim_022_traffic_patrol.md) | アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用 | wiim_022 | 2026-04-26 | 2026-04-26 |
 | [chaos_demon_foundation.md](chaos_demon_foundation.md) | カオスの悪魔と創発文法——ラプラスの悪魔の論理的継承と無謬性への経路 | — | 2026-05-06 | 2026-05-06 |
+| [mice_swarm_thermal.md](mice_swarm_thermal.md) | マイススウォームとスノーライン内熱収支逆転 | wiim_008, wiim_025, wiim_083, wiim_084 | 2026-07-04 | 2026-07-04 |
 
 ---
 
@@ -65,7 +66,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_111_theory.md](wiim_111_theory.md) | 菌糸量子コヒーレンスの理論的背景——散逸構造・カオスの縁・ENAQT | 2026-06-20 | 2026-06-20 |
 | [wiim_008_silent_guardian.md](wiim_008_silent_guardian.md) | コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造 | 2026-06-20 | 2026-06-20 |
 | [satellite_orbit_visibility.md](satellite_orbit_visibility.md) | 衛星軌道高度・周期・可視時間リファレンス | 2026-07-04 | 2026-07-04 |
-| [mice_swarm_thermal.md](mice_swarm_thermal.md) | 補遺：マイススウォームとスノーライン内熱収支逆転 | 2026-07-04 | 2026-07-04 |
+| [trig_functions_usage.md](trig_functions_usage.md) | 三角関数・逆三角関数の使用場面——sin・cos・tanとarcの使い分け | 2026-07-08 | 2026-07-08 |
 
 ---
 

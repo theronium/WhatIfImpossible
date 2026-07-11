@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **472**
+用語数: **479**
 
 ---
 
@@ -45,16 +45,23 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g482 | [コンクリーション](physics.md) | Concretion | physics |
+| g481 | [ムラーのラチェット](biology.md) | Muller's Ratchet | biology |
+| g480 | [性の二倍のコスト](biology.md) | Twofold Cost of Sex | biology |
+| g479 | [進化的軍拡競争](biology.md) | Evolutionary Arms Race | biology |
+| g478 | [赤の王効果](biology.md) | Red King Effect | biology |
+| g477 | [黒の女王仮説](biology.md) | Black Queen Hypothesis | biology |
+| g476 | [赤の女王仮説](biology.md) | Red Queen Hypothesis | biology |
 | g475 | [マイススウォーム](wiim-concepts.md) | Mice Swarm | wiim-concepts |
 | g474 | [馬蹄型軌道](astronomy.md) | horseshoe orbit | astronomy |
 | g473 | [シェパード衛星](astronomy.md) | shepherd moon | astronomy |
-| g472 | [ムーンムーン](astronomy.md) | moonmoon | astronomy |
-| g471 | [クレンペラーロゼット](astronomy.md) | Klemperer Rosette | astronomy |
-| g470 | [カーボンナノチューブ熱輻射体](physics.md) | carbon nanotube thermal emitter | physics |
-| g469 | [誘電体ミラー](physics.md) | dielectric mirror | physics |
-| g468 | [スーパーミラー](physics.md) | supermirror | physics |
-| g467 | [カーマンライン](astronomy.md) | Kármán line | astronomy |
-| g466 | [フレア（衛星の現象）](astronomy.md) | satellite flare | astronomy |
+
+
+
+
+
+
+
 
 
 
