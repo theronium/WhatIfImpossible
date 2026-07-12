@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-07-12 | 記事 | wiim_117 | [コンクリーション・コクーン——コズミックマイスは鉱物の団塊に包まれて恒星間を渡れるか](biology/wiim_117.md) |
 | 2026-07-09 | 用語 | g482 | [コンクリーション（Concretion）](../glossary/physics.md#g482) |
 | 2026-07-08 | 補遺 | — | [三角関数・逆三角関数の使用場面——sin・cos・tanとarcの使い分け](notes/trig_functions_usage.md) |
 | 2026-07-07 | 用語 | g481 | [ムラーのラチェット（Muller's Ratchet）](../glossary/biology.md#g481) |
@@ -53,4 +54,3 @@
 | 2026-06-17 | 用語 | g450 | [離散した知性（Detached-Discrete Intelligence）](../glossary/wiim-concepts.md#g450) |
 | 2026-06-16 | 記事 | wiim_108 | [カオスの悪魔を出し抜く五つの抜け道——ランダウアー原理はどこまで先送りできるか](physics/wiim_108.md) |
 | 2026-06-16 | 用語 | g449 | [アニーリング（Annealing）](../glossary/physics.md#g449) |
-| 2026-06-14 | 記事 | wiim_107 | [哲学的ゾンビが自然発生する確率と、それが意味しないこと](philosophy/wiim_107.md) |

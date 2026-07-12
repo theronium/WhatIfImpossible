@@ -129,4 +129,5 @@ flowchart TD
 - [wiim_026](wiim_026.md) — コズミックマイスのテラフォーミング——シェルマイセリウムの大気圏降下と惑星統合
 - [cosmic_mice_godview_game](../notes/cosmic_mice_godview_game.md) — 世界観メモ：コズミックマイス惑星観測——ゴッドビューゲームとしてのWIIM
 - [wiim_025_atmospheric_entry](../notes/wiim_025_atmospheric_entry.md) — 補遺: シェルマイセリウムの大気圏突入——テラフォーミングへの経路
+- [wiim_117](wiim_117.md) — コンクリーション・コクーン——コズミックマイスは鉱物の団塊に包まれて恒星間を渡れるか
 

@@ -120,4 +120,5 @@ flowchart TD
 - [_tech_tree_antigravity](../notes/_tech_tree_antigravity.md) — 技術ツリー — 反重力天体・ネグレーザー系ブランチ
 - [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
 - [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+- [wiim_117](../biology/wiim_117.md) — コンクリーション・コクーン——コズミックマイスは鉱物の団塊に包まれて恒星間を渡れるか
 

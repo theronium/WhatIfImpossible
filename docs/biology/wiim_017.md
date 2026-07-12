@@ -129,4 +129,5 @@ flowchart TD
 - [wiim_026](wiim_026.md) — コズミックマイスのテラフォーミング——シェルマイセリウムの大気圏降下と惑星統合
 - [wiim_025_atmospheric_entry](../notes/wiim_025_atmospheric_entry.md) — 補遺: シェルマイセリウムの大気圏突入——テラフォーミングへの経路
 - [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
+- [wiim_117](wiim_117.md) — コンクリーション・コクーン——コズミックマイスは鉱物の団塊に包まれて恒星間を渡れるか
 

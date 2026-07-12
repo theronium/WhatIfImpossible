@@ -126,4 +126,5 @@ flowchart TD
 - [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
 - [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
 - [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+- [wiim_117](wiim_117.md) — コンクリーション・コクーン——コズミックマイスは鉱物の団塊に包まれて恒星間を渡れるか
 
