@@ -4,6 +4,17 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-07-25 | 記事 | wiim_120 | [菌糸への回帰——コズミックマイスに記憶断片を送り続けた博士の生涯](biology/wiim_120.md) |
+| 2026-07-25 | 記事 | wiim_119 | [宇宙は自分自身の母になれるか——五分前仮説と時間の輪、無境界仮説が問う"始まり"の位相](cosmology/wiim_119.md) |
+| 2026-07-25 | 記事 | wiim_118 | [光速突破は時空を"破断"させるか——空間を因果順序として捉え直す](cosmology/wiim_118.md) |
+| 2026-07-25 | 用語 | g490 | [円錐欠損（Conical Defect）](../glossary/physics.md#g490) |
+| 2026-07-25 | 用語 | g489 | [自己創造宇宙（Self-Creating Universe）](../glossary/astronomy.md#g489) |
+| 2026-07-25 | 用語 | g488 | [チェレンコフ放射（Cherenkov Radiation）](../glossary/physics.md#g488) |
+| 2026-07-25 | 用語 | g487 | [クローン禁止定理（No-Cloning Theorem）](../glossary/quantum.md#g487) |
+| 2026-07-25 | 用語 | g486 | [無境界仮説（No-Boundary Proposal）](../glossary/astronomy.md#g486) |
+| 2026-07-25 | 用語 | g485 | [時系列保護仮説（Chronology Protection Conjecture）](../glossary/physics.md#g485) |
+| 2026-07-25 | 用語 | g484 | [閉じた時間的曲線（Closed Timelike Curve）](../glossary/physics.md#g484) |
+| 2026-07-25 | 用語 | g483 | [因果集合理論（Causal Set Theory）](../glossary/quantum.md#g483) |
 | 2026-07-12 | 記事 | wiim_117 | [コンクリーション・コクーン——コズミックマイスは鉱物の団塊に包まれて恒星間を渡れるか](biology/wiim_117.md) |
 | 2026-07-09 | 用語 | g482 | [コンクリーション（Concretion）](../glossary/physics.md#g482) |
 | 2026-07-08 | 補遺 | — | [三角関数・逆三角関数の使用場面——sin・cos・tanとarcの使い分け](notes/trig_functions_usage.md) |
@@ -43,14 +54,3 @@
 | 2026-06-19 | 記事 | wiim_111 | [コズミックマイスの量子アニーリング——宇宙環境で散逸構造・カオスの縁・ENAQTは維持されるか](quantum/wiim_111.md) |
 | 2026-06-19 | 用語 | g457 | [ラジカル対（Radical Pair）](../glossary/physics.md#g457) |
 | 2026-06-19 | 用語 | g456 | [スピントロニクス（Spintronics）](../glossary/physics.md#g456) |
-| 2026-06-19 | 用語 | g455 | [菌類量子コヒーレンス（Fungal Quantum Coherence）](../glossary/biology.md#g455) |
-| 2026-06-18 | 記事 | wiim_110 | [カオスの悪魔を出し抜く別の四路線——軌道を捨てる数学的アプローチ](physics/wiim_110.md) |
-| 2026-06-18 | 用語 | g454 | [キラリティ（Chirality）](../glossary/biology.md#g454) |
-| 2026-06-18 | 用語 | g453 | [コペンハーゲン解釈（Copenhagen Interpretation）](../glossary/quantum.md#g453) |
-| 2026-06-18 | 用語 | g452 | [散逸構造（Dissipative Structure）](../glossary/physics.md#g452) |
-| 2026-06-18 | 補遺 | — | [散逸構造・フラクタル均衡・永続する波——wiim_109補遺](notes/wiim_109_dissipative_wave.md) |
-| 2026-06-17 | 記事 | wiim_109 | [完全な対称性が存在したら創発は起きるか](philosophy/wiim_109.md) |
-| 2026-06-17 | 用語 | g451 | [マトリョーシカ脳（Matrioshka Brain）](../glossary/sf-concepts.md#g451) |
-| 2026-06-17 | 用語 | g450 | [離散した知性（Detached-Discrete Intelligence）](../glossary/wiim-concepts.md#g450) |
-| 2026-06-16 | 記事 | wiim_108 | [カオスの悪魔を出し抜く五つの抜け道——ランダウアー原理はどこまで先送りできるか](physics/wiim_108.md) |
-| 2026-06-16 | 用語 | g449 | [アニーリング（Annealing）](../glossary/physics.md#g449) |

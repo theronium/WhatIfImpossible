@@ -228,7 +228,7 @@ WhatIfImpossibleの思考実験（[wiim_013](../docs/physics/wiim_013.md)）で�
 **読み**: こずみっくまいす
 **別名**: 宇宙菌糸知性 / 惑星間菌糸ネットワーク / 分散菌糸知性
 **分野**: 架空生命体・宇宙生物学・分散知性
-**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_025](../docs/biology/wiim_025.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_068](../docs/biology/wiim_068.md), [wiim_083](../docs/biology/wiim_083.md), [wiim_084](../docs/biology/wiim_084.md), [wiim_100](../docs/biology/wiim_100.md), [wiim_117](../docs/biology/wiim_117.md)
+**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_025](../docs/biology/wiim_025.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_068](../docs/biology/wiim_068.md), [wiim_083](../docs/biology/wiim_083.md), [wiim_084](../docs/biology/wiim_084.md), [wiim_100](../docs/biology/wiim_100.md), [wiim_117](../docs/biology/wiim_117.md), [wiim_120](../docs/biology/wiim_120.md)
 
 WhatIfImpossibleの思考実験（[wiim_008](../docs/biology/wiim_008.md)）で命名された架空の生命体・知性体。「Cosmic（宇宙的）」と「Myce（[マイセリウム](biology.md)：菌糸）」を組み合わせた造語で、放射線耐性を持つ菌類が宇宙空間に適応・進化し、惑星間を繋ぐ菌糸ネットワークとして[太陽](astronomy.md)系規模の分散知性を形成した状態を指す。
 
@@ -351,7 +351,7 @@ WhatIfImpossibleの思考実験（[wiim_025](../docs/biology/wiim_025.md)）で�
 
 **読み**: てつがくてきぞんびこすともんだい
 **分野**: 心の哲学・宇宙論
-**関連記事**: [ゾンビ論証](philosophy.md#g022), [ボルツマン脳](sf-concepts.md#g040), [wiim_107](../docs/philosophy/wiim_107.md)
+**関連記事**: [ゾンビ論証](philosophy.md#g022), [ボルツマン脳](sf-concepts.md#g040), [wiim_107](../docs/philosophy/wiim_107.md), [wiim_120](../docs/biology/wiim_120.md)
 
 [哲学的ゾンビ](philosophy.md)を「物理的に実現する」ためのコストが、意識ある存在を実現するコストと数学的に同一になるという問題。
 
@@ -681,7 +681,7 @@ WhatIfImpossibleの世界観において、[コズミックマイス](wiim-conce
 
 **読み**: りさんしたちせい
 **分野**: 知性論・情報熱力学・哲学
-**関連記事**: [wiim_052](../docs/physics/wiim_052.md), [wiim_108](../docs/physics/wiim_108.md), [wiim_051](../docs/physics/wiim_051.md)
+**関連記事**: [wiim_052](../docs/physics/wiim_052.md), [wiim_108](../docs/physics/wiim_108.md), [wiim_051](../docs/physics/wiim_051.md), [wiim_120](../docs/biology/wiim_120.md)
 
 計算という形式を一切経ずに理解する知性の様式。「[離散](physics.md)」は二重の意味を持つ——物理的基質から切り離されて因果連鎖の外に浮遊するという分離の意味と、連続した計算ステップを踏まずに知識が非連続に到達するという数学的な意味だ。
 

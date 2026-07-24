@@ -152,4 +152,6 @@ flowchart LR
 - [wiim_098](wiim_098.md) — 半永久的なレトロン場が生成できたら
 - [wiim_099](../quantum/wiim_099.md) — 宇宙を振動させただけ——痕跡なし振動と粒子の起源
 - [_tech_tree_entropy](../notes/_tech_tree_entropy.md) — 技術ツリー — エントロピー・パランティ粒子系ブランチ
+- [wiim_118](../cosmology/wiim_118.md) — 光速突破は時空を"破断"させるか——空間を因果順序として捉え直す
+- [wiim_119](../cosmology/wiim_119.md) — 宇宙は自分自身の母になれるか——五分前仮説と時間の輪、無境界仮説が問う"始まり"の位相
 

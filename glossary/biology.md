@@ -428,7 +428,7 @@ WIIMの技術ツリーでは、宇宙環境に適応した菌類を設計・育�
 **読み**: ほうし
 **別名**: スポア
 **分野**: 生物学・菌類学・宇宙生物学
-**関連記事**: [wiim_017](../docs/biology/wiim_017.md), [wiim_018](../docs/biology/wiim_018.md), [wiim_083](../docs/biology/wiim_083.md)
+**関連記事**: [wiim_017](../docs/biology/wiim_017.md), [wiim_018](../docs/biology/wiim_018.md), [wiim_083](../docs/biology/wiim_083.md), [wiim_120](../docs/biology/wiim_120.md)
 
 菌類・植物・細菌などが無性生殖または有性生殖の一環として形成する、単独で新個体を生じうる細胞または細胞群。種子と異なり受精を必要とせず、極めて少ないエネルギーで大量に生産・散布できる。
 

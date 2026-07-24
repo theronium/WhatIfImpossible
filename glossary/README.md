@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **479**
+用語数: **487**
 
 ---
 
@@ -45,16 +45,32 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g490 | [円錐欠損](physics.md) | Conical Defect | physics |
+| g489 | [自己創造宇宙](astronomy.md) | Self-Creating Universe | astronomy |
+| g488 | [チェレンコフ放射](physics.md) | Cherenkov Radiation | physics |
+| g487 | [クローン禁止定理](quantum.md) | No-Cloning Theorem | quantum |
+| g486 | [無境界仮説](astronomy.md) | No-Boundary Proposal | astronomy |
+| g485 | [時系列保護仮説](physics.md) | Chronology Protection Conjecture | physics |
+| g484 | [閉じた時間的曲線](physics.md) | Closed Timelike Curve | physics |
+| g483 | [因果集合理論](quantum.md) | Causal Set Theory | quantum |
 | g482 | [コンクリーション](physics.md) | Concretion | physics |
 | g481 | [ムラーのラチェット](biology.md) | Muller's Ratchet | biology |
-| g480 | [性の二倍のコスト](biology.md) | Twofold Cost of Sex | biology |
-| g479 | [進化的軍拡競争](biology.md) | Evolutionary Arms Race | biology |
-| g478 | [赤の王効果](biology.md) | Red King Effect | biology |
-| g477 | [黒の女王仮説](biology.md) | Black Queen Hypothesis | biology |
-| g476 | [赤の女王仮説](biology.md) | Red Queen Hypothesis | biology |
-| g475 | [マイススウォーム](wiim-concepts.md) | Mice Swarm | wiim-concepts |
-| g474 | [馬蹄型軌道](astronomy.md) | horseshoe orbit | astronomy |
-| g473 | [シェパード衛星](astronomy.md) | shepherd moon | astronomy |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

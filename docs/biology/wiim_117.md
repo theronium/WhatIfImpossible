@@ -98,4 +98,5 @@ flowchart TD
 - [wiim_018](wiim_018.md) — 胞子の宇宙——金星・タイタン・氷衛星への生物気候工学
 - [wiim_083](wiim_083.md) — コズミックマイスの疑似ルーネベルク構造
 - [tech_tree_biology](../notes/tech_tree_biology.md) — tech_tree_biology.md
+- [wiim_120](wiim_120.md) — 菌糸への回帰——コズミックマイスに記憶断片を送り続けた博士の生涯
 
