@@ -154,4 +154,5 @@ flowchart TD
 - [wiim_023_strange_matter_warp](../notes/wiim_023_strange_matter_warp.md) — 補遺: ストレンジ物質とワープドライブ——生成・採取・遠隔利用の可能性
 - [wiim_105](wiim_105.md) — GEOネックレス——カテナリー・ラジアル静止軌道帯は宇宙アクセスインフラとして成立するか
 - [tech_tree_megastructure](../notes/tech_tree_megastructure.md) — 技術ツリー — メガストラクチャー・宇宙インフラ系
+- [wiim_121](wiim_121.md) — 水星の熱機関——ヒートパイプを角運動量に変える
 

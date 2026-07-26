@@ -163,4 +163,5 @@ flowchart TD
 - [wiim_068](wiim_068.md) — マイコプラズマギカと宇宙菌糸知性の共生——深宇宙で「何でも作れる」生態系は成立するか
 - [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
 - [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
+- [wiim_122](wiim_122.md) — 金星大気とマイコプラズマギカ——菌糸はプローブの代わりになれるか
 

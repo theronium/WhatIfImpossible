@@ -74,4 +74,4 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 
 | ファイル | タイトル | 登録 | 更新 |
 |---------|---------|------|------|
-| [tech_tree_megastructure.md](tech_tree_megastructure.md) | 技術ツリー — メガストラクチャー・宇宙インフラ系 | 2026-06-14 | 2026-06-14 |
+| [tech_tree_megastructure.md](tech_tree_megastructure.md) | 技術ツリー — メガストラクチャー・宇宙インフラ系 | 2026-07-26 | 2026-07-26 |
