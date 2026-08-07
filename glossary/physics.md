@@ -183,7 +183,7 @@ ERはアインシュタインが1935年に発表した[ワームホール](sf-co
 
 **読み**: えんとろぴー
 **分野**: 熱力学・統計力学
-**関連記事**: [wiim_005](../docs/cosmology/wiim_005.md), [wiim_015](../docs/physics/wiim_015.md)
+**関連記事**: [wiim_005](../docs/cosmology/wiim_005.md), [wiim_015](../docs/physics/wiim_015.md), [wiim_123](../docs/physics/wiim_123.md)
 
 系の「乱雑さ」「無秩序さ」の度合いを表す量。より正確には、ある巨視的な状態を実現するミクロな配置の数（場合の数）の対数に比例する。
 

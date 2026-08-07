@@ -245,4 +245,5 @@ flowchart TD
 - [_tech_tree_particle_ops](../notes/_tech_tree_particle_ops.md) — 技術ツリー — 架空粒子操作ブランチ
 - [_tech_tree_quantum](../notes/_tech_tree_quantum.md) — 技術ツリー — マクロ量子状態ブランチ
 - [_tech_tree_surveying](../notes/_tech_tree_surveying.md) — 技術ツリー — 計量測量・暦ブランチ
+- [wiim_123](wiim_123.md) — カラロン——アンキロンの逆、負の計量粘性で量子計量揺らぎを増幅する架空粒子
 

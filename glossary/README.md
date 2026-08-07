@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **487**
+用語数: **488**
 
 ---
 
@@ -45,6 +45,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g491 | [カラロン](wiim-concepts.md) | Chalaron | wiim-concepts |
 | g490 | [円錐欠損](physics.md) | Conical Defect | physics |
 | g489 | [自己創造宇宙](astronomy.md) | Self-Creating Universe | astronomy |
 | g488 | [チェレンコフ放射](physics.md) | Cherenkov Radiation | physics |
@@ -54,7 +55,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g484 | [閉じた時間的曲線](physics.md) | Closed Timelike Curve | physics |
 | g483 | [因果集合理論](quantum.md) | Causal Set Theory | quantum |
 | g482 | [コンクリーション](physics.md) | Concretion | physics |
-| g481 | [ムラーのラチェット](biology.md) | Muller's Ratchet | biology |
+
 
 
 
