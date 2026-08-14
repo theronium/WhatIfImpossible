@@ -4,6 +4,9 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-08-15 | 用語 | g494 | [電磁誘導透過（Electromagnetically Induced Transparency）](../glossary/quantum.md#g494) |
+| 2026-08-14 | 用語 | g493 | [シュリーレン現象（Schlieren Phenomenon）](../glossary/physics.md#g493) |
+| 2026-08-12 | 用語 | g492 | [ゲージ理論（Gauge Theory）](../glossary/particle.md#g492) |
 | 2026-08-07 | 記事 | wiim_123 | [カラロン——アンキロンの逆、負の計量粘性で量子計量揺らぎを増幅する架空粒子](physics/wiim_123.md) |
 | 2026-08-07 | 用語 | g491 | [カラロン（Chalaron）](../glossary/wiim-concepts.md#g491) |
 | 2026-07-26 | 記事 | wiim_122 | [金星大気とマイコプラズマギカ——菌糸はプローブの代わりになれるか](biology/wiim_122.md) |
@@ -51,6 +54,3 @@
 | 2026-07-01 | 用語 | g462 | [タビーの星（Tabby's Star）](../glossary/astronomy.md#g462) |
 | 2026-07-01 | 用語 | g461 | [パレイドリア仮説（Pareidolia Hypothesis）](../glossary/wiim-concepts.md#g461) |
 | 2026-06-21 | 用語 | g460 | [ナイン数（number of nines）](../glossary/physics.md#g460) |
-| 2026-06-20 | 記事 | wiim_112 | [エバネッセント波の超光速——ハートマン効果はFTL通信の足がかりになるか](cosmology/wiim_112.md) |
-| 2026-06-20 | 用語 | g459 | [力場検知器官（Force Field Receptor Organ）](../glossary/wiim-engineering.md#g459) |
-| 2026-06-20 | 用語 | g458 | [トロヤトランスファー（Trojan Transfer）](../glossary/wiim-engineering.md#g458) |

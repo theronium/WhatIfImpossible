@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **488**
+用語数: **491**
 
 ---
 
@@ -45,6 +45,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g494 | [電磁誘導透過](quantum.md) | Electromagnetically Induced Transparency | quantum |
+| g493 | [シュリーレン現象](physics.md) | Schlieren Phenomenon | physics |
+| g492 | [ゲージ理論](particle.md) | Gauge Theory | particle |
 | g491 | [カラロン](wiim-concepts.md) | Chalaron | wiim-concepts |
 | g490 | [円錐欠損](physics.md) | Conical Defect | physics |
 | g489 | [自己創造宇宙](astronomy.md) | Self-Creating Universe | astronomy |
@@ -52,9 +55,11 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g487 | [クローン禁止定理](quantum.md) | No-Cloning Theorem | quantum |
 | g486 | [無境界仮説](astronomy.md) | No-Boundary Proposal | astronomy |
 | g485 | [時系列保護仮説](physics.md) | Chronology Protection Conjecture | physics |
-| g484 | [閉じた時間的曲線](physics.md) | Closed Timelike Curve | physics |
-| g483 | [因果集合理論](quantum.md) | Causal Set Theory | quantum |
-| g482 | [コンクリーション](physics.md) | Concretion | physics |
+
+
+
+
+
 
 
 
