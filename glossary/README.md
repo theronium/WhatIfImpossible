@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **491**
+用語数: **493**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g496 | [分散コヒーレント収穫](wiim-engineering.md) | Distributed Coherent Harvesting | wiim-engineering |
+| g495 | [トポロン鋳型](wiim-engineering.md) | Toporon Mold | wiim-engineering |
 | g494 | [電磁誘導透過](quantum.md) | Electromagnetically Induced Transparency | quantum |
 | g493 | [シュリーレン現象](physics.md) | Schlieren Phenomenon | physics |
 | g492 | [ゲージ理論](particle.md) | Gauge Theory | particle |
@@ -53,8 +55,12 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g489 | [自己創造宇宙](astronomy.md) | Self-Creating Universe | astronomy |
 | g488 | [チェレンコフ放射](physics.md) | Cherenkov Radiation | physics |
 | g487 | [クローン禁止定理](quantum.md) | No-Cloning Theorem | quantum |
-| g486 | [無境界仮説](astronomy.md) | No-Boundary Proposal | astronomy |
-| g485 | [時系列保護仮説](physics.md) | Chronology Protection Conjecture | physics |
+
+
+
+
+
+
 
 
 

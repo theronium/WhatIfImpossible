@@ -226,7 +226,7 @@ WhatIfImpossibleの思考実験記事（[wiim_002](../docs/cosmology/wiim_002.md
 **読み**: こーらりゅうし
 **別名**: 空間超越粒子 / χώρα粒子
 **分野**: 架空粒子・時空間物理学
-**関連記事**: [wiim_013](../docs/physics/wiim_013.md), [wiim_050](../docs/quantum/wiim_050.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_072](../docs/quantum/wiim_072.md), [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_081](../docs/physics/wiim_081.md), [wiim_086](../docs/physics/wiim_086.md), [wiim_089](../docs/cosmology/wiim_089.md)
+**関連記事**: [wiim_013](../docs/physics/wiim_013.md), [wiim_050](../docs/quantum/wiim_050.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_072](../docs/quantum/wiim_072.md), [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_081](../docs/physics/wiim_081.md), [wiim_086](../docs/physics/wiim_086.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_124](../docs/physics/wiim_124.md)
 
 WhatIfImpossibleの思考実験（[wiim_013](../docs/physics/wiim_013.md)）で命名された架空粒子。プラトンが対話篇『ティマイオス』で「空間・場所の器」を意味するために用いた古代ギリシャ語「χώρα（chora）」に由来する。
 
@@ -384,7 +384,7 @@ WhatIfImpossibleの思考実験（[wiim_025](../docs/biology/wiim_025.md)）で�
 
 **読み**: とぽろふぃ
 **分野**: 架空場・時空トポロジー物理学
-**関連記事**: [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md)
+**関連記事**: [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_124](../docs/physics/wiim_124.md)
 
 WhatIfImpossibleの思考実験から命名された架空の場。「[トポロジー](physics.md)（topology）」と場を表す[ギリシャ文字](mathematics.md)「φ（phi）」を組み合わせた造語で、時空の多様体そのものの接続形式——どの点とどの点がつながっているか——を決定する場として定義される。
 
@@ -399,7 +399,7 @@ WhatIfImpossibleの思考実験から命名された架空の場。「[トポロ
 
 **読み**: とぽろん
 **分野**: 架空粒子・時空トポロジー物理学
-**関連記事**: [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_097](../docs/physics/wiim_097.md)
+**関連記事**: [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_124](../docs/physics/wiim_124.md)
 
 [トポロフィ](wiim-concepts.md)（g293）の局所的励起として定義される架空の事象。「[トポロジー](physics.md)（topology）」と素粒子の接尾辞「-on」を組み合わせた造語だが、通常の粒子とは本質的に異なる——多様体の上に乗る「値」ではなく、多様体の接続形式を書き換える「操作」に相当する。
 

@@ -179,4 +179,5 @@ flowchart TD
 - [_tech_tree_particle_ops](../notes/_tech_tree_particle_ops.md) — 技術ツリー — 架空粒子操作ブランチ
 - [_tech_tree_thermal](../notes/_tech_tree_thermal.md) — 技術ツリー — 熱管理・恒温系ブランチ
 - [wiim_112](../cosmology/wiim_112.md) — エバネッセント波の超光速——ハートマン効果はFTL通信の足がかりになるか
+- [wiim_124](wiim_124.md) — トポロジカル鋳型と分散コヒーレント収穫——高温プラズマなしで元素変換はできるか
 

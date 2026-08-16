@@ -145,4 +145,5 @@ flowchart TD
 - [_tech_tree_biology](../notes/_tech_tree_biology.md) — 技術ツリー — 生命系ブランチ
 - [wiim_111](../quantum/wiim_111.md) — コズミックマイスの量子アニーリング——宇宙環境で散逸構造・カオスの縁・ENAQTは維持されるか
 - [wiim_113](wiim_113.md) — コズミックマイスが太陽系規模のQSコアとなり人工天体として誤認されたら
+- [wiim_124](../physics/wiim_124.md) — トポロジカル鋳型と分散コヒーレント収穫——高温プラズマなしで元素変換はできるか
 

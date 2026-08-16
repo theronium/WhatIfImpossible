@@ -118,7 +118,7 @@ WIIMの技術ツリーでは、[クロノスフィア](wiim-concepts.md)内部�
 
 **読み**: くーろんしょうへき
 **分野**: 核物理学・素粒子物理学
-**関連記事**: [wiim_024](../docs/biology/wiim_024.md), [wiim_069](../docs/physics/wiim_069.md), [wiim_070](../docs/physics/wiim_070.md)
+**関連記事**: [wiim_024](../docs/biology/wiim_024.md), [wiim_069](../docs/physics/wiim_069.md), [wiim_070](../docs/physics/wiim_070.md), [wiim_124](../docs/physics/wiim_124.md)
 
 同じ符号の電荷を持つ[原子核](particle.md)同士が近づくとき、電磁反発力（クーロン力）によって形成されるエネルギー障壁。核融合や[核変換](particle.md)を実現するには、衝突する原子核がこの障壁を越えるか、[量子トンネル効果](quantum.md)（g097）によってすり抜ける必要がある。
 

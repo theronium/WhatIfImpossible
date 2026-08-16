@@ -4,6 +4,9 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-08-16 | 記事 | wiim_124 | [トポロジカル鋳型と分散コヒーレント収穫——高温プラズマなしで元素変換はできるか](physics/wiim_124.md) |
+| 2026-08-16 | 用語 | g496 | [分散コヒーレント収穫（Distributed Coherent Harvesting）](../glossary/wiim-engineering.md#g496) |
+| 2026-08-16 | 用語 | g495 | [トポロン鋳型（Toporon Mold）](../glossary/wiim-engineering.md#g495) |
 | 2026-08-15 | 用語 | g494 | [電磁誘導透過（Electromagnetically Induced Transparency）](../glossary/quantum.md#g494) |
 | 2026-08-14 | 用語 | g493 | [シュリーレン現象（Schlieren Phenomenon）](../glossary/physics.md#g493) |
 | 2026-08-12 | 用語 | g492 | [ゲージ理論（Gauge Theory）](../glossary/particle.md#g492) |
@@ -51,6 +54,3 @@
 | 2026-07-01 | 用語 | g465 | [ギョベクリテペ（Göbekli Tepe）](../glossary/sf-concepts.md#g465) |
 | 2026-07-01 | 用語 | g464 | [ヤルコフスキー効果（Yarkovsky Effect）](../glossary/astronomy.md#g464) |
 | 2026-07-01 | 用語 | g463 | [オウムアムア（'Oumuamua）](../glossary/astronomy.md#g463) |
-| 2026-07-01 | 用語 | g462 | [タビーの星（Tabby's Star）](../glossary/astronomy.md#g462) |
-| 2026-07-01 | 用語 | g461 | [パレイドリア仮説（Pareidolia Hypothesis）](../glossary/wiim-concepts.md#g461) |
-| 2026-06-21 | 用語 | g460 | [ナイン数（number of nines）](../glossary/physics.md#g460) |
