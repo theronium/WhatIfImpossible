@@ -4,6 +4,10 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-08-25 | 記事 | wiim_126 | [時空は生きているか——単一生物仮説とクダクラゲ型群体仮説](cosmology/wiim_126.md) |
+| 2026-08-25 | 用語 | g499 | [臨界半径（Critical Bubble Radius）](../glossary/physics.md#g499) |
+| 2026-08-25 | 用語 | g498 | [スピンと回転対称性（Spin and Rotational Symmetry）](../glossary/quantum.md#g498) |
+| 2026-08-25 | 用語 | g497 | [真空期待値（Vacuum Expectation Value）](../glossary/particle.md#g497) |
 | 2026-08-25 | 補遺 | — | [真空崩壊を支える理論的背景——スピン分類・真空期待値・スカラー場の必然性](notes/wiim_125_theory.md) |
 | 2026-08-20 | 記事 | wiim_125 | [真空崩壊を実験できるか——FTLとブラックホール触媒が開く（そして閉じる）扉](physics/wiim_125.md) |
 | 2026-08-16 | 記事 | wiim_124 | [トポロジカル鋳型と分散コヒーレント収穫——高温プラズマなしで元素変換はできるか](physics/wiim_124.md) |
@@ -50,7 +54,3 @@
 | 2026-07-04 | 用語 | g468 | [スーパーミラー（supermirror）](../glossary/physics.md#g468) |
 | 2026-07-04 | 用語 | g467 | [カーマンライン（Kármán line）](../glossary/astronomy.md#g467) |
 | 2026-07-04 | 用語 | g466 | [フレア（衛星の現象）（satellite flare）](../glossary/astronomy.md#g466) |
-| 2026-07-04 | 補遺 | — | [衛星軌道高度・周期・可視時間リファレンス](notes/satellite_orbit_visibility.md) |
-| 2026-07-04 | 補遺 | — | [補遺：マイススウォームとスノーライン内熱収支逆転](notes/mice_swarm_thermal.md) |
-| 2026-07-01 | 記事 | wiim_113 | [コズミックマイスが太陽系規模のQSコアとなり人工天体として誤認されたら](biology/wiim_113.md) |
-| 2026-07-01 | 用語 | g465 | [ギョベクリテペ（Göbekli Tepe）](../glossary/sf-concepts.md#g465) |

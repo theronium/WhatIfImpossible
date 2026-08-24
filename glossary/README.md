@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **493**
+用語数: **496**
 
 ---
 
@@ -45,6 +45,9 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g499 | [臨界半径](physics.md) | Critical Bubble Radius | physics |
+| g498 | [スピンと回転対称性](quantum.md) | Spin and Rotational Symmetry | quantum |
+| g497 | [真空期待値](particle.md) | Vacuum Expectation Value | particle |
 | g496 | [分散コヒーレント収穫](wiim-engineering.md) | Distributed Coherent Harvesting | wiim-engineering |
 | g495 | [トポロン鋳型](wiim-engineering.md) | Toporon Mold | wiim-engineering |
 | g494 | [電磁誘導透過](quantum.md) | Electromagnetically Induced Transparency | quantum |
@@ -52,9 +55,14 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g492 | [ゲージ理論](particle.md) | Gauge Theory | particle |
 | g491 | [カラロン](wiim-concepts.md) | Chalaron | wiim-concepts |
 | g490 | [円錐欠損](physics.md) | Conical Defect | physics |
-| g489 | [自己創造宇宙](astronomy.md) | Self-Creating Universe | astronomy |
-| g488 | [チェレンコフ放射](physics.md) | Cherenkov Radiation | physics |
-| g487 | [クローン禁止定理](quantum.md) | No-Cloning Theorem | quantum |
+
+
+
+
+
+
+
+
 
 
 
