@@ -4,6 +4,8 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-08-25 | 補遺 | — | [真空崩壊を支える理論的背景——スピン分類・真空期待値・スカラー場の必然性](notes/wiim_125_theory.md) |
+| 2026-08-20 | 記事 | wiim_125 | [真空崩壊を実験できるか——FTLとブラックホール触媒が開く（そして閉じる）扉](physics/wiim_125.md) |
 | 2026-08-16 | 記事 | wiim_124 | [トポロジカル鋳型と分散コヒーレント収穫——高温プラズマなしで元素変換はできるか](physics/wiim_124.md) |
 | 2026-08-16 | 用語 | g496 | [分散コヒーレント収穫（Distributed Coherent Harvesting）](../glossary/wiim-engineering.md#g496) |
 | 2026-08-16 | 用語 | g495 | [トポロン鋳型（Toporon Mold）](../glossary/wiim-engineering.md#g495) |
@@ -52,5 +54,3 @@
 | 2026-07-04 | 補遺 | — | [補遺：マイススウォームとスノーライン内熱収支逆転](notes/mice_swarm_thermal.md) |
 | 2026-07-01 | 記事 | wiim_113 | [コズミックマイスが太陽系規模のQSコアとなり人工天体として誤認されたら](biology/wiim_113.md) |
 | 2026-07-01 | 用語 | g465 | [ギョベクリテペ（Göbekli Tepe）](../glossary/sf-concepts.md#g465) |
-| 2026-07-01 | 用語 | g464 | [ヤルコフスキー効果（Yarkovsky Effect）](../glossary/astronomy.md#g464) |
-| 2026-07-01 | 用語 | g463 | [オウムアムア（'Oumuamua）](../glossary/astronomy.md#g463) |

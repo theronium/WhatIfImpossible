@@ -67,6 +67,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_008_silent_guardian.md](wiim_008_silent_guardian.md) | コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造 | 2026-06-20 | 2026-06-20 |
 | [satellite_orbit_visibility.md](satellite_orbit_visibility.md) | 衛星軌道高度・周期・可視時間リファレンス | 2026-07-04 | 2026-07-04 |
 | [trig_functions_usage.md](trig_functions_usage.md) | 三角関数・逆三角関数の使用場面——sin・cos・tanとarcの使い分け | 2026-07-08 | 2026-07-08 |
+| [wiim_125_theory.md](wiim_125_theory.md) | 真空崩壊を支える理論的背景——スピン分類・真空期待値・スカラー場の必然性 | 2026-08-25 | 2026-08-25 |
 
 ---
 
