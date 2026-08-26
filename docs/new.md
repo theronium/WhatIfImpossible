@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-08-25 | 記事 | wiim_127 | [真空崩壊泡は静止できるか——エキゾチック物質による収縮と伸長の相殺という綱渡り](physics/wiim_127.md) |
 | 2026-08-25 | 記事 | wiim_126 | [時空は生きているか——単一生物仮説とクダクラゲ型群体仮説](cosmology/wiim_126.md) |
 | 2026-08-25 | 用語 | g499 | [臨界半径（Critical Bubble Radius）](../glossary/physics.md#g499) |
 | 2026-08-25 | 用語 | g498 | [スピンと回転対称性（Spin and Rotational Symmetry）](../glossary/quantum.md#g498) |
@@ -53,4 +54,3 @@
 | 2026-07-04 | 用語 | g469 | [誘電体ミラー（dielectric mirror）](../glossary/physics.md#g469) |
 | 2026-07-04 | 用語 | g468 | [スーパーミラー（supermirror）](../glossary/physics.md#g468) |
 | 2026-07-04 | 用語 | g467 | [カーマンライン（Kármán line）](../glossary/astronomy.md#g467) |
-| 2026-07-04 | 用語 | g466 | [フレア（衛星の現象）（satellite flare）](../glossary/astronomy.md#g466) |

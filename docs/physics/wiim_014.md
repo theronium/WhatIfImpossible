@@ -124,4 +124,6 @@ flowchart TD
 - [forbidden_zone_treaty](../notes/forbidden_zone_treaty.md) — 禁域条約——宇宙戦争を終わらせた二国消滅事件
 - [wiim_067](wiim_067.md) — ネゴトンホワイトホール——排除地平線が閉じるとき、反重力天体はビッグバンを起こすか
 - [wiim_126](../cosmology/wiim_126.md) — 時空は生きているか——単一生物仮説とクダクラゲ型群体仮説
+- [wiim_127](wiim_127.md) — 真空崩壊泡は静止できるか——エキゾチック物質による収縮と伸長の相殺という綱渡り
+- [tech_tree_blackhole](../notes/tech_tree_blackhole.md) — tech_tree_blackhole.md
 

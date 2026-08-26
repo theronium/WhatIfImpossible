@@ -82,7 +82,7 @@ WhatIfImpossibleの思考実験（[wiim_078](../docs/cosmology/wiim_078.md)）�
 
 **読み**: かいてんどめいんうぉーるまく
 **分野**: 真空工学・量子重力工学
-**関連記事**: [wiim_103](../docs/physics/wiim_103.md), [wiim_104](../docs/physics/wiim_104.md)
+**関連記事**: [wiim_103](../docs/physics/wiim_103.md), [wiim_104](../docs/physics/wiim_104.md), [wiim_127](../docs/physics/wiim_127.md)
 
 真空モードが抑制された低圧領域と[量子ゆらぎ](quantum.md)が充満した高圧領域（[偽真空浸潤圧](physics.md)）を隔てるドメインウォールに角運動量を与えて回転させた仮説的構造体。場の圧力差機関（[wiim_103](../docs/physics/wiim_103.md)）の核心部品。
 
