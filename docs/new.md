@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-02 | 補遺 | — | [経路積分の統一的描像——直進・反射・回折・トンネル効果を1つの原理で見る](notes/feynman_path_integral_unification.md) |
 | 2026-08-25 | 記事 | wiim_127 | [真空崩壊泡は静止できるか——エキゾチック物質による収縮と伸長の相殺という綱渡り](physics/wiim_127.md) |
 | 2026-08-25 | 記事 | wiim_126 | [時空は生きているか——単一生物仮説とクダクラゲ型群体仮説](cosmology/wiim_126.md) |
 | 2026-08-25 | 用語 | g499 | [臨界半径（Critical Bubble Radius）](../glossary/physics.md#g499) |
@@ -53,4 +54,3 @@
 | 2026-07-04 | 用語 | g470 | [カーボンナノチューブ熱輻射体（carbon nanotube thermal emitter）](../glossary/physics.md#g470) |
 | 2026-07-04 | 用語 | g469 | [誘電体ミラー（dielectric mirror）](../glossary/physics.md#g469) |
 | 2026-07-04 | 用語 | g468 | [スーパーミラー（supermirror）](../glossary/physics.md#g468) |
-| 2026-07-04 | 用語 | g467 | [カーマンライン（Kármán line）](../glossary/astronomy.md#g467) |
