@@ -4,13 +4,19 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-03 | 記事 | wiim_128 | [カラビナント係数——完全剛体とトポロジカル量子状態、ブラックホールでの壊れ方はなぜ違うのか](physics/wiim_128.md) |
+| 2026-09-03 | 用語 | g504 | [小澤の不等式（Ozawa's inequality）](../glossary/quantum.md#g504) |
+| 2026-09-03 | 用語 | g503 | [カラビナント破断（Carabinant Rupture）](../glossary/wiim-concepts.md#g503) |
+| 2026-09-03 | 用語 | g502 | [カラビナント・トポロジカル均衡（Carabinant-Topological Equilibrium）](../glossary/wiim-concepts.md#g502) |
+| 2026-09-03 | 用語 | g501 | [カラビナント係数（Carabinant Coefficient）](../glossary/wiim-concepts.md#g501) |
+| 2026-09-02 | 用語 | g500 | [くりこみ群（Renormalization Group）](../glossary/physics.md#g500) |
 | 2026-09-02 | 補遺 | — | [経路積分の統一的描像——直進・反射・回折・トンネル効果を1つの原理で見る](notes/feynman_path_integral_unification.md) |
+| 2026-09-02 | 補遺 | — | [真空崩壊を支える理論的背景——スピン分類・真空期待値・スカラー場の必然性](notes/wiim_125_theory.md) |
 | 2026-08-25 | 記事 | wiim_127 | [真空崩壊泡は静止できるか——エキゾチック物質による収縮と伸長の相殺という綱渡り](physics/wiim_127.md) |
 | 2026-08-25 | 記事 | wiim_126 | [時空は生きているか——単一生物仮説とクダクラゲ型群体仮説](cosmology/wiim_126.md) |
 | 2026-08-25 | 用語 | g499 | [臨界半径（Critical Bubble Radius）](../glossary/physics.md#g499) |
 | 2026-08-25 | 用語 | g498 | [スピンと回転対称性（Spin and Rotational Symmetry）](../glossary/quantum.md#g498) |
 | 2026-08-25 | 用語 | g497 | [真空期待値（Vacuum Expectation Value）](../glossary/particle.md#g497) |
-| 2026-08-25 | 補遺 | — | [真空崩壊を支える理論的背景——スピン分類・真空期待値・スカラー場の必然性](notes/wiim_125_theory.md) |
 | 2026-08-20 | 記事 | wiim_125 | [真空崩壊を実験できるか——FTLとブラックホール触媒が開く（そして閉じる）扉](physics/wiim_125.md) |
 | 2026-08-16 | 記事 | wiim_124 | [トポロジカル鋳型と分散コヒーレント収穫——高温プラズマなしで元素変換はできるか](physics/wiim_124.md) |
 | 2026-08-16 | 用語 | g496 | [分散コヒーレント収穫（Distributed Coherent Harvesting）](../glossary/wiim-engineering.md#g496) |
@@ -48,9 +54,3 @@
 | 2026-07-04 | 記事 | wiim_114 | [馬蹄型軌道文明——惑星を並べ直した文明はダイソン球より現実的か](cosmology/wiim_114.md) |
 | 2026-07-04 | 用語 | g475 | [マイススウォーム（Mice Swarm）](../glossary/wiim-concepts.md#g475) |
 | 2026-07-04 | 用語 | g474 | [馬蹄型軌道（horseshoe orbit）](../glossary/astronomy.md#g474) |
-| 2026-07-04 | 用語 | g473 | [シェパード衛星（shepherd moon）](../glossary/astronomy.md#g473) |
-| 2026-07-04 | 用語 | g472 | [ムーンムーン（moonmoon）](../glossary/astronomy.md#g472) |
-| 2026-07-04 | 用語 | g471 | [クレンペラーロゼット（Klemperer Rosette）](../glossary/astronomy.md#g471) |
-| 2026-07-04 | 用語 | g470 | [カーボンナノチューブ熱輻射体（carbon nanotube thermal emitter）](../glossary/physics.md#g470) |
-| 2026-07-04 | 用語 | g469 | [誘電体ミラー（dielectric mirror）](../glossary/physics.md#g469) |
-| 2026-07-04 | 用語 | g468 | [スーパーミラー（supermirror）](../glossary/physics.md#g468) |
