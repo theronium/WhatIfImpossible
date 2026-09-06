@@ -4,7 +4,10 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-06 | 記事 | wiim_129 | [胞子は電荷だけで恒星間空間へ渡れるか——静電気の糸、太陽風イオン、放射圧の境界線](biology/wiim_129.md) |
+| 2026-09-04 | 用語 | g506 | [シンプレクティックブレンダー（Symplectic Blender）](../glossary/physics.md#g506) |
 | 2026-09-03 | 記事 | wiim_128 | [カラビナント係数——完全剛体とトポロジカル量子状態、ブラックホールでの壊れ方はなぜ違うのか](physics/wiim_128.md) |
+| 2026-09-03 | 用語 | g505 | [ラグランジアン（Lagrangian）](../glossary/physics.md#g505) |
 | 2026-09-03 | 用語 | g504 | [小澤の不等式（Ozawa's inequality）](../glossary/quantum.md#g504) |
 | 2026-09-03 | 用語 | g503 | [カラビナント破断（Carabinant Rupture）](../glossary/wiim-concepts.md#g503) |
 | 2026-09-03 | 用語 | g502 | [カラビナント・トポロジカル均衡（Carabinant-Topological Equilibrium）](../glossary/wiim-concepts.md#g502) |
@@ -51,6 +54,3 @@
 | 2026-07-07 | 用語 | g476 | [赤の女王仮説（Red Queen Hypothesis）](../glossary/biology.md#g476) |
 | 2026-07-04 | 記事 | wiim_116 | [ハッブル地平線の縫い留め——事象の地平線を越える前に重力インフラを打てるか](cosmology/wiim_116.md) |
 | 2026-07-04 | 記事 | wiim_115 | [銀河間重力インフラ——人工ブラックホールで航路上に休憩点とスイングバイ点を設計できるか](cosmology/wiim_115.md) |
-| 2026-07-04 | 記事 | wiim_114 | [馬蹄型軌道文明——惑星を並べ直した文明はダイソン球より現実的か](cosmology/wiim_114.md) |
-| 2026-07-04 | 用語 | g475 | [マイススウォーム（Mice Swarm）](../glossary/wiim-concepts.md#g475) |
-| 2026-07-04 | 用語 | g474 | [馬蹄型軌道（horseshoe orbit）](../glossary/astronomy.md#g474) |
