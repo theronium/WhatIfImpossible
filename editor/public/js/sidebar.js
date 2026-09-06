@@ -58,6 +58,7 @@ function renderNotesList(query = '') {
   const q = query.toLowerCase();
   const notes = articles
     .filter(a => a.path.startsWith('notes/') && a.path !== 'notes/README.md')
+    .filter(a => !/^notes\/tech_tree(_|\.md$)/.test(a.path))
     .filter(a => !q || a.title.toLowerCase().includes(q))
     .sort((a, b) => (b.birthtime || 0) - (a.birthtime || 0));
   if (!notes.length) {
