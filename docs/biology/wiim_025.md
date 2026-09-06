@@ -127,4 +127,5 @@ flowchart TD
 - [_tech_tree_chronosphere](../notes/_tech_tree_chronosphere.md) — 技術ツリー — クロノスフィア系ブランチ
 - [_tech_tree_main](../notes/_tech_tree_main.md) — 技術ツリー — メインツリー
 - [wiim_117](wiim_117.md) — コンクリーション・コクーン——コズミックマイスは鉱物の団塊に包まれて恒星間を渡れるか
+- [wiim_129](wiim_129.md) — 胞子は電荷だけで恒星間空間へ渡れるか——静電気の糸、太陽風イオン、放射圧の境界線
 

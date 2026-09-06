@@ -99,4 +99,5 @@ flowchart TD
 - [wiim_083](wiim_083.md) — コズミックマイスの疑似ルーネベルク構造
 - [tech_tree_biology](../notes/tech_tree_biology.md) — tech_tree_biology.md
 - [wiim_120](wiim_120.md) — 菌糸への回帰——コズミックマイスに記憶断片を送り続けた博士の生涯
+- [wiim_129](wiim_129.md) — 胞子は電荷だけで恒星間空間へ渡れるか——静電気の糸、太陽風イオン、放射圧の境界線
 
