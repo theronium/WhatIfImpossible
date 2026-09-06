@@ -85,5 +85,4 @@ wiim_101で論じた古典的音響階層（同スケールの星は聞こえな
 - [wiim_089](wiim_089.md) — ブラックホール潜入とワームホール開通（可通ER橋形成の前提条件）
 - [wiim_023](../physics/wiim_023.md) — カシミールフォージ（負エネルギー供給の技術的基盤）
 - [wiim_028](wiim_028.md) — 重力子と光子の二重搬送FTL通信（他の超光速通信アプローチとの比較）
-- [tech_tree_blackhole](../notes/tech_tree_blackhole.md) — tech_tree_blackhole.md
 

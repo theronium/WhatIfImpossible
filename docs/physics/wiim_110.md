@@ -103,5 +103,4 @@ flowchart TD
 - [wiim_108](wiim_108.md) — カオスの悪魔を出し抜く五つの抜け道——ランダウアー原理はどこまで先送りできるか
 - [wiim_054](wiim_054.md) — カオスの創発文法——秩序パラメータ操作と問いの転換
 - 用語: カオスの悪魔 g210 / バタフライ効果 g178 / カオス系 g179 / ランダウアー原理 g172 / パランティ粒子 g161 / パラポジ粒子 g209
-- [tech_tree_entropy](../notes/tech_tree_entropy.md) — tech_tree_entropy.md
 

@@ -150,6 +150,5 @@ flowchart TD
 - [wiim_027 — ストレンジスター・ワープゲート](../physics/wiim_027.md)
 - [wiim_032 — コーラバブルワープ](../physics/wiim_032.md)
 - [wiim_079 — ギャラクシードライブ](wiim_079.md)
-- [tech_tree_main](../notes/tech_tree_main.md) — tech_tree_main.md
 - [wiim_008_silent_guardian](../notes/wiim_008_silent_guardian.md) — コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造
 

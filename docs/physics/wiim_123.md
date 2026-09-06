@@ -145,5 +145,4 @@ flowchart TD
 - [wiim_099](../quantum/wiim_099.md) — 宇宙を振動させただけ——痕跡なし振動と粒子の起源
 - （未作成）重力メーザー——誘導放出による重力波増幅は可能か
 - （未作成）カラロン密度の自己制限機構——増幅を飽和させる仮想的な非線形項
-- [tech_tree_main](../notes/tech_tree_main.md) — tech_tree_main.md
 

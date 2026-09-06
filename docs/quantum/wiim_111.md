@@ -101,8 +101,6 @@ flowchart LR
 - [wiim_061](../biology/wiim_061.md) — 菌類ダイソン網（ノード配置の量子最適化）
 - [wiim_100](../biology/wiim_100.md) — 生体マグノニクス（マグネタイト鎖が内部磁場を生成）
 - [wiim_108](../physics/wiim_108.md) — カオスの悪魔を出し抜く五つの抜け道（量子アニーリングとの接続）
-- [tech_tree_biology](../notes/tech_tree_biology.md) — tech_tree_biology.md
-- [tech_tree_entropy](../notes/tech_tree_entropy.md) — tech_tree_entropy.md
 - [wiim_008_silent_guardian](../notes/wiim_008_silent_guardian.md) — コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造
 - [wiim_113](../biology/wiim_113.md) — コズミックマイスが太陽系規模のQSコアとなり人工天体として誤認されたら
 

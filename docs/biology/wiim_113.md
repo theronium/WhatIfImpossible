@@ -112,5 +112,4 @@ flowchart TD
 - [コズミックマイスの疑似ルーネベルク構造](wiim_083.md)
 - [ヌルクオリアの証明](../philosophy/wiim_107.md)
 - [コズミックマイスの量子アニーリング](../quantum/wiim_111.md)
-- [tech_tree_biology](../notes/tech_tree_biology.md) — tech_tree_biology.md
 

@@ -74,5 +74,4 @@ wiim_089のワームホールはER橋という物理的実体を持ち、通過�
 - [wiim_089](../cosmology/wiim_089.md)：ブラックホール潜入とワームホール開通——構造的対比
 - [wiim_074](wiim_074.md)：ワープゲート基礎理論——トポロン・アンキロンとの接続
 - [wiim_004](../cosmology/wiim_004.md)：ワープ航法の痕跡——不可視性との対比
-- [_tech_tree_metagraviton](../notes/_tech_tree_metagraviton.md) — 技術ツリー — メタグラビトン・重力場彫刻系ブランチ
 

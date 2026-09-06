@@ -123,7 +123,7 @@ function collectSources(articleIndex, stagedFiles) {
 
   if (fs.existsSync(NOTES_DIR)) {
     for (const f of fs.readdirSync(NOTES_DIR)) {
-      if (!f.endsWith('.md') || f === 'README.md' || f === 'tech_tree.md') continue;
+      if (!f.endsWith('.md') || f === 'README.md' || f.startsWith('tech_tree')) continue;
       const file = path.join(NOTES_DIR, f);
       if (stagedFiles && !stagedFiles.has(file)) continue;
       const content = fs.readFileSync(file, 'utf-8');

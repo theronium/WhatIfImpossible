@@ -105,4 +105,3 @@ flowchart TD
 - [wiim_061](../biology/wiim_061.md) — 菌類ダイソン網——恒星系規模インフラの流用先候補
 - [wiim_068](../biology/wiim_068.md) — マイコプラズマギカと宇宙菌糸知性の共生
 - [wiim_122](../biology/wiim_122.md) — 金星大気とマイコプラズマギカ——生物学的経路の限界（本記事の非生物学的アプローチの出発点）
-- [_tech_tree_nuclear](../notes/tech_tree_nuclear.md) — 技術ツリー — 核変換・常温核融合系ブランチ
