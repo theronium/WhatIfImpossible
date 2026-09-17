@@ -4,6 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-18 | 用語 | g508 | [レプトン（Lepton）](../glossary/particle.md#g508) |
+| 2026-09-17 | 用語 | g507 | [ミューオン（Muon）](../glossary/particle.md#g507) |
+| 2026-09-17 | 補遺 | — | [ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発](notes/wiim_130_negoton_duality.md) |
+| 2026-09-17 | 補遺 | — | [ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変](notes/wiim_130_negoton_attraction_routes.md) |
+| 2026-09-16 | 記事 | wiim_131 | [グラビティ・パテと重力波コヒーレンス——常時追従は「埋める」を「削る」に溶かすか](physics/wiim_131.md) |
+| 2026-09-16 | 記事 | wiim_130 | [グラビティ・パテ——時空の凹みは埋めるだけで平坦化できるか](physics/wiim_130.md) |
 | 2026-09-06 | 記事 | wiim_129 | [胞子は電荷だけで恒星間空間へ渡れるか——静電気の糸、太陽風イオン、放射圧の境界線](biology/wiim_129.md) |
 | 2026-09-04 | 用語 | g506 | [シンプレクティックブレンダー（Symplectic Blender）](../glossary/physics.md#g506) |
 | 2026-09-03 | 記事 | wiim_128 | [カラビナント係数——完全剛体とトポロジカル量子状態、ブラックホールでの壊れ方はなぜ違うのか](physics/wiim_128.md) |
@@ -48,9 +54,3 @@
 | 2026-07-08 | 補遺 | — | [三角関数・逆三角関数の使用場面——sin・cos・tanとarcの使い分け](notes/trig_functions_usage.md) |
 | 2026-07-07 | 用語 | g481 | [ムラーのラチェット（Muller's Ratchet）](../glossary/biology.md#g481) |
 | 2026-07-07 | 用語 | g480 | [性の二倍のコスト（Twofold Cost of Sex）](../glossary/biology.md#g480) |
-| 2026-07-07 | 用語 | g479 | [進化的軍拡競争（Evolutionary Arms Race）](../glossary/biology.md#g479) |
-| 2026-07-07 | 用語 | g478 | [赤の王効果（Red King Effect）](../glossary/biology.md#g478) |
-| 2026-07-07 | 用語 | g477 | [黒の女王仮説（Black Queen Hypothesis）](../glossary/biology.md#g477) |
-| 2026-07-07 | 用語 | g476 | [赤の女王仮説（Red Queen Hypothesis）](../glossary/biology.md#g476) |
-| 2026-07-04 | 記事 | wiim_116 | [ハッブル地平線の縫い留め——事象の地平線を越える前に重力インフラを打てるか](cosmology/wiim_116.md) |
-| 2026-07-04 | 記事 | wiim_115 | [銀河間重力インフラ——人工ブラックホールで航路上に休憩点とスイングバイ点を設計できるか](cosmology/wiim_115.md) |

@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **501**
+用語数: **505**
 
 ---
 
@@ -45,16 +45,18 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g508 | [レプトン](particle.md) | Lepton | particle |
+| g507 | [ミューオン](particle.md) | Muon | particle |
+| g506 | [シンプレクティックブレンダー](physics.md) | Symplectic Blender | physics |
+| g505 | [ラグランジアン](physics.md) | Lagrangian | physics |
 | g504 | [小澤の不等式](quantum.md) | Ozawa's inequality | quantum |
 | g503 | [カラビナント破断](wiim-concepts.md) | Carabinant Rupture | wiim-concepts |
 | g502 | [カラビナント・トポロジカル均衡](wiim-concepts.md) | Carabinant-Topological Equilibrium | wiim-concepts |
 | g501 | [カラビナント係数](wiim-concepts.md) | Carabinant Coefficient | wiim-concepts |
 | g500 | [くりこみ群](physics.md) | Renormalization Group | physics |
 | g499 | [臨界半径](physics.md) | Critical Bubble Radius | physics |
-| g498 | [スピンと回転対称性](quantum.md) | Spin and Rotational Symmetry | quantum |
-| g497 | [真空期待値](particle.md) | Vacuum Expectation Value | particle |
-| g496 | [分散コヒーレント収穫](wiim-engineering.md) | Distributed Coherent Harvesting | wiim-engineering |
-| g495 | [トポロン鋳型](wiim-engineering.md) | Toporon Mold | wiim-engineering |
+
+
 
 
 

@@ -69,6 +69,8 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [trig_functions_usage.md](trig_functions_usage.md) | 三角関数・逆三角関数の使用場面——sin・cos・tanとarcの使い分け | 2026-07-08 | 2026-07-08 |
 | [feynman_path_integral_unification.md](feynman_path_integral_unification.md) | 経路積分の統一的描像——直進・反射・回折・トンネル効果を1つの原理で見る | 2026-09-02 | 2026-09-02 |
 | [wiim_125_theory.md](wiim_125_theory.md) | 真空崩壊を支える理論的背景——スピン分類・真空期待値・スカラー場の必然性 | 2026-09-02 | 2026-09-02 |
+| [wiim_130_negoton_duality.md](wiim_130_negoton_duality.md) | ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発 | 2026-09-17 | 2026-09-17 |
+| [wiim_130_negoton_attraction_routes.md](wiim_130_negoton_attraction_routes.md) | ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変 | 2026-09-17 | 2026-09-17 |
 
 ---
 

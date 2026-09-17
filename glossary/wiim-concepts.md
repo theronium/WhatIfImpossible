@@ -225,7 +225,7 @@ WhatIfImpossibleの思考実験（[wiim_123](../docs/physics/wiim_123.md)）で�
 **読み**: ぐらびとーぺいく
 **別名**: 重力的不透明体 / 重力波遮蔽材 / 重力波格子素材
 **分野**: 架空素材・重力波物理学
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_095](../docs/physics/wiim_095.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_095](../docs/physics/wiim_095.md), [wiim_130](../docs/physics/wiim_130.md)
 
 WhatIfImpossibleの思考実験（[wiim_010](../docs/physics/wiim_010.md)）で命名された架空の素材。「Gravitational（重力）」と「Opaque（不透明）」を組み合わせた造語で、[重力波](astronomy.md)を遮断・散乱・吸収できる「重力的に不透明な」物質の総称として定義される。
 
@@ -292,7 +292,7 @@ WhatIfImpossibleの思考実験（[wiim_013](../docs/physics/wiim_013.md)）で�
 **読み**: こずみっくまいす
 **別名**: 宇宙菌糸知性 / 惑星間菌糸ネットワーク / 分散菌糸知性
 **分野**: 架空生命体・宇宙生物学・分散知性
-**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_025](../docs/biology/wiim_025.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_068](../docs/biology/wiim_068.md), [wiim_083](../docs/biology/wiim_083.md), [wiim_084](../docs/biology/wiim_084.md), [wiim_100](../docs/biology/wiim_100.md), [wiim_117](../docs/biology/wiim_117.md), [wiim_120](../docs/biology/wiim_120.md)
+**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_025](../docs/biology/wiim_025.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_068](../docs/biology/wiim_068.md), [wiim_083](../docs/biology/wiim_083.md), [wiim_084](../docs/biology/wiim_084.md), [wiim_100](../docs/biology/wiim_100.md), [wiim_117](../docs/biology/wiim_117.md), [wiim_120](../docs/biology/wiim_120.md), [wiim_129](../docs/biology/wiim_129.md)
 
 WhatIfImpossibleの思考実験（[wiim_008](../docs/biology/wiim_008.md)）で命名された架空の生命体・知性体。「Cosmic（宇宙的）」と「Myce（[マイセリウム](biology.md)：菌糸）」を組み合わせた造語で、放射線耐性を持つ菌類が宇宙空間に適応・進化し、惑星間を繋ぐ菌糸ネットワークとして[太陽](astronomy.md)系規模の分散知性を形成した状態を指す。
 
@@ -502,7 +502,7 @@ WhatIfImpossibleの思考実験（[wiim_066](../docs/physics/wiim_066.md)）で�
 **読み**: ねごとん
 **別名**: 負の実質量粒子 / 反重力粒子
 **分野**: 架空粒子・重力物理学
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_058](../docs/biology/wiim_058.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_060](../docs/physics/wiim_060.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_064](../docs/physics/wiim_064.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_066](../docs/physics/wiim_066.md), [wiim_067](../docs/physics/wiim_067.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_080](../docs/physics/wiim_080.md), [wiim_095](../docs/physics/wiim_095.md), [wiim_096](../docs/physics/wiim_096.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_127](../docs/physics/wiim_127.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_058](../docs/biology/wiim_058.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_060](../docs/physics/wiim_060.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_064](../docs/physics/wiim_064.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_066](../docs/physics/wiim_066.md), [wiim_067](../docs/physics/wiim_067.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_080](../docs/physics/wiim_080.md), [wiim_095](../docs/physics/wiim_095.md), [wiim_096](../docs/physics/wiim_096.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_127](../docs/physics/wiim_127.md), [wiim_130](../docs/physics/wiim_130.md), [wiim_131](../docs/physics/wiim_131.md)
 
 WhatIfImpossibleの思考実験（[wiim_003](../docs/physics/wiim_003.md)）で命名された架空粒子。「ネガティブ（negative）」と素粒子の接尾辞「-on」を組み合わせた造語で、[エキゾチック物質](speculative.md)（g068）の一種として**負の実質量**を固有属性に持つと仮定される。
 

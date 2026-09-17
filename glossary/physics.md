@@ -1612,7 +1612,7 @@ p=1 にするとマンハッタン距離（g284）、p=2 にするとユーク�
 
 **読み**: らんだうあーげんり
 **分野**: 情報理論・熱力学
-**関連記事**: [wiim_037](../docs/physics/wiim_037.md), [wiim_041](../docs/logic/wiim_041.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_055](../docs/philosophy/wiim_055.md), [wiim_108](../docs/physics/wiim_108.md), [wiim_110](../docs/physics/wiim_110.md)
+**関連記事**: [wiim_037](../docs/physics/wiim_037.md), [wiim_041](../docs/logic/wiim_041.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_055](../docs/philosophy/wiim_055.md), [wiim_108](../docs/physics/wiim_108.md), [wiim_110](../docs/physics/wiim_110.md), [wiim_131](../docs/physics/wiim_131.md)
 
 情報を消去する際には必ず最低限の熱（エネルギー散逸）が発生するという[原理](physics.md)。1961年にロルフ・ランダウアーが提唱。1ビットの情報を消去するのに必要な最小エネルギーは kT ln2（kはボルツマン定数、Tは絶対温度）で表される。
 

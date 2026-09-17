@@ -118,4 +118,7 @@ flowchart LR
 - [wiim_089](../cosmology/wiim_089.md) — ブラックホール潜入とワームホール開通——潮汐力シールドから因果構造の書き換えまで
 - [wiim_123](wiim_123.md) — カラロン——アンキロンの逆、負の計量粘性で量子計量揺らぎを増幅する架空粒子
 - [wiim_127](wiim_127.md) — 真空崩壊泡は静止できるか——エキゾチック物質による収縮と伸長の相殺という綱渡り
+- [wiim_130](wiim_130.md) — グラビティ・パテ——時空の凹みは埋めるだけで平坦化できるか
+- [wiim_130_negoton_attraction_routes](../notes/wiim_130_negoton_attraction_routes.md) — ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変
+- [wiim_130_negoton_duality](../notes/wiim_130_negoton_duality.md) — ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発
 

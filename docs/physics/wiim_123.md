@@ -145,4 +145,5 @@ flowchart TD
 - [wiim_099](../quantum/wiim_099.md) — 宇宙を振動させただけ——痕跡なし振動と粒子の起源
 - （未作成）重力メーザー——誘導放出による重力波増幅は可能か
 - （未作成）カラロン密度の自己制限機構——増幅を飽和させる仮想的な非線形項
+- [wiim_130_negoton_attraction_routes](../notes/wiim_130_negoton_attraction_routes.md) — ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変
 
