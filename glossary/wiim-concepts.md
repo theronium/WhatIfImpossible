@@ -502,7 +502,7 @@ WhatIfImpossibleの思考実験（[wiim_066](../docs/physics/wiim_066.md)）で�
 **読み**: ねごとん
 **別名**: 負の実質量粒子 / 反重力粒子
 **分野**: 架空粒子・重力物理学
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_058](../docs/biology/wiim_058.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_060](../docs/physics/wiim_060.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_064](../docs/physics/wiim_064.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_066](../docs/physics/wiim_066.md), [wiim_067](../docs/physics/wiim_067.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_080](../docs/physics/wiim_080.md), [wiim_095](../docs/physics/wiim_095.md), [wiim_096](../docs/physics/wiim_096.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_127](../docs/physics/wiim_127.md), [wiim_130](../docs/physics/wiim_130.md), [wiim_131](../docs/physics/wiim_131.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_058](../docs/biology/wiim_058.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_060](../docs/physics/wiim_060.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_064](../docs/physics/wiim_064.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_066](../docs/physics/wiim_066.md), [wiim_067](../docs/physics/wiim_067.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_080](../docs/physics/wiim_080.md), [wiim_095](../docs/physics/wiim_095.md), [wiim_096](../docs/physics/wiim_096.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_127](../docs/physics/wiim_127.md), [wiim_130](../docs/physics/wiim_130.md), [wiim_131](../docs/physics/wiim_131.md), [wiim_132](../docs/physics/wiim_132.md)
 
 WhatIfImpossibleの思考実験（[wiim_003](../docs/physics/wiim_003.md)）で命名された架空粒子。「ネガティブ（negative）」と素粒子の接尾辞「-on」を組み合わせた造語で、[エキゾチック物質](speculative.md)（g068）の一種として**負の実質量**を固有属性に持つと仮定される。
 
@@ -579,7 +579,7 @@ WIIMにおける因果矛盾の自動解消を支配する根本命題。空間�
 **読み**: ぱらんてぃりゅうし
 **別名**: 虚反粒子
 **分野**: 理論物理学・粒子分類
-**関連記事**: [wiim_010](../docs/physics/wiim_010.md), [wiim_037](../docs/physics/wiim_037.md), [wiim_038](../docs/physics/wiim_038.md), [wiim_039](../docs/quantum/wiim_039.md), [wiim_049](../docs/physics/wiim_049.md), [wiim_051](../docs/physics/wiim_051.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_069](../docs/physics/wiim_069.md), [wiim_070](../docs/physics/wiim_070.md), [wiim_071](../docs/physics/wiim_071.md), [wiim_076](../docs/cosmology/wiim_076.md), [wiim_085](../docs/quantum/wiim_085.md), [wiim_086](../docs/physics/wiim_086.md), [wiim_110](../docs/physics/wiim_110.md)
+**関連記事**: [wiim_010](../docs/physics/wiim_010.md), [wiim_037](../docs/physics/wiim_037.md), [wiim_038](../docs/physics/wiim_038.md), [wiim_039](../docs/quantum/wiim_039.md), [wiim_049](../docs/physics/wiim_049.md), [wiim_051](../docs/physics/wiim_051.md), [wiim_052](../docs/physics/wiim_052.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_069](../docs/physics/wiim_069.md), [wiim_070](../docs/physics/wiim_070.md), [wiim_071](../docs/physics/wiim_071.md), [wiim_076](../docs/cosmology/wiim_076.md), [wiim_085](../docs/quantum/wiim_085.md), [wiim_086](../docs/physics/wiim_086.md), [wiim_110](../docs/physics/wiim_110.md), [wiim_132](../docs/physics/wiim_132.md)
 
 通常粒子・反粒子に続く「第三の粒子カテゴリ」。反粒子が電荷を反転させるのに対し、パランティ粒子はさらに別の軸（エネルギー・[エントロピー](physics.md)など）でも反転している。ギリシャ語のπαρά（para：傍らに・超えて）と anti（反対）を組み合わせた造語で、反粒子軸を超えた新しい次元に存在することを表す。
 

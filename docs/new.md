@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-18 | 記事 | wiim_132 | [反重力原子は成立するか——負質量クォーク・電子と「4つの力」すべての反転](physics/wiim_132.md) |
 | 2026-09-18 | 用語 | g508 | [レプトン（Lepton）](../glossary/particle.md#g508) |
 | 2026-09-17 | 用語 | g507 | [ミューオン（Muon）](../glossary/particle.md#g507) |
 | 2026-09-17 | 補遺 | — | [ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発](notes/wiim_130_negoton_duality.md) |
@@ -53,4 +54,3 @@
 | 2026-07-09 | 用語 | g482 | [コンクリーション（Concretion）](../glossary/physics.md#g482) |
 | 2026-07-08 | 補遺 | — | [三角関数・逆三角関数の使用場面——sin・cos・tanとarcの使い分け](notes/trig_functions_usage.md) |
 | 2026-07-07 | 用語 | g481 | [ムラーのラチェット（Muller's Ratchet）](../glossary/biology.md#g481) |
-| 2026-07-07 | 用語 | g480 | [性の二倍のコスト（Twofold Cost of Sex）](../glossary/biology.md#g480) |

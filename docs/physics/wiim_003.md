@@ -121,4 +121,5 @@ flowchart LR
 - [wiim_130](wiim_130.md) — グラビティ・パテ——時空の凹みは埋めるだけで平坦化できるか
 - [wiim_130_negoton_attraction_routes](../notes/wiim_130_negoton_attraction_routes.md) — ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変
 - [wiim_130_negoton_duality](../notes/wiim_130_negoton_duality.md) — ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発
+- [wiim_132](wiim_132.md) — 反重力原子は成立するか——負質量クォーク・電子と「4つの力」すべての反転
 
