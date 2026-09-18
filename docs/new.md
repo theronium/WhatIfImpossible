@@ -4,6 +4,7 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-19 | 補遺 | — | [宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案](notes/universe_hierarchy_civilization_ladder.md) |
 | 2026-09-18 | 記事 | wiim_135 | [フォノンはヘリウムになれるか——ボース統計が阻む複合粒子化](physics/wiim_135.md) |
 | 2026-09-18 | 記事 | wiim_134 | [負の慣性質量に絶対零度はあるか——エネルギーの底なし問題と真空崩壊](physics/wiim_134.md) |
 | 2026-09-18 | 記事 | wiim_133 | [ディコトロン——等価原理を破れば反重力物質は原子のまま浮遊できるか](physics/wiim_133.md) |
@@ -53,4 +54,3 @@
 | 2026-07-25 | 用語 | g488 | [チェレンコフ放射（Cherenkov Radiation）](../glossary/physics.md#g488) |
 | 2026-07-25 | 用語 | g487 | [クローン禁止定理（No-Cloning Theorem）](../glossary/quantum.md#g487) |
 | 2026-07-25 | 用語 | g486 | [無境界仮説（No-Boundary Proposal）](../glossary/astronomy.md#g486) |
-| 2026-07-25 | 用語 | g485 | [時系列保護仮説（Chronology Protection Conjecture）](../glossary/physics.md#g485) |

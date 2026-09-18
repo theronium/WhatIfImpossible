@@ -102,4 +102,5 @@ flowchart TD
 - [アンキロンと重力波（wiim_021）](../physics/wiim_021.md) — アンキロンが計量変化に抵抗する性質の原点
 - [wiim_079](wiim_079.md) — ギャラクシードライブ——カルダシェフ4型文明が銀河を乗り物としてハッブル地平線を超えられるか
 - [wiim_116](wiim_116.md) — ハッブル地平線の縫い留め——事象の地平線を越える前に重力インフラを打てるか
+- [universe_hierarchy_civilization_ladder](../notes/universe_hierarchy_civilization_ladder.md) — 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案
 

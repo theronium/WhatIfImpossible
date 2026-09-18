@@ -71,6 +71,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_125_theory.md](wiim_125_theory.md) | 真空崩壊を支える理論的背景——スピン分類・真空期待値・スカラー場の必然性 | 2026-09-02 | 2026-09-02 |
 | [wiim_130_negoton_duality.md](wiim_130_negoton_duality.md) | ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発 | 2026-09-17 | 2026-09-17 |
 | [wiim_130_negoton_attraction_routes.md](wiim_130_negoton_attraction_routes.md) | ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変 | 2026-09-17 | 2026-09-17 |
+| [universe_hierarchy_civilization_ladder.md](universe_hierarchy_civilization_ladder.md) | 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案 | 2026-09-19 | 2026-09-19 |
 
 ---
 
