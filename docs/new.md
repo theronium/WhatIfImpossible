@@ -4,9 +4,13 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-18 | 記事 | wiim_135 | [フォノンはヘリウムになれるか——ボース統計が阻む複合粒子化](physics/wiim_135.md) |
 | 2026-09-18 | 記事 | wiim_134 | [負の慣性質量に絶対零度はあるか——エネルギーの底なし問題と真空崩壊](physics/wiim_134.md) |
 | 2026-09-18 | 記事 | wiim_133 | [ディコトロン——等価原理を破れば反重力物質は原子のまま浮遊できるか](physics/wiim_133.md) |
 | 2026-09-18 | 記事 | wiim_132 | [反重力原子は成立するか——負質量クォーク・電子と「4つの力」すべての反転](physics/wiim_132.md) |
+| 2026-09-18 | 用語 | g511 | [ボゾン星（Boson Star）](../glossary/speculative.md#g511) |
+| 2026-09-18 | 用語 | g510 | [ディスクリート・ブリーザー（Discrete Breather (Intrinsic Localized Mode)）](../glossary/quantum.md#g510) |
+| 2026-09-18 | 用語 | g509 | [三フォノン過程（Three-Phonon Process）](../glossary/quantum.md#g509) |
 | 2026-09-18 | 用語 | g508 | [レプトン（Lepton）](../glossary/particle.md#g508) |
 | 2026-09-17 | 用語 | g507 | [ミューオン（Muon）](../glossary/particle.md#g507) |
 | 2026-09-17 | 補遺 | — | [ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発](notes/wiim_130_negoton_duality.md) |
@@ -50,7 +54,3 @@
 | 2026-07-25 | 用語 | g487 | [クローン禁止定理（No-Cloning Theorem）](../glossary/quantum.md#g487) |
 | 2026-07-25 | 用語 | g486 | [無境界仮説（No-Boundary Proposal）](../glossary/astronomy.md#g486) |
 | 2026-07-25 | 用語 | g485 | [時系列保護仮説（Chronology Protection Conjecture）](../glossary/physics.md#g485) |
-| 2026-07-25 | 用語 | g484 | [閉じた時間的曲線（Closed Timelike Curve）](../glossary/physics.md#g484) |
-| 2026-07-25 | 用語 | g483 | [因果集合理論（Causal Set Theory）](../glossary/quantum.md#g483) |
-| 2026-07-12 | 記事 | wiim_117 | [コンクリーション・コクーン——コズミックマイスは鉱物の団塊に包まれて恒星間を渡れるか](biology/wiim_117.md) |
-| 2026-07-09 | 用語 | g482 | [コンクリーション（Concretion）](../glossary/physics.md#g482) |
