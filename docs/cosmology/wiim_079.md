@@ -135,4 +135,5 @@ flowchart TD
 - [wiim_115](wiim_115.md) — 銀河間重力インフラ——人工ブラックホールで航路上に休憩点とスイングバイ点を設計できるか
 - [wiim_116](wiim_116.md) — ハッブル地平線の縫い留め——事象の地平線を越える前に重力インフラを打てるか
 - [universe_hierarchy_civilization_ladder](../notes/universe_hierarchy_civilization_ladder.md) — 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案
+- [wiim_136](wiim_136.md) — ブレーン宇宙の移動——膜に閉じ込められた物質は隣の宇宙へ渡れるか
 

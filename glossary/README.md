@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **508**
+用語数: **519**
 
 ---
 
@@ -45,16 +45,33 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
-| g511 | [ボゾン星](speculative.md) | Boson Star | speculative |
-| g510 | [ディスクリート・ブリーザー](quantum.md) | Discrete Breather (Intrinsic Localized Mode) | quantum |
-| g509 | [三フォノン過程](quantum.md) | Three-Phonon Process | quantum |
-| g508 | [レプトン](particle.md) | Lepton | particle |
-| g507 | [ミューオン](particle.md) | Muon | particle |
-| g506 | [シンプレクティックブレンダー](physics.md) | Symplectic Blender | physics |
-| g505 | [ラグランジアン](physics.md) | Lagrangian | physics |
-| g504 | [小澤の不等式](quantum.md) | Ozawa's inequality | quantum |
-| g503 | [カラビナント破断](wiim-concepts.md) | Carabinant Rupture | wiim-concepts |
-| g502 | [カラビナント・トポロジカル均衡](wiim-concepts.md) | Carabinant-Topological Equilibrium | wiim-concepts |
+| g522 | [エキピロティック宇宙論](astronomy.md) | Ekpyrotic Universe | astronomy |
+| g521 | [D-ブレーン](particle.md) | D-brane | particle |
+| g520 | [無の泡](particle.md) | Bubble of Nothing | particle |
+| g519 | [世界線](physics.md) | World Line | physics |
+| g518 | [バリオン数生成](particle.md) | Baryogenesis | particle |
+| g517 | [レプトン数](particle.md) | Lepton Number | particle |
+| g516 | [バリオン数](particle.md) | Baryon Number | particle |
+| g515 | [格子ゲージ理論](particle.md) | Lattice Gauge Theory | particle |
+| g514 | [シュウィンガー機構](particle.md) | Schwinger Mechanism | particle |
+| g513 | [弦切断](particle.md) | String Breaking | particle |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

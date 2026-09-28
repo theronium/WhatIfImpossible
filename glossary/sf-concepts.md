@@ -8,7 +8,7 @@
 **読み**: あるくびえれどらいぶ
 **別名**: アルクビエレドライブ / ワープ航法 / ワープ
 **分野**: 相対論的宇宙物理・SF
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_014](../docs/physics/wiim_014.md), [wiim_079](../docs/cosmology/wiim_079.md), [wiim_099](../docs/quantum/wiim_099.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_014](../docs/physics/wiim_014.md), [wiim_079](../docs/cosmology/wiim_079.md), [wiim_099](../docs/quantum/wiim_099.md), [wiim_136](../docs/cosmology/wiim_136.md)
 
 1994年に物理学者ミゲル・アルクビエレが一般相対性理論の方程式を解いて提案したワープドライブの理論モデル。宇宙船自体は光速を超えず、船の前方の空間を収縮させ後方を膨張させることで、船ごと「空間の泡」を移動させる。
 
@@ -41,7 +41,7 @@ SFでの代表例として、アイザック・アシモフの『銀河帝国の
 **読み**: えふてぃーえるこうほう
 **別名**: 超光速航法
 **分野**: 相対性理論・SF
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_004](../docs/cosmology/wiim_004.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_136](../docs/cosmology/wiim_136.md)
 
 光速を超えて移動・情報伝達を行う技術の総称。[特殊相対性理論](physics.md)は「質量を持つ物体は光速に到達できない」と定めており、FTLは現在の物理学の枠組みでは不可能とされる。
 
@@ -323,7 +323,7 @@ SFでは繰り返し登場する定番設定で、映画『惑星ソラリス』
 **読み**: ふぇるみのぱらどっくす
 **別名**: フェルミパラドックス
 **分野**: 天文学・宇宙生物学・SF
-**関連記事**: [wiim_008](../docs/biology/wiim_008.md)
+**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_136](../docs/cosmology/wiim_136.md)
 
 「宇宙には知的生命体が存在するはずなのに、なぜその証拠が見つからないのか」という問い。1950年に物理学者エンリコ・フェルミが発した問いに由来する。
 
@@ -445,7 +445,7 @@ SF作家アイザック・アシモフが1942年の短編「Runaround」で定�
 **読み**: わーむほーる
 **別名**: アインシュタイン＝ローゼン橋 / 時空トンネル
 **分野**: 一般相対性理論・SF
-**関連記事**: [wiim_065](../docs/physics/wiim_065.md), [wiim_108](../docs/physics/wiim_108.md), [wiim_125](../docs/physics/wiim_125.md)
+**関連記事**: [wiim_065](../docs/physics/wiim_065.md), [wiim_108](../docs/physics/wiim_108.md), [wiim_125](../docs/physics/wiim_125.md), [wiim_136](../docs/cosmology/wiim_136.md)
 
 時空を「つなぐ」仮説上の構造。アインシュタイン＝ローゼン橋とも呼ばれる。[一般相対性理論](physics.md)の方程式の解として数学的には存在するが、安定して維持するには大量の[エキゾチック物質](speculative.md)が必要で、物理的な実現可能性は極めて低い。
 

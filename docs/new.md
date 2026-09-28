@@ -4,6 +4,20 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-28 | 記事 | wiim_137 | [膜の外への避難——真空崩壊からブレーン移動で逃げられるか](cosmology/wiim_137.md) |
+| 2026-09-28 | 記事 | wiim_136 | [ブレーン宇宙の移動——膜に閉じ込められた物質は隣の宇宙へ渡れるか](cosmology/wiim_136.md) |
+| 2026-09-28 | 用語 | g522 | [エキピロティック宇宙論（Ekpyrotic Universe）](../glossary/astronomy.md#g522) |
+| 2026-09-28 | 用語 | g521 | [D-ブレーン（D-brane）](../glossary/particle.md#g521) |
+| 2026-09-28 | 用語 | g520 | [無の泡（Bubble of Nothing）](../glossary/particle.md#g520) |
+| 2026-09-28 | 用語 | g519 | [世界線（World Line）](../glossary/physics.md#g519) |
+| 2026-09-28 | 用語 | g518 | [バリオン数生成（Baryogenesis）](../glossary/particle.md#g518) |
+| 2026-09-28 | 用語 | g517 | [レプトン数（Lepton Number）](../glossary/particle.md#g517) |
+| 2026-09-28 | 用語 | g516 | [バリオン数（Baryon Number）](../glossary/particle.md#g516) |
+| 2026-09-28 | 用語 | g515 | [格子ゲージ理論（Lattice Gauge Theory）](../glossary/particle.md#g515) |
+| 2026-09-28 | 用語 | g514 | [シュウィンガー機構（Schwinger Mechanism）](../glossary/particle.md#g514) |
+| 2026-09-28 | 用語 | g513 | [弦切断（String Breaking）](../glossary/particle.md#g513) |
+| 2026-09-28 | 用語 | g512 | [クォークの閉じ込め（Quark Confinement）](../glossary/particle.md#g512) |
+| 2026-09-28 | 補遺 | — | [技術ツリー — ブレーン宇宙移動系ブランチ](notes/tech_tree_brane.md) |
 | 2026-09-19 | 補遺 | — | [宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案](notes/universe_hierarchy_civilization_ladder.md) |
 | 2026-09-18 | 記事 | wiim_135 | [フォノンはヘリウムになれるか——ボース統計が阻む複合粒子化](physics/wiim_135.md) |
 | 2026-09-18 | 記事 | wiim_134 | [負の慣性質量に絶対零度はあるか——エネルギーの底なし問題と真空崩壊](physics/wiim_134.md) |
@@ -40,17 +54,3 @@
 | 2026-08-16 | 用語 | g495 | [トポロン鋳型（Toporon Mold）](../glossary/wiim-engineering.md#g495) |
 | 2026-08-15 | 用語 | g494 | [電磁誘導透過（Electromagnetically Induced Transparency）](../glossary/quantum.md#g494) |
 | 2026-08-14 | 用語 | g493 | [シュリーレン現象（Schlieren Phenomenon）](../glossary/physics.md#g493) |
-| 2026-08-12 | 用語 | g492 | [ゲージ理論（Gauge Theory）](../glossary/particle.md#g492) |
-| 2026-08-07 | 記事 | wiim_123 | [カラロン——アンキロンの逆、負の計量粘性で量子計量揺らぎを増幅する架空粒子](physics/wiim_123.md) |
-| 2026-08-07 | 用語 | g491 | [カラロン（Chalaron）](../glossary/wiim-concepts.md#g491) |
-| 2026-07-26 | 記事 | wiim_122 | [金星大気とマイコプラズマギカ——菌糸はプローブの代わりになれるか](biology/wiim_122.md) |
-| 2026-07-26 | 記事 | wiim_121 | [水星の熱機関——ヒートパイプを角運動量に変える](physics/wiim_121.md) |
-| 2026-07-26 | 補遺 | — | [技術ツリー — メガストラクチャー・宇宙インフラ系](notes/tech_tree_megastructure.md) |
-| 2026-07-25 | 記事 | wiim_120 | [菌糸への回帰——コズミックマイスに記憶断片を送り続けた博士の生涯](biology/wiim_120.md) |
-| 2026-07-25 | 記事 | wiim_119 | [宇宙は自分自身の母になれるか——五分前仮説と時間の輪、無境界仮説が問う"始まり"の位相](cosmology/wiim_119.md) |
-| 2026-07-25 | 記事 | wiim_118 | [光速突破は時空を"破断"させるか——空間を因果順序として捉え直す](cosmology/wiim_118.md) |
-| 2026-07-25 | 用語 | g490 | [円錐欠損（Conical Defect）](../glossary/physics.md#g490) |
-| 2026-07-25 | 用語 | g489 | [自己創造宇宙（Self-Creating Universe）](../glossary/astronomy.md#g489) |
-| 2026-07-25 | 用語 | g488 | [チェレンコフ放射（Cherenkov Radiation）](../glossary/physics.md#g488) |
-| 2026-07-25 | 用語 | g487 | [クローン禁止定理（No-Cloning Theorem）](../glossary/quantum.md#g487) |
-| 2026-07-25 | 用語 | g486 | [無境界仮説（No-Boundary Proposal）](../glossary/astronomy.md#g486) |

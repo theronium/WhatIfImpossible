@@ -76,7 +76,7 @@ WhatIfImpossibleの思考実験（[wiim_022](../docs/physics/wiim_022.md)）で�
 
 WhatIfImpossibleの思考実験（[wiim_021](../docs/physics/wiim_021.md)）で提案された架空の構造体。質量を持たず、振動せず、物質的な疲労もない——純粋にエネルギーの[位相](physics.md)的構造として2点を繋ぎ、固有の長さを保とうとする「切れない紐」として定義される。完全剛体が存在できないという剛体禁止[定理](mathematics.md)に対し、「物質ではなく場の構造で距離を固定する」という別アプローチとして発想された。
 
-最も近い物理的実装は素粒子の**色閉じ込め**——[クォーク](particle.md)同士を繋ぐ[グルーオン](quantum.md)のフラックスチューブだ。この紐は切ろうとするとちぎれる代わりに新しいクォーク対を生成し、位相的に保護されている。ただしこれは10⁻¹⁵mスケールの現象であり、宏観スケールへの拡張では紐自体のエネルギーが重力場を生み空間を歪めるという矛盾が生じる。
+最も近い物理的実装は素粒子の**[色閉じ込め](particle.md)**——[クォーク](particle.md)同士を繋ぐ[グルーオン](quantum.md)のフラックスチューブだ。この紐は切ろうとするとちぎれる代わりに新しいクォーク対を生成し、位相的に保護されている。ただしこれは10⁻¹⁵mスケールの現象であり、宏観スケールへの拡張では紐自体のエネルギーが重力場を生み空間を歪めるという矛盾が生じる。
 
 [アンキロン](wiim-concepts.md)（g128）が「計量への粘性抵抗（粘性的拘束）」であるのに対し、エネルギー紐は「固有長に戻ろうとする張力（弾性的拘束）」であり、両者を組み合わせることで「粘弾性的な距離固定」が論じられる（[wiim_022](../docs/physics/wiim_022.md)）。
 
@@ -274,7 +274,7 @@ WhatIfImpossibleの思考実験記事（[wiim_002](../docs/cosmology/wiim_002.md
 **読み**: こーらりゅうし
 **別名**: 空間超越粒子 / χώρα粒子
 **分野**: 架空粒子・時空間物理学
-**関連記事**: [wiim_013](../docs/physics/wiim_013.md), [wiim_050](../docs/quantum/wiim_050.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_072](../docs/quantum/wiim_072.md), [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_081](../docs/physics/wiim_081.md), [wiim_086](../docs/physics/wiim_086.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_124](../docs/physics/wiim_124.md)
+**関連記事**: [wiim_013](../docs/physics/wiim_013.md), [wiim_050](../docs/quantum/wiim_050.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_072](../docs/quantum/wiim_072.md), [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_081](../docs/physics/wiim_081.md), [wiim_086](../docs/physics/wiim_086.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_124](../docs/physics/wiim_124.md), [wiim_136](../docs/cosmology/wiim_136.md)
 
 WhatIfImpossibleの思考実験（[wiim_013](../docs/physics/wiim_013.md)）で命名された架空粒子。プラトンが対話篇『ティマイオス』で「空間・場所の器」を意味するために用いた古代ギリシャ語「χώρα（chora）」に由来する。
 
@@ -341,7 +341,7 @@ WhatIfImpossibleの思考実験（[wiim_025](../docs/biology/wiim_025.md)）で�
 **分野**: 時空間操作・材料工学・理論物理学
 **関連記事**: [wiim_090](../docs/cosmology/wiim_090.md)
 
-時空の特性（時間勾配・空間曲率）を空間的に周期配列した人工的な媒質構造。通常のメタマテリアルが電磁場の伝播特性を屈折率テンソルで制御するように、時空メタマテリアルは物質の世界線（時空軌跡）を時間勾配テンソルのパターンで制御する。
+時空の特性（時間勾配・空間曲率）を空間的に周期配列した人工的な媒質構造。通常のメタマテリアルが電磁場の伝播特性を屈折率テンソルで制御するように、時空メタマテリアルは物質の[世界線](physics.md)（時空軌跡）を時間勾配テンソルのパターンで制御する。
 
 実物理学では「時間的メタマテリアル（Temporal Metamaterial）」として時間的に変調する媒質の研究が進んでおり、波の異常反射・周波数変換が実証されつつある。WIIMではこれを[クロノスフィア](wiim-concepts.md)（g125）の回転[光子](quantum.md)シェルへと拡張し、シェル上の時間勾配を空間的に周期配列することで通過粒子の世界線をブラッグ回折的に屈折させる構造として概念化される。単位セル周期 Λ によって共鳴エネルギー帯が決まり、入射粒子をエネルギー選択的に特定の角運動モードへ誘導できる点が通常の質量遮蔽との根本的な違いだ。
 
@@ -502,7 +502,7 @@ WhatIfImpossibleの思考実験（[wiim_066](../docs/physics/wiim_066.md)）で�
 **読み**: ねごとん
 **別名**: 負の実質量粒子 / 反重力粒子
 **分野**: 架空粒子・重力物理学
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_058](../docs/biology/wiim_058.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_060](../docs/physics/wiim_060.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_064](../docs/physics/wiim_064.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_066](../docs/physics/wiim_066.md), [wiim_067](../docs/physics/wiim_067.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_080](../docs/physics/wiim_080.md), [wiim_095](../docs/physics/wiim_095.md), [wiim_096](../docs/physics/wiim_096.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_127](../docs/physics/wiim_127.md), [wiim_130](../docs/physics/wiim_130.md), [wiim_131](../docs/physics/wiim_131.md), [wiim_132](../docs/physics/wiim_132.md), [wiim_133](../docs/physics/wiim_133.md), [wiim_134](../docs/physics/wiim_134.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_058](../docs/biology/wiim_058.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_060](../docs/physics/wiim_060.md), [wiim_063](../docs/physics/wiim_063.md), [wiim_064](../docs/physics/wiim_064.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_066](../docs/physics/wiim_066.md), [wiim_067](../docs/physics/wiim_067.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_080](../docs/physics/wiim_080.md), [wiim_095](../docs/physics/wiim_095.md), [wiim_096](../docs/physics/wiim_096.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_127](../docs/physics/wiim_127.md), [wiim_130](../docs/physics/wiim_130.md), [wiim_131](../docs/physics/wiim_131.md), [wiim_132](../docs/physics/wiim_132.md), [wiim_133](../docs/physics/wiim_133.md), [wiim_134](../docs/physics/wiim_134.md), [wiim_136](../docs/cosmology/wiim_136.md)
 
 WhatIfImpossibleの思考実験（[wiim_003](../docs/physics/wiim_003.md)）で命名された架空粒子。「ネガティブ（negative）」と素粒子の接尾辞「-on」を組み合わせた造語で、[エキゾチック物質](speculative.md)（g068）の一種として**負の実質量**を固有属性に持つと仮定される。
 

@@ -126,4 +126,5 @@ flowchart TD
 - [wiim_126](../cosmology/wiim_126.md) — 時空は生きているか——単一生物仮説とクダクラゲ型群体仮説
 - [wiim_127](wiim_127.md) — 真空崩壊泡は静止できるか——エキゾチック物質による収縮と伸長の相殺という綱渡り
 - [universe_hierarchy_civilization_ladder](../notes/universe_hierarchy_civilization_ladder.md) — 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案
+- [wiim_137](../cosmology/wiim_137.md) — 膜の外への避難——真空崩壊からブレーン移動で逃げられるか
 
