@@ -4,7 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-29 | 記事 | wiim_138 | [膜の裏側の物理——表から見ると破れる法則と、ダークマターとしての裏の世界](cosmology/wiim_138.md) |
+| 2026-09-29 | 用語 | g524 | [バルク空間（Bulk）](../glossary/particle.md#g524) |
+| 2026-09-29 | 用語 | g523 | [ブレーンワールド（Brane World）](../glossary/particle.md#g523) |
 | 2026-09-29 | 補遺 | — | [宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案](notes/universe_hierarchy_civilization_ladder.md) |
+| 2026-09-29 | 補遺 | — | [技術ツリー — ブレーン宇宙移動系ブランチ](notes/tech_tree_brane.md) |
 | 2026-09-28 | 記事 | wiim_137 | [膜の外への避難——真空崩壊からブレーン移動で逃げられるか](cosmology/wiim_137.md) |
 | 2026-09-28 | 記事 | wiim_136 | [ブレーン宇宙の移動——膜に閉じ込められた物質は隣の宇宙へ渡れるか](cosmology/wiim_136.md) |
 | 2026-09-28 | 用語 | g522 | [エキピロティック宇宙論（Ekpyrotic Universe）](../glossary/astronomy.md#g522) |
@@ -18,7 +22,6 @@
 | 2026-09-28 | 用語 | g514 | [シュウィンガー機構（Schwinger Mechanism）](../glossary/particle.md#g514) |
 | 2026-09-28 | 用語 | g513 | [弦切断（String Breaking）](../glossary/particle.md#g513) |
 | 2026-09-28 | 用語 | g512 | [クォークの閉じ込め（Quark Confinement）](../glossary/particle.md#g512) |
-| 2026-09-28 | 補遺 | — | [技術ツリー — ブレーン宇宙移動系ブランチ](notes/tech_tree_brane.md) |
 | 2026-09-18 | 記事 | wiim_135 | [フォノンはヘリウムになれるか——ボース統計が阻む複合粒子化](physics/wiim_135.md) |
 | 2026-09-18 | 記事 | wiim_134 | [負の慣性質量に絶対零度はあるか——エネルギーの底なし問題と真空崩壊](physics/wiim_134.md) |
 | 2026-09-18 | 記事 | wiim_133 | [ディコトロン——等価原理を破れば反重力物質は原子のまま浮遊できるか](physics/wiim_133.md) |
@@ -51,6 +54,3 @@
 | 2026-08-20 | 記事 | wiim_125 | [真空崩壊を実験できるか——FTLとブラックホール触媒が開く（そして閉じる）扉](physics/wiim_125.md) |
 | 2026-08-16 | 記事 | wiim_124 | [トポロジカル鋳型と分散コヒーレント収穫——高温プラズマなしで元素変換はできるか](physics/wiim_124.md) |
 | 2026-08-16 | 用語 | g496 | [分散コヒーレント収穫（Distributed Coherent Harvesting）](../glossary/wiim-engineering.md#g496) |
-| 2026-08-16 | 用語 | g495 | [トポロン鋳型（Toporon Mold）](../glossary/wiim-engineering.md#g495) |
-| 2026-08-15 | 用語 | g494 | [電磁誘導透過（Electromagnetically Induced Transparency）](../glossary/quantum.md#g494) |
-| 2026-08-14 | 用語 | g493 | [シュリーレン現象（Schlieren Phenomenon）](../glossary/physics.md#g493) |

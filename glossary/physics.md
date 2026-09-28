@@ -92,7 +92,7 @@
 
 **読み**: いーあーるいこーるいーぴーあーるよそう
 **分野**: 量子重力・量子情報・ブラックホール物理
-**関連記事**: [wiim_081](../docs/physics/wiim_081.md), [wiim_119](../docs/cosmology/wiim_119.md)
+**関連記事**: [wiim_081](../docs/physics/wiim_081.md), [wiim_119](../docs/cosmology/wiim_119.md), [wiim_138](../docs/cosmology/wiim_138.md)
 
 2013年にマルダセナとサスキンドが提唱した仮説。アインシュタイン・ローゼン橋（ER）とアインシュタイン・ポドルスキー・ローゼン相関（EPR、[量子もつれ](quantum.md)）が同一の物理現象の異なる記述だという主張だ。
 

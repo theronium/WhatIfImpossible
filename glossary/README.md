@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **519**
+用語数: **521**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g524 | [バルク空間](particle.md) | Bulk | particle |
+| g523 | [ブレーンワールド](particle.md) | Brane World | particle |
 | g522 | [エキピロティック宇宙論](astronomy.md) | Ekpyrotic Universe | astronomy |
 | g521 | [D-ブレーン](particle.md) | D-brane | particle |
 | g520 | [無の泡](particle.md) | Bubble of Nothing | particle |
@@ -53,8 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g517 | [レプトン数](particle.md) | Lepton Number | particle |
 | g516 | [バリオン数](particle.md) | Baryon Number | particle |
 | g515 | [格子ゲージ理論](particle.md) | Lattice Gauge Theory | particle |
-| g514 | [シュウィンガー機構](particle.md) | Schwinger Mechanism | particle |
-| g513 | [弦切断](particle.md) | String Breaking | particle |
+
+
 
 
 
