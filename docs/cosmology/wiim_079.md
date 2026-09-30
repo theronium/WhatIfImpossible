@@ -136,4 +136,6 @@ flowchart TD
 - [wiim_116](wiim_116.md) — ハッブル地平線の縫い留め——事象の地平線を越える前に重力インフラを打てるか
 - [universe_hierarchy_civilization_ladder](../notes/universe_hierarchy_civilization_ladder.md) — 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案
 - [wiim_136](wiim_136.md) — ブレーン宇宙の移動——膜に閉じ込められた物質は隣の宇宙へ渡れるか
+- [wiim_139](wiim_139.md) — ダークエネルギーを弱らせる技術——加速膨張に干渉する文明と、弱まりはテクノシグネチャーか
+- [wiim_140](wiim_140.md) — ダークエネルギーアンカーホール——経路の管の中だけで膨張を止め、目的地を近づけられるか
 

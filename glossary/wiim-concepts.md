@@ -8,7 +8,7 @@
 **読み**: あんきろん
 **別名**: 計量粘性粒子 / 時空錨粒子
 **分野**: 架空粒子・一般相対性理論
-**関連記事**: [wiim_021](../docs/physics/wiim_021.md), [wiim_022](../docs/physics/wiim_022.md), [wiim_049](../docs/physics/wiim_049.md), [wiim_050](../docs/quantum/wiim_050.md), [wiim_051](../docs/physics/wiim_051.md), [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_078](../docs/cosmology/wiim_078.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_097](../docs/physics/wiim_097.md)
+**関連記事**: [wiim_021](../docs/physics/wiim_021.md), [wiim_022](../docs/physics/wiim_022.md), [wiim_049](../docs/physics/wiim_049.md), [wiim_050](../docs/quantum/wiim_050.md), [wiim_051](../docs/physics/wiim_051.md), [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_078](../docs/cosmology/wiim_078.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_140](../docs/cosmology/wiim_140.md)
 
 WhatIfImpossibleの思考実験（[wiim_022](../docs/physics/wiim_022.md)）で命名された架空粒子。ギリシャ語「ἄγκυρα（ankyra：錨）」に由来し、**時空の計量テンソルそのもの**に直接結合するという、既知のいかなる粒子とも異なる性質を持つと仮定される。
 
@@ -611,7 +611,7 @@ WIIMにおける因果矛盾の自動解消を支配する根本命題。空間�
 
 **読み**: ぴえぞあんきろんこうか
 **分野**: 架空物理効果・一般相対性理論
-**関連記事**: [wiim_078](../docs/cosmology/wiim_078.md), [wiim_022](../docs/physics/wiim_022.md)
+**関連記事**: [wiim_022](../docs/physics/wiim_022.md), [wiim_078](../docs/cosmology/wiim_078.md), [wiim_139](../docs/cosmology/wiim_139.md), [wiim_140](../docs/cosmology/wiim_140.md)
 
 WhatIfImpossibleの思考実験（[wiim_078](../docs/cosmology/wiim_078.md)）で命名された架空の物理効果。「圧電効果（ピエゾ効果）」と「[アンキロン](wiim-concepts.md)（g128）」を組み合わせた造語。
 

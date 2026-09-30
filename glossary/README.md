@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **521**
+用語数: **523**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g526 | [ダークエネルギーアンカーホール](wiim-engineering.md) | Dark Energy Anchor Hole | wiim-engineering |
+| g525 | [クラスニコフ管](sf-concepts.md) | Krasnikov Tube | sf-concepts |
 | g524 | [バルク空間](particle.md) | Bulk | particle |
 | g523 | [ブレーンワールド](particle.md) | Brane World | particle |
 | g522 | [エキピロティック宇宙論](astronomy.md) | Ekpyrotic Universe | astronomy |
@@ -53,8 +55,10 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g519 | [世界線](physics.md) | World Line | physics |
 | g518 | [バリオン数生成](particle.md) | Baryogenesis | particle |
 | g517 | [レプトン数](particle.md) | Lepton Number | particle |
-| g516 | [バリオン数](particle.md) | Baryon Number | particle |
-| g515 | [格子ゲージ理論](particle.md) | Lattice Gauge Theory | particle |
+
+
+
+
 
 
 

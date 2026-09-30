@@ -4,6 +4,10 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-09-30 | 記事 | wiim_140 | [ダークエネルギーアンカーホール——経路の管の中だけで膨張を止め、目的地を近づけられるか](cosmology/wiim_140.md) |
+| 2026-09-30 | 記事 | wiim_139 | [ダークエネルギーを弱らせる技術——加速膨張に干渉する文明と、弱まりはテクノシグネチャーか](cosmology/wiim_139.md) |
+| 2026-09-30 | 用語 | g526 | [ダークエネルギーアンカーホール（Dark Energy Anchor Hole）](../glossary/wiim-engineering.md#g526) |
+| 2026-09-30 | 用語 | g525 | [クラスニコフ管（Krasnikov Tube）](../glossary/sf-concepts.md#g525) |
 | 2026-09-29 | 記事 | wiim_138 | [膜の裏側の物理——表から見ると破れる法則と、ダークマターとしての裏の世界](cosmology/wiim_138.md) |
 | 2026-09-29 | 用語 | g524 | [バルク空間（Bulk）](../glossary/particle.md#g524) |
 | 2026-09-29 | 用語 | g523 | [ブレーンワールド（Brane World）](../glossary/particle.md#g523) |
@@ -50,7 +54,3 @@
 | 2026-08-25 | 記事 | wiim_126 | [時空は生きているか——単一生物仮説とクダクラゲ型群体仮説](cosmology/wiim_126.md) |
 | 2026-08-25 | 用語 | g499 | [臨界半径（Critical Bubble Radius）](../glossary/physics.md#g499) |
 | 2026-08-25 | 用語 | g498 | [スピンと回転対称性（Spin and Rotational Symmetry）](../glossary/quantum.md#g498) |
-| 2026-08-25 | 用語 | g497 | [真空期待値（Vacuum Expectation Value）](../glossary/particle.md#g497) |
-| 2026-08-20 | 記事 | wiim_125 | [真空崩壊を実験できるか——FTLとブラックホール触媒が開く（そして閉じる）扉](physics/wiim_125.md) |
-| 2026-08-16 | 記事 | wiim_124 | [トポロジカル鋳型と分散コヒーレント収穫——高温プラズマなしで元素変換はできるか](physics/wiim_124.md) |
-| 2026-08-16 | 用語 | g496 | [分散コヒーレント収穫（Distributed Coherent Harvesting）](../glossary/wiim-engineering.md#g496) |

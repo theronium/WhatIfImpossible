@@ -127,4 +127,5 @@ flowchart TD
 - [wiim_127](wiim_127.md) — 真空崩壊泡は静止できるか——エキゾチック物質による収縮と伸長の相殺という綱渡り
 - [universe_hierarchy_civilization_ladder](../notes/universe_hierarchy_civilization_ladder.md) — 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案
 - [wiim_137](../cosmology/wiim_137.md) — 膜の外への避難——真空崩壊からブレーン移動で逃げられるか
+- [wiim_139](../cosmology/wiim_139.md) — ダークエネルギーを弱らせる技術——加速膨張に干渉する文明と、弱まりはテクノシグネチャーか
 

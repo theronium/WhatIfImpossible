@@ -282,6 +282,22 @@ L点は完全安定ではなく微小摂動が蓄積するため、億年スケ�
 
 ---
 
+<a id="g526"></a>
+## ダークエネルギーアンカーホール（Dark Energy Anchor Hole）
+
+**読み**: だーくえねるぎーあんかーほーる
+**別名**: アンカーホール
+**分野**: 架空工学・宇宙論
+**関連記事**: [ダークエネルギー](speculative.md#g218), [アンキロン](wiim-concepts.md#g128), [ピエゾアンキロン効果](wiim-concepts.md#g317), [クラスニコフ管](sf-concepts.md#g525), [wiim_116](../docs/cosmology/wiim_116.md), [wiim_078](../docs/cosmology/wiim_078.md), [wiim_021](../docs/physics/wiim_021.md), [wiim_022](../docs/physics/wiim_022.md), [wiim_139](../docs/cosmology/wiim_139.md), [wiim_140](../docs/cosmology/wiim_140.md)
+
+WhatIfImpossibleの思考実験（[wiim_140](../docs/cosmology/wiim_140.md)）で構想された、目的地までの経路に沿った細長い管の中だけで[ダークエネルギー](speculative.md)（g218）に干渉し、宇宙膨張による距離の増大を抑える技術。範囲を経路の管に絞る点が特徴。
+
+効果は三段階に分かれる。第1段階はダークエネルギーを弱めて遠ざかる速さを落とす。第2段階は管の中の空間の伸びを止め、目的地を[ハッブル地平線](astronomy.md)の外へ逃さない。管の内壁を[アンキロン](wiim-concepts.md)（g128）で裏打ちして計量を固定し、外の膨張から受ける壁の張力は[ピエゾアンキロン効果](wiim-concepts.md)（g317）で回収できる可能性がある。第3段階は空間を縮めて実際に近づけるが、それにはダークエネルギーを負の値へ押し下げる必要があり、事実上[エキゾチック物質](speculative.md)の生成になる。押し下げた先が別の真空なら[真空崩壊](quantum.md)の引き金にもなる。
+
+近道として完成すれば[クラスニコフ管](sf-concepts.md)（g525）と同じ構造になり、2本で因果の輪を作りうる。
+
+---
+
 <a id="g385"></a>
 ## チェシャ磁場格子（Cheshire Magnetic Lattice）
 

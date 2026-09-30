@@ -434,7 +434,7 @@ VEVを持てる資格はあらゆる場に平等には与えられていない�
 **読み**: ぶれーんわーるど
 **別名**: ブレーン宇宙 / ブレーン宇宙論 / ブレーンワールド理論 / ランドール＝サンドラム模型 / ADD模型
 **分野**: 素粒子物理学・宇宙論
-**関連記事**: [余剰次元](particle.md#g255), [D-ブレーン](particle.md#g521), [エキピロティック宇宙論](astronomy.md#g522), [バルク空間](particle.md#g524), [wiim_029](../docs/physics/wiim_029.md), [wiim_136](../docs/cosmology/wiim_136.md), [wiim_137](../docs/cosmology/wiim_137.md), [wiim_138](../docs/cosmology/wiim_138.md)
+**関連記事**: [余剰次元](particle.md#g255), [D-ブレーン](particle.md#g521), [エキピロティック宇宙論](astronomy.md#g522), [バルク空間](particle.md#g524), [wiim_029](../docs/physics/wiim_029.md), [wiim_136](../docs/cosmology/wiim_136.md), [wiim_137](../docs/cosmology/wiim_137.md), [wiim_138](../docs/cosmology/wiim_138.md), [wiim_139](../docs/cosmology/wiim_139.md)
 
 私たちの宇宙を、より高い次元の空間（[バルク空間](particle.md)）に浮かぶ3次元の膜（ブレーン）とみなす理論の総称。電子や[クォーク](quantum.md)、光などの通常の物質と力は膜に閉じ込められ、重力だけが膜の外へ広がれるとする。[超弦理論](particle.md)の[D-ブレーン](particle.md)がその土台にある。
 
