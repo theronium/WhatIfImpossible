@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **532**
+用語数: **537**
 
 ---
 
@@ -45,16 +45,22 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g540 | [因果的排除論証](philosophy.md) | Causal Exclusion Argument | philosophy |
+| g539 | [組織不変性の原理](philosophy.md) | Principle of Organizational Invariance | philosophy |
+| g538 | [多重実現可能性](philosophy.md) | Multiple Realizability | philosophy |
+| g537 | [カルツァ＝クライン重力子](particle.md) | Kaluza–Klein Graviton | particle |
+| g536 | [思考重力波変換](wiim-engineering.md) | Thought-to-Gravitational-Wave Conversion | wiim-engineering |
 | g535 | [ブレーンヘリクス](wiim-engineering.md) | Brane Helix | wiim-engineering |
 | g534 | [ガオ＝ウォルドの定理](physics.md) | Gao–Wald Theorem | physics |
 | g533 | [ゴットのタイムマシン](physics.md) | Gott Time Machine | physics |
 | g532 | [反ド・ジッター空間](physics.md) | Anti-de Sitter Space | physics |
 | g531 | [年代保護仮説](physics.md) | Chronology Protection Conjecture | physics |
-| g530 | [マーゴラス＝レヴィティンの定理](quantum.md) | Margolus–Levitin Theorem | quantum |
-| g529 | [経路積分](quantum.md) | Path Integral | quantum |
-| g528 | [プランク定数](quantum.md) | Planck Constant | quantum |
-| g527 | [作用（物理量）](physics.md) | Action | physics |
-| g526 | [ダークエネルギーアンカーホール](wiim-engineering.md) | Dark Energy Anchor Hole | wiim-engineering |
+
+
+
+
+
+
 
 
 

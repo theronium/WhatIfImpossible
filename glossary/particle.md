@@ -97,6 +97,22 @@ WIIMの技術ツリーでは、[クロノスフィア](wiim-concepts.md)内部�
 
 ---
 
+<a id="g537"></a>
+## カルツァ＝クライン重力子（Kaluza–Klein Graviton）
+
+**読み**: かるつぁくらいんじゅうりょくし
+**別名**: KK重力子 / カルツァ・クライン重力子 / KKグラビトン
+**分野**: 余剰次元・ブレーンワールド
+**関連記事**: [重力子](speculative.md#g109), [ブレーンワールド](particle.md#g523), [バルク空間](particle.md#g524), [wiim_143](../docs/philosophy/wiim_143.md)
+
+[余剰次元](particle.md)を持つ理論で、[重力子](speculative.md)が余剰次元の方向にも振動することで現れる、質量を持つ重力子の仲間。名前は、1920年代に5次元の理論で重力と電磁気の統一を試みたテオドール・カルツァとオスカル・クラインに由来する。
+
+余剰次元の方向の振動は、ギターの弦の倍音のように飛び飛びの値しかとれない。私たちの4次元の世界から見ると、この振動のエネルギーが質量として現れ、普通の重力子（質量ゼロ）の上に、重さの違う重力子が段々に並んで見える。
+
+ランドール＝サンドラム型の[ブレーンワールド](particle.md)では、普段感じる重力を担う質量ゼロの成分は膜の近くに閉じ込められ、膜の外へ広がるのは主にこの質量を持つ成分である。加速器実験では、カルツァ＝クライン重力子が[光子](quantum.md)や電子の対に崩壊する信号が探索されているが、数TeVまでの領域で発見されていない。
+
+---
+
 <a id="g282"></a>
 ## 基本相互作用（Fundamental Interactions）
 
@@ -400,7 +416,7 @@ VEVを持てる資格はあらゆる場に平等には与えられていない�
 **読み**: ばるくくうかん
 **別名**: 高次元バルク / Bulk Space
 **分野**: 素粒子物理学・宇宙論
-**関連記事**: [余剰次元](particle.md#g255), [D-ブレーン](particle.md#g521), [ブレーンワールド](particle.md#g523), [wiim_136](../docs/cosmology/wiim_136.md), [wiim_137](../docs/cosmology/wiim_137.md), [wiim_138](../docs/cosmology/wiim_138.md), [wiim_141](../docs/physics/wiim_141.md), [wiim_142](../docs/cosmology/wiim_142.md)
+**関連記事**: [余剰次元](particle.md#g255), [D-ブレーン](particle.md#g521), [ブレーンワールド](particle.md#g523), [wiim_136](../docs/cosmology/wiim_136.md), [wiim_137](../docs/cosmology/wiim_137.md), [wiim_138](../docs/cosmology/wiim_138.md), [wiim_141](../docs/physics/wiim_141.md), [wiim_142](../docs/cosmology/wiim_142.md), [wiim_143](../docs/philosophy/wiim_143.md)
 
 ブレーンワールドの理論で、私たちの宇宙である膜（ブレーン）が浮かんでいる、より高い次元の空間。単に「バルク」とも呼ばれる。通常の物質は膜に閉じ込められているが、重力を伝える[重力子](speculative.md)（閉じた弦）や一部の場はバルク空間の中を伝わることができる。
 
@@ -434,7 +450,7 @@ VEVを持てる資格はあらゆる場に平等には与えられていない�
 **読み**: ぶれーんわーるど
 **別名**: ブレーン宇宙 / ブレーン宇宙論 / ブレーンワールド理論 / ランドール＝サンドラム模型 / ADD模型
 **分野**: 素粒子物理学・宇宙論
-**関連記事**: [余剰次元](particle.md#g255), [D-ブレーン](particle.md#g521), [エキピロティック宇宙論](astronomy.md#g522), [バルク空間](particle.md#g524), [wiim_029](../docs/physics/wiim_029.md), [wiim_136](../docs/cosmology/wiim_136.md), [wiim_137](../docs/cosmology/wiim_137.md), [wiim_138](../docs/cosmology/wiim_138.md), [wiim_139](../docs/cosmology/wiim_139.md), [wiim_142](../docs/cosmology/wiim_142.md)
+**関連記事**: [余剰次元](particle.md#g255), [D-ブレーン](particle.md#g521), [エキピロティック宇宙論](astronomy.md#g522), [バルク空間](particle.md#g524), [wiim_029](../docs/physics/wiim_029.md), [wiim_136](../docs/cosmology/wiim_136.md), [wiim_137](../docs/cosmology/wiim_137.md), [wiim_138](../docs/cosmology/wiim_138.md), [wiim_139](../docs/cosmology/wiim_139.md), [wiim_142](../docs/cosmology/wiim_142.md), [wiim_143](../docs/philosophy/wiim_143.md)
 
 私たちの宇宙を、より高い次元の空間（[バルク空間](particle.md)）に浮かぶ3次元の膜（ブレーン）とみなす理論の総称。電子や[クォーク](quantum.md)、光などの通常の物質と力は膜に閉じ込められ、重力だけが膜の外へ広がれるとする。[超弦理論](particle.md)の[D-ブレーン](particle.md)がその土台にある。
 

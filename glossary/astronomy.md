@@ -498,7 +498,7 @@ J.リチャード・ゴットと李立新が1998年の論文「Can the Universe 
 **読み**: じゅうりょくは
 **別名**: 重力波 / GW
 **分野**: 一般相対性理論・観測天文学
-**関連記事**: [重力波検出器](astronomy.md#g073), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_009](../docs/cosmology/wiim_009.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_020](../docs/physics/wiim_020.md), [wiim_072](../docs/quantum/wiim_072.md)
+**関連記事**: [重力波検出器](astronomy.md#g073), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_009](../docs/cosmology/wiim_009.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_020](../docs/physics/wiim_020.md), [wiim_072](../docs/quantum/wiim_072.md), [wiim_143](../docs/philosophy/wiim_143.md)
 
 巨大な質量が加速度運動するとき、時空の歪みが波として光速で伝播する現象。アインシュタインが[一般相対性理論](physics.md)から予言し、2015年にLIGO（レーザー干渉計重力波観測所）が初めて直接観測した。
 
@@ -514,7 +514,7 @@ LIGOの検出[原理](physics.md)は「光の遅れ」ではなく、空間そ�
 **読み**: じゅうりょくはけんしゅつき
 **別名**: LIGO / LISA / KAGRA / Virgo / 干渉計
 **分野**: 重力波天文学・観測技術
-**関連記事**: [グレーザー](sf-concepts.md#g066), [wiim_020](../docs/physics/wiim_020.md)
+**関連記事**: [グレーザー](sf-concepts.md#g066), [wiim_020](../docs/physics/wiim_020.md), [wiim_143](../docs/philosophy/wiim_143.md)
 
 [重力波](astronomy.md)（時空の歪みの波）を検出するための観測施設。現在主流なのはレーザー干渉計方式で、L字型のトンネル内を往復するレーザー光の経路長の微小な変化（[陽子](particle.md)直径の1000分の1以下）を精密に測定する。2015年9月、LIGOが13億[光年](astronomy.md)彼方のブラックホール合体による重力波を人類史上初めて検出し、2017年のノーベル物理学賞につながった。
 
@@ -687,7 +687,7 @@ JWSTや[ハッブル宇宙望遠鏡](astronomy.md)は銀河団を「自然の望
 **読み**: せち
 **別名**: 地球外知的生命体探索
 **分野**: 天文学・宇宙生物学・電波天文学
-**関連記事**: —
+**関連記事**: [wiim_143](../docs/philosophy/wiim_143.md)
 
 [地球外知的生命体](biology.md)の存在を科学的手法で探索するプロジェクトおよび研究分野の総称。1960年にフランク・ドレイクが行った「オズマ計画」が最初の組織的な試みとされ、以来60年以上にわたって電波望遠鏡による宇宙からの人工的信号の探索が続けられている。
 

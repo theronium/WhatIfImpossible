@@ -4,8 +4,14 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-10-01 | 記事 | wiim_143 | [思考の重力波化——膜の外へ出た思考は自我か、作用の履歴は相似を越えて残るか](philosophy/wiim_143.md) |
 | 2026-10-01 | 記事 | wiim_142 | [膜の螺旋階段——複数のブレーンを巡って、出発より前に落ちてこられるか](cosmology/wiim_142.md) |
 | 2026-10-01 | 記事 | wiim_141 | [物質とエネルギーは作用に還るか——質量は「作用が刻まれる速さ」であり、思考は作用で測れる](physics/wiim_141.md) |
+| 2026-10-01 | 用語 | g540 | [因果的排除論証（Causal Exclusion Argument）](../glossary/philosophy.md#g540) |
+| 2026-10-01 | 用語 | g539 | [組織不変性の原理（Principle of Organizational Invariance）](../glossary/philosophy.md#g539) |
+| 2026-10-01 | 用語 | g538 | [多重実現可能性（Multiple Realizability）](../glossary/philosophy.md#g538) |
+| 2026-10-01 | 用語 | g537 | [カルツァ＝クライン重力子（Kaluza–Klein Graviton）](../glossary/particle.md#g537) |
+| 2026-10-01 | 用語 | g536 | [思考重力波変換（Thought-to-Gravitational-Wave Conversion）](../glossary/wiim-engineering.md#g536) |
 | 2026-10-01 | 用語 | g535 | [ブレーンヘリクス（Brane Helix）](../glossary/wiim-engineering.md#g535) |
 | 2026-10-01 | 用語 | g534 | [ガオ＝ウォルドの定理（Gao–Wald Theorem）](../glossary/physics.md#g534) |
 | 2026-10-01 | 用語 | g533 | [ゴットのタイムマシン（Gott Time Machine）](../glossary/physics.md#g533) |
@@ -48,9 +54,3 @@
 | 2026-09-18 | 用語 | g508 | [レプトン（Lepton）](../glossary/particle.md#g508) |
 | 2026-09-17 | 用語 | g507 | [ミューオン（Muon）](../glossary/particle.md#g507) |
 | 2026-09-17 | 補遺 | — | [ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発](notes/wiim_130_negoton_duality.md) |
-| 2026-09-17 | 補遺 | — | [ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変](notes/wiim_130_negoton_attraction_routes.md) |
-| 2026-09-16 | 記事 | wiim_131 | [グラビティ・パテと重力波コヒーレンス——常時追従は「埋める」を「削る」に溶かすか](physics/wiim_131.md) |
-| 2026-09-16 | 記事 | wiim_130 | [グラビティ・パテ——時空の凹みは埋めるだけで平坦化できるか](physics/wiim_130.md) |
-| 2026-09-06 | 記事 | wiim_129 | [胞子は電荷だけで恒星間空間へ渡れるか——静電気の糸、太陽風イオン、放射圧の境界線](biology/wiim_129.md) |
-| 2026-09-04 | 用語 | g506 | [シンプレクティックブレンダー（Symplectic Blender）](../glossary/physics.md#g506) |
-| 2026-09-03 | 記事 | wiim_128 | [カラビナント係数——完全剛体とトポロジカル量子状態、ブラックホールでの壊れ方はなぜ違うのか](physics/wiim_128.md) |
