@@ -4,6 +4,19 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-10-01 | 記事 | wiim_142 | [膜の螺旋階段——複数のブレーンを巡って、出発より前に落ちてこられるか](cosmology/wiim_142.md) |
+| 2026-10-01 | 記事 | wiim_141 | [物質とエネルギーは作用に還るか——質量は「作用が刻まれる速さ」であり、思考は作用で測れる](physics/wiim_141.md) |
+| 2026-10-01 | 用語 | g535 | [ブレーンヘリクス（Brane Helix）](../glossary/wiim-engineering.md#g535) |
+| 2026-10-01 | 用語 | g534 | [ガオ＝ウォルドの定理（Gao–Wald Theorem）](../glossary/physics.md#g534) |
+| 2026-10-01 | 用語 | g533 | [ゴットのタイムマシン（Gott Time Machine）](../glossary/physics.md#g533) |
+| 2026-10-01 | 用語 | g532 | [反ド・ジッター空間（Anti-de Sitter Space）](../glossary/physics.md#g532) |
+| 2026-10-01 | 用語 | g531 | [年代保護仮説（Chronology Protection Conjecture）](../glossary/physics.md#g531) |
+| 2026-10-01 | 用語 | g530 | [マーゴラス＝レヴィティンの定理（Margolus–Levitin Theorem）](../glossary/quantum.md#g530) |
+| 2026-10-01 | 用語 | g529 | [経路積分（Path Integral）](../glossary/quantum.md#g529) |
+| 2026-10-01 | 用語 | g528 | [プランク定数（Planck Constant）](../glossary/quantum.md#g528) |
+| 2026-10-01 | 用語 | g527 | [作用（物理量）（Action）](../glossary/physics.md#g527) |
+| 2026-10-01 | 補遺 | — | [ブレーンヘリクス遺構説——先行文明のワープ装置は、時間を遡る装置でもあったか](notes/wiim_142_brane_helix_relic.md) |
+| 2026-10-01 | 補遺 | — | [技術ツリー — ブレーン宇宙移動系ブランチ](notes/tech_tree_brane.md) |
 | 2026-09-30 | 記事 | wiim_140 | [ダークエネルギーアンカーホール——経路の管の中だけで膨張を止め、目的地を近づけられるか](cosmology/wiim_140.md) |
 | 2026-09-30 | 記事 | wiim_139 | [ダークエネルギーを弱らせる技術——加速膨張に干渉する文明と、弱まりはテクノシグネチャーか](cosmology/wiim_139.md) |
 | 2026-09-30 | 用語 | g526 | [ダークエネルギーアンカーホール（Dark Energy Anchor Hole）](../glossary/wiim-engineering.md#g526) |
@@ -12,7 +25,6 @@
 | 2026-09-29 | 用語 | g524 | [バルク空間（Bulk）](../glossary/particle.md#g524) |
 | 2026-09-29 | 用語 | g523 | [ブレーンワールド（Brane World）](../glossary/particle.md#g523) |
 | 2026-09-29 | 補遺 | — | [宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案](notes/universe_hierarchy_civilization_ladder.md) |
-| 2026-09-29 | 補遺 | — | [技術ツリー — ブレーン宇宙移動系ブランチ](notes/tech_tree_brane.md) |
 | 2026-09-28 | 記事 | wiim_137 | [膜の外への避難——真空崩壊からブレーン移動で逃げられるか](cosmology/wiim_137.md) |
 | 2026-09-28 | 記事 | wiim_136 | [ブレーン宇宙の移動——膜に閉じ込められた物質は隣の宇宙へ渡れるか](cosmology/wiim_136.md) |
 | 2026-09-28 | 用語 | g522 | [エキピロティック宇宙論（Ekpyrotic Universe）](../glossary/astronomy.md#g522) |
@@ -42,15 +54,3 @@
 | 2026-09-06 | 記事 | wiim_129 | [胞子は電荷だけで恒星間空間へ渡れるか——静電気の糸、太陽風イオン、放射圧の境界線](biology/wiim_129.md) |
 | 2026-09-04 | 用語 | g506 | [シンプレクティックブレンダー（Symplectic Blender）](../glossary/physics.md#g506) |
 | 2026-09-03 | 記事 | wiim_128 | [カラビナント係数——完全剛体とトポロジカル量子状態、ブラックホールでの壊れ方はなぜ違うのか](physics/wiim_128.md) |
-| 2026-09-03 | 用語 | g505 | [ラグランジアン（Lagrangian）](../glossary/physics.md#g505) |
-| 2026-09-03 | 用語 | g504 | [小澤の不等式（Ozawa's inequality）](../glossary/quantum.md#g504) |
-| 2026-09-03 | 用語 | g503 | [カラビナント破断（Carabinant Rupture）](../glossary/wiim-concepts.md#g503) |
-| 2026-09-03 | 用語 | g502 | [カラビナント・トポロジカル均衡（Carabinant-Topological Equilibrium）](../glossary/wiim-concepts.md#g502) |
-| 2026-09-03 | 用語 | g501 | [カラビナント係数（Carabinant Coefficient）](../glossary/wiim-concepts.md#g501) |
-| 2026-09-02 | 用語 | g500 | [くりこみ群（Renormalization Group）](../glossary/physics.md#g500) |
-| 2026-09-02 | 補遺 | — | [経路積分の統一的描像——直進・反射・回折・トンネル効果を1つの原理で見る](notes/feynman_path_integral_unification.md) |
-| 2026-09-02 | 補遺 | — | [真空崩壊を支える理論的背景——スピン分類・真空期待値・スカラー場の必然性](notes/wiim_125_theory.md) |
-| 2026-08-25 | 記事 | wiim_127 | [真空崩壊泡は静止できるか——エキゾチック物質による収縮と伸長の相殺という綱渡り](physics/wiim_127.md) |
-| 2026-08-25 | 記事 | wiim_126 | [時空は生きているか——単一生物仮説とクダクラゲ型群体仮説](cosmology/wiim_126.md) |
-| 2026-08-25 | 用語 | g499 | [臨界半径（Critical Bubble Radius）](../glossary/physics.md#g499) |
-| 2026-08-25 | 用語 | g498 | [スピンと回転対称性（Spin and Rotational Symmetry）](../glossary/quantum.md#g498) |

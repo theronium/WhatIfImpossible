@@ -72,6 +72,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_130_negoton_duality.md](wiim_130_negoton_duality.md) | ネゴトンの二面性——質量の符号がつくる局所のランナウェイと大域の相互反発 | 2026-09-17 | 2026-09-17 |
 | [wiim_130_negoton_attraction_routes.md](wiim_130_negoton_attraction_routes.md) | ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変 | 2026-09-17 | 2026-09-17 |
 | [universe_hierarchy_civilization_ladder.md](universe_hierarchy_civilization_ladder.md) | 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案 | 2026-09-29 | 2026-09-29 |
+| [wiim_142_brane_helix_relic.md](wiim_142_brane_helix_relic.md) | ブレーンヘリクス遺構説——先行文明のワープ装置は、時間を遡る装置でもあったか | 2026-10-01 | 2026-10-01 |
 
 ---
 
@@ -80,4 +81,4 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | ファイル | タイトル | 登録 | 更新 |
 |---------|---------|------|------|
 | [tech_tree_megastructure.md](tech_tree_megastructure.md) | 技術ツリー — メガストラクチャー・宇宙インフラ系 | 2026-07-26 | 2026-07-26 |
-| [tech_tree_brane.md](tech_tree_brane.md) | 技術ツリー — ブレーン宇宙移動系ブランチ | 2026-09-29 | 2026-09-29 |
+| [tech_tree_brane.md](tech_tree_brane.md) | 技術ツリー — ブレーン宇宙移動系ブランチ | 2026-10-01 | 2026-10-01 |

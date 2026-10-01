@@ -127,7 +127,7 @@ SFでは様々な回避策が提案・描写されている。
 **読み**: くらすにこふかん
 **別名**: クラスニコフチューブ / Krasnikov Tube
 **分野**: 一般相対性理論・SF
-**関連記事**: [ワープドライブ / アルクビエレドライブ](sf-concepts.md#g035), [ワームホール](sf-concepts.md#g036), [ダークエネルギーアンカーホール](wiim-engineering.md#g526), [wiim_136](../docs/cosmology/wiim_136.md), [wiim_140](../docs/cosmology/wiim_140.md)
+**関連記事**: [ワープドライブ / アルクビエレドライブ](sf-concepts.md#g035), [ワームホール](sf-concepts.md#g036), [ダークエネルギーアンカーホール](wiim-engineering.md#g526), [wiim_136](../docs/cosmology/wiim_136.md), [wiim_140](../docs/cosmology/wiim_140.md), [wiim_142](../docs/cosmology/wiim_142.md)
 
 1995年にセルゲイ・クラスニコフが提案した、[一般相対性理論](physics.md)の枠内で超光速的な往来を可能にする時空の構造。宇宙船が目的地へ向かう最初の旅は光速以下で行い、その経路に沿って時空を加工した管を残していく。管の中では光円錐が傾いており、帰りの旅では、出発地から見て出発直後に戻ってくることができる。
 

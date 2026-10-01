@@ -133,4 +133,5 @@ flowchart TD
 - [ninshiki_chiheisen](../notes/ninshiki_chiheisen.md) — 認識可能性の地平——自己言及が引き起こす原理的限界の地図
 - [wiim_101](../cosmology/wiim_101.md) — 星は銀河の歌を聞くが、隣の星の歌は聞こえない
 - [wiim_126](../cosmology/wiim_126.md) — 時空は生きているか——単一生物仮説とクダクラゲ型群体仮説
+- [wiim_141](wiim_141.md) — 物質とエネルギーは作用に還るか——質量は「作用が刻まれる速さ」であり、思考は作用で測れる
 

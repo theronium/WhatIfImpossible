@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **523**
+用語数: **532**
 
 ---
 
@@ -45,16 +45,26 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g535 | [ブレーンヘリクス](wiim-engineering.md) | Brane Helix | wiim-engineering |
+| g534 | [ガオ＝ウォルドの定理](physics.md) | Gao–Wald Theorem | physics |
+| g533 | [ゴットのタイムマシン](physics.md) | Gott Time Machine | physics |
+| g532 | [反ド・ジッター空間](physics.md) | Anti-de Sitter Space | physics |
+| g531 | [年代保護仮説](physics.md) | Chronology Protection Conjecture | physics |
+| g530 | [マーゴラス＝レヴィティンの定理](quantum.md) | Margolus–Levitin Theorem | quantum |
+| g529 | [経路積分](quantum.md) | Path Integral | quantum |
+| g528 | [プランク定数](quantum.md) | Planck Constant | quantum |
+| g527 | [作用（物理量）](physics.md) | Action | physics |
 | g526 | [ダークエネルギーアンカーホール](wiim-engineering.md) | Dark Energy Anchor Hole | wiim-engineering |
-| g525 | [クラスニコフ管](sf-concepts.md) | Krasnikov Tube | sf-concepts |
-| g524 | [バルク空間](particle.md) | Bulk | particle |
-| g523 | [ブレーンワールド](particle.md) | Brane World | particle |
-| g522 | [エキピロティック宇宙論](astronomy.md) | Ekpyrotic Universe | astronomy |
-| g521 | [D-ブレーン](particle.md) | D-brane | particle |
-| g520 | [無の泡](particle.md) | Bubble of Nothing | particle |
-| g519 | [世界線](physics.md) | World Line | physics |
-| g518 | [バリオン数生成](particle.md) | Baryogenesis | particle |
-| g517 | [レプトン数](particle.md) | Lepton Number | particle |
+
+
+
+
+
+
+
+
+
+
 
 
 
