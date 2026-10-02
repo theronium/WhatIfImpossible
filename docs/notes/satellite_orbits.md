@@ -133,3 +133,4 @@ L2は地球の影に入らず太陽・地球・月から等距離に近い安定
 - [アナレンマ](../../glossary/terms/g353.md)（g353）
 - [ラグランジュポイント](../../glossary/terms/g049.md)（g049）
 - [天体質量の測定手法と静止軌道パラメータの導出](kepler_geostationary_derivation.md)— 静止軌道半径の計算
+- [軌道傾斜角はどう決まるか](orbital_inclination_logic.md)— GPS 55°・GTO 28.5°・ISS 51.6°などの角度の根拠

@@ -17,5 +17,8 @@
     "markdown-it": "^14.2.0",
     "simple-git": "^3.27.0",
     "ws": "^8.18.0"
+  },
+  "overrides": {
+    "sharp": "^0.35.4"
   }
 }

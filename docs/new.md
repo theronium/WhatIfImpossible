@@ -4,10 +4,14 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-10-02 | 用語 | g547 | [静止トランスファ軌道（Geostationary Transfer Orbit）](../glossary/astronomy.md#g547) |
+| 2026-10-02 | 用語 | g546 | [臨界傾斜角（Critical Inclination）](../glossary/astronomy.md#g546) |
+| 2026-10-02 | 用語 | g545 | [軌道傾斜角（Orbital Inclination）](../glossary/astronomy.md#g545) |
 | 2026-10-02 | 用語 | g544 | [ウンルー効果（Unruh Effect）](../glossary/quantum.md#g544) |
 | 2026-10-02 | 用語 | g543 | [真空複屈折（Vacuum Birefringence）](../glossary/quantum.md#g543) |
 | 2026-10-02 | 用語 | g542 | [マグネター（Magnetar）](../glossary/astronomy.md#g542) |
 | 2026-10-02 | 用語 | g541 | [QED（量子電磁力学）（Quantum Electrodynamics）](../glossary/quantum.md#g541) |
+| 2026-10-02 | 補遺 | — | [軌道傾斜角はどう決まるか——物理・発射場・運用の三つの制約](notes/orbital_inclination_logic.md) |
 | 2026-10-01 | 記事 | wiim_143 | [思考の重力波化——膜の外へ出た思考は自我か、作用の履歴は相似を越えて残るか](philosophy/wiim_143.md) |
 | 2026-10-01 | 記事 | wiim_142 | [膜の螺旋階段——複数のブレーンを巡って、出発より前に落ちてこられるか](cosmology/wiim_142.md) |
 | 2026-10-01 | 記事 | wiim_141 | [物質とエネルギーは作用に還るか——質量は「作用が刻まれる速さ」であり、思考は作用で測れる](physics/wiim_141.md) |
@@ -50,7 +54,3 @@
 | 2026-09-28 | 用語 | g512 | [クォークの閉じ込め（Quark Confinement）](../glossary/particle.md#g512) |
 | 2026-09-18 | 記事 | wiim_135 | [フォノンはヘリウムになれるか——ボース統計が阻む複合粒子化](physics/wiim_135.md) |
 | 2026-09-18 | 記事 | wiim_134 | [負の慣性質量に絶対零度はあるか——エネルギーの底なし問題と真空崩壊](physics/wiim_134.md) |
-| 2026-09-18 | 記事 | wiim_133 | [ディコトロン——等価原理を破れば反重力物質は原子のまま浮遊できるか](physics/wiim_133.md) |
-| 2026-09-18 | 記事 | wiim_132 | [反重力原子は成立するか——負質量クォーク・電子と「4つの力」すべての反転](physics/wiim_132.md) |
-| 2026-09-18 | 用語 | g511 | [ボゾン星（Boson Star）](../glossary/speculative.md#g511) |
-| 2026-09-18 | 用語 | g510 | [ディスクリート・ブリーザー（Discrete Breather (Intrinsic Localized Mode)）](../glossary/quantum.md#g510) |

@@ -73,6 +73,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_130_negoton_attraction_routes.md](wiim_130_negoton_attraction_routes.md) | ネゴトン間引力化の4つの経路——複素位相・一点コンパクト化・ブレーンワールド膜・場の異方性改変 | 2026-09-17 | 2026-09-17 |
 | [universe_hierarchy_civilization_ladder.md](universe_hierarchy_civilization_ladder.md) | 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案 | 2026-09-29 | 2026-09-29 |
 | [wiim_142_brane_helix_relic.md](wiim_142_brane_helix_relic.md) | ブレーンヘリクス遺構説——先行文明のワープ装置は、時間を遡る装置でもあったか | 2026-10-01 | 2026-10-01 |
+| [orbital_inclination_logic.md](orbital_inclination_logic.md) | 軌道傾斜角はどう決まるか——物理・発射場・運用の三つの制約 | 2026-10-02 | 2026-10-02 |
 
 ---
 
