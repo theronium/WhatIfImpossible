@@ -15,10 +15,11 @@
     "express": "^4.18.3",
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.2.0",
-    "simple-git": "^3.27.0",
+    "simple-git": "^4.0.2",
     "ws": "^8.18.0"
   },
   "overrides": {
-    "sharp": "^0.35.4"
+    "sharp": "^0.35.4",
+    "katex": "^0.18.2"
   }
 }

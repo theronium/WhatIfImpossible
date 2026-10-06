@@ -1,7 +1,7 @@
 import express from 'express';
 import { WebSocketServer } from 'ws';
 import chokidar from 'chokidar';
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 import matter from 'gray-matter';
 import fs from 'fs/promises';
 import { existsSync } from 'fs';
