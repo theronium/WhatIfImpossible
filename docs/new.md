@@ -4,6 +4,11 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-10-09 | 用語 | g549 | [等価原理（Equivalence Principle）](../glossary/physics.md#g549) |
+| 2026-10-09 | 用語 | g548 | [準粒子（Quasiparticle）](../glossary/quantum.md#g548) |
+| 2026-10-08 | 記事 | wiim_146 | [光は空間の音か——動いているのは光子か、空間か](cosmology/wiim_146.md) |
+| 2026-10-08 | 記事 | wiim_145 | [時間の外への退避——時計と相関しないラベルで「何も経たずに戻る」ことはできるか](quantum/wiim_145.md) |
+| 2026-10-08 | 記事 | wiim_144 | [鏡像セクター変換による壁抜け——排他原理の壁を「ラベルの統一」で越えられるか](physics/wiim_144.md) |
 | 2026-10-02 | 用語 | g547 | [静止トランスファ軌道（Geostationary Transfer Orbit）](../glossary/astronomy.md#g547) |
 | 2026-10-02 | 用語 | g546 | [臨界傾斜角（Critical Inclination）](../glossary/astronomy.md#g546) |
 | 2026-10-02 | 用語 | g545 | [軌道傾斜角（Orbital Inclination）](../glossary/astronomy.md#g545) |
@@ -49,8 +54,3 @@
 | 2026-09-28 | 用語 | g517 | [レプトン数（Lepton Number）](../glossary/particle.md#g517) |
 | 2026-09-28 | 用語 | g516 | [バリオン数（Baryon Number）](../glossary/particle.md#g516) |
 | 2026-09-28 | 用語 | g515 | [格子ゲージ理論（Lattice Gauge Theory）](../glossary/particle.md#g515) |
-| 2026-09-28 | 用語 | g514 | [シュウィンガー機構（Schwinger Mechanism）](../glossary/particle.md#g514) |
-| 2026-09-28 | 用語 | g513 | [弦切断（String Breaking）](../glossary/particle.md#g513) |
-| 2026-09-28 | 用語 | g512 | [クォークの閉じ込め（Quark Confinement）](../glossary/particle.md#g512) |
-| 2026-09-18 | 記事 | wiim_135 | [フォノンはヘリウムになれるか——ボース統計が阻む複合粒子化](physics/wiim_135.md) |
-| 2026-09-18 | 記事 | wiim_134 | [負の慣性質量に絶対零度はあるか——エネルギーの底なし問題と真空崩壊](physics/wiim_134.md) |

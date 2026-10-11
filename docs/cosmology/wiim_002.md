@@ -107,4 +107,5 @@ flowchart TD
 - [hac_replistar_plan](../notes/hac_replistar_plan.md) — HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要
 - [wiim_076](wiim_076.md) — 投射の停止——静かな対消滅は宇宙の外側を映す影か
 - [wiim_090](wiim_090.md) — クロノスフィア時空メタマテリアルシールド——散乱粒子の角運動変換が形成する自己駆動型磁気シールド
+- [wiim_145](../quantum/wiim_145.md) — 時間の外への退避——時計と相関しないラベルで「何も経たずに戻る」ことはできるか
 

@@ -59,7 +59,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_089_neglaser_er_bridge.md](wiim_089_neglaser_er_bridge.md) | ネグレーザーによるER橋安定化——ホロウゲイザーとの役割分担 | 2026-05-02 | 2026-05-02 |
 | [astronomical_distance_history.md](astronomical_distance_history.md) | 天体距離測定の歴史——地球の大きさから太陽系スケールへ | 2026-05-03 | 2026-05-03 |
 | [astronomical_units.md](astronomical_units.md) | 天文学の単位一覧——距離・質量・角度・明るさ | 2026-05-03 | 2026-05-03 |
-| [satellite_orbits.md](satellite_orbits.md) | 人工衛星の特殊軌道——太陽同期・モルニア・ハロー軌道と軌道選択の論理 | 2026-05-05 | 2026-05-05 |
+| [satellite_orbits.md](satellite_orbits.md) | 人工衛星の特殊軌道——太陽同期・モルニア・ハロー軌道と軌道選択の論理 | 2026-05-05 | 2026-10-02 |
 | [kepler_geostationary_derivation.md](kepler_geostationary_derivation.md) | 天体質量の測定手法と静止軌道パラメータの導出 | 2026-05-09 | 2026-05-09 |
 | [space_thermal_radiation.md](space_thermal_radiation.md) | 宇宙空間・真空における放熱技術 | 2026-05-09 | 2026-05-09 |
 | [wiim_109_dissipative_wave.md](wiim_109_dissipative_wave.md) | 散逸構造・フラクタル均衡・永続する波——wiim_109補遺 | 2026-06-18 | 2026-06-18 |
@@ -82,4 +82,4 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | ファイル | タイトル | 登録 | 更新 |
 |---------|---------|------|------|
 | [tech_tree_megastructure.md](tech_tree_megastructure.md) | 技術ツリー — メガストラクチャー・宇宙インフラ系 | 2026-07-26 | 2026-07-26 |
-| [tech_tree_brane.md](tech_tree_brane.md) | 技術ツリー — ブレーン宇宙移動系ブランチ | 2026-10-01 | 2026-10-01 |
+| [tech_tree_brane.md](tech_tree_brane.md) | 技術ツリー — ブレーン宇宙移動系ブランチ | 2026-10-01 | 2026-10-08 |

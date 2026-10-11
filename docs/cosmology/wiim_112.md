@@ -151,4 +151,5 @@ flowchart TD
 - [wiim_032 — コーラバブルワープ](../physics/wiim_032.md)
 - [wiim_079 — ギャラクシードライブ](wiim_079.md)
 - [wiim_008_silent_guardian](../notes/wiim_008_silent_guardian.md) — コズミックマイスの静寂な守護——力場検知器官による恒星系防衛の構造
+- [wiim_146](wiim_146.md) — 光は空間の音か——動いているのは光子か、空間か
 

@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **544**
+用語数: **546**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g549 | [等価原理](physics.md) | Equivalence Principle | physics |
+| g548 | [準粒子](quantum.md) | Quasiparticle | quantum |
 | g547 | [静止トランスファ軌道](astronomy.md) | Geostationary Transfer Orbit | astronomy |
 | g546 | [臨界傾斜角](astronomy.md) | Critical Inclination | astronomy |
 | g545 | [軌道傾斜角](astronomy.md) | Orbital Inclination | astronomy |
@@ -53,8 +55,10 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g542 | [マグネター](astronomy.md) | Magnetar | astronomy |
 | g541 | [QED（量子電磁力学）](quantum.md) | Quantum Electrodynamics | quantum |
 | g540 | [因果的排除論証](philosophy.md) | Causal Exclusion Argument | philosophy |
-| g539 | [組織不変性の原理](philosophy.md) | Principle of Organizational Invariance | philosophy |
-| g538 | [多重実現可能性](philosophy.md) | Multiple Realizability | philosophy |
+
+
+
+
 
 
 
