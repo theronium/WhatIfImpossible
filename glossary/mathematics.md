@@ -313,7 +313,7 @@ e の最大の特徴は「e^x を微分しても e^x のまま変わらない」
 **読み**: ねーたーのていり
 **別名**: ネーター定理
 **分野**: 数理物理学・対称性理論
-**関連記事**: [ゲージ理論](particle.md#g492), [wiim_020](../docs/physics/wiim_020.md), [wiim_141](../docs/physics/wiim_141.md)
+**関連記事**: [ゲージ理論](particle.md#g492), [wiim_020](../docs/physics/wiim_020.md), [wiim_141](../docs/physics/wiim_141.md), [wiim_148](../docs/cosmology/wiim_148.md)
 
 物理系に連続的な対称性があれば、それに対応する保存量が必ず存在するという[定理](mathematics.md)。1915年にドイツの数学者エミー・ネーターが証明した。アインシュタインが「これまで生きた最も重要な女性数学者」と評したネーターの最大の[業](philosophy.md)績で、現代物理学の基盤をなす。
 

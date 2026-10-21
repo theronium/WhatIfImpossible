@@ -364,6 +364,21 @@ WhatIfImpossibleの思考実験（[wiim_025](../docs/biology/wiim_025.md)）で�
 
 ---
 
+<a id="g551"></a>
+## 真空崩壊の庭（Garden of Vacuum Decay）
+
+**読み**: しんくうほうかいのにわ
+**分野**: 宇宙論・WIIM独自概念
+**関連記事**: [wiim_148](../docs/cosmology/wiim_148.md), [wiim_147](../docs/quantum/wiim_147.md)
+
+WhatIfImpossibleで命名した概念。偽の真空が空間の引き伸ばしによって自分を複製し続け、ところどころで[真空崩壊](quantum.md)を起こして泡（宇宙）を生み、その差分を光と物質に変え続ける構図を、花の咲き続ける庭にたとえたもの。
+
+庭の土は偽の真空、土地の起伏は[弦理論](particle.md)のランドスケープ（真空の谷の配置）、咲く花は崩壊の泡とその中の[ビッグバン](astronomy.md)にあたる。ランドスケープが谷の配置を表す静止した地図であるのに対し、庭という呼び方は、複製と崩壊が続く時間的な営みを強調する。物理的には[永久インフレーション](speculative.md)の描像に対応する。
+
+[wiim_148](../docs/cosmology/wiim_148.md) では、この庭に住む知性を、別の泡にいる「隣の花の住人」、子宇宙を植える「庭師」、足元で崩壊を起こす「花を咲かせる者」の三通りに分け、[フェルミのパラドックス](sf-concepts.md)への答えとして論じている。
+
+---
+
 <a id="g398"></a>
 ## 生体マグノニクス（Bio-Magnonics）
 
@@ -432,7 +447,7 @@ WhatIfImpossibleの思考実験（[wiim_025](../docs/biology/wiim_025.md)）で�
 
 **読み**: とぽろふぃ
 **分野**: 架空場・時空トポロジー物理学
-**関連記事**: [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_124](../docs/physics/wiim_124.md)
+**関連記事**: [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_124](../docs/physics/wiim_124.md), [wiim_149](../docs/physics/wiim_149.md)
 
 WhatIfImpossibleの思考実験から命名された架空の場。「[トポロジー](physics.md)（topology）」と場を表す[ギリシャ文字](mathematics.md)「φ（phi）」を組み合わせた造語で、時空の多様体そのものの接続形式——どの点とどの点がつながっているか——を決定する場として定義される。
 
@@ -447,7 +462,7 @@ WhatIfImpossibleの思考実験から命名された架空の場。「[トポロ
 
 **読み**: とぽろん
 **分野**: 架空粒子・時空トポロジー物理学
-**関連記事**: [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_124](../docs/physics/wiim_124.md)
+**関連記事**: [wiim_074](../docs/physics/wiim_074.md), [wiim_077](../docs/physics/wiim_077.md), [wiim_089](../docs/cosmology/wiim_089.md), [wiim_097](../docs/physics/wiim_097.md), [wiim_124](../docs/physics/wiim_124.md), [wiim_149](../docs/physics/wiim_149.md)
 
 [トポロフィ](wiim-concepts.md)（g293）の局所的励起として定義される架空の事象。「[トポロジー](physics.md)（topology）」と素粒子の接尾辞「-on」を組み合わせた造語だが、通常の粒子とは本質的に異なる——多様体の上に乗る「値」ではなく、多様体の接続形式を書き換える「操作」に相当する。
 

@@ -37,7 +37,7 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 説明文
 ```
 
-用語数: **546**
+用語数: **548**
 
 ---
 
@@ -45,6 +45,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 
 | ID | 用語 | English | カテゴリ |
 |----|------|---------|----------|
+| g551 | [真空崩壊の庭](wiim-concepts.md) | Garden of Vacuum Decay | wiim-concepts |
+| g550 | [ゲルツェンシュタイン効果](physics.md) | Gertsenshtein Effect | physics |
 | g549 | [等価原理](physics.md) | Equivalence Principle | physics |
 | g548 | [準粒子](quantum.md) | Quasiparticle | quantum |
 | g547 | [静止トランスファ軌道](astronomy.md) | Geostationary Transfer Orbit | astronomy |
@@ -53,8 +55,8 @@ SF・物理学・宇宙論・哲学・生物学にまたがる用語を収録し
 | g544 | [ウンルー効果](quantum.md) | Unruh Effect | quantum |
 | g543 | [真空複屈折](quantum.md) | Vacuum Birefringence | quantum |
 | g542 | [マグネター](astronomy.md) | Magnetar | astronomy |
-| g541 | [QED（量子電磁力学）](quantum.md) | Quantum Electrodynamics | quantum |
-| g540 | [因果的排除論証](philosophy.md) | Causal Exclusion Argument | philosophy |
+
+
 
 
 

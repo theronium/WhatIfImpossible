@@ -4,6 +4,12 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-10-19 | 記事 | wiim_149 | [トポロジカルトランスレーション——空間を入れ替えれば、重ならずに壁の向こうへ移れるか](physics/wiim_149.md) |
+| 2026-10-18 | 補遺 | — | [壁抜けが日常化した世界——建築・防犯・戦争・事故](notes/wiim_144_wall_passing_society.md) |
+| 2026-10-12 | 記事 | wiim_148 | [真空崩壊の庭——偽の真空は崩れながら宇宙を咲かせ続けるか、そこに住人はいるか](cosmology/wiim_148.md) |
+| 2026-10-12 | 記事 | wiim_147 | [時間を持たない光は、時間の変化から生まれる——空間を叩けば光は鳴るか](quantum/wiim_147.md) |
+| 2026-10-12 | 用語 | g551 | [真空崩壊の庭（Garden of Vacuum Decay）](../glossary/wiim-concepts.md#g551) |
+| 2026-10-12 | 用語 | g550 | [ゲルツェンシュタイン効果（Gertsenshtein Effect）](../glossary/physics.md#g550) |
 | 2026-10-09 | 用語 | g549 | [等価原理（Equivalence Principle）](../glossary/physics.md#g549) |
 | 2026-10-09 | 用語 | g548 | [準粒子（Quasiparticle）](../glossary/quantum.md#g548) |
 | 2026-10-08 | 記事 | wiim_146 | [光は空間の音か——動いているのは光子か、空間か](cosmology/wiim_146.md) |
@@ -48,9 +54,3 @@
 | 2026-09-28 | 記事 | wiim_136 | [ブレーン宇宙の移動——膜に閉じ込められた物質は隣の宇宙へ渡れるか](cosmology/wiim_136.md) |
 | 2026-09-28 | 用語 | g522 | [エキピロティック宇宙論（Ekpyrotic Universe）](../glossary/astronomy.md#g522) |
 | 2026-09-28 | 用語 | g521 | [D-ブレーン（D-brane）](../glossary/particle.md#g521) |
-| 2026-09-28 | 用語 | g520 | [無の泡（Bubble of Nothing）](../glossary/particle.md#g520) |
-| 2026-09-28 | 用語 | g519 | [世界線（World Line）](../glossary/physics.md#g519) |
-| 2026-09-28 | 用語 | g518 | [バリオン数生成（Baryogenesis）](../glossary/particle.md#g518) |
-| 2026-09-28 | 用語 | g517 | [レプトン数（Lepton Number）](../glossary/particle.md#g517) |
-| 2026-09-28 | 用語 | g516 | [バリオン数（Baryon Number）](../glossary/particle.md#g516) |
-| 2026-09-28 | 用語 | g515 | [格子ゲージ理論（Lattice Gauge Theory）](../glossary/particle.md#g515) |

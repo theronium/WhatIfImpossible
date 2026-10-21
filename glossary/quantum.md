@@ -22,7 +22,7 @@
 
 **読み**: うんるーこうか
 **分野**: 量子場理論・一般相対論
-**関連記事**: [ホーキング放射](quantum.md#g248), [wiim_146](../docs/cosmology/wiim_146.md)
+**関連記事**: [ホーキング放射](quantum.md#g248), [wiim_146](../docs/cosmology/wiim_146.md), [wiim_147](../docs/quantum/wiim_147.md)
 
 加速度運動をする観測者にとっては、本来は何もないはずの真空が、熱放射で満たされた熱浴のように観測されるとする理論的な予言。1976年にビル・ウンルーが提唱した。
 
@@ -96,7 +96,7 @@
 **読み**: かしみーるこうか
 **別名**: カシミール力
 **分野**: 量子場理論
-**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_014](../docs/physics/wiim_014.md), [wiim_028](../docs/cosmology/wiim_028.md), [wiim_030](../docs/physics/wiim_030.md), [wiim_031](../docs/physics/wiim_031.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_067](../docs/physics/wiim_067.md), [wiim_124](../docs/physics/wiim_124.md)
+**関連記事**: [wiim_003](../docs/physics/wiim_003.md), [wiim_014](../docs/physics/wiim_014.md), [wiim_028](../docs/cosmology/wiim_028.md), [wiim_030](../docs/physics/wiim_030.md), [wiim_031](../docs/physics/wiim_031.md), [wiim_065](../docs/physics/wiim_065.md), [wiim_067](../docs/physics/wiim_067.md), [wiim_124](../docs/physics/wiim_124.md), [wiim_147](../docs/quantum/wiim_147.md)
 
 二枚の導電板を真空中で極めて近くに置いたとき、板の間に引力（または斥力）が生じる現象。1948年にヘンドリック・カシミールが予言し、実験で確認された。
 
@@ -260,7 +260,7 @@
 **読み**: しんくうほうかい
 **別名**: 偽真空崩壊 / フォールスバキューム
 **分野**: 量子場理論・宇宙論
-**関連記事**: [wiim_014](../docs/physics/wiim_014.md), [wiim_125](../docs/physics/wiim_125.md), [wiim_126](../docs/cosmology/wiim_126.md), [wiim_127](../docs/physics/wiim_127.md), [wiim_137](../docs/cosmology/wiim_137.md)
+**関連記事**: [wiim_014](../docs/physics/wiim_014.md), [wiim_125](../docs/physics/wiim_125.md), [wiim_126](../docs/cosmology/wiim_126.md), [wiim_127](../docs/physics/wiim_127.md), [wiim_137](../docs/cosmology/wiim_137.md), [wiim_148](../docs/cosmology/wiim_148.md)
 
 現在の宇宙の真空状態（ヒッグス場の値）が「偽の真空」であり、より低いエネルギーを持つ「真の真空」状態へと相転移する可能性を指す。
 
@@ -459,7 +459,7 @@ EITが生じる狭い透明窓の内部では屈折率が周波数に対して�
 **読み**: ぱうりのはいたげんり
 **別名**: パウリの排他律 / 排他原理 / 排他律
 **分野**: 量子力学・素粒子物理学
-**関連記事**: [wiim_135](../docs/physics/wiim_135.md), [wiim_144](../docs/physics/wiim_144.md)
+**関連記事**: [wiim_135](../docs/physics/wiim_135.md), [wiim_144](../docs/physics/wiim_144.md), [wiim_149](../docs/physics/wiim_149.md)
 
 同一の量子系において、二つ以上のフェルミオン（スピンが半整数の粒子）が完全に同じ量子状態を占めることはできないという[原理](physics.md)。1925年にオーストリアの物理学者ヴォルフガング・パウリが提唱した。
 
@@ -583,7 +583,7 @@ EITが生じる狭い透明窓の内部では屈折率が周波数に対して�
 
 **読み**: ほーきんぐほうしゃ
 **分野**: 量子重力・熱力学
-**関連記事**: [wiim_014](../docs/physics/wiim_014.md), [wiim_049](../docs/physics/wiim_049.md), [wiim_050](../docs/quantum/wiim_050.md)
+**関連記事**: [wiim_014](../docs/physics/wiim_014.md), [wiim_049](../docs/physics/wiim_049.md), [wiim_050](../docs/quantum/wiim_050.md), [wiim_147](../docs/quantum/wiim_147.md)
 
 ブラックホールの事象の地平面付近で量子効果によって生じる熱的放射。1974年にスティーヴン・ホーキングが理論的に予言した。量子場理論では、真空中で対生成した粒子と反粒子の一方が事象の地平面の内側へ落ち込み、もう一方が外部へ放射されることで、ブラックホールがエネルギーを失いながら熱放射を行うとされる。
 
@@ -751,7 +751,7 @@ WIIMでは[創発](philosophy.md)検知（Δφ測定）の理論的背景とし�
 **読み**: りょうしてれぽーてーしょん
 **別名**: 量子転送
 **分野**: 量子情報・量子通信
-**関連記事**: [wiim_143](../docs/philosophy/wiim_143.md), [wiim_145](../docs/quantum/wiim_145.md)
+**関連記事**: [wiim_143](../docs/philosophy/wiim_143.md), [wiim_145](../docs/quantum/wiim_145.md), [wiim_149](../docs/physics/wiim_149.md)
 
 [量子もつれ](quantum.md)を利用して、ある場所にある粒子の量子状態を別の場所に転送するプロトコル。SF的な「物質の瞬間移動」とは根本的に異なり、転送されるのは**量子状態の情報**であって粒子そのものではない。
 
@@ -766,7 +766,7 @@ WIIMでは[創発](philosophy.md)検知（Δφ測定）の理論的背景とし�
 
 **読み**: りょうしでんじりきがく
 **分野**: 量子場理論・電磁気学
-**関連記事**: [カシミール効果](quantum.md#g009), [真空複屈折](quantum.md#g543), [wiim_146](../docs/cosmology/wiim_146.md)
+**関連記事**: [カシミール効果](quantum.md#g009), [真空複屈折](quantum.md#g543), [wiim_146](../docs/cosmology/wiim_146.md), [wiim_147](../docs/quantum/wiim_147.md)
 
 光（[光子](quantum.md)）と電子のような荷電粒子が、光子のやり取りを通じてどのように相互[作用](physics.md)するかを記述する量子論。電磁気力を[量子力学](quantum.md)と特殊[相対論](physics.md)を組み合わせて定式化したもので、理論値と実験値が10桁以上の精度で一致することから、物理学の理論の中でも特に精密に検証された理論のひとつとされる。
 

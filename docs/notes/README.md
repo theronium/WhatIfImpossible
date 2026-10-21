@@ -74,6 +74,7 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [universe_hierarchy_civilization_ladder.md](universe_hierarchy_civilization_ladder.md) | 宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案 | 2026-09-29 | 2026-09-29 |
 | [wiim_142_brane_helix_relic.md](wiim_142_brane_helix_relic.md) | ブレーンヘリクス遺構説——先行文明のワープ装置は、時間を遡る装置でもあったか | 2026-10-01 | 2026-10-01 |
 | [orbital_inclination_logic.md](orbital_inclination_logic.md) | 軌道傾斜角はどう決まるか——物理・発射場・運用の三つの制約 | 2026-10-02 | 2026-10-02 |
+| [wiim_144_wall_passing_society.md](wiim_144_wall_passing_society.md) | 壁抜けが日常化した世界——建築・防犯・戦争・事故 | 2026-10-18 | 2026-10-18 |
 
 ---
 

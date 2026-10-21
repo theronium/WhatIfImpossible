@@ -514,7 +514,7 @@ J.リチャード・ゴットと李立新が1998年の論文「Can the Universe 
 **読み**: じゅうりょくは
 **別名**: 重力波 / GW
 **分野**: 一般相対性理論・観測天文学
-**関連記事**: [重力波検出器](astronomy.md#g073), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_009](../docs/cosmology/wiim_009.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_020](../docs/physics/wiim_020.md), [wiim_072](../docs/quantum/wiim_072.md), [wiim_143](../docs/philosophy/wiim_143.md)
+**関連記事**: [重力波検出器](astronomy.md#g073), [wiim_004](../docs/cosmology/wiim_004.md), [wiim_009](../docs/cosmology/wiim_009.md), [wiim_010](../docs/physics/wiim_010.md), [wiim_020](../docs/physics/wiim_020.md), [wiim_072](../docs/quantum/wiim_072.md), [wiim_143](../docs/philosophy/wiim_143.md), [wiim_147](../docs/quantum/wiim_147.md), [wiim_148](../docs/cosmology/wiim_148.md)
 
 巨大な質量が加速度運動するとき、時空の歪みが波として光速で伝播する現象。アインシュタインが[一般相対性理論](physics.md)から予言し、2015年にLIGO（レーザー干渉計重力波観測所）が初めて直接観測した。
 
@@ -705,7 +705,7 @@ JWSTや[ハッブル宇宙望遠鏡](astronomy.md)は銀河団を「自然の望
 **読み**: せきほうへんい
 **別名**: レッドシフト
 **分野**: 天文学・観測宇宙論
-**関連記事**: [wiim_141](../docs/physics/wiim_141.md)
+**関連記事**: [wiim_141](../docs/physics/wiim_141.md), [wiim_147](../docs/quantum/wiim_147.md), [wiim_148](../docs/cosmology/wiim_148.md)
 
 光源が観測者から遠ざかるとき、ドップラー効果によって光の波長が長くなり、スペクトルが赤い方向にずれる現象。宇宙膨張の証拠として観測に使われる。遠い[銀河](astronomy.md)ほど赤方偏移が大きく、つまり速く遠ざかっている（ハッブルの法則）。
 
