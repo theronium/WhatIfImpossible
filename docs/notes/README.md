@@ -23,9 +23,9 @@
 | [wiim_054_simulator.md](wiim_054_simulator.md) | シミュレータの内側ではカオスの創発文法は自明になる | wiim_054 | 2026-03-28 | 2026-03-28 |
 | [wiim_025_chronosphere_shell.md](wiim_025_chronosphere_shell.md) | シェルマイセリウム移動式クロノスフィア炉——球殻内部空間を時間加速させる条件 | wiim_025, wiim_058, wiim_002 | 2026-04-04 | 2026-04-04 |
 | [wiim_022_cosmic_ring.md](wiim_022_cosmic_ring.md) | 恒星系規模の慣性計測網——菌糸リングレーザーとアンキロン固定型リングレーザー | — | 2026-04-05 | 2026-04-05 |
-| [wiim_022_traffic_patrol.md](wiim_022_traffic_patrol.md) | アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用 | wiim_022 | 2026-04-26 | 2026-04-26 |
 | [chaos_demon_foundation.md](chaos_demon_foundation.md) | カオスの悪魔と創発文法——ラプラスの悪魔の論理的継承と無謬性への経路 | — | 2026-05-06 | 2026-05-06 |
 | [mice_swarm_thermal.md](mice_swarm_thermal.md) | マイススウォームとスノーライン内熱収支逆転 | wiim_008, wiim_025, wiim_083, wiim_084 | 2026-07-04 | 2026-07-04 |
+| [wiim_022_traffic_patrol.md](wiim_022_traffic_patrol.md) | アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用 | wiim_022 | 2026-10-27 | 2026-10-27 |
 
 ---
 
@@ -36,7 +36,6 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | ファイル | タイトル | 登録 | 更新 |
 |---------|---------|------|------|
 | [political_structure.md](political_structure.md) | WhatIfImpossible 政治体制メモ | 2026-03-24 | 2026-03-24 |
-| [forbidden_zone_treaty.md](forbidden_zone_treaty.md) | 禁域条約——宇宙戦争を終わらせた二国消滅事件 | 2026-03-25 | 2026-03-25 |
 | [economy_um_currency.md](economy_um_currency.md) | 世界観：UM通貨制度とエキゾチック物質単価 | 2026-03-25 | 2026-03-25 |
 | [cosmic_mice_godview_game.md](cosmic_mice_godview_game.md) | 世界観メモ：コズミックマイス惑星観測——ゴッドビューゲームとしてのWIIM | 2026-03-26 | 2026-03-26 |
 | [ancient_beings_cosmic_horror.md](ancient_beings_cosmic_horror.md) | 世界観メモ：WIIM宇宙の古代存在——コズミックホラーの系譜 | 2026-03-26 | 2026-03-26 |
@@ -50,7 +49,6 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_002_rotation_principle.md](wiim_002_rotation_principle.md) | クロノスフィアの回転原理——粒子・光子シェルによる時間差生成 | 2026-04-05 | 2026-04-05 |
 | [hac_replistar_plan.md](hac_replistar_plan.md) | HaC・RepliStar 計画書——宇宙居住可能天体計画と人工恒星計画の概要 | 2026-04-05 | 2026-04-05 |
 | [cosmic_myce_religion.md](cosmic_myce_religion.md) | コズミックマイスをめぐる信仰と社会 | 2026-04-14 | 2026-04-14 |
-| [mycelian_horror.md](mycelian_horror.md) | マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈 | 2026-04-14 | 2026-04-14 |
 | [ninshiki_chiheisen.md](ninshiki_chiheisen.md) | 認識可能性の地平——自己言及が引き起こす原理的限界の地図 | 2026-04-18 | 2026-04-18 |
 | [particle_hierarchy.md](particle_hierarchy.md) | 素粒子・複合粒子の分類階層 | 2026-04-19 | 2026-04-19 |
 | [engineering_shapes.md](engineering_shapes.md) | 工学的幾何構造一覧 | 2026-04-24 | 2026-04-24 |
@@ -78,6 +76,8 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [crystal_polymorphs.md](crystal_polymorphs.md) | 同じ元素、別の物質——結晶多形と「本来は存在できない構造」の閉じ込め方 | 2026-10-23 | 2026-10-23 |
 | [metamaterials_catalog.md](metamaterials_catalog.md) | 面白いメタマテリアル図鑑——「材料の限界」を形で超える構造たち | 2026-10-23 | 2026-10-23 |
 | [wiim_150_old_humanity.md](wiim_150_old_humanity.md) | 旧人類が育てられなくなる世界——感応者への静かな代替わり | 2026-10-24 | 2026-10-24 |
+| [forbidden_zone_treaty.md](forbidden_zone_treaty.md) | 禁域条約——宇宙戦争を終わらせた二国消滅事件 | 2026-10-27 | 2026-10-27 |
+| [mycelian_horror.md](mycelian_horror.md) | マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈 | 2026-10-27 | 2026-10-27 |
 
 ---
 

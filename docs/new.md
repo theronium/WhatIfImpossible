@@ -4,6 +4,9 @@
 
 | 日付 | 種別 | ID | タイトル / 用語名 |
 |------|------|-----|-----------------|
+| 2026-10-27 | 補遺 | — | [禁域条約——宇宙戦争を終わらせた二国消滅事件](notes/forbidden_zone_treaty.md) |
+| 2026-10-27 | 補遺 | — | [補遺：アンキロンを用いたワープ取り締まり——宇宙交通課の組織と運用](notes/wiim_022_traffic_patrol.md) |
+| 2026-10-27 | 補遺 | — | [マイセリアン・パニック——菌糸支配の恐怖と合一派の解釈](notes/mycelian_horror.md) |
 | 2026-10-24 | 記事 | wiim_150 | [コズミックマイスに「消えた多形」は起きるか——結晶の種が菌糸網を伝うとき](biology/wiim_150.md) |
 | 2026-10-24 | 補遺 | — | [旧人類が育てられなくなる世界——感応者への静かな代替わり](notes/wiim_150_old_humanity.md) |
 | 2026-10-23 | 補遺 | — | [同じ元素、別の物質——結晶多形と「本来は存在できない構造」の閉じ込め方](notes/crystal_polymorphs.md) |
@@ -51,6 +54,3 @@
 | 2026-09-30 | 用語 | g526 | [ダークエネルギーアンカーホール（Dark Energy Anchor Hole）](../glossary/wiim-engineering.md#g526) |
 | 2026-09-30 | 用語 | g525 | [クラスニコフ管（Krasnikov Tube）](../glossary/sf-concepts.md#g525) |
 | 2026-09-29 | 記事 | wiim_138 | [膜の裏側の物理——表から見ると破れる法則と、ダークマターとしての裏の世界](cosmology/wiim_138.md) |
-| 2026-09-29 | 用語 | g524 | [バルク空間（Bulk）](../glossary/particle.md#g524) |
-| 2026-09-29 | 用語 | g523 | [ブレーンワールド（Brane World）](../glossary/particle.md#g523) |
-| 2026-09-29 | 補遺 | — | [宇宙の階層と文明の階梯——宇宙系・宇宙団と「宇宙の外へ行ける文明」の定義案](notes/universe_hierarchy_civilization_ladder.md) |
