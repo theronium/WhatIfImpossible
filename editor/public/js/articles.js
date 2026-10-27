@@ -9,7 +9,7 @@ function renderList(list) {
   const el = document.getElementById('article-list');
   el.innerHTML = '';
   const grouped = {};
-  list.filter(a => !a.path.startsWith('notes/')).forEach(a => {
+  list.filter(a => isArticlePath(a.path)).forEach(a => {
     const cat = (a.category === '.' ? 'index' : a.category) || 'uncategorized';
     (grouped[cat] = grouped[cat] || []).push(a);
   });
@@ -74,7 +74,8 @@ async function openArticle(relPath, { pushState = true } = {}) {
   document.getElementById('toolbar').style.display = 'flex';
   const sb = document.getElementById('status-bar');
   if (sb) { sb.textContent = activeDocsDir ? `${activeDocsDir}/${relPath}` : relPath; sb.style.display = ''; }
-  const isNote = relPath.startsWith('notes/');
+  // 補遺・資料室はプレビューで開き、「編集」ボタンで編集に入る
+  const isNote = !isArticlePath(relPath);
   document.querySelector('.mode-tabs').style.display = isNote ? 'none' : '';
   document.getElementById('btn-save').style.display = isNote ? 'none' : '';
   document.getElementById('btn-delete').style.display = isNote ? 'none' : '';
@@ -91,14 +92,14 @@ async function openArticle(relPath, { pushState = true } = {}) {
   }
   document.getElementById('preview-pane').scrollTop = 0;
   renderList(articles);
-  renderNotesList(document.getElementById('notes-search')?.value || '');
+  renderAllSectionLists();
   if (pushState) history.pushState({ path: relPath }, '', `#${relPath}`);
 }
 
 // ── ブラウザ進む・戻る ────────────────────────────────────────────────
 window.addEventListener('popstate', e => {
   if (e.state?.path) {
-    restorePanel('articles');
+    restorePanel(sectionOf(e.state.path) || 'articles');
     openArticle(e.state.path, { pushState: false });
   } else if (e.state?.termId) {
     restorePanel('glossary');
@@ -209,15 +210,26 @@ function populateModalCategorySelect() {
     : `<option value="general">general — 一般</option>`;
 }
 
+function populateModalDocTypeSelect() {
+  document.getElementById('f-category').innerHTML = Object.entries(ARCHIVE_DOC_TYPES)
+    .map(([id, label]) => `<option value="${id}">${label}</option>`).join('');
+}
+
+// mode: 'article' | 'note' | 'archive'
 async function openNewModal(mode = 'article') {
   _modalMode = mode;
-  const isNote = mode === 'note';
+  const isNote    = mode === 'note';
+  const isArchive = mode === 'archive';
+  const isSection = isNote || isArchive;
 
-  document.getElementById('modal-title').textContent    = isNote ? '新規補遺を作成' : '新規記事を作成';
-  document.getElementById('modal-id-label').textContent = isNote ? 'スラッグ（ファイル名）' : 'ID（自動）';
+  document.getElementById('modal-title').textContent =
+    isArchive ? '新規資料を作成' : isNote ? '新規補遺を作成' : '新規記事を作成';
+  document.getElementById('modal-id-label').textContent = isSection ? 'スラッグ（ファイル名）' : 'ID（自動）';
+  document.getElementById('modal-cat-label').textContent = isArchive ? '資料の種類' : 'カテゴリ';
   document.getElementById('modal-cat-field').style.display = isNote ? 'none' : '';
 
-  if (!isNote) populateModalCategorySelect();
+  if (isArchive) populateModalDocTypeSelect();
+  else if (!isNote) populateModalCategorySelect();
 
   const tplRes = await fetch('/api/templates').then(r => r.json()).catch(() => []);
   const tplField = document.getElementById('modal-tpl-field');
@@ -230,7 +242,7 @@ async function openNewModal(mode = 'article') {
     tplField.style.display = 'none';
   }
 
-  if (!isNote) {
+  if (!isSection) {
     const nextId = await fetch('/api/collection/next-id').then(r => r.json()).catch(() => ({}));
     document.getElementById('f-id').value = nextId.articleId || '';
     document.getElementById('f-id').readOnly = false;
@@ -247,6 +259,7 @@ async function openNewModal(mode = 'article') {
 
 document.getElementById('btn-new').onclick      = () => openNewModal('article');
 document.getElementById('btn-new-note').onclick  = () => openNewModal('note');
+document.getElementById('btn-new-archive').onclick = () => openNewModal('archive');
 document.getElementById('modal-cancel').onclick  = () => document.getElementById('modal-overlay').classList.remove('open');
 
 document.getElementById('modal-create').onclick = async () => {
@@ -257,15 +270,21 @@ document.getElementById('modal-create').onclick = async () => {
 
   let relPath, frontmatter;
 
+  const today = new Date().toISOString().slice(0, 10);
+  const slugOf = () => id || title.toLowerCase().replace(/[^a-z0-9ぁ-ん一-龥]+/g, '_').slice(0, 40);
+
   if (_modalMode === 'note') {
-    const slug = id || title.toLowerCase().replace(/[^a-z0-9ぁ-ん一-龥]+/g, '_').slice(0, 40);
-    relPath = `notes/${slug}.md`;
-    frontmatter = { title, date: new Date().toISOString().slice(0, 10) };
+    relPath = `${SECTIONS.notes.dir}${slugOf()}.md`;
+    frontmatter = { title, type: 'note', date: today };
+  } else if (_modalMode === 'archive') {
+    const docType = document.getElementById('f-category').value || 'other';
+    relPath = `${SECTIONS.archive.dir}${slugOf()}.md`;
+    frontmatter = { title, type: 'document', doc_type: docType, issuer: '', in_world_date: '', date: today, related: [] };
   } else {
     const category = document.getElementById('f-category').value || 'misc';
     const slug = id || document.getElementById('f-id').value || 'article_001';
     relPath = `${category}/${slug}.md`;
-    frontmatter = { title, id: slug, category, tags, date: new Date().toISOString().slice(0, 10) };
+    frontmatter = { title, id: slug, category, tags, date: today };
   }
 
   const template = document.getElementById('f-template')?.value || '';
@@ -295,7 +314,7 @@ function appendPrevNext(pane, currentArticlePath) {
   const num = parseInt(numStr, 10);
   const regex = new RegExp(`^${prefix}\\d+$`);
   const sorted = articles
-    .filter(a => a.id && regex.test(a.id) && !a.path.startsWith('notes/'))
+    .filter(a => a.id && regex.test(a.id) && isArticlePath(a.path))
     .sort((a, b) => parseInt(a.id.slice(prefix.length)) - parseInt(b.id.slice(prefix.length)));
   const idx = sorted.findIndex(a => a.id === current.id);
   const prev = idx > 0 ? sorted[idx - 1] : null;

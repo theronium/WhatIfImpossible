@@ -522,7 +522,7 @@ function viewSymbol(id) {
 document.getElementById('btn-edit-viewing').onclick = () => {
   if (viewingTermId) {
     editTerm(viewingTermId);
-  } else if (currentPath?.startsWith('notes/')) {
+  } else if (currentPath && !isArticlePath(currentPath)) {
     document.getElementById('btn-edit-viewing').style.display = 'none';
     document.getElementById('btn-save').style.display = '';
     document.getElementById('btn-delete').style.display = '';

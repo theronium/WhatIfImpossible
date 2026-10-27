@@ -44,39 +44,75 @@ async function loadTechtree() {
   }
 }
 
-function renderNotesList(query = '') {
-  const el = document.getElementById('notes-list');
+// ── 補遺・資料室リスト（SECTIONS 共通） ─────────────────────────────
+// 要素IDは `${key}-list` / `${key}-search` の規則で index.html に置く
+function sectionItem(a) {
+  const div = document.createElement('div');
+  div.className = 'article-item' + (a.path === currentPath ? ' active' : '');
+  div.innerHTML = `<span>${a.title}</span>`;
+  div.onclick = () => openArticle(a.path);
+  return div;
+}
+
+function renderSectionList(key, query = '') {
+  const s = SECTIONS[key];
+  const el = document.getElementById(`${key}-list`);
+  if (!s || !el) return;
   el.innerHTML = '';
+  const readmePath = `${s.dir}README.md`;
+
   const idx = document.createElement('div');
-  idx.className = 'article-item' + ('notes/README.md' === currentPath ? ' active' : '');
-  idx.innerHTML = `<span style="color:var(--accent2);">📋 補遺一覧（README）</span>`;
-  idx.onclick = () => openArticle('notes/README.md');
+  idx.className = 'article-item' + (readmePath === currentPath ? ' active' : '');
+  idx.innerHTML = `<span style="color:var(--accent2);">${s.readme}</span>`;
+  idx.onclick = () => openArticle(readmePath);
   el.appendChild(idx);
   const sep = document.createElement('div');
   sep.style.cssText = 'border-top:1px solid var(--border);margin:4px 8px;';
   el.appendChild(sep);
+
   const q = query.toLowerCase();
-  const notes = articles
-    .filter(a => a.path.startsWith('notes/') && a.path !== 'notes/README.md')
+  const items = articles
+    .filter(a => sectionOf(a.path) === key && a.path !== readmePath)
     .filter(a => !/^notes\/tech_tree(_|\.md$)/.test(a.path))
     .filter(a => !q || a.title.toLowerCase().includes(q))
     .sort((a, b) => (b.birthtime || 0) - (a.birthtime || 0));
-  if (!notes.length) {
-    el.innerHTML = `<div style="padding:12px 16px;font-size:12px;color:var(--text-muted);">補遺なし</div>`;
+  if (!items.length) {
+    el.insertAdjacentHTML('beforeend',
+      `<div style="padding:12px 16px;font-size:12px;color:var(--text-muted);">${s.empty}</div>`);
     return;
   }
-  notes.forEach(a => {
-    const div = document.createElement('div');
-    div.className = 'article-item' + (a.path === currentPath ? ' active' : '');
-    div.innerHTML = `<span>${a.title}</span>`;
-    div.onclick = () => openArticle(a.path);
-    el.appendChild(div);
+
+  if (key !== 'archive') {
+    items.forEach(a => el.appendChild(sectionItem(a)));
+    return;
+  }
+
+  // 資料室は資料の種類ごとに見出しを付ける
+  const order = Object.keys(ARCHIVE_DOC_TYPES);
+  const groups = {};
+  items.forEach(a => {
+    const t = ARCHIVE_DOC_TYPES[a.doc_type] ? a.doc_type : 'other';
+    (groups[t] = groups[t] || []).push(a);
+  });
+  order.filter(t => groups[t]).forEach(t => {
+    const h = document.createElement('div');
+    h.className = 'section-group-label';
+    h.textContent = `${ARCHIVE_DOC_TYPES[t]}（${groups[t].length}）`;
+    el.appendChild(h);
+    groups[t].forEach(a => el.appendChild(sectionItem(a)));
   });
 }
 
-document.getElementById('notes-search').oninput = (e) => {
-  renderNotesList(e.target.value);
-};
+function renderAllSectionLists() {
+  Object.keys(SECTIONS).forEach(key =>
+    renderSectionList(key, document.getElementById(`${key}-search`)?.value || '')
+  );
+}
+
+Object.keys(SECTIONS).forEach(key => {
+  const input = document.getElementById(`${key}-search`);
+  if (input) input.oninput = (e) => renderSectionList(key, e.target.value);
+});
 
 // ── Keyboard shortcuts ────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
@@ -89,27 +125,30 @@ function restorePanel(panel) {
   document.querySelectorAll('.sidebar-tab').forEach(t =>
     t.classList.toggle('active', t.dataset.panel === panel)
   );
-  const isArticles = panel === 'articles';
-  const isGlossary = panel === 'glossary';
-  const isNotes    = panel === 'notes';
-  const isTechtree = panel === 'techtree';
-  const isSearch   = panel === 'search';
-  document.getElementById('articles-search-bar').style.display = isArticles ? '' : 'none';
-  document.getElementById('article-list').style.display        = isArticles ? '' : 'none';
-  document.getElementById('glossary-search-bar').style.display = isGlossary ? '' : 'none';
-  document.getElementById('glossary-list').style.display       = isGlossary ? 'block' : 'none';
-  document.getElementById('notes-search-bar').style.display    = isNotes    ? '' : 'none';
-  document.getElementById('notes-list').style.display          = isNotes    ? 'block' : 'none';
-  document.getElementById('techtree-panel').style.display      = isTechtree ? 'block' : 'none';
-  document.getElementById('search-panel').style.display        = isSearch   ? 'flex' : 'none';
-  document.querySelector('.mode-tabs').style.display = isArticles ? '' : 'none';
-  if (isSearch && window._searchPanelActivated) window._searchPanelActivated();
+  // パネルごとに表示する要素と display 値
+  const PANEL_ELEMENTS = {
+    articles: [['articles-search-bar', ''], ['article-list', '']],
+    glossary: [['glossary-search-bar', ''], ['glossary-list', 'block']],
+    notes:    [['notes-search-bar', ''],    ['notes-list', 'block']],
+    archive:  [['archive-search-bar', ''],  ['archive-list', 'block']],
+    techtree: [['techtree-panel', 'block']],
+    search:   [['search-panel', 'flex']],
+  };
+  for (const [p, els] of Object.entries(PANEL_ELEMENTS)) {
+    for (const [id, display] of els) {
+      document.getElementById(id).style.display = p === panel ? display : 'none';
+    }
+  }
+  const activeTab = document.querySelector(`.sidebar-tab[data-panel="${panel}"]`);
+  document.getElementById('sidebar-panel-title').textContent = activeTab?.title || '';
+  document.querySelector('.mode-tabs').style.display = panel === 'articles' ? '' : 'none';
+  if (panel === 'search' && window._searchPanelActivated) window._searchPanelActivated();
 }
 
 function switchToPanel(panel, { pushState = true } = {}) {
   restorePanel(panel);
   const isGlossary = panel === 'glossary';
-  const isNotes    = panel === 'notes';
+  const isSection  = panel in SECTIONS;
   const isTechtree = panel === 'techtree';
 
   if (pushState) {
@@ -134,9 +173,9 @@ function switchToPanel(panel, { pushState = true } = {}) {
 
   if (isGlossary) {
     if (pushState) document.getElementById('glossary-search').value = '';
-  } else if (isNotes) {
-    if (pushState) document.getElementById('notes-search').value = '';
-    renderNotesList();
+  } else if (isSection) {
+    if (pushState) document.getElementById(`${panel}-search`).value = '';
+    renderSectionList(panel);
   } else if (isTechtree) {
     loadTechtree();
   }

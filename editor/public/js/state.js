@@ -5,7 +5,37 @@ const monacoReady = new Promise(r => { _monacoResolve = r; });
 let currentPath = null;
 let articles = [];
 let viewMode = 'edit';
-let sidebarMode = 'articles'; // 'articles' | 'glossary'
+let sidebarMode = 'articles'; // 'articles' | 'glossary' | 'notes' | 'archive' | 'techtree' | 'search'
+
+// ── 記事以外のセクション（docs/ 直下のフォルダ単位） ─────────────────
+// ここに無いフォルダの .md はすべて「記事」として扱う。
+// server.js の NON_ARTICLE_DIRS と揃えること。
+const SECTIONS = {
+  notes:   { dir: 'notes/',   label: '補遺',   readme: '📋 補遺一覧（README）',   empty: '補遺なし' },
+  archive: { dir: 'archive/', label: '資料室', readme: '🗄 資料室目録（README）', empty: '資料なし' },
+};
+
+// 資料室の doc_type（作中資料の種類）
+const ARCHIVE_DOC_TYPES = {
+  treaty:     '条約・協定',
+  report:     '報告書',
+  news:       '報道',
+  transcript: '記録・議事録',
+  record:     '公文書・台帳',
+  other:      'その他',
+};
+
+function sectionOf(relPath) {
+  if (!relPath) return null;
+  for (const [key, s] of Object.entries(SECTIONS)) {
+    if (relPath.startsWith(s.dir)) return key;
+  }
+  return null;
+}
+
+function isArticlePath(relPath) {
+  return !sectionOf(relPath);
+}
 let glossaryTerms = [];
 let currentTermId = null;   // null = 新規
 let viewingTermId = null;   // 閲覧中の用語ID

@@ -153,6 +153,7 @@ mermaid.initialize({ startOnLoad: false, theme: 'dark' });
     switchToPanel('glossary', { pushState: false });
     viewTerm(hash.slice(9), { pushState: false });
   } else if (hash) {
+    restorePanel(sectionOf(hash) || 'articles');
     openArticle(hash, { pushState: false });
   }
 })();

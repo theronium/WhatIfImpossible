@@ -15,7 +15,9 @@ WhatIfImpossible/
 │   ├── quantum/           ← 量子力学・量子情報系
 │   ├── logic/
 │   ├── philosophy/
-│   └── biology/
+│   ├── biology/
+│   ├── notes/             ← 補遺ノート（世界を外から解説する）
+│   └── archive/           ← 資料室（世界の内側で書かれた一次資料）
 └── editor/                ← ローカル編集サーバー（Node.js / port 3030）
 ```
 
@@ -376,6 +378,34 @@ date: YYYY-MM-DD
 ```
 
 `related` に関連記事IDを列挙する場合は `related: [wiim_XXX]` を追加する。
+
+## 資料室（docs/archive/）
+
+条約の条文・事故報告書・新聞記事・議事録など、**作中の人物や組織が書いたという体裁の一次資料**を置く。
+補遺ノートが世界を外から解説するのに対し、資料室は世界の中から書かれた文書（モキュメンタリー形式）を扱う。
+
+### 資料の frontmatter
+
+```yaml
+---
+title: （資料名）
+type: document
+doc_type: treaty        # treaty / report / news / transcript / record / other
+issuer: （作中の発行元）  # 任意
+in_world_date: （作中の日付） # 任意
+date: YYYY-MM-DD        # 実際の作成日
+related: [wiim_XXX, forbidden_zone_treaty]  # 元になった記事ID・補遺のファイル名
+---
+```
+
+- `doc_type` の表示名はエディタの `editor/public/js/state.js` の `ARCHIVE_DOC_TYPES` で定義する。種類を増やす場合はそこに追記する
+- 資料を追加したら `docs/archive/README.md` の目録テーブルに行を追加し、末尾の「資料数: N」を更新する
+- 本文は作中の文体で書き、メタな解説（「これは架空の資料です」など）は入れない。解説が必要なら元の補遺ノート側に書く
+
+### エディタでの扱い
+
+記事以外のフォルダは `editor/public/js/state.js` の `SECTIONS` と `editor/server.js` の `NON_ARTICLE_DIRS` で定義している。
+新しいセクションを追加する場合は両方に追記し、`index.html` に `<key>-search-bar` / `<key>-search` / `<key>-list` の要素とタブを置く。
 
 ---
 

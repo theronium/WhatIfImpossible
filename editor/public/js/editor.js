@@ -58,6 +58,9 @@ function buildFmCard(fm) {
     <div class="fm-meta">
       ${fm.id ? `<span class="fm-id">${fm.id}</span>` : ''}
       ${fm.category ? `<span class="fm-category">${fm.category}</span>` : ''}
+      ${fm.doc_type ? `<span class="fm-category">${ARCHIVE_DOC_TYPES[fm.doc_type] || fm.doc_type}</span>` : ''}
+      ${fm.issuer ? `<span class="fm-issuer">発行：${fm.issuer}</span>` : ''}
+      ${fm.in_world_date ? `<span class="fm-issuer">作中日付：${fm.in_world_date}</span>` : ''}
       ${fm.date ? `<span class="fm-date">${fm.date}</span>` : ''}
     </div>
     ${tags ? `<div class="fm-tags">${tags}</div>` : ''}
@@ -289,7 +292,7 @@ function updatePreview() {
   const { fm, body } = parseFrontmatter(raw);
   renderToPane(body, pane, fm).then(() => {
     addSvgZoom(pane);
-    if (currentPath && !currentPath.startsWith('notes/')) appendPrevNext(pane, currentPath);
+    if (currentPath && isArticlePath(currentPath)) appendPrevNext(pane, currentPath);
     renderToc();
     renderTechtreeToc(pane);
   });

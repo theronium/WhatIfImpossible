@@ -366,6 +366,9 @@ app.get('/api/articles', async (req, res) => {
   }
 });
 
+// 記事として数えないフォルダ（public/js/state.js の SECTIONS と揃えること）
+const NON_ARTICLE_DIRS = ['notes/', 'archive/'];
+
 async function collectMdFiles(dir, base = '') {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   const tasks = [];
@@ -396,6 +399,7 @@ async function walkDocs(dir) {
       id: data.id || null,
       category: data.category || (path.dirname(relPath) === '.' ? 'index' : path.dirname(relPath)),
       tags: data.tags || [],
+      doc_type: data.doc_type || null,
       date: data.date ? (data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date).slice(0, 10)) : null,
       birthtime: stat.birthtime.getTime(),
       mtime: stat.mtime.getTime(),
@@ -494,8 +498,8 @@ app.post('/api/articles', async (req, res) => {
   const fm = matter.stringify(body, frontmatter);
   await fs.mkdir(path.dirname(fullPath), { recursive: true });
   await fs.writeFile(fullPath, fm, 'utf-8');
-  // notes/ 配下でなければ記事カウンターを increment
-  if (!relPath.startsWith('notes/')) {
+  // 補遺・資料室など記事以外のフォルダでなければ記事カウンターを increment
+  if (!NON_ARTICLE_DIRS.some(d => relPath.startsWith(d))) {
     await incrementConfigCounter('global');
   }
   res.json({ ok: true, path: relPath });

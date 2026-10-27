@@ -33,13 +33,28 @@
 <div class="layout">
   <!-- Sidebar -->
   <aside>
+    <!-- アイコンタブ（名前は title / aria-label でツールチップ表示） -->
     <div class="sidebar-tabs">
-      <button class="sidebar-tab active" data-panel="articles">記事</button>
-      <button class="sidebar-tab" data-panel="glossary">用語集</button>
-      <button class="sidebar-tab" data-panel="notes">補遺</button>
-      <button class="sidebar-tab" data-panel="techtree">技術ツリー</button>
-      <button class="sidebar-tab" data-panel="search">検索</button>
+      <button class="sidebar-tab active" data-panel="articles" title="記事" aria-label="記事">
+        <svg viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+      </button>
+      <button class="sidebar-tab" data-panel="glossary" title="用語集" aria-label="用語集">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><path d="m4.6 13 1.9-5 1.9 5" stroke-width="1.5"/><path d="M5.2 11.4h2.6" stroke-width="1.5"/><path d="M15.4 8h3.4l-3.4 5h3.4" stroke-width="1.5"/></svg>
+      </button>
+      <button class="sidebar-tab" data-panel="notes" title="補遺" aria-label="補遺">
+        <svg viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+      </button>
+      <button class="sidebar-tab" data-panel="archive" title="資料室" aria-label="資料室">
+        <svg viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+      </button>
+      <button class="sidebar-tab" data-panel="techtree" title="技術ツリー" aria-label="技術ツリー">
+        <svg viewBox="0 0 24 24"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+      </button>
+      <button class="sidebar-tab" data-panel="search" title="検索" aria-label="検索">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
     </div>
+    <div class="sidebar-panel-title" id="sidebar-panel-title">記事</div>
     <div class="sidebar-header" id="articles-search-bar">
       <input id="search" type="search" placeholder="記事を検索…">
       <button class="btn btn-accent" id="btn-new" style="white-space:nowrap;font-size:11px;padding:4px 8px;">＋ 新規</button>
@@ -55,6 +70,11 @@
       <button class="btn btn-accent" id="btn-new-note" style="white-space:nowrap;font-size:11px;padding:4px 8px;">＋ 新規</button>
     </div>
     <div id="notes-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
+    <div class="sidebar-header" id="archive-search-bar" style="display:none;">
+      <input id="archive-search" type="search" placeholder="資料を検索…">
+      <button class="btn btn-accent" id="btn-new-archive" style="white-space:nowrap;font-size:11px;padding:4px 8px;">＋ 新規</button>
+    </div>
+    <div id="archive-list" style="display:none; flex:1; overflow-y:auto; padding:6px 0;"></div>
     <div id="techtree-panel" style="display:none; flex:1; overflow-y:auto; padding:6px 0;">
       <div id="techtree-toc"></div>
     </div>
@@ -181,7 +201,7 @@
   <div class="modal">
     <h2 id="modal-title">新規記事を作成</h2>
     <div class="field" id="modal-cat-field">
-      <label>カテゴリ</label>
+      <label id="modal-cat-label">カテゴリ</label>
       <select id="f-category"></select>
     </div>
     <div class="field">
