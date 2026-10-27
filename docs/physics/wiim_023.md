@@ -113,4 +113,5 @@ flowchart TD
 - [wiim_136](../cosmology/wiim_136.md) — ブレーン宇宙の移動——膜に閉じ込められた物質は隣の宇宙へ渡れるか
 - [wiim_140](../cosmology/wiim_140.md) — ダークエネルギーアンカーホール——経路の管の中だけで膨張を止め、目的地を近づけられるか
 - [wiim_142](../cosmology/wiim_142.md) — 膜の螺旋階段——複数のブレーンを巡って、出発より前に落ちてこられるか
+- [crystal_polymorphs](../notes/crystal_polymorphs.md) — 同じ元素、別の物質——結晶多形と「本来は存在できない構造」の閉じ込め方
 

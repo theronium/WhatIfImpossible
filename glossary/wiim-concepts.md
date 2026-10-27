@@ -292,7 +292,7 @@ WhatIfImpossibleの思考実験（[wiim_013](../docs/physics/wiim_013.md)）で�
 **読み**: こずみっくまいす
 **別名**: 宇宙菌糸知性 / 惑星間菌糸ネットワーク / 分散菌糸知性
 **分野**: 架空生命体・宇宙生物学・分散知性
-**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_025](../docs/biology/wiim_025.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_068](../docs/biology/wiim_068.md), [wiim_083](../docs/biology/wiim_083.md), [wiim_084](../docs/biology/wiim_084.md), [wiim_100](../docs/biology/wiim_100.md), [wiim_117](../docs/biology/wiim_117.md), [wiim_120](../docs/biology/wiim_120.md), [wiim_129](../docs/biology/wiim_129.md)
+**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_025](../docs/biology/wiim_025.md), [wiim_059](../docs/biology/wiim_059.md), [wiim_068](../docs/biology/wiim_068.md), [wiim_083](../docs/biology/wiim_083.md), [wiim_084](../docs/biology/wiim_084.md), [wiim_100](../docs/biology/wiim_100.md), [wiim_117](../docs/biology/wiim_117.md), [wiim_120](../docs/biology/wiim_120.md), [wiim_129](../docs/biology/wiim_129.md), [wiim_150](../docs/biology/wiim_150.md)
 
 WhatIfImpossibleの思考実験（[wiim_008](../docs/biology/wiim_008.md)）で命名された架空の生命体・知性体。「Cosmic（宇宙的）」と「Myce（[マイセリウム](biology.md)：菌糸）」を組み合わせた造語で、放射線耐性を持つ菌類が宇宙空間に適応・進化し、惑星間を繋ぐ菌糸ネットワークとして[太陽](astronomy.md)系規模の分散知性を形成した状態を指す。
 
@@ -717,7 +717,7 @@ WhatIfImpossibleの思考実験（[wiim_024](../docs/biology/wiim_024.md)）で�
 
 **読み**: まいせりあん
 **分野**: 架空生命体・社会・宇宙生物学
-**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_025](../docs/biology/wiim_025.md), [wiim_075](../docs/biology/wiim_075.md)
+**関連記事**: [wiim_008](../docs/biology/wiim_008.md), [wiim_025](../docs/biology/wiim_025.md), [wiim_075](../docs/biology/wiim_075.md), [wiim_150](../docs/biology/wiim_150.md)
 
 WhatIfImpossibleの世界観において、[コズミックマイス](wiim-concepts.md)（[wiim_008](../docs/biology/wiim_008.md)）の菌糸ネットワークと何らかの形で融合・接続した人間を指す語。「Myce（[マイセリウム](biology.md)：菌糸）」と「-ian（〜人・〜族）」を組み合わせた造語で、一般社会が感応者（cosmic_myce_religion参照）を呼ぶ際に定着した俗称だ。
 

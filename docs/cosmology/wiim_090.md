@@ -110,4 +110,5 @@ graph LR
 
 - [クロノスフィア——相対的に時間を進められる空間](wiim_002.md)（wiim_002）— 本記事の基盤概念
 - [アンキロン——時空の計量に錨を打つ粒子](../physics/wiim_022.md)（wiim_022）— 計量固定と計量パターン化の対比
+- [metamaterials_catalog](../notes/metamaterials_catalog.md) — 面白いメタマテリアル図鑑——「材料の限界」を形で超える構造たち
 

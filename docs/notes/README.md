@@ -75,6 +75,9 @@ WIIM世界の背景設定・歴史・政治体制などのメモ。
 | [wiim_142_brane_helix_relic.md](wiim_142_brane_helix_relic.md) | ブレーンヘリクス遺構説——先行文明のワープ装置は、時間を遡る装置でもあったか | 2026-10-01 | 2026-10-01 |
 | [orbital_inclination_logic.md](orbital_inclination_logic.md) | 軌道傾斜角はどう決まるか——物理・発射場・運用の三つの制約 | 2026-10-02 | 2026-10-02 |
 | [wiim_144_wall_passing_society.md](wiim_144_wall_passing_society.md) | 壁抜けが日常化した世界——建築・防犯・戦争・事故 | 2026-10-18 | 2026-10-18 |
+| [crystal_polymorphs.md](crystal_polymorphs.md) | 同じ元素、別の物質——結晶多形と「本来は存在できない構造」の閉じ込め方 | 2026-10-23 | 2026-10-23 |
+| [metamaterials_catalog.md](metamaterials_catalog.md) | 面白いメタマテリアル図鑑——「材料の限界」を形で超える構造たち | 2026-10-23 | 2026-10-23 |
+| [wiim_150_old_humanity.md](wiim_150_old_humanity.md) | 旧人類が育てられなくなる世界——感応者への静かな代替わり | 2026-10-24 | 2026-10-24 |
 
 ---
 
