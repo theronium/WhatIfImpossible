@@ -139,6 +139,7 @@ function restorePanel(panel) {
       document.getElementById(id).style.display = p === panel ? display : 'none';
     }
   }
+  document.body.dataset.panel = panel;  // パネル別の背景などを CSS で切り替える
   const activeTab = document.querySelector(`.sidebar-tab[data-panel="${panel}"]`);
   document.getElementById('sidebar-panel-title').textContent = activeTab?.title || '';
   document.querySelector('.mode-tabs').style.display = panel === 'articles' ? '' : 'none';
@@ -151,7 +152,8 @@ function switchToPanel(panel, { pushState = true } = {}) {
   const isSection  = panel in SECTIONS;
   const isTechtree = panel === 'techtree';
 
-  if (pushState) {
+  // タブ単位の表示（#tab/xxx）は「何も開いていない状態」なので、URL直開き・戻る操作でも画面を初期化する
+  {
     document.getElementById('glossary-form-area').classList.remove('active');
     document.getElementById('preview-pane').innerHTML = '';
     document.getElementById('preview-pane').style.display = 'none';
@@ -168,7 +170,7 @@ function switchToPanel(panel, { pushState = true } = {}) {
     currentTermId = null;
     viewingTermId = null;
     document.getElementById('toc-aside').style.display = 'none';
-    history.pushState({ panel }, '', `#tab/${panel}`);
+    if (pushState) history.pushState({ panel }, '', `#tab/${panel}`);
   }
 
   if (isGlossary) {

@@ -137,7 +137,7 @@ main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 .sidebar-tab { flex: 1; padding: 8px 0; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); background: none; border: none; border-bottom: 2px solid transparent; transition: color 0.15s; }
 .sidebar-tab svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .sidebar-panel-title { padding: 6px 14px 0; font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.08em; flex-shrink: 0; }
-.section-group-label { padding: 8px 16px 2px; font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; }
+.section-group-label { margin: 10px 10px 2px; padding: 2px 6px 3px; font-size: 11px; font-weight: 700; color: #e8c58a; letter-spacing: 0.08em; border-bottom: 1px solid rgba(232,197,138,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
 .fm-issuer { font-size: 12px; color: var(--text-muted); }
 .sidebar-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 .sidebar-tab:hover:not(.active) { color: var(--text); }
@@ -292,3 +292,18 @@ mark { background: rgba(124, 106, 247, 0.25); color: var(--text); border-radius:
 /* ── Empty state ── */
 .empty { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 12px; color: var(--text-muted); }
 .empty p { font-size: 14px; }
+
+/* 資料室：左メニューと初期画面の背景（画像は tools/blender/archive_room.py で生成） */
+body[data-panel="archive"] aside {
+  background:
+    linear-gradient(rgba(26, 29, 39, 0.78), rgba(26, 29, 39, 0.66) 45%, rgba(26, 29, 39, 0.85)),
+    url(img/archive_tall.jpg) center 40% / cover no-repeat,
+    var(--surface);
+}
+body[data-panel="archive"] aside .sidebar-tabs,
+body[data-panel="archive"] aside .sidebar-header { background: rgba(26, 29, 39, 0.6); }
+body[data-panel="archive"] #empty-state {
+  background:
+    linear-gradient(rgba(15, 17, 23, 0.15), rgba(15, 17, 23, 0.55)),
+    url(img/archive_wide.jpg) center / cover no-repeat;
+}
